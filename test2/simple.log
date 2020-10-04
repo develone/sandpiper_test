@@ -26,4 +26,9 @@
 
 1. Executing Verilog-2005 frontend: blinky.sv
 Parsing SystemVerilog input from `blinky.sv' to AST representation.
-ERROR: Can't open include file `sp_default.vh /*_\SV */'!
+Generating RTLIL representation for module `\top'.
+Warning: reg '\RW_rand_vect' is assigned in a continuous assignment at top.tlv:3.
+Successfully finished Verilog frontend.
+
+-- Running command `synth_ice40 -blif -json blinky.json' --
+ERROR: This command only operates on fully selected designs!

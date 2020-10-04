@@ -111,3 +111,11 @@ dot -Tpdf blinky_trans.dot -o blinky_trans.pdf
 Trying to synthesize with yosys
 
 yosys -l simple.log -p 'synth_ice40 -blif -json blinky.json' blinky.sv
+
+Adding sp_default.vh, sandpiper.vh, and sandpiper_gen.vh.  Yosys now 
+
+Successfully finished Verilog frontend.
+
+-- Running command `synth_ice40 -blif -json blinky.json' --
+
+ERROR: This command only operates on fully selected designs!
