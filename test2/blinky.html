@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <meta http-equiv="description" content="blinky.html">
+   <meta http-equiv="keywords" content="tl-verilog">
+
+   <title>blinky.m4</title>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+   <script src="http://www.rweda.com/lib/sp_1.9-2018_02_11-beta/ide.js"></script>
+   <link rel="stylesheet" href="http://www.rweda.com/lib/sp_1.9-2018_02_11-beta/ide.css" />
+
+<style>
+/*
+Copyright (c) 2015, Steven F. Hoover
+All rights reserved.
+*/
+.tlv_ident_error {
+  color: red;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_pipeline {
+  color: orange;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_beh_hier_1 {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_beh_hier_2 {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_grouping {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_pipe_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_state_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_sig_keyword {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_assigned_pipe_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_assigned_state_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_assigned_sig_keyword {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_malformed_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_malformed_assigned_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_when {
+  color: #E04010;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_sv_when {
+  color: #E04010;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_phys_hier {
+  color: blue;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_phys_beh_hier {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_stage_name {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_expr {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_next_operator {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_incr_expr {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_prev_operator {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_decr_expr {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_alignment_expr_1ab {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_expr_1c {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_keyword_1c {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_ahead_expr {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_behind_expr {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_zero_expr {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_crosspipe_name {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_ahead_name {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_behind_name {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_tlv_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_proj_rtl_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_misc_rtl_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_proj_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_sv_sig {
+  color: #00008b;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_sv_datatype {
+  color: DarkRed;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_keyword1 {
+  color: Blue;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_comment {
+  color: #808080;
+  font-style: italic;
+  font-weight: 600;
+}
+.tlv_ident_hdl_code {
+  color: #00008b;
+  font-style: normal;
+  font-weight: normal;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>blinky.m4</h2>
+
+<pre>
+<span class="line" line-num="1" source-line-num="1"><span class="tlv_ident_keyword1">\TLV_version 1d: tl-x.org</span></span>
+<span class="line" line-num="2" source-line-num="2"><span class="tlv_ident_keyword1">\SV</span></span>
+<span class="line" line-num="3" source-line-num="3">   <span class="tlv_ident_hdl_code">module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    </span><span class="tlv_ident_comment">/* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  </span><span class="tlv_ident_hdl_code">bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  </span><span class="tlv_ident_comment">/* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */</span></span>
+<span class="line" line-num="4" source-line-num="4"><span class="tlv_ident_keyword1">\TLV</span></span>
+<span class="line" line-num="5" source-line-num="5">   <span class="tlv_ident_assigned_pipe_sig" logical_entity="$num">$num</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">15</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">reset ? 1                   </span><span class="tlv_ident_comment">// 1 if reset</span></span>
+<span class="line" line-num="6" source-line-num="6">                       <span class="tlv_ident_hdl_code">: </span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|none@2">&gt;&gt;1</span><span class="tlv_ident_pipe_sig" logical_entity="$num">$num</span> <span class="tlv_ident_hdl_code">+ </span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|none@4">&gt;&gt;2</span><span class="tlv_ident_pipe_sig" logical_entity="$num">$num</span><span class="tlv_ident_hdl_code">;  </span><span class="tlv_ident_comment">// otherwise add previous two</span></span>
+<span class="line" line-num="7" source-line-num="7"><span class="tlv_ident_keyword1">\SV</span></span>
+<span class="line" line-num="8" source-line-num="8">   <span class="tlv_ident_hdl_code">endmodule</span></span>
+
+</pre>
+
+</body>
+</html>

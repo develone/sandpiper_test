@@ -1,0 +1,62 @@
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --dhtml --viz --verbose --compiler verilator --stats --graphDesign --graphTrans -i=blinky.m4 -o=blinky.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Edward Vidal Jr." as: Full Edition.
+
+INFORM(0) (FILES):
+	From directory: /home/devel/sandpiper_test/test2
+	Reading "blinky.m4" to produce:
+		Translated HDL File: "blinky.sv"
+		Generated HDL File: "blinky_gen.sv"
+		HTML TLX File: "blinky.html"
+		Design Graph (Dot) File: "blinky_design.dot"
+		Transaction Flow Graph (Dot) File: "blinky_trans.dot"
+		Simulation Visualization File: "blinky_viz.json"
+		Statistics Directory: "blinky_stats"
+
+INFORM(0) (FILE): File 'top.tlv'
+	Writing file "blinky.sv".
+
+INFORM(0) (FILE):
+	Writing file "blinky_gen.sv".
+
+INFORM(0) (FILE):
+	Writing file "blinky_design.dot".
+
+INFORM(0) (FILE):
+	Writing file "blinky_trans.dot".
+
+INFORM(0) (FILE):
+	Writing file "blinky_stats/tlx.css".
+
+INFORM(0) (FILE):
+	Writing file "blinky_stats/tlx.css".
+
+INFORM(0) (FILE):
+	Writing file "blinky_stats/tlx.css".
+
+INFORM(0) (FILE):
+	Writing file "blinky_stats/tlx.css".
+
+INFORM(0) (FILE):
+	Writing file "blinky_stats/index.html".
+
+INFORM(0) (FILE):
+	Writing file "blinky_stats/tlx.css".
+
+INFORM(0) (FILE):
+	Writing file "blinky_stats/stats.csv".
+
+INFORM(0) (STATS):
+	SandPiper generated 42% of your HDL code.
+	This includes: 3 signal declarations, 2 flops/latches, and 0 conditional clock signals.
+	View "blinky_stats" for more details.
+
+INFORM(0) (FILE):
+	Writing file "blinky.html".
+
+INFORM(0) (FILE):
+	Writing file "blinky_viz.json".

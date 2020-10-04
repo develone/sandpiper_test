@@ -1,0 +1,6 @@
+,Unknown,Untouched,Logic,Declarations,Staging,Structure,Validity,Gating,Instrumentation,Comments,Whitespace,Total Meaningful Chars,Total Chars
+TL-Verilog,0,286,36,0,0,33,0,0,0,193,114,355,662
+blinky_gen.sv,0,0,0,41,110,53,0,0,0,440,87,204,731
+blinky.sv,0,286,50,0,0,73,0,0,0,288,122,409,819
+SystemVerilog Total,0,286,50,41,110,126,0,0,0,728,209,613,1550
+Color,DarkGray,#305050,purple,blue,#509050,#1090c0,#E04010,orange,#C0C0F0,#C04040,gray,,

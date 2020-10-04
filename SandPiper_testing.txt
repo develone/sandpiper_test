@@ -40,6 +40,8 @@ dot -Tpdf pipeline7_trans.dot -o pipeline7_trans.pdf
 
 xdot pipeline7_trans.dot
 
+cd sandpiper_test/test2
+
 java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --verbose --compiler verilator --stats --viz --graphDesign --graphTrans -i=pipeline7.m4 -o=pipeline7.sv
 INFORM(0) (PROD_INFO):
 	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
@@ -100,3 +102,12 @@ INFORM(0) (STATS):
 INFORM(0) (FILE):
 	Writing file "pipeline7_viz.json".
 
+cd sandpiper_test/test2
+
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --dhtml --viz --verbose --compiler verilator --stats --graphDesign --graphTrans -i=blinky.m4 -o=blinky.sv
+
+dot -Tpdf blinky_trans.dot -o blinky_trans.pdf
+
+Trying to synthesize with yosys
+
+yosys -l simple.log -p 'synth_ice40 -blif -json blinky.json' blinky.sv
