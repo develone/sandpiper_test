@@ -1,0 +1,41 @@
+Testing SandPiper 10/03/20
+
+~/SandPiper_1.9-2018_02_11-beta_distro
+
+This distribution requires:
+  - perl
+  - java
+  - m4
+  - graphviz (for SandPiper visual debug output only)
+
+
+/usr/bin/graphml2gv
+/usr/bin/perl
+/usr/bin/m4
+/usr/bin/java
+
+pipeline7.m4 which was downloaded from MakerChip.com as top.m4
+
+cd sandpiper_test/test1
+
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --graphDesign --graphTrans -i=pipeline7.m4 -o=pipeline7.sv
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --graphDesign --graphTrans -i=pipeline7.m4 -o=pipeline7.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Edward Vidal Jr." as: Full Edition.
+
+INFORM(0) (FILES):
+	From directory: /home/devel/SandPiper_1.9-2018_02_11-beta_distro
+	Reading "pipeline7.m4" to produce:
+		Translated HDL File: "pipeline7.sv"
+		Generated HDL File: "pipeline7_gen.sv"
+		Design Graph (Dot) File: "pipeline7_design.dot"
+		Transaction Flow Graph (Dot) File: "pipeline7_trans.dot"
+
+		
+dot -Tpdf pipeline7_trans.dot -o pipeline7_trans.pdf
+
+xdot pipeline7_trans.dot
