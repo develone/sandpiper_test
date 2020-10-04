@@ -1,0 +1,206 @@
+SandPiper(TM) Help
+------------------
+See /home/devel/SandPiper_1.9-2018_02_11-beta_distro/LICENSE.md for details.
+Typical usage: java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar -i=my_module.tlv -o=my_module.sv
+
+
+Option                                  Description                            
+------                                  -----------                            
+--ajaxNav                               Similar to --nav, but for providing an 
+                                          AJAX web server response.  Output is 
+                                          generated on STDOUT and only body    
+                                          contents are produced, not HTML page 
+                                          wrapper.                             
+--basename                              A base file name to which default file 
+                                          extensions will be appended to       
+                                          provide the file name for any input  
+                                          and output file arguments that do    
+                                          not specify one (those that end in   
+                                          "/" or are empty).  For output files 
+                                          with no name specified, and no --    
+                                          basename given, the basename of the  
+                                          input file will be used.             
+--bestsv                                Optimize the                           
+                                          readability/maintainability of the   
+                                          generated SV, unconstrained by       
+                                          correlation w/ TLV source.           
+--compiler                              The HDL compiler for which to tune     
+                                          generated HDL.  Legal values are:    
+                                          "vcs", "modelsim", and "verilator".  
+--conversion                            Optimize output to support             
+                                          conversion.  Pipesignals can be      
+                                          mixed case, and (project-specific)   
+                                          SV signal name mapping should be     
+                                          optimized to preserve pipesignal     
+                                          names.                               
+--css                                   Produce the given CSS file containing  
+                                          TLX formatting to accompany an HTML  
+                                          file specified with --html/--dhtml.  
+                                          Path is relative to the HTML file,   
+                                          as it will appear in the HTML.  If a 
+                                          path ending in "/" or no/empty arg   
+                                          is given, the default name "tlx.css" 
+                                          is assumed.                          
+--cssRef                                Without this arg (and without --css),  
+                                          --html/--dhtml will create HTML with 
+                                          embedded css content for TLX code    
+                                          formatting.  With this arg, the      
+                                          generated CSS file reference is      
+                                          affected by --webContent and --      
+                                          localWebFiles.                       
+--debugSigs                             Generate HDL signals orginized for     
+                                          optimal debug.  These signals are    
+                                          copies of the "real" ones, with one  
+                                          signal per pipesignal (per           
+                                          replicated context), organized by    
+                                          hierarchy, pipeline, when            
+                                          conditions, and pipestage.           
+--dhtml                                 Produce the given dynamic HTML file    
+                                          containing scrubbed TL-X file with   
+                                          syntax highlighting and attributes   
+                                          that enable dynamic content          
+                                          (specified as with -o arg).  See     
+                                          also --css and --cssRef.             
+--distroRef                             Specify the path to use for references 
+                                          to the distribution directory in     
+                                          output files.  By default, SandPiper 
+                                          will find and use the distribution   
+                                          directory from which it is run (or   
+                                          the one given by --distroOverride).  
+--fmtDeclSingleton                      Each HDL signal is declared in its own 
+                                          declaration statement with its own   
+                                          type specification.                  
+--fmtDeclUnifiedHier                    Declare signals in a unified design    
+                                          hierarchy in the generated file, as  
+                                          opposed to inline with scope lines   
+                                          in the translated file.  (No impact  
+                                          if --fmtFlatSignals.)                
+--fmtEscapedNames                       Use escaped HDL names that resemble    
+                                          TLV names as closely as possible.    
+--fmtFlatSignals                        Declare signals at the top level scope 
+                                          in the generated file, and do not    
+                                          use hierarchical signal references.  
+--fmtFullHdlHier                        Provide HDL hierarchy for all scopes,  
+                                          including non-replicated scopes.     
+--fmtNoRespace                          Preserve whitespace in HDL expressions 
+                                          as is.  Do not adjust whitespace to  
+                                          preserve alignment of elements and   
+                                          comments of the expression.          
+--fmtPack <Integer>                     Generate HDL signals as packed to the  
+                                          given number of levels of            
+                                          hierarchy.  (Overruled by --         
+                                          fmtPackAll.) (default: 0)            
+--fmtPackAll                            Generate HDL signals as packed at all  
+                                          levels of hierarchy.  Also, forces   
+                                          behavior of --fmtFlatSignals.        
+--fmtPackBooleans                       Pack an additional level of hierarchy  
+                                          for boolean HDL signals.             
+--fmtStripUniquifiers                   Eliminate the use of uniquifiers in    
+                                          HDL names where possible.            
+--graphDesign                           Produce the given "dot" graph file     
+                                          containing a logic diagram with      
+                                          design hierarchy (specified as with -
+                                          o arg).                              
+--graphTrans                            Produce the given "dot" graph file     
+                                          containing transaction flow ($ANY    
+                                          statements) through the design       
+                                          hierarchy (specified as with -o arg).
+-h, --help                              Show help.                             
+--html                                  Produce the given HTML file containing 
+                                          scrubbed TL-X file with syntax       
+                                          highlighting (specified as with -o   
+                                          arg).  See also --css and --cssRef.  
+--https                                 Generate html containing secure https- 
+                                          protocol links rather than http      
+                                          links (currently content always uses 
+                                          https).                              
+-i                                      Input TL-X file (with absolute or      
+                                          relative path).  (See also, --       
+                                          basename.)                           
+--iArgs                                 Process command-line arguments         
+                                          provided in the source file.  This   
+                                          option is unsupported.               
+--installationDistro                    Specify the path to the distribution   
+                                          directory of the running SandPiper   
+                                          in which SandPiper should find other 
+                                          resources.  Generally this should    
+                                          not be provided as SandPiper should  
+                                          be able to locate this directory.    
+                                          It is provided mainly as a           
+                                          workaround in case it cannot be      
+                                          found.                               
+--license                               For use by customers with a license    
+                                          beyond Starter Edition.  A value     
+                                          "se" will enforce Starter Edition    
+                                          behavior.  Other values prevent or   
+                                          enforce license acquisition as       
+                                          outlined in the terms of the license.
+--licenseFile                           A file path to license key file        
+                                          against which to run, specified      
+                                          relative to the distribution         
+                                          directory, or as a full path.        
+--localWebFiles                         Generated HTML will include content as 
+                                          "file://" references into the        
+                                          distribution directory (ignoring --  
+                                          webContent arg).                     
+--nav                                   Produce the given HTML file for        
+                                          navigating a TL-X model (specified   
+                                          as with -o arg, where filename by    
+                                          default ends with "_nav.html").      
+--noline                                Disable `line directive in SV output.  
+--nopath                                Disable output of the path to the      
+                                          distribution directory.  This can be 
+                                          useful if consistent output is       
+                                          required by differnet distributions. 
+-o                                      Produce the given translated HDL file  
+                                          (where the HDL language is           
+                                          determined from the project (-p)     
+                                          arg).  File is specified as an       
+                                          absolute path or a path relative to  
+                                          the current directory, or --outdir,  
+                                          if given.  If a path ending in "/"   
+                                          or no/empty arg is given, the file   
+                                          name is derived from --basename or - 
+                                          i.  A value of "STDOUT" may also be  
+                                          used.                                
+--outdir                                A root directory for all produced      
+                                          files as a relative or absolute path.
+-p                                      Project name. (default: default)       
+--scrub                                 Produce the given scrubbed TL-X file   
+                                          (specified as with -o arg).          
+--stats                                 Produce HTML content illustrating the  
+                                          breakdown of code into categories    
+                                          (specified as is the file for -o     
+                                          arg, with default "extension"        
+                                          "_stats").  Directory will be        
+                                          created if it doesn't exist.         
+                                          Summary stats will be reported to    
+                                          STDOUT.                              
+--svg                                   Similar to --nav, but for providing    
+                                          SVG for graph only, not surrounding  
+                                          HTML.  Default file name suffix is   
+                                          "_graph.svg"                         
+--time                                  Report program runtime to STDOUT.      
+                                          (Note, this makes output unique w/   
+                                          each run.)                           
+--verbose                               Verbose output for debug.              
+--viz                                   Produce the given JSON simulation      
+                                          visualization file (specified as     
+                                          with -o arg, where filename by       
+                                          default ends with "_viz.json").      
+--webContent                            A URI pointing to library content for  
+                                          generated HTML files.  Default:      
+                                          "http://www.rweda.com/lib/sp_1.9-    
+                                          2018_02_11-beta"                     
+--xclk                                  Enable X-injection through clock       
+                                          gating condition.                    
+--xinj                                  Enable X-injection at assignment       
+                                          statements.                          
+
+Command-line formatting is flexible. For example, the following are equivalent:
+	java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar -i in/path/dut.tlv -o ../out/dut.sv --html ../out/dut.html
+	java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar -i=in/path/dut.tlv --outidr=../out -o -html
+(The latter, using "=", is preferred.)
+
+Exit status reflects the highest-severity error message.
+Details about status codes is available using "--help=errors".
