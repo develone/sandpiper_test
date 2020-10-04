@@ -1,0 +1,6 @@
+,Unknown,Untouched,Logic,Declarations,Staging,Structure,Validity,Gating,Instrumentation,Comments,Whitespace,Total Meaningful Chars,Total Chars
+TL-Verilog,0,432,3283,0,30,574,76,0,0,9015,4529,4395,17939
+pipeline7_gen.sv,0,0,0,3691,5393,308,0,965,0,3463,3098,10357,16918
+pipeline7.sv,0,432,8770,303,0,289,0,0,0,9353,4703,9794,23850
+SystemVerilog Total,0,432,8770,3994,5393,597,0,965,0,12816,7801,20151,40768
+Color,DarkGray,#305050,purple,blue,#509050,#1090c0,#E04010,orange,#C0C0F0,#C04040,gray,,
