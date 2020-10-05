@@ -110,7 +110,7 @@ dot -Tpdf blinky_trans.dot -o blinky_trans.pdf
 
 Trying to synthesize with yosys
 
-yosys -l simple.log -p 'synth_ice40 -blif -json blinky.json' blinky.sv
+yosys -l simple.log -p 'synth_ice40 -blif blinky.blif -json blinky.json' blinky.sv pseudo_rand.sv
 
 Adding sp_default.vh, sandpiper.vh, and sandpiper_gen.vh.  Yosys now 
 
@@ -119,3 +119,18 @@ Successfully finished Verilog frontend.
 -- Running command `synth_ice40 -blif -json blinky.json' --
 
 ERROR: This command only operates on fully selected designs!
+
+Adding pseudo_rand.sv & pseudo_rand_gen.sv
+
+
+=== top ===
+
+   Number of wires:                  9
+   Number of wire bits:            296
+   Number of public wires:           9
+   Number of public wire bits:     296
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  0
+
