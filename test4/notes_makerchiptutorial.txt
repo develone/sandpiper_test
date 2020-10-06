@@ -1,0 +1,15 @@
+Starting with Makerchip Tutorial top.m4
+
+cd sandpiper_test/test4
+
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar  --iArgs --graphDesign --graphTrans --dhtml  --stats --compiler verilator -i=top.m4 -o=to
+
+dot -Tpdf top_trans.dot -o top_trans.pdf
+
+cp ~/warp-v/formal/verilog/sandpiper.vh .
+
+cp ~/warp-v/formal/verilog/sandpiper_gen.vh .
+
+cp ~/warp-v/formal/verilog/sp_default.vh .
+
+yosys -l simple.log -p 'synth_ice40 -blif top.blif -json top.json' top.sv
