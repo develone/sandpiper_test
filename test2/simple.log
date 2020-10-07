@@ -685,6 +685,6 @@ found and reported 0 problems.
 3.53. Executing JSON backend.
 
 Warnings: 3 unique messages, 3 total
-End of script. Logfile hash: d8e5001570, CPU: user 0.79s system 0.11s, MEM: 34.82 MB peak
+End of script. Logfile hash: d8e5001570, CPU: user 0.84s system 0.09s, MEM: 34.90 MB peak
 Yosys 0.9+1706 (git sha1 7cc9d487, clang 7.0.1-8+rpi3 -fPIC -Os)
 Time spent: 59% 12x read_verilog (0 sec), 12% 1x share (0 sec), ...

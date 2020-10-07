@@ -1,0 +1,26 @@
+sandpiper_test/test4
+
+adding missing files.
+
+cp ~/warp-v/formal/verilog/proj_default/clk_gate.sv .
+
+cp ../test2/pseudo_rand*.sv .
+
+verilator -Wall -cc top.sv
+
+ls obj_dir/
+Vtop___024unit.cpp  Vtop_classes.mk  Vtop.h   Vtop__Syms.cpp
+Vtop___024unit.h    Vtop.cpp         Vtop.mk  Vtop__Syms.h
+
+cd obj_dir
+
+make -f Vtop.mk
+/usr/bin/perl /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vtop.cpp Vtop___024unit.cpp > Vtop__ALLcls.cpp
+g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow       -c -o Vtop__ALLcls.o Vtop__ALLcls.cpp
+/usr/bin/perl /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vtop__Syms.cpp > Vtop__ALLsup.cpp
+g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow       -c -o Vtop__ALLsup.o Vtop__ALLsup.cpp
+      Archiving Vtop__ALL.a ...
+ar r Vtop__ALL.a Vtop__ALLcls.o Vtop__ALLsup.o
+ar: creating Vtop__ALL.a
+ranlib Vtop__ALL.a
+

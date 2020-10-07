@@ -1,0 +1,34 @@
+sandpiper_test/test2
+
+verilator -Wall -cc blinky.sv
+
+%Warning-UNUSED: top.tlv:3: Signal is not used: cyc_cnt
+%Warning-UNUSED: Use "/* verilator lint_off UNUSED */" and lint_on around source to disable this message.
+%Warning-UNDRIVEN: top.tlv:3: Signal is not driven: passed
+%Warning-UNDRIVEN: top.tlv:3: Signal is not driven: failed
+%Warning-UNUSED: top.tlv:3: Signal is not used: RW_rand_vect
+%Error: Exiting due to 4 warning(s)
+%Error: Command Failed /usr/local/bin/verilator_bin -Wall -cc blinky.sv
+
+ls obj_dir/
+Vblinky_classes.mk  Vblinky.h   Vblinky__Syms.cpp
+Vblinky.cpp         Vblinky.mk  Vblinky__Syms.h
+
+cd obj_dir
+
+make -f Vblinky.mk
+
+/usr/bin/perl /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vblinky.cpp > Vblinky__ALLcls.cpp
+g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow       -c -o Vblinky__ALLcls.o Vblinky__ALLcls.cpp
+/usr/bin/perl /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vblinky__Syms.cpp > Vblinky__ALLsup.cpp
+g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow       -c -o Vblinky__ALLsup.o Vblinky__ALLsup.cpp
+      Archiving Vblinky__ALL.a ...
+ar r Vblinky__ALL.a Vblinky__ALLcls.o Vblinky__ALLsup.o
+ar: creating Vblinky__ALL.a
+ranlib Vblinky__ALL.a
+
+ls obj_dir/
+Vblinky__ALL.a       Vblinky__ALLsup.cpp  Vblinky.cpp        Vblinky__Syms.h
+Vblinky__ALLcls.cpp  Vblinky__ALLsup.d    Vblinky.h
+Vblinky__ALLcls.d    Vblinky__ALLsup.o    Vblinky.mk
+Vblinky__ALLcls.o    Vblinky_classes.mk   Vblinky__Syms.cpp
