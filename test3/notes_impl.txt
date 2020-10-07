@@ -1,3 +1,36 @@
+New test risc-v_1-stage
+git diff warp-v_risc-v_1-stage.sv
+diff --git a/test3/risc-v_1-stage/warp-v_risc-v_1-stage.sv b/test3/risc-v_1-stage/warp-v_risc-v_1-stage.sv
+index a192d34..517dc72 100644
+--- a/test3/risc-v_1-stage/warp-v_risc-v_1-stage.sv
++++ b/test3/risc-v_1-stage/warp-v_risc-v_1-stage.sv
+@@ -1828,3 +1828,5 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
+    endgenerate //_\end_source
+ //_\SV
+    endmodule
++`include "clk_gate.v"
++`include "pseudo_rand.sv"
+yosys -l simple.log -p 'synth_ice40 -blif warp-v_risc-v_1-stage.blif -json warp-v_risc-v_1-stage.json' warp-v_risc-v_1-stage.sv
+
+=== top ===
+
+   Number of wires:               6651
+   Number of wire bits:          11766
+   Number of public wires:        6651
+   Number of public wire bits:   11766
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               8809
+     SB_CARRY                      453
+     SB_DFF                        312
+     SB_DFFE                      1062
+     SB_DFFESR                     192
+     SB_DFFSR                      165
+     SB_DFFSS                        1
+     SB_LUT4                      6620
+     SB_RAM40_4K                     4
+
 Latest update 10/07/20 
 Good news was able to synthsize the design.
 Bad new it is quite large.
