@@ -1,3 +1,138 @@
+cd warp-v/impl modified warp-v_risc-v_4-stage.tlv 
+
+diff --git a/impl/warp-v_risc-v_4-stage.tlv b/impl/warp-v_risc-v_4-stage.tlv
+
++   m4_define(['M4_EXT_M'], 0) 
+
+make 
+Processing warp-v_mini_4-stage.tlv using SandPiper(TM) SaaS Edition.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  276k  100 74065  100  204k  47691   131k  0:00:01  0:00:01 --:--:--  178k
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar sandpiper.jar --iArgs --nopath -i out/warp-v_mini_4-stage.m4out.tlv -o out/warp-v_mini_4-stage.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Redwood EDA" as: Full Edition.
+
+INFORM(0) (FILES):
+	Reading "out/warp-v_mini_4-stage.m4out.tlv" to produce:
+		Translated HDL File: "out/warp-v_mini_4-stage.sv"
+		Generated HDL File: "out/warp-v_mini_4-stage_gen.sv"
+
+Processing warp-v_mips-i_4-stage.tlv using SandPiper(TM) SaaS Edition.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  283k  100 80271  100  204k  49981   127k  0:00:01  0:00:01 --:--:--  176k
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar sandpiper.jar --iArgs --nopath -i out/warp-v_mips-i_4-stage.m4out.tlv -o out/warp-v_mips-i_4-stage.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Redwood EDA" as: Full Edition.
+
+INFORM(0) (FILES):
+	Reading "out/warp-v_mips-i_4-stage.m4out.tlv" to produce:
+		Translated HDL File: "out/warp-v_mips-i_4-stage.sv"
+		Generated HDL File: "out/warp-v_mips-i_4-stage_gen.sv"
+
+Processing warp-v_risc-v_1-stage.tlv using SandPiper(TM) SaaS Edition.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  304k  100   99k  100  204k  37916  78004  0:00:02  0:00:02 --:--:--  113k
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar sandpiper.jar --iArgs --nopath -i out/warp-v_risc-v_1-stage.m4out.tlv -o out/warp-v_risc-v_1-stage.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Redwood EDA" as: Full Edition.
+
+INFORM(0) (FILES):
+	Reading "out/warp-v_risc-v_1-stage.m4out.tlv" to produce:
+		Translated HDL File: "out/warp-v_risc-v_1-stage.sv"
+		Generated HDL File: "out/warp-v_risc-v_1-stage_gen.sv"
+
+Processing warp-v_risc-v_4-stage_retime.tlv using SandPiper(TM) SaaS Edition.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  306k  100  102k  100  204k  45216  90800  0:00:02  0:00:02 --:--:--  132k
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar sandpiper.jar --iArgs --nopath -i out/warp-v_risc-v_4-stage_retime.m4out.tlv -o out/warp-v_risc-v_4-stage_retime.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Redwood EDA" as: Full Edition.
+
+INFORM(0) (FILES):
+	Reading "out/warp-v_risc-v_4-stage_retime.m4out.tlv" to produce:
+		Translated HDL File: "out/warp-v_risc-v_4-stage_retime.sv"
+		Generated HDL File: "out/warp-v_risc-v_4-stage_retime_gen.sv"
+
+Processing warp-v_risc-v_4-stage.tlv using SandPiper(TM) SaaS Edition.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  300k  100 97659  100  204k  52392   109k  0:00:01  0:00:01 --:--:--  160k
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar sandpiper.jar --iArgs --nopath -i out/warp-v_risc-v_4-stage.m4out.tlv -o out/warp-v_risc-v_4-stage.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Redwood EDA" as: Full Edition.
+
+INFORM(0) (FILES):
+	Reading "out/warp-v_risc-v_4-stage.m4out.tlv" to produce:
+		Translated HDL File: "out/warp-v_risc-v_4-stage.sv"
+		Generated HDL File: "out/warp-v_risc-v_4-stage_gen.sv"
+sandpiper_test/test3
+
+mkdir M4_EXT_M_disable
+
+cd M4_EXT_M_disable
+
+cp -R ~/warp-v/impl/out/risc-v_4-stage .
+
+cd ../
+
+cp risc-v_4-stage/clk_gate.v M4_EXT_M_disable/risc-v_4-stage/clk_gate.v
+cp risc-v_4-stage/pseudo_rand.sv M4_EXT_M_disable/risc-v_4-stage/pseudo_rand.sv
+cp risc-v_4-stage/pseudo_rand.tlv M4_EXT_M_disable/risc-v_4-stage/pseudo_rand.tlv
+cp risc-v_4-stage/pseudo_rand_gen.sv M4_EXT_M_disable/risc-v_4-stage/pseudo_rand_gen.sv
+cp risc-v_4-stage/sandpiper.vh M4_EXT_M_disable/risc-v_4-stage/sandpiper.vh
+cp risc-v_4-stage/sandpiper_gen.vh M4_EXT_M_disable/risc-v_4-stage/sandpiper_gen.vh
+cp risc-v_4-stage/sp_default.vh M4_EXT_M_disable/risc-v_4-stage/sp_default.vh
+
+cd M4_EXT_M_disable/risc-v_4-stage/
+
+yosys -l simple.log -p 'synth_ice40 -blif warp-v_risc-v_4-stage.blif -json warp-v_risc-v_4-stage.json' warp-v_risc-v_4-stage.sv
+
+=== top ===
+
+   Number of wires:               4318
+   Number of wire bits:           9131
+   Number of public wires:        4318
+   Number of public wire bits:    9131
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               6445
+     SB_CARRY                      554
+     SB_DFF                        422
+     SB_DFFE                       992
+     SB_DFFESR                      31
+     SB_DFFESS                       1
+     SB_DFFSR                      295
+     SB_DFFSS                       30
+     SB_LUT4                      4116
+     SB_RAM40_4K                     4
+
+************************************************************
+
 New test risc-v_1-stage
 git diff warp-v_risc-v_1-stage.sv
 diff --git a/test3/risc-v_1-stage/warp-v_risc-v_1-stage.sv b/test3/risc-v_1-stage/warp-v_risc-v_1-stage.sv

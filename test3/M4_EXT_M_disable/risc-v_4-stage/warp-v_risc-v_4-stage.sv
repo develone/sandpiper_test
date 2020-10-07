@@ -1726,3 +1726,5 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
    endgenerate //_\end_source
 //_\SV
    endmodule
+`include "clk_gate.v"
+`include "pseudo_rand.sv"
