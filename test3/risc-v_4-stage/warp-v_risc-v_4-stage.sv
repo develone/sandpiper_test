@@ -6,10 +6,12 @@
    // Included URL: "./warp-v.tlv"// Included URL: "https://raw.githubusercontent.com/stevehoover/warp-v_includes/5100bc4424dd272ffd495dcb7d9653fb6b200e88/risc-v_defs.tlv"
 `include "out/sv_url_inc/picorv32_pcpi_div.sv"  // From: "https://raw.githubusercontent.com/stevehoover/warp-v_includes/master/divmul/picorv32_pcpi_div.sv"
 `include "out/sv_url_inc/picorv32_pcpi_fast_mul.sv"  // From: "https://raw.githubusercontent.com/stevehoover/warp-v_includes/master/divmul/picorv32_pcpi_fast_mul.sv"
+
 //_\SV
 module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    /* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  /* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */
 //_\source warp-v_risc-v_4-stage.tlv 9
 `include "warp-v_risc-v_4-stage_gen.sv" //_\TLV
+
    //_\source ./warpv.tlv 3556   // Instantiated from warp-v_risc-v_4-stage.tlv, 11 as: m4+warpv()
       // =================
       //
@@ -1836,3 +1838,5 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
    endgenerate //_\end_source
 //_\SV
    endmodule
+`include "clk_gate.v"
+`include "pseudo_rand.sv"
