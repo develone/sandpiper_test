@@ -1,3 +1,46 @@
+testing disable m4_define(['M4_EXT_M'], 0) risc-v_1-stage
+
++   m4_define(['M4_EXT_M'], 0)
+make 
+
+cd M4_EXT_M_disable
+
+cp -R ~/warp-v/impl/out/risc-v_1-stage .
+
+cd ../
+
+cp risc-v_4-stage/clk_gate.v M4_EXT_M_disable/risc-v_1-stage/clk_gate.v
+cp risc-v_4-stage/pseudo_rand.sv M4_EXT_M_disable/risc-v_1-stage/pseudo_rand.sv
+cp risc-v_4-stage/pseudo_rand.tlv M4_EXT_M_disable/risc-v_1-stage/pseudo_rand.tlv
+cp risc-v_4-stage/pseudo_rand_gen.sv M4_EXT_M_disable/risc-v_1-stage/pseudo_rand_gen.sv
+cp risc-v_4-stage/sandpiper.vh M4_EXT_M_disable/risc-v_1-stage/sandpiper.vh
+cp risc-v_4-stage/sandpiper_gen.vh M4_EXT_M_disable/risc-v_1-stage/sandpiper_gen.vh
+cp risc-v_4-stage/sp_default.vh M4_EXT_M_disable/risc-v_1-stage/sp_default.vh
+
+cd M4_EXT_M_disable/risc-v_1-stage/
+
+yosys -l simple.log -p 'synth_ice40 -blif warp-v_risc-v_1-stage.blif -json warp-v_risc-v_1-stage.json' warp-v_risc-v_1-stage.sv
+
+=== top ===
+
+   Number of wires:               1838
+   Number of wire bits:           5272
+   Number of public wires:        1838
+   Number of public wire bits:    5272
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               3132
+     SB_CARRY                      208
+     SB_DFF                         47
+     SB_DFFE                       992
+     SB_DFFESR                      30
+     SB_DFFSR                       13
+     SB_DFFSS                        1
+     SB_LUT4                      1837
+     SB_RAM40_4K                     4
+
+******************************************
 cd warp-v/impl modified warp-v_risc-v_4-stage.tlv 
 
 diff --git a/impl/warp-v_risc-v_4-stage.tlv b/impl/warp-v_risc-v_4-stage.tlv
