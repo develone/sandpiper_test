@@ -24,4 +24,72 @@ top.m4
 	mytop.sv
    	mytop_gen.sv
    	
+--graphTrans
+step 1.a
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --verbose --graphTrans -i top.m4 -o mytop.sv
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --verbose --graphTrans -i top.m4 -o mytop.sv
+	For help, including product info, run with -h.
 
+INFORM(0) (LICENSE):
+	Licensed to "Edward Vidal Jr." as: Full Edition.
+
+INFORM(0) (FILES):
+	From directory: /home/devel/sandpiper_test/test5
+	Reading "top.m4" to produce:
+		Translated HDL File: "mytop.sv"
+		Generated HDL File: "mytop_gen.sv"
+		Transaction Flow Graph (Dot) File: "top_trans.dot"
+
+INFORM(0) (FILE): File 'top.tlv'
+	Writing file "mytop.sv".
+
+INFORM(0) (FILE):
+	Writing file "mytop_gen.sv".
+
+INFORM(0) (FILE):
+	Writing file "top_trans.dot".
+
+top.m4
+	mytop.sv
+   	mytop_gen.sv
+   	top_trans.dot
+		xdot top_trans.dot	okay
+step 1.b
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --verbose --graphTrans --graphDesign -i top.m4 -o mytop.sv		
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --verbose --graphTrans --graphDesign -i top.m4 -o mytop.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Edward Vidal Jr." as: Full Edition.
+
+INFORM(0) (FILES):
+	From directory: /home/devel/sandpiper_test/test5
+	Reading "top.m4" to produce:
+		Translated HDL File: "mytop.sv"
+		Generated HDL File: "mytop_gen.sv"
+		Design Graph (Dot) File: "top_design.dot"
+		Transaction Flow Graph (Dot) File: "top_trans.dot"
+
+INFORM(0) (FILE): File 'top.tlv'
+	Writing file "mytop.sv".
+
+INFORM(0) (FILE):
+	Writing file "mytop_gen.sv".
+
+INFORM(0) (FILE):
+	Writing file "top_design.dot".
+
+INFORM(0) (FILE):
+	Writing file "top_trans.dot".
+top.m4
+	mytop.sv
+   	mytop_gen.sv
+   	top_trans.dot
+		xdot top_trans.dot	okay
+	top_design.dot
+		xdot top_design.dot 1:1:unexpected end of file 
+		
