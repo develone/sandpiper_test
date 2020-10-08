@@ -92,4 +92,60 @@ top.m4
 		xdot top_trans.dot	okay
 	top_design.dot
 		xdot top_design.dot 1:1:unexpected end of file 
-		
+step 2.
+cp ~/warp-v/formal/verilog/sp_default.vh .
+cp ~/warp-v/formal/verilog/sandpiper.vh .
+cp ~/warp-v/formal/verilog/sandpiper_gen.vh .
+yosys -l simple.log -p 'synth_ice40 -blif mytop.blif -json mytop.json' mytop.sv
+1. Executing Verilog-2005 frontend: mytop.sv
+Parsing SystemVerilog input from `mytop.sv' to AST representation.
+top.tlv:198: ERROR: syntax error, unexpected $undefined
+/*   assign instrs = '{
+      "g=0~0", //     store_addr = 0
+      "b=0~1", //     cnt = 1
+      "c=1~2", //     ten = 10
+      "d=0~0", //     out = 0
+      "f=0-6", //     offset = -6
+      "d=d+b", //  -> out += cnt
+      "0=d}g", //     store out at store_addr
+      "b=b+1", //     cnt ++
+      "g=g+1", //     store_addr++
+      "e=c-b", //     tmp = 10 - cnt
+      "p=f?e", //  ^- branch back if tmp >= 0
+      "h=0{c", //     load the final value
+      "P=0-1"  //     TERMINATE by jumping to -1
+   };
+
+*/
+cp ~/warp-v/formal/verilog/clk_gate.v .
+
+Add `include "clk_gate.v" to end of mytop.sv
+
+yosys -l simple.log -p 'synth_ice40 -blif mytop.blif -json mytop.json' mytop.sv
+
+1. Executing Verilog-2005 frontend: mytop.sv
+Parsing SystemVerilog input from `mytop.sv' to AST representation.
+ERROR: Can't open include file `sp_verilog.vh'!		
+
+-`include "sp_verilog.vh"
++//`include "sp_verilog.vh"
+
+yosys -l simple.log -p 'synth_ice40 -blif mytop.blif -json mytop.json' mytop.sv
+
+2.2.2. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \clk_gate
+ERROR: Module `\pseudo_rand' referenced in module `\top' in cell `\pseudo_rand' is not part of the design.
+
+cp ~/warp-v/formal/verilog/pseudo_rand.sv .
+cp ~/warp-v/formal/verilog/pseudo_rand_gen.sv .
+
+yosys -l simple.log -p 'synth_ice40 -blif mytop.blif -json mytop.json' mytop.sv
+
+ERROR: Module `\pseudo_rand' referenced in module `\top' in cell `\pseudo_rand' is not part of the design.
+
+`include "pseudo_rand.sv"
+
+yosys -l simple.log -p 'synth_ice40 -blif mytop.blif -json mytop.json' mytop.sv
+
+ERROR: Latch inferred for signal `\top.\FETCH_Instr_Regs_Value_a2[0]' from always_comb process `\top.$proc$top.tlv:451$250'.

@@ -1,0 +1,420 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2019  Clifford Wolf <clifford@clifford.at>           |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.9+1706 (git sha1 7cc9d487, clang 7.0.1-8+rpi3 -fPIC -Os)
+
+
+-- Parsing `mytop.sv' using frontend `verilog -sv' --
+
+1. Executing Verilog-2005 frontend: mytop.sv
+Parsing SystemVerilog input from `mytop.sv' to AST representation.
+Generating RTLIL representation for module `\top'.
+Warning: reg '\RW_rand_vect' is assigned in a continuous assignment at top.tlv:178.
+Warning: wire '\L1c_FETCH_Instr_Src[1].L1_valid_a2' is assigned in a block at mytop_gen.sv:503.
+Warning: wire '\L1c_FETCH_Instr_Src[1].L1_value_a2' is assigned in a block at mytop_gen.sv:506.
+Warning: wire '\L1c_FETCH_Instr_Src[1].L1_value_a3' is assigned in a block at mytop_gen.sv:507.
+Warning: wire '\L1c_FETCH_Instr_Src[2].L1_valid_a2' is assigned in a block at mytop_gen.sv:503.
+Warning: wire '\L1c_FETCH_Instr_Src[2].L1_value_a2' is assigned in a block at mytop_gen.sv:506.
+Warning: wire '\L1c_FETCH_Instr_Src[2].L1_value_a3' is assigned in a block at mytop_gen.sv:507.
+Warning: Replacing memory \FETCH_Instr_Regs_next_pending_a3 with list of registers. See mytop_gen.sv:494
+Warning: Replacing memory \FETCH_Instr_Regs_Value_a3 with list of registers. See mytop_gen.sv:491
+Warning: Replacing memory \FETCH_Instr_Mem_Word_a3 with list of registers. See mytop_gen.sv:431
+Warning: Replacing memory \FETCH_Instr_Regs_Value_a2 with list of registers. See top.tlv:453
+Warning: Replacing memory \FETCH_Instr_Mem_Word_a2 with list of registers. See top.tlv:443
+Generating RTLIL representation for module `\clk_gate'.
+Generating RTLIL representation for module `\pseudo_rand'.
+Successfully finished Verilog frontend.
+
+-- Running command `synth_ice40 -blif mytop.blif -json mytop.json' --
+
+2. Executing SYNTH_ICE40 pass.
+
+2.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/cells_sim.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/cells_sim.v' to AST representation.
+Generating RTLIL representation for module `\SB_IO'.
+Generating RTLIL representation for module `\SB_GB_IO'.
+Generating RTLIL representation for module `\SB_GB'.
+Generating RTLIL representation for module `\SB_LUT4'.
+Generating RTLIL representation for module `\SB_CARRY'.
+Generating RTLIL representation for module `\SB_DFF'.
+Generating RTLIL representation for module `\SB_DFFE'.
+Generating RTLIL representation for module `\SB_DFFSR'.
+Generating RTLIL representation for module `\SB_DFFR'.
+Generating RTLIL representation for module `\SB_DFFSS'.
+Generating RTLIL representation for module `\SB_DFFS'.
+Generating RTLIL representation for module `\SB_DFFESR'.
+Generating RTLIL representation for module `\SB_DFFER'.
+Generating RTLIL representation for module `\SB_DFFESS'.
+Generating RTLIL representation for module `\SB_DFFES'.
+Generating RTLIL representation for module `\SB_DFFN'.
+Generating RTLIL representation for module `\SB_DFFNE'.
+Generating RTLIL representation for module `\SB_DFFNSR'.
+Generating RTLIL representation for module `\SB_DFFNR'.
+Generating RTLIL representation for module `\SB_DFFNSS'.
+Generating RTLIL representation for module `\SB_DFFNS'.
+Generating RTLIL representation for module `\SB_DFFNESR'.
+Generating RTLIL representation for module `\SB_DFFNER'.
+Generating RTLIL representation for module `\SB_DFFNESS'.
+Generating RTLIL representation for module `\SB_DFFNES'.
+Generating RTLIL representation for module `\SB_RAM40_4K'.
+Generating RTLIL representation for module `\SB_RAM40_4KNR'.
+Generating RTLIL representation for module `\SB_RAM40_4KNW'.
+Generating RTLIL representation for module `\SB_RAM40_4KNRNW'.
+Generating RTLIL representation for module `\ICESTORM_LC'.
+Generating RTLIL representation for module `\SB_PLL40_CORE'.
+Generating RTLIL representation for module `\SB_PLL40_PAD'.
+Generating RTLIL representation for module `\SB_PLL40_2_PAD'.
+Generating RTLIL representation for module `\SB_PLL40_2F_CORE'.
+Generating RTLIL representation for module `\SB_PLL40_2F_PAD'.
+Generating RTLIL representation for module `\SB_WARMBOOT'.
+Generating RTLIL representation for module `\SB_SPRAM256KA'.
+Generating RTLIL representation for module `\SB_HFOSC'.
+Generating RTLIL representation for module `\SB_LFOSC'.
+Generating RTLIL representation for module `\SB_RGBA_DRV'.
+Generating RTLIL representation for module `\SB_LED_DRV_CUR'.
+Generating RTLIL representation for module `\SB_RGB_DRV'.
+Generating RTLIL representation for module `\SB_I2C'.
+Generating RTLIL representation for module `\SB_SPI'.
+Generating RTLIL representation for module `\SB_LEDDA_IP'.
+Generating RTLIL representation for module `\SB_FILTER_50NS'.
+Generating RTLIL representation for module `\SB_IO_I3C'.
+Generating RTLIL representation for module `\SB_IO_OD'.
+Generating RTLIL representation for module `\SB_MAC16'.
+Generating RTLIL representation for module `\ICESTORM_RAM'.
+Successfully finished Verilog frontend.
+
+2.2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.2.1. Finding top of design hierarchy..
+root of   0 design levels: pseudo_rand         
+root of   0 design levels: clk_gate            
+root of   1 design levels: top                 
+Automatically selected top as design top module.
+
+2.2.2. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \clk_gate
+Used module:     \pseudo_rand
+Parameter \WIDTH = 257
+
+2.2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\pseudo_rand'.
+Parameter \WIDTH = 257
+Generating RTLIL representation for module `$paramod\pseudo_rand\WIDTH=257'.
+
+2.2.4. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \clk_gate
+Used module:     $paramod\pseudo_rand\WIDTH=257
+
+2.2.5. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \clk_gate
+Used module:     $paramod\pseudo_rand\WIDTH=257
+Removing unused module `\pseudo_rand'.
+Removed 1 unused modules.
+Mapping positional arguments of cell top.L1clk_FETCH_Instr_Src[2].gen_clkP_FETCH_Instr_Src_valid_a3 (clk_gate).
+Mapping positional arguments of cell top.L1clk_FETCH_Instr_Src[2].gen_clkP_FETCH_Instr_Src_valid_a2 (clk_gate).
+Mapping positional arguments of cell top.L1clk_FETCH_Instr_Src[1].gen_clkP_FETCH_Instr_Src_valid_a3 (clk_gate).
+Mapping positional arguments of cell top.L1clk_FETCH_Instr_Src[1].gen_clkP_FETCH_Instr_Src_valid_a2 (clk_gate).
+Mapping positional arguments of cell top.gen_clkP_FETCH_Instr_ld_a6 (clk_gate).
+Mapping positional arguments of cell top.gen_clkP_FETCH_Instr_ld_a5 (clk_gate).
+Mapping positional arguments of cell top.gen_clkP_FETCH_Instr_ld_a4 (clk_gate).
+Mapping positional arguments of cell top.gen_clkP_FETCH_Instr_ld_a3 (clk_gate).
+Mapping positional arguments of cell top.gen_clkP_FETCH_Instr_dest_valid_a3 (clk_gate).
+Mapping positional arguments of cell top.pseudo_rand ($paramod\pseudo_rand\WIDTH=257).
+
+2.3. Executing PROC pass (convert processes to netlists).
+
+2.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$mytop_gen.sv:280$425 in module top.
+Marked 1 switch rules as full_case in process $proc$mytop_gen.sv:280$425 in module top.
+Removed 1 dead cases from process $proc$mytop_gen.sv:280$422 in module top.
+Marked 1 switch rules as full_case in process $proc$mytop_gen.sv:280$422 in module top.
+Removed 1 dead cases from process $proc$mytop_gen.sv:280$419 in module top.
+Marked 1 switch rules as full_case in process $proc$mytop_gen.sv:280$419 in module top.
+Removed 1 dead cases from process $proc$mytop_gen.sv:280$416 in module top.
+Marked 1 switch rules as full_case in process $proc$mytop_gen.sv:280$416 in module top.
+Removed 1 dead cases from process $proc$mytop_gen.sv:280$413 in module top.
+Marked 1 switch rules as full_case in process $proc$mytop_gen.sv:280$413 in module top.
+Removed 1 dead cases from process $proc$mytop_gen.sv:280$410 in module top.
+Marked 1 switch rules as full_case in process $proc$mytop_gen.sv:280$410 in module top.
+Marked 1 switch rules as full_case in process $proc$mytop_gen.sv:280$407 in module top.
+Removed 1 dead cases from process $proc$top.tlv:451$250 in module top.
+Marked 2 switch rules as full_case in process $proc$top.tlv:451$250 in module top.
+Removed 1 dead cases from process $proc$top.tlv:441$242 in module top.
+Marked 2 switch rules as full_case in process $proc$top.tlv:441$242 in module top.
+Removed a total of 8 dead cases.
+
+2.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 220 assignments to connections.
+
+2.3.4. Executing PROC_INIT pass (extract init attributes).
+
+2.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod\pseudo_rand\WIDTH=257.$proc$pseudo_rand.sv:54$608'.
+Creating decoders for process `$paramod\pseudo_rand\WIDTH=257.$proc$pseudo_rand_gen.sv:37$604'.
+Creating decoders for process `$paramod\pseudo_rand\WIDTH=257.$proc$pseudo_rand_gen.sv:34$603'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:280$428'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:280$425'.
+     1/1: $1$mem2reg_rd$\FETCH_Instr_Regs_next_pending_a2$top.tlv:352$49_DATA[0:0]$427
+Creating decoders for process `\top.$proc$mytop_gen.sv:280$422'.
+     1/1: $1$mem2reg_rd$\FETCH_Instr_Regs_Value_a3$top.tlv:347$48_DATA[11:0]$424
+Creating decoders for process `\top.$proc$mytop_gen.sv:280$419'.
+     1/1: $1$mem2reg_rd$\FETCH_Instr_Regs_next_pending_a2$top.tlv:352$47_DATA[0:0]$421
+Creating decoders for process `\top.$proc$mytop_gen.sv:280$416'.
+     1/1: $1$mem2reg_rd$\FETCH_Instr_Regs_Value_a3$top.tlv:347$46_DATA[11:0]$418
+Creating decoders for process `\top.$proc$mytop_gen.sv:280$413'.
+     1/1: $1$mem2reg_rd$\FETCH_Instr_Mem_Word_a3$top.tlv:429$43_DATA[11:0]$415
+Creating decoders for process `\top.$proc$mytop_gen.sv:280$410'.
+     1/1: $1$mem2reg_rd$\FETCH_Instr_Regs_next_pending_a2$top.tlv:353$42_DATA[0:0]$412
+Creating decoders for process `\top.$proc$mytop_gen.sv:280$407'.
+     1/1: $1$mem2reg_rd$\instrs$top.tlv:235$41_DATA[39:0]$409
+Creating decoders for process `\top.$proc$mytop_gen.sv:507$358'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:506$357'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:503$356'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:507$355'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:506$354'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:503$353'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:494$352'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:491$350'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:494$349'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:491$347'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:494$346'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:491$344'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:494$343'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:491$341'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:494$340'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:491$338'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:494$337'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:491$335'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:494$334'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:491$332'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:494$331'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:491$329'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$327'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$325'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$323'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$321'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$319'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$317'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$315'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$313'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$311'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$309'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$307'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$305'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$303'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$301'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$299'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$297'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$295'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$293'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$291'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$289'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$287'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$285'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$283'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$281'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$279'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$277'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$275'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$273'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$271'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$269'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$267'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:431$265'.
+Creating decoders for process `\top.$proc$top.tlv:451$250'.
+     1/18: $2\FETCH_Instr_Regs_Value_a2[0][11:0]
+     2/18: $2\FETCH_Instr_Regs_Value_a2[7][11:0]
+     3/18: $2\FETCH_Instr_Regs_Value_a2[6][11:0]
+     4/18: $2\FETCH_Instr_Regs_Value_a2[5][11:0]
+     5/18: $2\FETCH_Instr_Regs_Value_a2[4][11:0]
+     6/18: $2\FETCH_Instr_Regs_Value_a2[3][11:0]
+     7/18: $2\FETCH_Instr_Regs_Value_a2[2][11:0]
+     8/18: $2\FETCH_Instr_Regs_Value_a2[1][11:0]
+     9/18: $1\FETCH_Instr_Regs_Value_a2[7][11:0]
+    10/18: $1\FETCH_Instr_Regs_Value_a2[6][11:0]
+    11/18: $1\FETCH_Instr_Regs_Value_a2[5][11:0]
+    12/18: $1\FETCH_Instr_Regs_Value_a2[4][11:0]
+    13/18: $1\FETCH_Instr_Regs_Value_a2[3][11:0]
+    14/18: $1\FETCH_Instr_Regs_Value_a2[2][11:0]
+    15/18: $1\FETCH_Instr_Regs_Value_a2[1][11:0]
+    16/18: $1\FETCH_Instr_Regs_Value_a2[0][11:0]
+    17/18: $1$mem2reg_wr$\FETCH_Instr_Regs_Value_a2$top.tlv:453$45_ADDR[2:0]$253
+    18/18: $1$mem2reg_wr$\FETCH_Instr_Regs_Value_a2$top.tlv:453$45_DATA[11:0]$254
+Creating decoders for process `\top.$proc$top.tlv:441$242'.
+     1/66: $2\FETCH_Instr_Mem_Word_a2[0][11:0]
+     2/66: $2\FETCH_Instr_Mem_Word_a2[31][11:0]
+     3/66: $2\FETCH_Instr_Mem_Word_a2[30][11:0]
+     4/66: $2\FETCH_Instr_Mem_Word_a2[29][11:0]
+     5/66: $2\FETCH_Instr_Mem_Word_a2[28][11:0]
+     6/66: $2\FETCH_Instr_Mem_Word_a2[27][11:0]
+     7/66: $2\FETCH_Instr_Mem_Word_a2[26][11:0]
+     8/66: $2\FETCH_Instr_Mem_Word_a2[25][11:0]
+     9/66: $2\FETCH_Instr_Mem_Word_a2[24][11:0]
+    10/66: $2\FETCH_Instr_Mem_Word_a2[23][11:0]
+    11/66: $2\FETCH_Instr_Mem_Word_a2[22][11:0]
+    12/66: $2\FETCH_Instr_Mem_Word_a2[21][11:0]
+    13/66: $2\FETCH_Instr_Mem_Word_a2[20][11:0]
+    14/66: $2\FETCH_Instr_Mem_Word_a2[19][11:0]
+    15/66: $2\FETCH_Instr_Mem_Word_a2[18][11:0]
+    16/66: $2\FETCH_Instr_Mem_Word_a2[17][11:0]
+    17/66: $2\FETCH_Instr_Mem_Word_a2[16][11:0]
+    18/66: $2\FETCH_Instr_Mem_Word_a2[15][11:0]
+    19/66: $2\FETCH_Instr_Mem_Word_a2[14][11:0]
+    20/66: $2\FETCH_Instr_Mem_Word_a2[13][11:0]
+    21/66: $2\FETCH_Instr_Mem_Word_a2[12][11:0]
+    22/66: $2\FETCH_Instr_Mem_Word_a2[11][11:0]
+    23/66: $2\FETCH_Instr_Mem_Word_a2[10][11:0]
+    24/66: $2\FETCH_Instr_Mem_Word_a2[9][11:0]
+    25/66: $2\FETCH_Instr_Mem_Word_a2[8][11:0]
+    26/66: $2\FETCH_Instr_Mem_Word_a2[7][11:0]
+    27/66: $2\FETCH_Instr_Mem_Word_a2[6][11:0]
+    28/66: $2\FETCH_Instr_Mem_Word_a2[5][11:0]
+    29/66: $2\FETCH_Instr_Mem_Word_a2[4][11:0]
+    30/66: $2\FETCH_Instr_Mem_Word_a2[3][11:0]
+    31/66: $2\FETCH_Instr_Mem_Word_a2[2][11:0]
+    32/66: $2\FETCH_Instr_Mem_Word_a2[1][11:0]
+    33/66: $1\FETCH_Instr_Mem_Word_a2[31][11:0]
+    34/66: $1\FETCH_Instr_Mem_Word_a2[30][11:0]
+    35/66: $1\FETCH_Instr_Mem_Word_a2[29][11:0]
+    36/66: $1\FETCH_Instr_Mem_Word_a2[28][11:0]
+    37/66: $1\FETCH_Instr_Mem_Word_a2[27][11:0]
+    38/66: $1\FETCH_Instr_Mem_Word_a2[26][11:0]
+    39/66: $1\FETCH_Instr_Mem_Word_a2[25][11:0]
+    40/66: $1\FETCH_Instr_Mem_Word_a2[24][11:0]
+    41/66: $1\FETCH_Instr_Mem_Word_a2[23][11:0]
+    42/66: $1\FETCH_Instr_Mem_Word_a2[22][11:0]
+    43/66: $1\FETCH_Instr_Mem_Word_a2[21][11:0]
+    44/66: $1\FETCH_Instr_Mem_Word_a2[20][11:0]
+    45/66: $1\FETCH_Instr_Mem_Word_a2[19][11:0]
+    46/66: $1\FETCH_Instr_Mem_Word_a2[18][11:0]
+    47/66: $1\FETCH_Instr_Mem_Word_a2[17][11:0]
+    48/66: $1\FETCH_Instr_Mem_Word_a2[16][11:0]
+    49/66: $1\FETCH_Instr_Mem_Word_a2[15][11:0]
+    50/66: $1\FETCH_Instr_Mem_Word_a2[14][11:0]
+    51/66: $1\FETCH_Instr_Mem_Word_a2[13][11:0]
+    52/66: $1\FETCH_Instr_Mem_Word_a2[12][11:0]
+    53/66: $1\FETCH_Instr_Mem_Word_a2[11][11:0]
+    54/66: $1\FETCH_Instr_Mem_Word_a2[10][11:0]
+    55/66: $1\FETCH_Instr_Mem_Word_a2[9][11:0]
+    56/66: $1\FETCH_Instr_Mem_Word_a2[8][11:0]
+    57/66: $1\FETCH_Instr_Mem_Word_a2[7][11:0]
+    58/66: $1\FETCH_Instr_Mem_Word_a2[6][11:0]
+    59/66: $1\FETCH_Instr_Mem_Word_a2[5][11:0]
+    60/66: $1\FETCH_Instr_Mem_Word_a2[4][11:0]
+    61/66: $1\FETCH_Instr_Mem_Word_a2[3][11:0]
+    62/66: $1\FETCH_Instr_Mem_Word_a2[2][11:0]
+    63/66: $1\FETCH_Instr_Mem_Word_a2[1][11:0]
+    64/66: $1\FETCH_Instr_Mem_Word_a2[0][11:0]
+    65/66: $1$mem2reg_wr$\FETCH_Instr_Mem_Word_a2$top.tlv:443$44_ADDR[4:0]$245
+    66/66: $1$mem2reg_wr$\FETCH_Instr_Mem_Word_a2$top.tlv:443$44_DATA[11:0]$246
+Creating decoders for process `\top.$proc$mytop_gen.sv:482$113'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:479$112'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:476$111'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:473$110'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:470$109'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:467$108'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:464$107'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:461$106'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:458$105'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:455$104'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:452$103'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:449$102'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:446$101'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:443$100'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:440$99'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:423$98'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:420$97'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:417$96'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:416$95'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:413$94'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:412$93'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:411$92'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:410$91'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:407$90'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:404$89'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:401$88'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:398$87'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:397$86'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:396$85'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:393$84'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:392$83'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:391$82'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:388$81'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:385$80'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:384$79'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:381$78'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:378$77'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:375$76'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:374$75'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:373$74'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:370$73'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:369$72'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:368$71'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:367$70'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:364$69'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:361$68'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:358$67'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:355$66'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:354$65'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:353$64'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:352$63'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:349$62'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:348$61'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:345$60'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:342$59'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:341$58'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:338$57'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:335$56'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:332$55'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:331$54'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:330$53'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:329$52'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:328$51'.
+Creating decoders for process `\top.$proc$mytop_gen.sv:327$50'.
+
+2.3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod\pseudo_rand\WIDTH=257.\SEED' from process `$paramod\pseudo_rand\WIDTH=257.$proc$pseudo_rand.sv:54$608'.
+No latch inferred for signal `\top.\FETCH_Instr_Regs_next_pending_a2[0]' from process `\top.$proc$mytop_gen.sv:280$428'.
+No latch inferred for signal `\top.\FETCH_Instr_Regs_next_pending_a2[1]' from process `\top.$proc$mytop_gen.sv:280$428'.
+No latch inferred for signal `\top.\FETCH_Instr_Regs_next_pending_a2[2]' from process `\top.$proc$mytop_gen.sv:280$428'.
+No latch inferred for signal `\top.\FETCH_Instr_Regs_next_pending_a2[3]' from process `\top.$proc$mytop_gen.sv:280$428'.
+No latch inferred for signal `\top.\FETCH_Instr_Regs_next_pending_a2[4]' from process `\top.$proc$mytop_gen.sv:280$428'.
+No latch inferred for signal `\top.\FETCH_Instr_Regs_next_pending_a2[5]' from process `\top.$proc$mytop_gen.sv:280$428'.
+No latch inferred for signal `\top.\FETCH_Instr_Regs_next_pending_a2[6]' from process `\top.$proc$mytop_gen.sv:280$428'.
+No latch inferred for signal `\top.\FETCH_Instr_Regs_next_pending_a2[7]' from process `\top.$proc$mytop_gen.sv:280$428'.
+No latch inferred for signal `\top.$mem2reg_rd$\FETCH_Instr_Regs_next_pending_a2$top.tlv:352$49_DATA' from process `\top.$proc$mytop_gen.sv:280$425'.
+No latch inferred for signal `\top.$mem2reg_rd$\FETCH_Instr_Regs_Value_a3$top.tlv:347$48_DATA' from process `\top.$proc$mytop_gen.sv:280$422'.
+No latch inferred for signal `\top.$mem2reg_rd$\FETCH_Instr_Regs_next_pending_a2$top.tlv:352$47_DATA' from process `\top.$proc$mytop_gen.sv:280$419'.
+No latch inferred for signal `\top.$mem2reg_rd$\FETCH_Instr_Regs_Value_a3$top.tlv:347$46_DATA' from process `\top.$proc$mytop_gen.sv:280$416'.
+No latch inferred for signal `\top.$mem2reg_rd$\FETCH_Instr_Mem_Word_a3$top.tlv:429$43_DATA' from process `\top.$proc$mytop_gen.sv:280$413'.
+No latch inferred for signal `\top.$mem2reg_rd$\FETCH_Instr_Regs_next_pending_a2$top.tlv:353$42_DATA' from process `\top.$proc$mytop_gen.sv:280$410'.
+No latch inferred for signal `\top.$mem2reg_rd$\instrs$top.tlv:235$41_DATA' from process `\top.$proc$mytop_gen.sv:280$407'.
+No latch inferred for signal `\top.$mem2reg_wr$\FETCH_Instr_Regs_Value_a2$top.tlv:453$45_ADDR' from process `\top.$proc$top.tlv:451$250'.
+No latch inferred for signal `\top.$mem2reg_wr$\FETCH_Instr_Regs_Value_a2$top.tlv:453$45_DATA' from process `\top.$proc$top.tlv:451$250'.
+ERROR: Latch inferred for signal `\top.\FETCH_Instr_Regs_Value_a2[0]' from always_comb process `\top.$proc$top.tlv:451$250'.

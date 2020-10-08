@@ -195,7 +195,7 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
    // f: offset
    // g: store addr
 
-   assign instrs = '{
+/*   assign instrs = '{
       "g=0~0", //     store_addr = 0
       "b=0~1", //     cnt = 1
       "c=1~2", //     ten = 10
@@ -211,7 +211,7 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
       "P=0-1"  //     TERMINATE by jumping to -1
    };
 
-
+*/
 `include "mytop_gen.sv" //_\TLV
    
    // /=========\
@@ -470,3 +470,5 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
    assign failed = ! reset && (cyc_cnt > 1000 || (! FETCH_Instr_reset_a3 && FETCH_Instr_valid_illegal_a6)); endgenerate
 //_\SV
    endmodule
+`include "clk_gate.v"
+`include "pseudo_rand.sv"
