@@ -19,5 +19,5 @@ nextpnr-ice40 --hx8k --pcf dimmer.pcf --json dimmer.json --asc dimmer.asc
 icetime -d hx8k -c 100 dimmer.asc
 icepack dimmer.asc dimmer.bin
 
-sudo catboard_yosys/config_cat dimmer.bin
+sudo ~/catboard_yosys/config_cat dimmer.bin
 

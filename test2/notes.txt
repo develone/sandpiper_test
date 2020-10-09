@@ -19,5 +19,5 @@ nextpnr-ice40 --hx8k --pcf blinky.pcf --json blinky.json --asc blinky.asc
 icetime -d hx8k -c 100 blinky.asc
 icepack blinky.asc blinky.bin
 
-sudo catboard_yosys/config_cat blinky.bin
+sudo ~/catboard_yosys/config_cat blinky.bin
 
