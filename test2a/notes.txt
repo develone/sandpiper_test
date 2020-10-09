@@ -1,0 +1,23 @@
+revisit of dimmer starting with dimmer.v from catzip/rtl/basic
+
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --dhtml -i dimmer.m4 -o dimmer.sv
+yosys -l simple.log -p 'synth_ice40 -blif dimmer.blif -json dimmer.json' dimmer.sv
+=== dimmer ===
+
+   Number of wires:                 13
+   Number of wire bits:             94
+   Number of public wires:          13
+   Number of public wire bits:      94
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 90
+     SB_CARRY                       29
+     SB_DFF                         28
+     SB_LUT4                        33
+nextpnr-ice40 --hx8k --pcf dimmer.pcf --json dimmer.json --asc dimmer.asc
+icetime -d hx8k -c 100 dimmer.asc
+icepack dimmer.asc dimmer.bin
+
+sudo catboard_yosys/config_cat dimmer.bin
+

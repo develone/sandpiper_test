@@ -1,3 +1,5 @@
+revisit of blinky starting with blinky.v from catzip/rtl/basic
+
 java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --dhtml -i blinky.m4 -o blinky.sv
 yosys -l simple.log -p 'synth_ice40 -blif blinky.blif -json blinky.json' blinky.sv
 === blinky ===
