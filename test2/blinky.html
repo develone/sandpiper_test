@@ -237,12 +237,30 @@ All rights reserved.
 <pre>
 <span class="line" line-num="1" source-line-num="1"><span class="tlv_ident_keyword1">\TLV_version 1d: tl-x.org</span></span>
 <span class="line" line-num="2" source-line-num="2"><span class="tlv_ident_keyword1">\SV</span></span>
-<span class="line" line-num="3" source-line-num="3">   <span class="tlv_ident_hdl_code">module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    </span><span class="tlv_ident_comment">/* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  </span><span class="tlv_ident_hdl_code">bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  </span><span class="tlv_ident_comment">/* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */</span></span>
-<span class="line" line-num="4" source-line-num="4"><span class="tlv_ident_keyword1">\TLV</span></span>
-<span class="line" line-num="5" source-line-num="5">   <span class="tlv_ident_assigned_pipe_sig" logical_entity="$num">$num</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">15</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">reset ? 1                   </span><span class="tlv_ident_comment">// 1 if reset</span></span>
-<span class="line" line-num="6" source-line-num="6">                       <span class="tlv_ident_hdl_code">: </span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|none@2">&gt;&gt;1</span><span class="tlv_ident_pipe_sig" logical_entity="$num">$num</span> <span class="tlv_ident_hdl_code">+ </span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|none@4">&gt;&gt;2</span><span class="tlv_ident_pipe_sig" logical_entity="$num">$num</span><span class="tlv_ident_hdl_code">;  </span><span class="tlv_ident_comment">// otherwise add previous two</span></span>
-<span class="line" line-num="7" source-line-num="7"><span class="tlv_ident_keyword1">\SV</span></span>
-<span class="line" line-num="8" source-line-num="8">   <span class="tlv_ident_hdl_code">endmodule</span></span>
+<span class="line" line-num="3" source-line-num="3"><span class="tlv_ident_hdl_code">module	blinky(i_clk, i_btn, o_ledg, o_ledr);</span></span>
+<span class="line" line-num="4" source-line-num="4">	<span class="tlv_ident_hdl_code">parameter	CBITS = 27;</span></span>
+<span class="line" line-num="5" source-line-num="5">	<span class="tlv_ident_hdl_code">input			i_clk;</span></span>
+<span class="line" line-num="6" source-line-num="6">	<span class="tlv_ident_hdl_code">input		[1:0]	i_btn;</span></span>
+<span class="line" line-num="7" source-line-num="7">	<span class="tlv_ident_hdl_code">output	wire	[1:0]	o_ledg;</span></span>
+<span class="line" line-num="8" source-line-num="8">	<span class="tlv_ident_hdl_code">output	wire		o_ledr;</span></span>
+<span class="line" line-num="9" source-line-num="9"></span>
+<span class="line" line-num="10" source-line-num="10">	<span class="tlv_ident_comment">// A counter--just to set things off and get things blinking.</span></span>
+<span class="line" line-num="11" source-line-num="11">	<span class="tlv_ident_hdl_code">reg [(CBITS-1):0]	ctr;</span></span>
+<span class="line" line-num="12" source-line-num="12">	<span class="tlv_ident_hdl_code">initial ctr = 0;</span></span>
+<span class="line" line-num="13" source-line-num="13">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="14" source-line-num="14">		<span class="tlv_ident_hdl_code">ctr &lt;= ctr + 1'b1;</span></span>
+<span class="line" line-num="15" source-line-num="15"></span>
+<span class="line" line-num="16" source-line-num="16">	<span class="tlv_ident_comment">// LED 0 ... Only turns on when button #1 is pressed.</span></span>
+<span class="line" line-num="17" source-line-num="17">	<span class="tlv_ident_hdl_code">assign	o_ledg[0] = ((!ctr[CBITS-1]) &amp; (i_btn[1]==1));</span></span>
+<span class="line" line-num="18" source-line-num="18"></span>
+<span class="line" line-num="19" source-line-num="19">	<span class="tlv_ident_comment">// LED 1 ... always blinking, unless button #0 is pressed.</span></span>
+<span class="line" line-num="20" source-line-num="20">	<span class="tlv_ident_hdl_code">assign	o_ledg[1] = (( ctr[CBITS-1]) &amp; (i_btn[0]==0));</span></span>
+<span class="line" line-num="21" source-line-num="21"></span>
+<span class="line" line-num="22" source-line-num="22">	<span class="tlv_ident_comment">// RED LED ... always ever blinks whenever either button is pressed</span></span>
+<span class="line" line-num="23" source-line-num="23">	<span class="tlv_ident_hdl_code">assign	o_ledr = (i_btn[0])|(i_btn[1]);</span></span>
+<span class="line" line-num="24" source-line-num="24"></span>
+<span class="line" line-num="25" source-line-num="25"><span class="tlv_ident_keyword1">\SV</span></span>
+<span class="line" line-num="26" source-line-num="26">   <span class="tlv_ident_hdl_code">endmodule</span></span>
 
 </pre>
 

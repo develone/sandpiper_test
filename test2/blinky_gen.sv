@@ -9,28 +9,3 @@
 
 
 
-//
-// Signals declared top-level.
-//
-
-// For $num.
-logic [15:0] L0_num_a0,
-             L0_num_a1,
-             L0_num_a2;
-
-
-
-generate
-
-   // For $num.
-   always_ff @(posedge clk) L0_num_a1[15:0] <= L0_num_a0[15:0];
-   always_ff @(posedge clk) L0_num_a2[15:0] <= L0_num_a1[15:0];
-
-
-
-endgenerate
-
-
-
-
-generate   // This is awkward, but we need to go into 'generate' context in the line that `includes the declarations file.

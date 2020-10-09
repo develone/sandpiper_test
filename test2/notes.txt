@@ -1,0 +1,21 @@
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --dhtml -i blinky.m4 -o blinky.sv
+yosys -l simple.log -p 'synth_ice40 -blif blinky.blif -json blinky.json' blinky.sv
+=== blinky ===
+
+   Number of wires:                  7
+   Number of wire bits:             87
+   Number of public wires:           7
+   Number of public wire bits:      87
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 82
+     SB_CARRY                       25
+     SB_DFF                         27
+     SB_LUT4                        30
+nextpnr-ice40 --hx8k --pcf blinky.pcf --json blinky.json --asc blinky.asc
+icetime -d hx8k -c 100 blinky.asc
+icepack blinky.asc blinky.bin
+
+sudo catboard_yosys/config_cat blinky.bin
+
