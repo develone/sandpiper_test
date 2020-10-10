@@ -18,7 +18,7 @@ strict digraph "top.tlv" {
       id = "id0{logical_entity=#Q##Q#}"
       label = "/top"
       subgraph "cluster.stage0" {
-         "$in_dir@0" [fillcolor = "#ffffffb0", shape = box, label = "$in_\n dir=", id = "id1{logical_entity=#Q#$in_dir#Q#}", tooltip = "$in_dir = *in_dir"];
+         "$i_dir@0" [fillcolor = "#ffffffb0", shape = box, label = "$i_dir=", id = "id1{logical_entity=#Q#$i_dir#Q#}", tooltip = "$i_dir = *i_dir;"];
       }
       subgraph "cluster.stage0" {
          style = "filled"
@@ -42,7 +42,7 @@ strict digraph "top.tlv" {
 
 "*cyc_cnt" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
 "*failed" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
-"*in_dir" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
+"*i_dir" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
 "*passed" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
 
 }

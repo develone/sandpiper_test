@@ -13,8 +13,8 @@
 // Signals declared top-level.
 //
 
-// For $in_dir.
-logic L0_in_dir_a0;
+// For $i_dir.
+logic L0_i_dir_a0;
 
 
 

@@ -1,9 +1,11 @@
-Was trying to use option -dhtml wasn't getting top_stats or top_graph.svg
+Starting by copying top.m4 and top.tlv and it appears that top.tlv is not needed.
 
-java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --verbose  --stats --viz --svg --graphTrans -i top.m4 -o top.sv
+Was trying to use option -dhtml wasn't getting top_stats or top_graph.svg
+ 	
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --verbose  --stats --viz --dhtml --graphTrans -i top.m4 -o top.sv
 INFORM(0) (PROD_INFO):
 	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
-	Run as: "java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --verbose --stats --viz --svg --graphTrans -i top.m4 -o top.sv
+	Run as: "java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --verbose --stats --viz --dhtml --graphTrans -i top.m4 -o top.sv
 	For help, including product info, run with -h.
 
 INFORM(0) (LICENSE):
@@ -14,18 +16,19 @@ INFORM(0) (FILES):
 	Reading "top.m4" to produce:
 		Translated HDL File: "top.sv"
 		Generated HDL File: "top_gen.sv"
+		HTML TLX File: "top.html"
 		Transaction Flow Graph (Dot) File: "top_trans.dot"
-		Navigation Environment: "top_graph.svg"
 		Simulation Visualization File: "top_viz.json"
 		Statistics Directory: "top_stats"
 
-WARNING(1) (UNUSED-SIG): File 'top.tlv' Line 25 (char 4)
-	Preprocessed as 'top.m4':25(ch4):
-	+---vvvvvvv-------------------------------
-	>   $in_dir = *in_dir
-	+---^^^^^^^-------------------------------
-	Signal $in_dir is assigned but never used.
-	To silence this message use "`BOGUS_USE($in_dir)".
+WARNING(1) (UNUSED-SIG): File 'top.tlv' Line 33 (char 4)
+	Preprocessed as 'top.m4':33(ch4):
+	+---vvvvvv--------------------------------
+	|   //$reset = *reset;
+	>   $i_dir = *i_dir;
+	+---^^^^^^--------------------------------
+	Signal $i_dir is assigned but never used.
+	To silence this message use "`BOGUS_USE($i_dir)".
 
 INFORM(0) (FILE): File 'top.tlv'
 	Writing file "top.sv".
@@ -58,12 +61,29 @@ INFORM(0) (FILE):
 	Writing file "top_stats/stats.csv".
 
 INFORM(0) (STATS):
-	SandPiper generated 16% of your HDL code.
+	SandPiper generated 20% of your HDL code.
 	This includes: 1 signal declarations, 0 flops/latches, and 0 conditional clock signals.
 	View "top_stats" for more details.
 
 INFORM(0) (FILE):
+	Writing file "top.html".
+
+INFORM(0) (FILE):
 	Writing file "top_viz.json".
 
-INFORM(0) (FILE): File 'top.tlv'
-	Writing file "top_graph.svg".
+yosys -l simple.log -p 'synth_ice40 -blif top.blif -json top.json' top.sv
+
+=== ppio ===
+
+   Number of wires:                  7
+   Number of wire bits:             28
+   Number of public wires:           7
+   Number of public wire bits:      28
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  9
+     SB_IO                           8
+     SB_LUT4                         1
+
+Now creating top.blif, top.json, and simple.log	

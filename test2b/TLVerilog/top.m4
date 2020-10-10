@@ -1,5 +1,11 @@
 \TLV_version [\source top.tlv] 1d: tl-x.org
 \SV
+module	ppio(i_dir, io_data, i_data, o_data);
+   parameter	W=8;
+	input			i_dir;
+	inout	[(W-1):0]	io_data;
+	input	[(W-1):0]	i_data;
+	output	[(W-1):0]	o_data;
 	genvar	k;
 	generate for(k=0; k<W; k = k+1)
 	begin : GEN_INOUT
@@ -12,6 +18,7 @@
 				.D_IN_0( o_data[k])
 			);
 	end endgenerate
+
    // =========================================
    // Welcome!  Try the tutorials via the menu.
    // =========================================
@@ -20,9 +27,11 @@
    
    // Macro providing required top-level module definition, random
    // stimulus support, and Verilator config.
-   module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    /* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  /* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */   // (Expanded in Nav-TLV pane.)
+   //m4_makerchip_module   // (Expanded in Nav-TLV pane.)
 \TLV
-   $in_dir = *in_dir
+   //$reset = *reset;
+   $i_dir = *i_dir;
+
    //...
 
    // Assert these to end simulation (before Makerchip cycle limit).
