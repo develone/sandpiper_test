@@ -1,13 +1,13 @@
 // Verilated -*- C++ -*-
 // DESCRIPTION: Verilator output: Symbol table implementation internals
 
-#include "Vfibon__Syms.h"
-#include "Vfibon.h"
+#include "Vour__Syms.h"
+#include "Vour.h"
 
 
 
 // FUNCTIONS
-Vfibon__Syms::Vfibon__Syms(Vfibon* topp, const char* namep)
+Vour__Syms::Vour__Syms(Vour* topp, const char* namep)
     // Setup locals
     : __Vm_namep(namep)
     , __Vm_didInit(false)

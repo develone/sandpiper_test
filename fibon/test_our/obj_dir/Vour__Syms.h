@@ -4,16 +4,16 @@
 // Internal details; most calling programs do not need this header,
 // unless using verilator public meta comments.
 
-#ifndef _VFIBON__SYMS_H_
-#define _VFIBON__SYMS_H_  // guard
+#ifndef _VOUR__SYMS_H_
+#define _VOUR__SYMS_H_  // guard
 
-#include "verilated.h"
+#include "verilated_heavy.h"
 
 // INCLUDE MODULE CLASSES
-#include "Vfibon.h"
+#include "Vour.h"
 
 // SYMS CLASS
-class Vfibon__Syms : public VerilatedSyms {
+class Vour__Syms : public VerilatedSyms {
   public:
     
     // LOCAL STATE
@@ -21,11 +21,11 @@ class Vfibon__Syms : public VerilatedSyms {
     bool __Vm_didInit;
     
     // SUBCELL STATE
-    Vfibon*                        TOPp;
+    Vour*                          TOPp;
     
     // CREATORS
-    Vfibon__Syms(Vfibon* topp, const char* namep);
-    ~Vfibon__Syms() {}
+    Vour__Syms(Vour* topp, const char* namep);
+    ~Vour__Syms() {}
     
     // METHODS
     inline const char* name() { return __Vm_namep; }

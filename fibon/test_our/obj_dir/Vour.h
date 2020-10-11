@@ -5,47 +5,34 @@
 // The class here is then constructed to instantiate the design.
 // See the Verilator manual for examples.
 
-#ifndef _VFIBON_H_
-#define _VFIBON_H_  // guard
+#ifndef _VOUR_H_
+#define _VOUR_H_  // guard
 
-#include "verilated.h"
+#include "verilated_heavy.h"
 
 //==========
 
-class Vfibon__Syms;
+class Vour__Syms;
 
 //----------
 
-VL_MODULE(Vfibon) {
+VL_MODULE(Vour) {
   public:
-    
-    // PORTS
-    // The application code writes and reads these signals to
-    // propagate new values into/out from the Verilated model.
-    VL_IN8(clk,0,0);
-    VL_IN8(reset,0,0);
-    VL_OUT8(passed,0,0);
-    VL_OUT8(failed,0,0);
-    VL_IN(cyc_cnt,31,0);
-    
-    // LOCAL VARIABLES
-    // Internals; generally not touched by application code
-    CData/*0:0*/ __Vclklast__TOP__clk;
     
     // INTERNAL VARIABLES
     // Internals; generally not touched by application code
-    Vfibon__Syms* __VlSymsp;  // Symbol table
+    Vour__Syms* __VlSymsp;  // Symbol table
     
     // CONSTRUCTORS
   private:
-    VL_UNCOPYABLE(Vfibon);  ///< Copying not allowed
+    VL_UNCOPYABLE(Vour);  ///< Copying not allowed
   public:
     /// Construct the model; called by application code
     /// The special name  may be used to make a wrapper with a
     /// single model invisible with respect to DPI scope names.
-    Vfibon(const char* name = "TOP");
+    Vour(const char* name = "TOP");
     /// Destroy the model; called (often implicitly) by application code
-    ~Vfibon();
+    ~Vour();
     
     // API METHODS
     /// Evaluate the model.  Application must call when inputs change.
@@ -60,22 +47,23 @@ VL_MODULE(Vfibon) {
     
     // INTERNAL METHODS
   private:
-    static void _eval_initial_loop(Vfibon__Syms* __restrict vlSymsp);
+    static void _eval_initial_loop(Vour__Syms* __restrict vlSymsp);
   public:
-    void __Vconfigure(Vfibon__Syms* symsp, bool first);
+    void __Vconfigure(Vour__Syms* symsp, bool first);
   private:
-    static QData _change_request(Vfibon__Syms* __restrict vlSymsp);
-    static QData _change_request_1(Vfibon__Syms* __restrict vlSymsp);
+    static QData _change_request(Vour__Syms* __restrict vlSymsp);
+    static QData _change_request_1(Vour__Syms* __restrict vlSymsp);
     void _ctor_var_reset() VL_ATTR_COLD;
   public:
-    static void _eval(Vfibon__Syms* __restrict vlSymsp);
+    static void _eval(Vour__Syms* __restrict vlSymsp);
   private:
 #ifdef VL_DEBUG
     void _eval_debug_assertions();
 #endif  // VL_DEBUG
   public:
-    static void _eval_initial(Vfibon__Syms* __restrict vlSymsp) VL_ATTR_COLD;
-    static void _eval_settle(Vfibon__Syms* __restrict vlSymsp) VL_ATTR_COLD;
+    static void _eval_initial(Vour__Syms* __restrict vlSymsp) VL_ATTR_COLD;
+    static void _eval_settle(Vour__Syms* __restrict vlSymsp) VL_ATTR_COLD;
+    static void _initial__TOP__1(Vour__Syms* __restrict vlSymsp) VL_ATTR_COLD;
 } VL_ATTR_ALIGNED(VL_CACHE_LINE_BYTES);
 
 //----------
