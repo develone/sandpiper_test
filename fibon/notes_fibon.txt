@@ -8,3 +8,34 @@ cp ~/sandpiper_test/test3/risc-v_4-stage/pseudo_rand_gen.sv .
 verilator -Wall --cc fibon.sv
 cd obj_dir/
 make -f Vfibon.mk 
+
+From "https://zipcpu.com/blog/2017/06/21/looking-at-verilator.html" created main_tb.cpp.
+
+Chg'ed i_clk to clk.
+
+g++ -I/usr/local/share/verilator/include/ -faligned-new -Wall main_tb.cpp -o main_tb
+usr/bin/ld: /tmp/ccgSOGbt.o: in function `main':
+main_tb.cpp:(.text+0x3c): undefined reference to `Vfibon::Vfibon(char const*)'
+/usr/bin/ld: main_tb.cpp:(.text+0x6c): undefined reference to `Vfibon::eval()'
+/usr/bin/ld: main_tb.cpp:(.text+0x80): undefined reference to `Vfibon::eval()'
+/usr/bin/ld: /tmp/ccgSOGbt.o: in function `Verilated::gotFinish()':
+main_tb.cpp:(.text._ZN9Verilated9gotFinishEv[_ZN9Verilated9gotFinishEv]+0x20): undefined reference to `Verilated::s_s'
+/usr/bin/ld: /tmp/ccgSOGbt.o: in function `Verilated::commandArgs(int, char**)':
+main_tb.cpp:(.text._ZN9Verilated11commandArgsEiPPc[_ZN9Verilated11commandArgsEiPPc]+0x1c): undefined reference to `Verilated::commandArgs(int, char const**)'
+collect2: error: ld returned 1 exit status
+
+ls
+main_tb.cpp         Vfibon__ALLcls.o    Vfibon_classes.mk  Vfibon__Syms.cpp
+Vfibon__ALL.a       Vfibon__ALLsup.cpp  Vfibon.cpp         Vfibon__Syms.h
+Vfibon__ALLcls.cpp  Vfibon__ALLsup.d    Vfibon.h
+Vfibon__ALLcls.d    Vfibon__ALLsup.o    Vfibon.mk
+
+g++ -L. -lVfibon__ALL -I/usr/local/share/verilator/include/ -faligned-new -Wall main_tb.cpp -o main_tb 
+/usr/bin/ld: cannot find -lVfibon__ALL
+collect2: error: ld returned 1 exit status
+
+g++ -L/home/devel/sandpiper_test/fibon/obj_dir/ -l Vfibon__ALL -I/usr/local/share/verilator/include/ -faligned-new -Wall main_tb.cpp -o main_tb
+/usr/bin/ld: cannot find -lVfibon__ALL
+collect2: error: ld returned 1 exit status
+
+ 
