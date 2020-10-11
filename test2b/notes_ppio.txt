@@ -1,3 +1,17 @@
+new test2b.1.1 using ppio.m4 10/11/20
+=== ppio ===
+
+   Number of wires:                  7
+   Number of wire bits:             28
+   Number of public wires:           7
+   Number of public wire bits:      28
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  9
+     SB_IO                           8
+     SB_LUT4                         1
+     
 Starting by copying top.m4 and top.tlv and it appears that top.tlv is not needed.
 
 Was trying to use option -dhtml wasn't getting top_stats or top_graph.svg

@@ -1,0 +1,6 @@
+,Unknown,Untouched,Logic,Declarations,Staging,Structure,Validity,Gating,Instrumentation,Comments,Whitespace,Total Meaningful Chars,Total Chars
+TL-Verilog,0,337,47,0,0,33,0,0,0,424,159,417,1000
+ppio_gen.sv,0,0,0,17,0,34,0,0,0,430,28,51,509
+ppio.sv,0,337,66,0,0,71,0,0,0,519,169,474,1162
+SystemVerilog Total,0,337,66,17,0,105,0,0,0,949,197,525,1671
+Color,DarkGray,#305050,purple,blue,#509050,#1090c0,#E04010,orange,#C0C0F0,#C04040,gray,,
