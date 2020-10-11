@@ -1,0 +1,10 @@
+mkdir fibon
+cd fibon/
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --graphDesign --graphTrans -i top.m4 -o fibon.sv
+cp ../calc/sandpiper* .
+cp ../calc/sp_default.vh .
+cp ~/sandpiper_test/test3/risc-v_4-stage/pseudo_rand.sv .
+cp ~/sandpiper_test/test3/risc-v_4-stage/pseudo_rand_gen.sv .
+verilator -Wall --cc fibon.sv
+cd obj_dir/
+make -f Vfibon.mk 
