@@ -1,0 +1,128 @@
+mkdir fibon
+cd fibon/
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --graphDesign --graphTrans -i top.m4 -o fibon.sv
+cp ../calc/sandpiper* .
+cp ../calc/sp_default.vh .
+cp ~/sandpiper_test/test3/risc-v_4-stage/pseudo_rand.sv .
+cp ~/sandpiper_test/test3/risc-v_4-stage/pseudo_rand_gen.sv .
+verilator -Wall --cc fibon.sv
+cd obj_dir/
+make -f Vfibon.mk 
+
+From "https://zipcpu.com/blog/2017/06/21/looking-at-verilator.html" created main_tb.cpp.
+
+Chg'ed i_clk to clk.
+
+g++ -I/usr/local/share/verilator/include/ -faligned-new -Wall main_tb.cpp -o main_tb
+usr/bin/ld: /tmp/ccgSOGbt.o: in function `main':
+main_tb.cpp:(.text+0x3c): undefined reference to `Vfibon::Vfibon(char const*)'
+/usr/bin/ld: main_tb.cpp:(.text+0x6c): undefined reference to `Vfibon::eval()'
+/usr/bin/ld: main_tb.cpp:(.text+0x80): undefined reference to `Vfibon::eval()'
+/usr/bin/ld: /tmp/ccgSOGbt.o: in function `Verilated::gotFinish()':
+main_tb.cpp:(.text._ZN9Verilated9gotFinishEv[_ZN9Verilated9gotFinishEv]+0x20): undefined reference to `Verilated::s_s'
+/usr/bin/ld: /tmp/ccgSOGbt.o: in function `Verilated::commandArgs(int, char**)':
+main_tb.cpp:(.text._ZN9Verilated11commandArgsEiPPc[_ZN9Verilated11commandArgsEiPPc]+0x1c): undefined reference to `Verilated::commandArgs(int, char const**)'
+collect2: error: ld returned 1 exit status
+
+ls
+main_tb.cpp         Vfibon__ALLcls.o    Vfibon_classes.mk  Vfibon__Syms.cpp
+Vfibon__ALL.a       Vfibon__ALLsup.cpp  Vfibon.cpp         Vfibon__Syms.h
+Vfibon__ALLcls.cpp  Vfibon__ALLsup.d    Vfibon.h
+Vfibon__ALLcls.d    Vfibon__ALLsup.o    Vfibon.mk
+
+g++ -L. -lVfibon__ALL -I/usr/local/share/verilator/include/ -faligned-new -Wall main_tb.cpp -o main_tb 
+/usr/bin/ld: cannot find -lVfibon__ALL
+collect2: error: ld returned 1 exit status
+
+g++ -L/home/devel/sandpiper_test/fibon/obj_dir/ -l Vfibon__ALL -I/usr/local/share/verilator/include/ -faligned-new -Wall main_tb.cpp -o main_tb
+/usr/bin/ld: cannot find -lVfibon__ALL
+collect2: error: ld returned 1 exit status
+
+10/11/20 Installing Latest version
+verilator --version
+Verilator 3.926 2018-08-22 rev UNKNOWN_REV
+
+git clone https://github.com/verilator/verilator
+
+git checkout stable
+
+cd verilator
+
+autoconf
+
+./configure
+
+make
+
+-rwxr-xr-x  1 root root    163457 Jun 17 12:57 verilator
+-rwxr-xr-x  1 root root   3989172 Jun 17 12:57 verilator_bin
+-rwxr-xr-x  1 root root  48031304 Jun 17 12:57 verilator_bin_dbg
+-rwxr-xr-x  1 root root      8371 Jun 17 12:57 verilator_coverage
+-rwxr-xr-x  1 root root    999368 Jun 17 12:57 verilator_coverage_bin_dbg
+-rwxr-xr-x  1 root root      6912 Jun 17 12:57 verilator_profcfunc
+
+sudo make install
+
+-rwxr-xr-x 1 root root    223012 Oct 11 14:54 /usr/local/bin/verilator
+-rwxr-xr-x 1 root root   5972696 Oct 11 14:54 /usr/local/bin/verilator_bin
+-rwxr-xr-x 1 root root 100463340 Oct 11 14:54 /usr/local/bin/verilator_bin_dbg
+-rwxr-xr-x 1 root root      9159 Oct 11 14:54 /usr/local/bin/verilator_coverage
+-rwxr-xr-x 1 root root   2029744 Oct 11 14:54 /usr/local/bin/verilator_coverage_bin_dbg
+-rwxr-xr-x 1 root root     18282 Oct 11 14:54 /usr/local/bin/verilator_gantt
+-rwxr-xr-x 1 root root      7690 Oct 11 14:54 /usr/local/bin/verilator_profcfunc
+
+verilator --version
+Verilator 4.100 2020-09-07 rev v4.100-10-g39eea781
+
+cd ~/sandpiper_test/fibon/
+
+mkdir test_our
+    cd test_our
+
+    cat >our.v <<'EOF'
+      module our;
+         initial begin $display("Hello World"); $finish; end
+      endmodule
+    EOF
+
+    cat >sim_main.cpp <<'EOF'
+      #include "Vour.h"
+      #include "verilated.h"
+      int main(int argc, char** argv, char** env) {
+          Verilated::commandArgs(argc, argv);
+          Vour* top = new Vour;
+          while (!Verilated::gotFinish()) { top->eval(); }
+          delete top;
+          exit(0);
+      }
+    EOF
+
+verilator -Wall --cc our.v --exe --build sim_main.cpp
+
+cd obj_dir/
+
+./Vour
+
+Hello World
+- our.v:2: Verilog $finish
+
+
+10/12/20
+
+http://makerchip.com/sandbox/0M8f5hWZ2/0zmhM3E
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --compiler verilator --graphTrans -i top.m4 -o counter.sv
+verilator -Wall --trace --cc counter.sv --exe --build sim_main.cpp
+
+dot -Tpdf top_trans.dot -o top_trans.pdf
+************************
+cd obj_dir
+ 
+make -f Vfibon.mk
+
+./Vfibon +trace > xx.txt now creates logs logs/vlt_dump.vcd
+
+gtkwave logs/vlt_dump.vcd
+
+
+
+
