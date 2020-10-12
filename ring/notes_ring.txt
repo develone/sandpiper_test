@@ -85,3 +85,16 @@ cp ../counter/sp_default.vh .
 
 cp ../counter/sim_main.cpp .
 
+verilator -Wall --trace --cc top.sv --exe --build sim_main.cpp
+
+cp ~/warp-v/formal/verilog/clk_gate.v .
+
+cp ~/warp-v/formal/verilog/sp_verilog.vh  .
+
+cp ~/warp-v/formal/verilog/pseudo_rand.sv  .
+
+cp ~/warp-v/formal/verilog/pseudo_rand_gen.sv  .
+
+cp ~/warp-v/formal/verilog/simple_bypass_fifo.sv  .
+
+cp ~/warp-v/formal/verilog/rw_lib.vh  .
