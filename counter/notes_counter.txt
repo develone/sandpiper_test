@@ -127,7 +127,7 @@ cd obj_dir
  
 make -f Vcounter.mk
 
-./Vfibon +trace > xx.txt now creates logs logs/vlt_dump.vcd
+./Vcounter +trace > xx.txt now creates logs logs/vlt_dump.vcd
 
 gtkwave logs/vlt_dump.vcd
 
