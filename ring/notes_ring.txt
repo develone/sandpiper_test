@@ -1,0 +1,87 @@
+Testing ring example 10/12/20
+
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --compiler verilator --graphTrans -i top.m4 -o top.sv
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --compiler verilator --graphTrans -i top.m4 -o top.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Edward Vidal Jr." as: Full Edition.
+
+INFORM(0) (FILES):
+	From directory: /home/devel/sandpiper_test/ring
+	Reading "top.m4" to produce:
+		Translated HDL File: "top.sv"
+		Generated HDL File: "top_gen.sv"
+		Transaction Flow Graph (Dot) File: "top_trans.dot"
+
+BUG(11) (UNWRITTEN-CODE): File 'top.tlv'
+	Execution reached unwritten code.  Debug in debugger.
+
+
+	For assistance, please contact Redwood EDA.
+BUG(11) (BUG): File 'top.tlv'
+	Not expecting sig.from_wildcard to already be set when setting it.
+
+
+	For assistance, please contact Redwood EDA.
+BUG(11) (UNWRITTEN-CODE): File 'top.tlv'
+	Execution reached unwritten code.  Debug in debugger.
+
+
+	For assistance, please contact Redwood EDA.
+BUG(11) (BUG): File 'top.tlv'
+	Not expecting sig.from_wildcard to already be set when setting it.
+
+
+	For assistance, please contact Redwood EDA.
+BUG(11) (UNWRITTEN-CODE): File 'top.tlv'
+	Execution reached unwritten code.  Debug in debugger.
+
+
+	For assistance, please contact Redwood EDA.
+BUG(11) (BUG): File 'top.tlv'
+	Not expecting sig.from_wildcard to already be set when setting it.
+
+
+	For assistance, please contact Redwood EDA.
+BUG(11) (UNWRITTEN-CODE): File 'top.tlv'
+	Execution reached unwritten code.  Debug in debugger.
+
+
+	For assistance, please contact Redwood EDA.
+BUG(11) (BUG): File 'top.tlv'
+	Not expecting sig.from_wildcard to already be set when setting it.
+
+
+	For assistance, please contact Redwood EDA.
+BUG(11) (UNWRITTEN-CODE): File 'top.tlv'
+	Execution reached unwritten code.  Debug in debugger.
+
+
+	For assistance, please contact Redwood EDA.
+BUG(11) (BUG): File 'top.tlv'
+	Not expecting sig.from_wildcard to already be set when setting it.
+
+
+	For assistance, please contact Redwood EDA.
+BUG(11) (UNWRITTEN-CODE): File 'top.tlv'
+	Execution reached unwritten code.  Debug in debugger.
+
+
+	For assistance, please contact Redwood EDA.
+BUG(11) (BUG): File 'top.tlv'
+	Not expecting sig.from_wildcard to already be set when setting it.
+
+
+	For assistance, please contact Redwood EDA.
+	
+dot -Tpdf top_trans.dot -o top_trans.pdf
+
+cp ../counter/sandpiper* .
+
+cp ../counter/sp_default.vh .
+
+cp ../counter/sim_main.cpp .
+
