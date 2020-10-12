@@ -18,21 +18,23 @@ strict digraph "top.tlv" {
       id = "id0{logical_entity=#Q##Q#}"
       label = "/top"
       subgraph "cluster.stage0" {
-         "$num@0" [fillcolor = "#ffffffb0", shape = box, label = "$num=", id = "id1{logical_entity=#Q#$num#Q#}", tooltip = "$num[15:0] = *reset ? 1                   // 1 if reset
-                       : >>1$num + >>2$num;"];
+         "$reset@0" [fillcolor = "#ffffffb0", shape = box, label = "$reset=", id = "id1{logical_entity=#Q#$reset#Q#}", tooltip = "$reset = *reset;"];
+      }
+      subgraph "cluster.stage0" {
+         "$val@0" [fillcolor = "#ffffffb0", shape = box, label = "$val=", id = "id2{logical_entity=#Q#$val#Q#}", tooltip = "$val[15:0] = $reset ? 1 : >>1$val + >>2$val;"];
       }
       subgraph "cluster.stage1" {
-         "$num@1" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         "$val@1" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
       }
       subgraph "cluster.stage2" {
-         "$num@2" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         "$val@2" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
       }
       subgraph "cluster.stage0" {
          style = "filled"
          fontsize = 20
          penwidth = 1.5
          label = "@0"
-         id = "id6{logical_entity=#Q#|none@0#Q#}"
+         id = "id8{logical_entity=#Q#|none@0#Q#}"
          tooltip = "@0"
          fillcolor = "#509050"
       }
@@ -41,7 +43,7 @@ strict digraph "top.tlv" {
          fontsize = 20
          penwidth = 1.5
          label = "@1"
-         id = "id7{logical_entity=#Q#|none@2#Q#}"
+         id = "id9{logical_entity=#Q#|none@2#Q#}"
          tooltip = "@1"
          fillcolor = "darkgreen"
       }
@@ -50,7 +52,7 @@ strict digraph "top.tlv" {
          fontsize = 20
          penwidth = 1.5
          label = "@2"
-         id = "id8{logical_entity=#Q#|none@4#Q#}"
+         id = "id10{logical_entity=#Q#|none@4#Q#}"
          tooltip = "@2"
          fillcolor = "#509050"
       }
@@ -60,15 +62,16 @@ strict digraph "top.tlv" {
          penwidth = 2.5
          fontsize = 50
          tooltip = "|none"
-         id = "id9{logical_entity=#Q#|none#Q#}"
+         id = "id11{logical_entity=#Q#|none#Q#}"
          label = "|none"
       }
    }
 
 "*reset" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
 
-"$num@0" -> "$num@1" [id = "id2{logical_entity=#Q#$num#Q#}", weight = 10]
-"$num@1" -> "$num@2" [id = "id3{logical_entity=#Q#$num#Q#}", weight = 10]
-"$num@1" -> "$num@0" [id = "id4{logical_entity=#Q#$num#Q#}", weight = 1, tooltip = "$num>>1"]
-"$num@2" -> "$num@0" [id = "id5{logical_entity=#Q#$num#Q#}", weight = 1, tooltip = "$num>>2"]
+"$val@0" -> "$val@1" [id = "id3{logical_entity=#Q#$val#Q#}", weight = 10]
+"$val@1" -> "$val@2" [id = "id4{logical_entity=#Q#$val#Q#}", weight = 10]
+"$reset@0" -> "$val@0" [id = "id5{logical_entity=#Q#$reset#Q#}", weight = 2, tooltip = "$reset"]
+"$val@1" -> "$val@0" [id = "id6{logical_entity=#Q#$val#Q#}", weight = 1, tooltip = "$val>>1"]
+"$val@2" -> "$val@0" [id = "id7{logical_entity=#Q#$val#Q#}", weight = 1, tooltip = "$val>>2"]
 }

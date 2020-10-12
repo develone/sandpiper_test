@@ -13,18 +13,21 @@
 // Signals declared top-level.
 //
 
-// For $num.
-logic [15:0] L0_num_a0,
-             L0_num_a1,
-             L0_num_a2;
+// For $reset.
+logic L0_reset_a0;
+
+// For $val.
+logic [15:0] L0_val_a0,
+             L0_val_a1,
+             L0_val_a2;
 
 
 
 generate
 
-   // For $num.
-   always_ff @(posedge clk) L0_num_a1[15:0] <= L0_num_a0[15:0];
-   always_ff @(posedge clk) L0_num_a2[15:0] <= L0_num_a1[15:0];
+   // For $val.
+   always_ff @(posedge clk) L0_val_a1[15:0] <= L0_val_a0[15:0];
+   always_ff @(posedge clk) L0_val_a2[15:0] <= L0_val_a1[15:0];
 
 
 

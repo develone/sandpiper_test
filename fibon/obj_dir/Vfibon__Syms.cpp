@@ -10,8 +10,6 @@
 Vfibon__Syms::Vfibon__Syms(Vfibon* topp, const char* namep)
     // Setup locals
     : __Vm_namep(namep)
-    , __Vm_activity(false)
-    , __Vm_baseCode(0)
     , __Vm_didInit(false)
     // Setup submodule names
 {

@@ -107,3 +107,13 @@ Hello World
 - our.v:2: Verilog $finish
 
 
+10/12/20
+
+http://makerchip.com/sandbox/0M8f5hWZ2/0zmhM3E
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --compiler verilator --graphTrans -i top.m4 -o fibon.sv
+verilator -Wall --cc fibon.sv --exe --build sim_main.cpp
+
+cd obj_dir
+ 
+make -f Vfibon.mk
+
