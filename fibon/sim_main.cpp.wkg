@@ -57,6 +57,7 @@ int main(int argc, char** argv, char** env) {
 #endif
 
     // Set some inputs
+    
     /*
     top->reset_l = !0;
     top->fastclk = 0;
@@ -67,7 +68,7 @@ int main(int argc, char** argv, char** env) {
     top->in_wide[1] = 0x22222222;
     top->in_wide[2] = 0x3;
     */
-
+    
     // Simulate until $finish
     while (!Verilated::gotFinish()) {
         main_time++;  // Time passes...
@@ -81,9 +82,9 @@ int main(int argc, char** argv, char** env) {
             top->clk = 0;
         }
         if (main_time > 1 && main_time < 10) {
-            top->reset = !1;  // Assert reset
+            top->reset = 1;  // Assert reset
         } else {
-            top->reset = !0;  // Deassert reset
+            top->reset = 0;  // Deassert reset
         }
 
         // Assign some other inputs
@@ -97,9 +98,9 @@ int main(int argc, char** argv, char** env) {
         if (tfp) tfp->dump (main_time);
 #endif
 
-        // Read outputs
-        VL_PRINTF ("[%" VL_PRI64 "d] clk=%x cyc_cnt=%x passed=%"
-                   " -> oquad=%" VL_PRI64"x owide=%x_%08x_%08x\n",
+        // Read outputs " -> oquad=%" VL_PRI64"x owide=%x_%08x_%08x\n" passed=%x failed=%x"
+        VL_PRINTF ("[%" VL_PRI64 "d] clk=%x reset=%x cyc_cnt=%x"
+        				 " passed=%x failed=%x \n",
                    main_time, top->clk, top->reset, top->cyc_cnt,
                    top->passed, top->failed);
     }
