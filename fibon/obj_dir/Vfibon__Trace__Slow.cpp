@@ -56,9 +56,10 @@ void Vfibon::traceInitSub0(void* userp, VerilatedVcd* tracep) {
         tracep->declBit(c+36,"top failed", false,-1);
         tracep->declArray(c+1,"top RW_rand_raw", false,-1, 256,0);
         tracep->declArray(c+10,"top RW_rand_vect", false,-1, 319,0);
-        tracep->declBus(c+37,"top L0_num_a0", false,-1, 15,0);
-        tracep->declBus(c+20,"top L0_num_a1", false,-1, 15,0);
-        tracep->declBus(c+21,"top L0_num_a2", false,-1, 15,0);
+        tracep->declBit(c+33,"top L0_reset_a0", false,-1);
+        tracep->declBus(c+37,"top L0_val_a0", false,-1, 15,0);
+        tracep->declBus(c+20,"top L0_val_a1", false,-1, 15,0);
+        tracep->declBus(c+21,"top L0_val_a2", false,-1, 15,0);
         tracep->declBus(c+38,"top pseudo_rand WIDTH", false,-1, 31,0);
         tracep->declBit(c+32,"top pseudo_rand clk", false,-1);
         tracep->declBit(c+33,"top pseudo_rand reset", false,-1);
@@ -137,8 +138,8 @@ void Vfibon::traceFullSub0(void* userp, VerilatedVcd* tracep) {
                                                           >> 0x20U)) 
                                                  << 1U)));
         tracep->fullWData(oldp+10,(__Vtemp17),320);
-        tracep->fullSData(oldp+20,(vlTOPp->top__DOT__L0_num_a1),16);
-        tracep->fullSData(oldp+21,(vlTOPp->top__DOT__L0_num_a2),16);
+        tracep->fullSData(oldp+20,(vlTOPp->top__DOT__L0_val_a1),16);
+        tracep->fullSData(oldp+21,(vlTOPp->top__DOT__L0_val_a2),16);
         if (vlTOPp->top__DOT__pseudo_rand__DOT__DEFAULT_reset_a1) {
             __Vtemp25[0U] = 0x4e4684aU;
             __Vtemp25[1U] = 0xc45f864U;
@@ -195,8 +196,8 @@ void Vfibon::traceFullSub0(void* userp, VerilatedVcd* tracep) {
         tracep->fullBit(oldp+36,(vlTOPp->failed));
         tracep->fullSData(oldp+37,(((IData)(vlTOPp->reset)
                                      ? 1U : (0xffffU 
-                                             & ((IData)(vlTOPp->top__DOT__L0_num_a1) 
-                                                + (IData)(vlTOPp->top__DOT__L0_num_a2))))),16);
+                                             & ((IData)(vlTOPp->top__DOT__L0_val_a1) 
+                                                + (IData)(vlTOPp->top__DOT__L0_val_a2))))),16);
         tracep->fullIData(oldp+38,(0x101U),32);
         __Vtemp26[0U] = 0xc5U;
         __Vtemp26[1U] = 0U;

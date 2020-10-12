@@ -61,8 +61,8 @@ void Vfibon::traceChgSub0(void* userp, VerilatedVcd* tracep) {
                                                               >> 0x20U)) 
                                                      << 1U)));
             tracep->chgWData(oldp+9,(__Vtemp28),320);
-            tracep->chgSData(oldp+19,(vlTOPp->top__DOT__L0_num_a1),16);
-            tracep->chgSData(oldp+20,(vlTOPp->top__DOT__L0_num_a2),16);
+            tracep->chgSData(oldp+19,(vlTOPp->top__DOT__L0_val_a1),16);
+            tracep->chgSData(oldp+20,(vlTOPp->top__DOT__L0_val_a2),16);
             if (vlTOPp->top__DOT__pseudo_rand__DOT__DEFAULT_reset_a1) {
                 __Vtemp36[0U] = 0x4e4684aU;
                 __Vtemp36[1U] = 0xc45f864U;
@@ -127,8 +127,8 @@ void Vfibon::traceChgSub0(void* userp, VerilatedVcd* tracep) {
         tracep->chgBit(oldp+35,(vlTOPp->failed));
         tracep->chgSData(oldp+36,(((IData)(vlTOPp->reset)
                                     ? 1U : (0xffffU 
-                                            & ((IData)(vlTOPp->top__DOT__L0_num_a1) 
-                                               + (IData)(vlTOPp->top__DOT__L0_num_a2))))),16);
+                                            & ((IData)(vlTOPp->top__DOT__L0_val_a1) 
+                                               + (IData)(vlTOPp->top__DOT__L0_val_a2))))),16);
     }
 }
 
