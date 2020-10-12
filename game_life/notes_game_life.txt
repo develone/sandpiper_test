@@ -1,0 +1,62 @@
+Testing game_life example 10/12/20
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --compiler verilator --graphTrans -i top.m4 -o top.sv
+
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --compiler verilator --graphTrans -i top.m4 -o top.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Edward Vidal Jr." as: Full Edition.
+
+INFORM(0) (FILES):
+	From directory: /home/devel/sandpiper_test/game_life
+	Reading "top.m4" to produce:
+		Translated HDL File: "top.sv"
+		Generated HDL File: "top_gen.sv"
+		Transaction Flow Graph (Dot) File: "top_trans.dot"
+
+LOGIC_ERROR(5) (UNASSIGNED-SIG): File 'top.tlv' Line 73 (char 42)
+	Preprocessed as 'top.m4':73(ch42):
+	+-----------------------------------------vvvvvvvvvvv-
+	|
+	|
+	|               // ===========
+	|               // Init state.
+	|               
+	|               //m4_rand($init_alive, 0, 0, (yy * xx) ^ ((3 * xx) + yy))
+	|
+	|
+	|               // ===========
+	|               // Am I alive?
+	|               
+	>               $alive = |default$reset ? $init_alive :           // init
+	|                        >>1$alive ? ($cnt >= 3 && $cnt <= 4) :   // stay alive
+	|                                    ($cnt == 3);                 // born
+	+-----------------------------------------^^^^^^^^^^^-
+	Signal |default/yy/xx$init_alive is used but never assigned.
+	
+dot -Tpdf top_trans.dot -o top_trans.pdf
+
+cp ~/warp-v/formal/verilog/sandpiper.vh .
+
+cp ~/warp-v/formal/verilog/sandpiper_gen.vh .
+
+cp ~/warp-v/formal/verilog/sp_default.vh  .
+
+cp ~/warp-v/formal/verilog/pseudo_rand.sv .
+
+cp ~/warp-v/formal/verilog/pseudo_rand_gen.sv .
+
+
+
+
+
+
+
+
+
+
+
+
+
