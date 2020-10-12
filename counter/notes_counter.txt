@@ -115,9 +115,17 @@ verilator -Wall --trace --cc counter.sv --exe --build sim_main.cpp
 
 dot -Tpdf top_trans.dot -o top_trans.pdf
 ************************
+Needed modify sim_main.cpp
+-#include "Vfibon.h"
++#include "Vcounter.h"
+
+
+-    Vfibon* top  = new Vfibon; // Or use a const unique_ptr, or the VL_UNIQUE_PTR wrapper
++    Vcounter* top  = new Vcounter; // Or use a const unique_ptr, or the VL_UNIQUE_PTR wrapper
+
 cd obj_dir
  
-make -f Vfibon.mk
+make -f Vcounter.mk
 
 ./Vfibon +trace > xx.txt now creates logs logs/vlt_dump.vcd
 

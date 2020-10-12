@@ -10,7 +10,7 @@
 #include <sys/stat.h>  // mkdir
 
 // Include model header, generated from Verilating "fibon.sv"
-#include "Vfibon.h"
+#include "Vcounter.h"
 
 // If "verilator --trace" is used, include the tracing class
 #if VM_TRACE  
@@ -39,7 +39,7 @@ int main(int argc, char** argv, char** env) {
     Verilated::randReset(2);
 
     // Construct the Verilated model, from Vtop.h generated from Verilating "top.v"
-    Vfibon* top  = new Vfibon; // Or use a const unique_ptr, or the VL_UNIQUE_PTR wrapper
+    Vcounter* top  = new Vcounter; // Or use a const unique_ptr, or the VL_UNIQUE_PTR wrapper
 
 #if VM_TRACE
     // If verilator was invoked with --trace argument,
