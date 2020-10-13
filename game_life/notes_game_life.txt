@@ -48,6 +48,8 @@ cp ~/warp-v/formal/verilog/pseudo_rand.sv .
 
 cp ~/warp-v/formal/verilog/pseudo_rand_gen.sv .
 
+verilator -Wall --trace --cc top.sv --exe --build sim_main.cpp
+
 cd obj_dir
 
 make -f Vtop.mk 
