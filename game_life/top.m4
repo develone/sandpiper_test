@@ -64,7 +64,7 @@ localparam Y_SIZE = 10;
                // ===========
                // Init state.
                
-               //m4_rand($init_alive, 0, 0, (yy * xx) ^ ((3 * xx) + yy))
+               $init_alive[0:0] = *RW_rand_vect[(0 + ((yy * xx) ^ ((3 * xx) + yy))) % 257 +: 1];
 
 
                // ===========

@@ -1,3 +1,77 @@
+Testing game_life example 10/13/20
+msg from Steve Hoover
+Steve Hoover
+@stevehoover
+Oct 12 19:14
+I don't see any fatal error in your first link. You can avoid the logic error by ubcommenting an earlier line.
+uncommenting @develone
+Needed to uncomment 
+m4_rand($init_alive, 0, 0, (yy * xx) ^ ((3 * xx) + yy)) in Makerchip.com and re-compile creating a new top.m4.
+
+-               //m4_rand($init_alive, 0, 0, (yy * xx) ^ ((3 * xx) + yy))
++               $init_alive[0:0] = *RW_rand_vect[(0 + ((yy * xx) ^ ((3 * xx) + yy))) % 257 +: 1];
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --compiler verilator --graphTrans -i top.m4 -o top.sv
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --compiler verilator --graphTrans -i top.m4 -o top.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Edward Vidal Jr." as: Full Edition.
+
+INFORM(0) (FILES):
+	From directory: /home/devel/sandpiper_test/game_life
+	Reading "top.m4" to produce:
+		Translated HDL File: "top.sv"
+		Generated HDL File: "top_gen.sv"
+		Transaction Flow Graph (Dot) File: "top_trans.dot"
+		
+dot -Tpdf top_trans.dot -o top_trans.pdf
+*RW_rand_vect is added 
+cp ~/warp-v/formal/verilog/sandpiper.vh .
+
+cp ~/warp-v/formal/verilog/sandpiper_gen.vh .
+
+cp ~/warp-v/formal/verilog/sp_default.vh  .
+
+cp ~/warp-v/formal/verilog/pseudo_rand.sv .
+
+cp ~/warp-v/formal/verilog/pseudo_rand_gen.sv .
+
+		
+verilator -Wall --trace --cc top.sv --exe --build sim_main.cpp
+
+cd obj_dir
+
+make -f Vtop.mk
+
+Several files were modified 
+        modified:   notes_game_life.txt
+        modified:   obj_dir/Vtop.cpp
+        modified:   obj_dir/Vtop.h
+        modified:   obj_dir/Vtop__ALL.a
+        modified:   obj_dir/Vtop__Slow.cpp
+        modified:   obj_dir/Vtop__Trace.cpp
+        modified:   obj_dir/Vtop__Trace__Slow.cpp
+        modified:   top.m4
+        modified:   top.sv
+        modified:   top_gen.sv
+        modified:   top_trans.dot
+msg from Steve Hoover
+Steve Hoover
+@stevehoover
+Oct 12 19:14
+I don't see any fatal error in your first link. You can avoid the logic error b$
+uncommenting @develone
+Needed to uncomment
+m4_rand($init_alive, 0, 0, (yy * xx) ^ ((3 * xx) + yy)) in Makerchip.com and re$
+
+-               //m4_rand($init_alive, 0, 0, (yy * xx) ^ ((3 * xx) + yy))
++               $init_alive[0:0] = *RW_rand_vect[(0 + ((yy * xx) ^ ((3 * xx) + $
+dot -Tpdf top_trans.dot -o top_trans.pdf
+*RW_rand_vect is added 
+see passvcd.png
+
 Testing game_life example 10/12/20
 java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --compiler verilator --graphTrans -i top.m4 -o top.sv
 

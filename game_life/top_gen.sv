@@ -41,9 +41,6 @@ logic [21:0] DEFAULT_Tb_Yy_vert_alive_accum_a2 [Y_SIZE-1:0];
 logic [X_SIZE-1:0] DEFAULT_Yy_Xx_alive_a1 [Y_SIZE-1:0],
                    DEFAULT_Yy_Xx_alive_a2 [Y_SIZE-1:0];
 
-// For |default/yy/xx$init_alive.
-logic DEFAULT_Yy_Xx_init_alive_a1 [Y_SIZE-1:0][X_SIZE-1:0];
-
 // For |default/yy/xx$row_cnt.
 logic [1:0] DEFAULT_Yy_Xx_row_cnt_a1 [Y_SIZE-1:0][X_SIZE-1:0];
 
@@ -83,9 +80,6 @@ generate
          for (xx = 0; xx <= X_SIZE-1; xx++) begin : L2gen_Xx
             // For $alive.
             always_ff @(posedge clk) DEFAULT_Yy_Xx_alive_a2[yy][xx] <= DEFAULT_Yy_Xx_alive_a1[yy][xx];
-
-            // For signal $init_alive, which had no assignment.
-            assign DEFAULT_Yy_Xx_init_alive_a1[yy][xx] = 'x;
 
          end
       end

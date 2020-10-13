@@ -194,7 +194,7 @@ penwidth = 2.0
                            {2'b00, (/yy[(yy + 1) % Y_SIZE]/xx$row_cnt & {2{(yy < Y_SIZE-1)}})};"];
                }
                subgraph "cluster.stage1" {
-                  "|default/yy/xx$init_alive@1" [fillcolor = "#ffffffb0", shape = box, label = "$init_\n alive=", id = "id56{logical_entity=#Q#|default/yy/xx$init_alive#Q#}", tooltip = "$init_alive = 'x;"];
+                  "|default/yy/xx$init_alive@1" [fillcolor = "#ffffffb0", shape = box, label = "$init_\n alive=", id = "id56{logical_entity=#Q#|default/yy/xx$init_alive#Q#}", tooltip = "$init_alive[0:0] = *RW_rand_vect[(0 + ((yy * xx) ^ ((3 * xx) + yy))) % 257 +: 1];"];
                }
                subgraph "cluster.stage1" {
                   "|default/yy/xx$row_cnt@1" [fillcolor = "#ffffffb0", shape = box, label = "$row_\n cnt=", id = "id57{logical_entity=#Q#|default/yy/xx$row_cnt#Q#}", tooltip = "$row_cnt[1:0] = {1'b0, (/xx[(xx + X_SIZE-1) % X_SIZE]>>1$alive & (xx > 0))} +
@@ -233,6 +233,7 @@ penwidth = 2.0
       }
    }
 
+"*RW_rand_vect" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
 "*passed" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
 "*reset" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
 

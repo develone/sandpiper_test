@@ -236,6 +236,7 @@ VL_MODULE(Vtop) {
         SData/*10:0*/ top__DOT__L1_DEFAULT_Tb_Yy__BRA__9__KET____DOT__L2_Xx__BRA__6__KET____DOT__L2_right_alive_accum_a2;
         SData/*10:0*/ top__DOT__L1_DEFAULT_Tb_Yy__BRA__9__KET____DOT__L2_Xx__BRA__7__KET____DOT__L2_right_alive_accum_a2;
         SData/*10:0*/ top__DOT__L1_DEFAULT_Tb_Yy__BRA__9__KET____DOT__L2_Xx__BRA__8__KET____DOT__L2_right_alive_accum_a2;
+        WData/*319:0*/ top__DOT__RW_rand_vect[10];
         IData/*21:0*/ top__DOT__L1_DEFAULT_Tb_Yy__BRA__0__KET____DOT__L1_below_alive_accum_a2;
         IData/*21:0*/ top__DOT__L1_DEFAULT_Tb_Yy__BRA__1__KET____DOT__L1_below_alive_accum_a2;
         IData/*21:0*/ top__DOT__L1_DEFAULT_Tb_Yy__BRA__2__KET____DOT__L1_below_alive_accum_a2;
@@ -251,7 +252,6 @@ VL_MODULE(Vtop) {
         IData/*21:0*/ top__DOT__DEFAULT_Tb_Yy_vert_alive_accum_a2[10];
         SData/*9:0*/ top__DOT__DEFAULT_Yy_Xx_alive_a1[10];
         SData/*9:0*/ top__DOT__DEFAULT_Yy_Xx_alive_a2[10];
-        CData/*0:0*/ top__DOT__DEFAULT_Yy_Xx_init_alive_a1[10][10];
         CData/*1:0*/ top__DOT__DEFAULT_Yy_Xx_row_cnt_a1[10][10];
         SData/*10:0*/ top__DOT__L1_DEFAULT_Tb_Yy__BRA__0__KET____DOT__L1_Xx_horiz_alive_accum_a2[10];
         SData/*10:0*/ top__DOT__L1_DEFAULT_Tb_Yy__BRA__1__KET____DOT__L1_Xx_horiz_alive_accum_a2[10];
@@ -330,8 +330,8 @@ VL_MODULE(Vtop) {
   public:
     static void _eval_initial(Vtop__Syms* __restrict vlSymsp) VL_ATTR_COLD;
     static void _eval_settle(Vtop__Syms* __restrict vlSymsp) VL_ATTR_COLD;
-    static void _sequent__TOP__2(Vtop__Syms* __restrict vlSymsp);
-    static void _settle__TOP__1(Vtop__Syms* __restrict vlSymsp) VL_ATTR_COLD;
+    static void _sequent__TOP__1(Vtop__Syms* __restrict vlSymsp);
+    static void _settle__TOP__2(Vtop__Syms* __restrict vlSymsp) VL_ATTR_COLD;
   private:
     static void traceChgSub0(void* userp, VerilatedVcd* tracep);
     static void traceChgTop0(void* userp, VerilatedVcd* tracep);

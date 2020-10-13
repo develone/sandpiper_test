@@ -44,7 +44,7 @@ localparam Y_SIZE = 10;
       //_@1
          assign DEFAULT_reset_a1 = reset;
       for (yy = 0; yy <= Y_SIZE-1; yy++) begin : L1_DEFAULT_Yy //_/yy
-         for (xx = 0; xx <= X_SIZE-1; xx++) begin : L2_Xx logic [3:0] L2_cnt_a1; //_/xx
+         for (xx = 0; xx <= X_SIZE-1; xx++) begin : L2_Xx logic [3:0] L2_cnt_a1; logic [0:0] L2_init_alive_a1; //_/xx
             //_@1
                // Cell logic
 
@@ -64,13 +64,13 @@ localparam Y_SIZE = 10;
                // ===========
                // Init state.
                
-               //m4_rand($init_alive, 0, 0, (yy * xx) ^ ((3 * xx) + yy))
+               assign L2_init_alive_a1[0:0] = RW_rand_vect[(0 + ((yy * xx) ^ ((3 * xx) + yy))) % 257 +: 1];
 
 
                // ===========
                // Am I alive?
                
-               assign DEFAULT_Yy_Xx_alive_a1[yy][xx] = DEFAULT_reset_a1 ? DEFAULT_Yy_Xx_init_alive_a1[yy][xx] :           // init
+               assign DEFAULT_Yy_Xx_alive_a1[yy][xx] = DEFAULT_reset_a1 ? L2_init_alive_a1 :           // init
                         DEFAULT_Yy_Xx_alive_a2[yy][xx] ? (L2_cnt_a1 >= 3 && L2_cnt_a1 <= 4) :   // stay alive
                                     (L2_cnt_a1 == 3); end end                 // born
 
