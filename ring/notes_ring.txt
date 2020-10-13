@@ -107,3 +107,13 @@ Needed to modify sim_main.cpp
 -    Vcounter* top  = new Vcounter; // Or use a const unique_ptr, or the VL_UNIQUE_PTR wrapper
 +    Vtop* top  = new Vtop; // Or use a const unique_ptr, or the VL_UNIQUE_PTR wrapper
 
+cd obj_dir
+
+make -f Vtop.mk
+
+./Vtop +trace > xx.txt
+
+gtkwave logs/vlt_dump.vcd
+
+
+
