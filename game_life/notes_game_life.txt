@@ -10,7 +10,7 @@ m4_rand($init_alive, 0, 0, (yy * xx) ^ ((3 * xx) + yy)) in Makerchip.com and re-
 
 -               //m4_rand($init_alive, 0, 0, (yy * xx) ^ ((3 * xx) + yy))
 +               $init_alive[0:0] = *RW_rand_vect[(0 + ((yy * xx) ^ ((3 * xx) + yy))) % 257 +: 1];
-java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --compiler verilator --graphTrans -i top.m4 -o top.sv
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --debugSigs --viz --dhtml --stats --compiler verilator --graphTrans -i top.m4 -o top.sv
 INFORM(0) (PROD_INFO):
 	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
 	Run as: "java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --compiler verilator --graphTrans -i top.m4 -o top.sv
