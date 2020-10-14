@@ -1,0 +1,42 @@
+{
+   "default": {
+      "_typeof": "PIPELINE",
+      "yy": {
+         "_typeof": "BEH_HIER",
+         "_range": {
+            "min_index": "0",
+            "max_index": "Y_SIZE-1"
+         },
+         "xx": {
+            "_typeof": "BEH_HIER",
+            "_range": {
+               "min_index": "0",
+               "max_index": "X_SIZE-1"
+            }
+         }
+      }
+   },
+   "default": {
+      "_typeof": "PIPELINE",
+      "tb": {
+         "_typeof": "BEH_HIER",
+         "yy": {
+            "_typeof": "BEH_HIER",
+            "_range": {
+               "min_index": "0",
+               "max_index": "Y_SIZE-1"
+            },
+            "xx": {
+               "_typeof": "BEH_HIER",
+               "_range": {
+                  "min_index": "0",
+                  "max_index": "X_SIZE-1"
+               }
+            }
+         }
+      },
+      "print": {
+         "_typeof": "BEH_HIER"
+      }
+   }
+}
