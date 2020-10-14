@@ -91,4 +91,85 @@ endgenerate
 
 
 
+//
+// Debug Signals
+//
+
+generate
+
+   if (1) begin : DEBUG_SIGS
+
+
+      //
+      // Scope: |default
+      //
+      if (1) begin : \|default 
+         logic  \@1$reset ;
+         assign \@1$reset = DEFAULT_reset_a1;
+
+         //
+         // Scope: /tb
+         //
+         if (1) begin : \/tb 
+            logic  \@2$above_min_start ;
+            assign \@2$above_min_start = DEFAULT_Tb_above_min_start_a2;
+            logic [21:0] \@2$alive_cnt ;
+            assign \@2$alive_cnt = DEFAULT_Tb_alive_cnt_a2;
+            logic  \@2$below_max_stop ;
+            assign \@2$below_max_stop = DEFAULT_Tb_below_max_stop_a2;
+            logic  \@2$start_ok ;
+            assign \@2$start_ok = DEFAULT_Tb_start_ok_a2;
+            logic [7:0] \@2$stop_cnt ;
+            assign \@2$stop_cnt = DEFAULT_Tb_stop_cnt_a2;
+
+            //
+            // Scope: /yy[Y_SIZE-1:0]
+            //
+            for (yy = 0; yy <= Y_SIZE-1; yy++) begin : \/yy 
+               logic [21:0] \@2$below_alive_accum ;
+               assign \@2$below_alive_accum = L1_DEFAULT_Tb_Yy[yy].L1_below_alive_accum_a2;
+               logic [21:0] \@2$vert_alive_accum ;
+               assign \@2$vert_alive_accum = DEFAULT_Tb_Yy_vert_alive_accum_a2[yy];
+
+               //
+               // Scope: /xx[X_SIZE-1:0]
+               //
+               for (xx = 0; xx <= X_SIZE-1; xx++) begin : \/xx 
+                  logic [10:0] \@2$horiz_alive_accum ;
+                  assign \@2$horiz_alive_accum = L1_DEFAULT_Tb_Yy[yy].L1_Xx_horiz_alive_accum_a2[xx];
+                  logic [10:0] \@2$right_alive_accum ;
+                  assign \@2$right_alive_accum = L1_DEFAULT_Tb_Yy[yy].L2_Xx[xx].L2_right_alive_accum_a2;
+               end
+            end
+         end
+
+         //
+         // Scope: /yy[Y_SIZE-1:0]
+         //
+         for (yy = 0; yy <= Y_SIZE-1; yy++) begin : \/yy 
+
+            //
+            // Scope: /xx[X_SIZE-1:0]
+            //
+            for (xx = 0; xx <= X_SIZE-1; xx++) begin : \/xx 
+               logic  \@1$alive ;
+               assign \@1$alive = DEFAULT_Yy_Xx_alive_a1[yy][xx];
+               logic [3:0] \@1$cnt ;
+               assign \@1$cnt = L1_DEFAULT_Yy[yy].L2_Xx[xx].L2_cnt_a1;
+               logic [0:0] \@1$init_alive ;
+               assign \@1$init_alive = L1_DEFAULT_Yy[yy].L2_Xx[xx].L2_init_alive_a1;
+               logic [1:0] \@1$row_cnt ;
+               assign \@1$row_cnt = DEFAULT_Yy_Xx_row_cnt_a1[yy][xx];
+            end
+         end
+      end
+
+
+   end
+
+endgenerate
+
+
+
+
 generate   // This is awkward, but we need to go into 'generate' context in the line that `includes the declarations file.
