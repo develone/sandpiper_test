@@ -1,8 +1,6 @@
 10/15/20
 
-cd ~/sandpiper_test/bank
-
-cp ../extra_files/* .
+cd ~/sandpiper_test/url_test/bank
 
 java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --debugSigs --viz --dhtml --stats --compiler verilator --graphTrans -i top.m4 -o top.sv
 INFORM(0) (PROD_INFO):
@@ -14,7 +12,7 @@ INFORM(0) (LICENSE):
 	Licensed to "Edward Vidal Jr." as: Full Edition.
 
 INFORM(0) (FILES):
-	From directory: /home/devel/sandpiper_test/bank
+	From directory: /home/devel/sandpiper_test/url_test/bank
 	Reading "top.m4" to produce:
 		Translated HDL File: "top.sv"
 		Generated HDL File: "top_gen.sv"
@@ -27,12 +25,20 @@ INFORM(0) (STATS):
 	SandPiper generated 71% of your HDL code.
 	This includes: 29 signal declarations, 18 flops/latches, and 3 conditional clock signals.
 	View "top_stats" for more details.
-	
+
+dot -Tpdf top_trans.dot -o top_trans.pdf
+
+cp ../../extra_files/* .
+
 verilator --trace --debug --debugi 0 -gdbbt --no-dump-tree --cc makerchip.sv --exe --build sim_main.cpp
 
 cp ~/warp-v/formal/verilog/clk_gate.v .
 
 cp ~/warp-v/formal/verilog/sp_verilog.vh .
+
+cp ~/warp-v/formal/verilog/simple_bypass_fifo.sv .
+
+cp ~/warp-v/formal/verilog/rw_lib.vh .
 
 verilator --trace --debug --debugi 0 -gdbbt --no-dump-tree --cc makerchip.sv --exe --build sim_main.cpp
 No stack.
@@ -40,8 +46,8 @@ No stack.
 Using host libthread_db library "/lib/arm-linux-gnueabihf/libthread_db.so.1".
 Starting Verilator 4.100 2020-09-07 rev v4.100-10-g39eea781
 Starting Verilator 4.100 2020-09-07 rev v4.100-10-g39eea781
-[Detaching after fork from child process 4288]
-make: Entering directory '/home/devel/sandpiper_test/bank/obj_dir'
+[Detaching after fork from child process 8014]
+make: Entering directory '/home/devel/sandpiper_test/url_test/bank/obj_dir'
 g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow      -std=gnu++14 -Os -c -o sim_main.o ../sim_main.cpp
 g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow      -std=gnu++14 -Os -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
 g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow      -std=gnu++14 -Os -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
@@ -49,13 +55,11 @@ g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator
 g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow      -std=gnu++14 -Os -c -o Vmakerchip__ALL.o Vmakerchip__ALL.cpp
 Archive ar -cr Vmakerchip__ALL.a Vmakerchip__ALL.o
 g++    sim_main.o verilated.o verilated_vcd_c.o Vmakerchip__ALL.a      -o Vmakerchip
-make: Leaving directory '/home/devel/sandpiper_test/bank/obj_dir'
-[Inferior 1 (process 4285) exited normally]
+make: Leaving directory '/home/devel/sandpiper_test/url_test/bank/obj_dir'
+[Inferior 1 (process 8011) exited normally]
 No stack.
 
-dot -Tpdf top_trans.dot -o top_trans.pdf
-
-~/sandpiper_test/bank/obj_dir
+cd obj_dir
 
 ./Vmakerchip > ../output.txt
 
