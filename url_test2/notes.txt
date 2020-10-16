@@ -27,6 +27,9 @@ INFORM(0) (STATS):
 	This includes: 97 signal declarations, 19 flops/latches, and 3 conditional clock signals.
 	View "top_stats" for more details.
 
+diffuse makerchip-output/top.sv ../url_test1/top.sv
+
+diffuse makerchip-output/top_gen.sv ../url_test1/top_gen.sv
 
 This is link to Makerchip
 https://makerchip.com/sandbox/0wpfLhKwP/0Elh3mV
