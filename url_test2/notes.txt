@@ -1,0 +1,34 @@
+Starting Makerchip with url_test1/top.m4
+
+This Makerchip did not create the DIAGRAM like sandpiper did
+https://github.com/develone/sandpiper_test/blob/master/url_test1/top_trans.pdf
+The WAVEFORm was created sucessfully.
+This is the log output 
+
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	(DEV) Run as: "java -jar /src/sandpiper.jar --ide --licenseFile /src/full_license_key.txt --iArgs --distroRef=NO_DISTRO --debugSigs --viz --dhtml --stats --compiler verilator -i top.tlv -o top.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Redwood EDA" as: Full Edition.
+
+INFORM(0) (FILES):
+	From directory: /projects/mZf4B9
+	Reading "top.tlv" to produce:
+		Translated HDL File: "top.sv"
+		Generated HDL File: "top_gen.sv"
+		HTML TLX File: "top.html"
+		Simulation Visualization File: "top_viz.json"
+		Statistics Directory: "top_stats"
+
+INFORM(0) (STATS):
+	SandPiper generated 71% of your HDL code.
+	This includes: 97 signal declarations, 19 flops/latches, and 3 conditional clock signals.
+	View "top_stats" for more details.
+
+
+This is link to Makerchip
+https://makerchip.com/sandbox/0wpfLhKwP/0Elh3mV
+
+Error while serving the compilation results. This likely means either Verilog generation hasn't completed or an error occured during the SandPiper compilation. If this continues, please contact the developers at gitlab.com/rweda/support/issues/, and mention that an error occured fetching results for compile mZf4B9.
