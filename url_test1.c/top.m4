@@ -38,7 +38,7 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
    
    $reset = *reset;
    
-      // Defines constants for /port[5:0].
+      // Defines constants for /port[7:0].
    
    
    //-------------
@@ -46,7 +46,7 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
    // ------------
    
    // DUT Flow (FIFO and ring)
-   /port[5:0]   // (becomes /port[5:0])
+   /port[5:0]   // (becomes /port[7:0])
       \source /raw.githubusercontent.com/develone/sandpiper_test/blob/master/url_test/pipeflow_lib/pipeflow_lib.tlv 774   // Instantiated from top.tlv, 50 as: m4+simple_bypass_fifo_v2(/port, |fifo_in, @1, |ring_in, @1, 4, 100, /trans)
          \source /raw.githubusercontent.com/develone/sandpiper_test/blob/master/url_test/pipeflow_lib/pipeflow_lib.tlv 114   // Instantiated from top.tlv, 775 as: m4+flow_interface(/port, [' |fifo_in, @1'], [' |ring_in, @1'], )
             \source /raw.githubusercontent.com/develone/sandpiper_test/blob/master/url_test/pipeflow_lib/pipeflow_lib.tlv 119   // Instantiated from top.tlv, 115 as: m4+flow_inputs(/port, [' |fifo_in, @1'], )
@@ -76,15 +76,15 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
             /trans
             @1
                $out_blocked = /port|ring_in>>0$blocked;
-               $blocked = (/port|fifo_in/fifo>>0$cnt >= 6) && $out_blocked;
+               $blocked = (/port|fifo_in/fifo>>0$cnt >= 8) && $out_blocked;
                /fifo
-                  simple_bypass_fifo #(.WIDTH(100), .DEPTH(6))
+                  simple_bypass_fifo #(.WIDTH(100), .DEPTH(8))
                      fifo(.clk(clk), .reset(|fifo_in$reset_in),
                           .push(|fifo_in$accepted),
                           .data_in(|fifo_in/trans$ANY),
                           .pop(|fifo_in$accepted),
                           .data_out(/port|ring_in/trans>>0$$ANY),
-                          .cnt($$cnt[\$clog2(6)-1:0]));
+                          .cnt($$cnt[\$clog2(8)-1:0]));
          |ring_in
             /trans
             @1
@@ -127,7 +127,7 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
          |default
             @0
                \SV_plus
-                  int prev_hop = (port + 6 - 1) % 6;
+                  int prev_hop = (port + 8 - 1) % 8;
          |ring_in
             @1
                $blocked = /port|rg<>0$passed_on;
@@ -137,7 +137,7 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
                $valid = ! /port|ring_in<>0$reset_in &&
                         ($passed_on || /port|ring_in<>0$avail);
                $pass_on = $valid && ! /port|ring_out>>0$trans_valid;
-               $dest[2:0] =
+               $dest[4:0] =
                   $passed_on
                      ? /port[prev_hop]|rg>>1$dest
                      : /port|ring_in/trans<>0$dest;
@@ -229,21 +229,21 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
                   always_ff @(posedge clk) begin
                      \$display("Cycle: %0d", $CycCount);
                   end
-         /port[5:0]
+         /port[7:0]
             // STIMULUS
             |send
                @1
                   // Generate a transaction to inject sometimes (if needed)
                   $reset = /port|receive2>>0$reset;
-                  $valid_in = /tb|count<>0$CycCount == 5;
+                  $valid_in = /tb|count<>0$CycCount == 3;
                   ?$valid_in
                      /gen_trans
                         $cyc_cnt[15:0] = /tb|count<>0$CycCount;
                         $response_debug = 1'b0;  // Not a response (for debug)
-                        $sender[2:0] = #port;
+                        $sender[4:0] = #port;
                         //m4_rand($size, M4_PACKET_SIZE-1, 0, #m4_port) // unused
                         $dest_tmp[1:0] = *RW_rand_vect[(0 + (port)) % 257 +: 2];
-                        $dest[1:0] = $dest_tmp % 6;
+                        $dest[4:0] = $dest_tmp % 8;
                         //$dest[M4_['']M4_PORT['']_INDEX_RANGE] = #m4_port;
                         //$packet_valid = #m4_port == 0 ? 1'b1 : 1'b0; // valid for only first port - unused
                   $avail = $valid_in || /port|receive2>>0$valid_request;
@@ -354,7 +354,7 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
                @1
                   $passed = ! /port|receive2<>0$reset && /port|receive2<>0$OutstandingPackets == '0 && /tb|count>>0$CycCount > 12;
       // Connect with DUT.
-      /port[5:0]
+      /port[7:0]
          |fifo_in
             @1
                $avail = ! $reset && /top/tb/port|send<>0$avail;
