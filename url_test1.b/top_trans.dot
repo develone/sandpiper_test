@@ -628,7 +628,7 @@ penwidth = 2.0
                   "/tb/port|send$reset@1" [fillcolor = "#ffffffb0", shape = box, label = "$reset=", id = "id206{logical_entity=#Q#/tb/port|send$reset#Q#}", tooltip = "$reset = /port|receive2>>0$reset;"];
                }
                subgraph "cluster.stage1" {
-                  "/tb/port|send$valid_in@1" [fillcolor = "#ffffffb0", shape = box, label = "$valid_\n in=", id = "id208{logical_entity=#Q#/tb/port|send$valid_in#Q#}", tooltip = "$valid_in = /tb|count<>0$CycCount == 3;"];
+                  "/tb/port|send$valid_in@1" [fillcolor = "#ffffffb0", shape = box, label = "$valid_\n in=", id = "id208{logical_entity=#Q#/tb/port|send$valid_in#Q#}", tooltip = "$valid_in = /tb|count<>0$CycCount == 5;"];
                }
                subgraph "cluster.stage1" {
                   style = "filled"

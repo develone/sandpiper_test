@@ -252,7 +252,7 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
                //_@1
                   // Generate a transaction to inject sometimes (if needed)
                   assign L1_SEND_reset_a1 = L1_RECEIVE2_reset_a1;
-                  assign L1_SEND_valid_in_a1 = Tb_COUNT_CycCount_a1 == 3;
+                  assign L1_SEND_valid_in_a1 = Tb_COUNT_CycCount_a1 == 5;
                   //_?$valid_in
                      //_/gen_trans
                         assign L1_SEND_GenTrans_cyc_cnt_a1[15:0] = Tb_COUNT_CycCount_a1;

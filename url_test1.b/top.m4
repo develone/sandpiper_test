@@ -235,7 +235,7 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
                @1
                   // Generate a transaction to inject sometimes (if needed)
                   $reset = /port|receive2>>0$reset;
-                  $valid_in = /tb|count<>0$CycCount == 3;
+                  $valid_in = /tb|count<>0$CycCount == 5;
                   ?$valid_in
                      /gen_trans
                         $cyc_cnt[15:0] = /tb|count<>0$CycCount;

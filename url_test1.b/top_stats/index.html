@@ -854,7 +854,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                </span><span class="tlx_staging">@1
                   </span><span class="tlx_comments">// Generate a transaction to inject sometimes (if needed)
                   </span><span class="tlx_logic">$reset = </span><span class="tlx_structure">/port|receive2</span><span class="tlx_logic">&gt;&gt;0$reset;
-                  $valid_in = </span><span class="tlx_structure">/tb|count</span><span class="tlx_logic">&lt;&gt;0$CycCount == 3;
+                  $valid_in = </span><span class="tlx_structure">/tb|count</span><span class="tlx_logic">&lt;&gt;0$CycCount == 5;
                   </span><span class="tlx_validity">?$valid_in
                      </span><span class="tlx_structure">/gen_trans
                         </span><span class="tlx_logic">$cyc_cnt[15:0] = </span><span class="tlx_structure">/tb|count</span><span class="tlx_logic">&lt;&gt;0$CycCount;
@@ -1256,7 +1256,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                //_@1
                   // Generate a transaction to inject sometimes (if needed)
                   </span><span class="tlx_logic">assign L1_SEND_reset_a1 = L1_RECEIVE2_reset_a1;
-                  assign L1_SEND_valid_in_a1 = Tb_COUNT_CycCount_a1 == 3;
+                  assign L1_SEND_valid_in_a1 = Tb_COUNT_CycCount_a1 == 5;
                   </span><span class="tlx_comments">//_?$valid_in
                      //_/gen_trans
                         </span><span class="tlx_logic">assign L1_SEND_GenTrans_cyc_cnt_a1[15:0] = Tb_COUNT_CycCount_a1;
