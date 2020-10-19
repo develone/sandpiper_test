@@ -1,0 +1,39 @@
+Enabling waves...
+Cycle: 0
+Cycle: 1
+Cycle: 2
+Cycle: 3
+Cycle: 4
+Cycle: 0
+Cycle: 0
+Cycle: 0
+Cycle: 0
+Cycle: 1
+Cycle: 2
+Cycle: 3
+|send[0]
+Sender: 0, Orig. Cyc: 3, Dest: 3, Resp: 0
+|send[1]
+Sender: 1, Orig. Cyc: 3, Dest: 1, Resp: 0
+|send[2]
+Sender: 2, Orig. Cyc: 3, Dest: 2, Resp: 0
+|send[3]
+Sender: 3, Orig. Cyc: 3, Dest: 3, Resp: 0
+|send[4]
+Sender: 4, Orig. Cyc: 3, Dest: 1, Resp: 0
+|send[5]
+Sender: 5, Orig. Cyc: 3, Dest: 0, Resp: 0
+|send[6]
+Sender: 6, Orig. Cyc: 3, Dest: 0, Resp: 0
+|send[7]
+Sender: 7, Orig. Cyc: 3, Dest: 2, Resp: 0
+Cycle: 4
+Cycle: 5
+Cycle: 6
+Cycle: 7
+Cycle: 8
+Cycle: 9
+Cycle: 10
+Cycle: 11
+Cycle: 12
+Simulation PASSED!!!

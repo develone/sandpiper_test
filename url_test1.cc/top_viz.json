@@ -1,0 +1,161 @@
+{
+   "port": {
+      "_typeof": "BEH_HIER",
+      "_range": {
+         "min_index": "0",
+         "max_index": "5"
+      },
+      "fifo_in": {
+         "_typeof": "PIPELINE"
+      },
+      "ring_in": {
+         "_typeof": "PIPELINE"
+      },
+      "fifo_in": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         },
+         "fifo": {
+            "_typeof": "BEH_HIER"
+         }
+      },
+      "ring_in": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      }
+   },
+   "port": {
+      "_typeof": "BEH_HIER",
+      "_range": {
+         "min_index": "*",
+         "max_index": "*"
+      },
+      "ring_in": {
+         "_typeof": "PIPELINE"
+      },
+      "ring_out": {
+         "_typeof": "PIPELINE"
+      },
+      "default": {
+         "_typeof": "PIPELINE"
+      },
+      "ring_in": {
+         "_typeof": "PIPELINE"
+      },
+      "rg": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      },
+      "ring_out": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      }
+   },
+   "port": {
+      "_typeof": "BEH_HIER",
+      "_range": {
+         "min_index": "*",
+         "max_index": "*"
+      },
+      "fifo_in": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      },
+      "ring_out": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      }
+   },
+   "port": {
+      "_typeof": "BEH_HIER",
+      "_range": {
+         "min_index": "*",
+         "max_index": "*"
+      },
+      "ring_out": {
+         "_typeof": "PIPELINE"
+      },
+      "fifo_in": {
+         "_typeof": "PIPELINE"
+      }
+   },
+   "tb": {
+      "_typeof": "BEH_HIER",
+      "count": {
+         "_typeof": "PIPELINE"
+      },
+      "port": {
+         "_typeof": "BEH_HIER",
+         "_range": {
+            "min_index": "0",
+            "max_index": "7"
+         },
+         "send": {
+            "_typeof": "PIPELINE",
+            "gen_trans": {
+               "_typeof": "BEH_HIER"
+            },
+            "trans_out": {
+               "_typeof": "BEH_HIER"
+            }
+         },
+         "receive1": {
+            "_typeof": "PIPELINE",
+            "trans": {
+               "_typeof": "BEH_HIER"
+            }
+         },
+         "receive1": {
+            "_typeof": "PIPELINE"
+         },
+         "receive2": {
+            "_typeof": "PIPELINE"
+         },
+         "receive2": {
+            "_typeof": "PIPELINE",
+            "trans": {
+               "_typeof": "BEH_HIER"
+            }
+         },
+         "receive1": {
+            "_typeof": "PIPELINE"
+         },
+         "receive2": {
+            "_typeof": "PIPELINE"
+         },
+         "passed": {
+            "_typeof": "PIPELINE"
+         }
+      }
+   },
+   "port": {
+      "_typeof": "BEH_HIER",
+      "_range": {
+         "min_index": "0",
+         "max_index": "7"
+      },
+      "fifo_in": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      },
+      "ring_out": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      }
+   }
+}
