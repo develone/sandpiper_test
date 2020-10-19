@@ -92,7 +92,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 // Component macros that support a $avail interface at their output take arguments:
 //   |_out_pipe, and @_out_stage.
-m4_define_hier(M4_PORT, 6, 0)
 
 
 
