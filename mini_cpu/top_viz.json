@@ -1,0 +1,49 @@
+{
+   "fetch": {
+      "_typeof": "PIPELINE",
+      "instr": {
+         "_typeof": "BEH_HIER",
+         "src": {
+            "_typeof": "BEH_HIER",
+            "_range": {
+               "min_index": "1",
+               "max_index": "2"
+            }
+         },
+         "src": {
+            "_typeof": "BEH_HIER",
+            "_range": {
+               "min_index": "*",
+               "max_index": "*"
+            }
+         },
+         "op": {
+            "_typeof": "BEH_HIER"
+         },
+         "src": {
+            "_typeof": "BEH_HIER",
+            "_range": {
+               "min_index": "*",
+               "max_index": "*"
+            }
+         }
+      },
+      "instr": {
+         "_typeof": "BEH_HIER",
+         "mem": {
+            "_typeof": "BEH_HIER",
+            "_range": {
+               "min_index": "0",
+               "max_index": "31"
+            }
+         },
+         "reg": {
+            "_typeof": "BEH_HIER",
+            "_range": {
+               "min_index": "0",
+               "max_index": "7"
+            }
+         }
+      }
+   }
+}
