@@ -1,0 +1,162 @@
+10/21/20
+
+cd warp-v/impl
+
+make 
+Note: see Results of make
+
+cd sandpiper_test/risc-v_cpus
+
+cp -R ~/warp-v/impl/out/ . 
+
+cp -R out/risc-v_1-stage/ .
+
+cd risc-v_1-stage
+Note1: 
+	mkdir out 
+	cp -R sv_url_inc/ out/
+
+cp ~/warp-v/formal/verilog/clk* .
+
+cp ~/warp-v/formal/verilog/sandpiper* .
+
+cp ~/warp-v/formal/verilog/sp_def* .
+
+cp ~/warp-v/formal/verilog/pseudo_rand*.sv .
+
+Note2: 
+diff warp-v_risc-v_4-stage.sv ../out/risc-v_4-stage/warp-v_risc-v_4-stage.sv 
+1839,1841d1838
+< `include "clk_gate.v"
+< `include "pseudo_rand.sv"
+< 
+
+diff clk_gate.v ~/warp-v/formal/verilog/clk_gate.v 
+28c28
+< //`include "sp_verilog.vh"
+---
+> `include "sp_verilog.vh"
+
+
+yosys -l simple.log -p 'synth_ice40 -blif warp-v_risc-v_1-stage.blif -json warp-v_risc-v_1-stage.json' warp-v_risc-v_1-stage.sv
+
+creates warp-v_risc-v_1-stage.blif, and warp-v_risc-v_1-stage.json 
+
+=== top ===
+
+   Number of wires:               6651
+   Number of wire bits:          11766
+   Number of public wires:        6651
+   Number of public wire bits:   11766
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               8809
+     SB_CARRY                      453
+     SB_DFF                        312
+     SB_DFFE                      1062
+     SB_DFFESR                     192
+     SB_DFFSR                      165
+     SB_DFFSS                        1
+     SB_LUT4                      6620
+     SB_RAM40_4K                     4
+
+Changes to reduce the size of CPUs and add sandpiper options when in the cloud.
+Modify warp-v_risc-v_1-stage.tlv & warp-v_risc-v_4-stage.tlv
+To disable M ext  add the line below
+    m4_define(['M4_VIZ'], 0)
++   m4_define(['M4_EXT_M'], 0)
+
+****************************************************
+Results of make 
+Processing warp-v_mini_4-stage.tlv using SandPiper(TM) SaaS Edition.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  296k  100 77607  100  221k  52120   148k  0:00:01  0:00:01 --:--:--  199k
+ERROR: pre_m4 found no \m4_TLV_version line in "./warp-v.tlv"
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar sandpiper.jar --iArgs --nopath -i out/warp-v_mini_4-stage.m4out.tlv -o out/warp-v_mini_4-stage.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Redwood EDA" as: Full Edition.
+
+INFORM(0) (FILES):
+	Reading "out/warp-v_mini_4-stage.m4out.tlv" to produce:
+		Translated HDL File: "out/warp-v_mini_4-stage.sv"
+		Generated HDL File: "out/warp-v_mini_4-stage_gen.sv"
+
+Processing warp-v_mips-i_4-stage.tlv using SandPiper(TM) SaaS Edition.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  303k  100 83828  100  221k  55077   145k  0:00:01  0:00:01 --:--:--  199k
+ERROR: pre_m4 found no \m4_TLV_version line in "./warp-v.tlv"
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar sandpiper.jar --iArgs --nopath -i out/warp-v_mips-i_4-stage.m4out.tlv -o out/warp-v_mips-i_4-stage.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Redwood EDA" as: Full Edition.
+
+INFORM(0) (FILES):
+	Reading "out/warp-v_mips-i_4-stage.m4out.tlv" to produce:
+		Translated HDL File: "out/warp-v_mips-i_4-stage.sv"
+		Generated HDL File: "out/warp-v_mips-i_4-stage_gen.sv"
+
+Processing warp-v_risc-v_1-stage.tlv using SandPiper(TM) SaaS Edition.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  318k  100 99923  100  221k  47832   105k  0:00:02  0:00:02 --:--:--  152k
+ERROR: pre_m4 found no \m4_TLV_version line in "./warp-v.tlv"
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar sandpiper.jar --iArgs --nopath -i out/warp-v_risc-v_1-stage.m4out.tlv -o out/warp-v_risc-v_1-stage.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Redwood EDA" as: Full Edition.
+
+INFORM(0) (FILES):
+	Reading "out/warp-v_risc-v_1-stage.m4out.tlv" to produce:
+		Translated HDL File: "out/warp-v_risc-v_1-stage.sv"
+		Generated HDL File: "out/warp-v_risc-v_1-stage_gen.sv"
+		HTML TLX File: "warp-v_risc-v_1-stage.m4out.html"
+
+Processing warp-v_risc-v_4-stage_retime.tlv using SandPiper(TM) SaaS Edition.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  329k  100  107k  100  221k  47181  96862  0:00:02  0:00:02 --:--:--  140k
+ERROR: pre_m4 found no \m4_TLV_version line in "./warp-v.tlv"
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar sandpiper.jar --iArgs --nopath -i out/warp-v_risc-v_4-stage_retime.m4out.tlv -o out/warp-v_risc-v_4-stage_retime.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Redwood EDA" as: Full Edition.
+
+INFORM(0) (FILES):
+	Reading "out/warp-v_risc-v_4-stage_retime.m4out.tlv" to produce:
+		Translated HDL File: "out/warp-v_risc-v_4-stage_retime.sv"
+		Generated HDL File: "out/warp-v_risc-v_4-stage_retime_gen.sv"
+
+Processing warp-v_risc-v_4-stage.tlv using SandPiper(TM) SaaS Edition.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  322k  100  101k  100  221k  50088   107k  0:00:02  0:00:02 --:--:--  156k
+ERROR: pre_m4 found no \m4_TLV_version line in "./warp-v.tlv"
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar sandpiper.jar --iArgs --nopath -i out/warp-v_risc-v_4-stage.m4out.tlv -o out/warp-v_risc-v_4-stage.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Redwood EDA" as: Full Edition.
+
+INFORM(0) (FILES):
+	Reading "out/warp-v_risc-v_4-stage.m4out.tlv" to produce:
+		Translated HDL File: "out/warp-v_risc-v_4-stage.sv"
+		Generated HDL File: "out/warp-v_risc-v_4-stage_gen.sv"
+		HTML TLX File: "warp-v_risc-v_4-stage.m4out.html"
