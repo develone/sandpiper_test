@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <meta http-equiv="description" content="top.html">
+   <meta http-equiv="keywords" content="tl-verilog">
+
+   <title>top.m4</title>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+   <script src="http://www.rweda.com/lib/sp_1.9-2018_02_11-beta/ide.js"></script>
+   <link rel="stylesheet" href="http://www.rweda.com/lib/sp_1.9-2018_02_11-beta/ide.css" />
+
+<style>
+/*
+Copyright (c) 2015, Steven F. Hoover
+All rights reserved.
+*/
+.tlv_ident_error {
+  color: red;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_pipeline {
+  color: orange;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_beh_hier_1 {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_beh_hier_2 {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_grouping {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_pipe_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_state_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_sig_keyword {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_assigned_pipe_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_assigned_state_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_assigned_sig_keyword {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_malformed_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_malformed_assigned_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_when {
+  color: #E04010;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_sv_when {
+  color: #E04010;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_phys_hier {
+  color: blue;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_phys_beh_hier {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_stage_name {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_expr {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_next_operator {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_incr_expr {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_prev_operator {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_decr_expr {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_alignment_expr_1ab {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_expr_1c {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_keyword_1c {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_ahead_expr {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_behind_expr {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_zero_expr {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_crosspipe_name {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_ahead_name {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_behind_name {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_tlv_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_proj_rtl_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_misc_rtl_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_proj_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_sv_sig {
+  color: #00008b;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_sv_datatype {
+  color: DarkRed;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_keyword1 {
+  color: Blue;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_comment {
+  color: #808080;
+  font-style: italic;
+  font-weight: 600;
+}
+.tlv_ident_hdl_code {
+  color: #00008b;
+  font-style: normal;
+  font-weight: normal;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>top.m4</h2>
+
+<pre>
+<span class="line" line-num="1" source-line-num="1"><span class="tlv_ident_keyword1">\TLV_version 1d: tl-x.org</span></span>
+<span class="line" line-num="2" source-line-num="2"><span class="tlv_ident_keyword1">\SV</span></span>
+<span class="line" line-num="3" source-line-num="3"><span class="tlv_ident_comment">// -----------------------------------------------------------------------------</span></span>
+<span class="line" line-num="4" source-line-num="4"><span class="tlv_ident_comment">// Copyright (c) 2017, Redwood EDA</span></span>
+<span class="line" line-num="5" source-line-num="5"><span class="tlv_ident_comment">// </span></span>
+<span class="line" line-num="6" source-line-num="6"><span class="tlv_ident_comment">// Redistribution and use in source and binary forms, with or without</span></span>
+<span class="line" line-num="7" source-line-num="7"><span class="tlv_ident_comment">// modification, are permitted provided that the following conditions are met:</span></span>
+<span class="line" line-num="8" source-line-num="8"><span class="tlv_ident_comment">// </span></span>
+<span class="line" line-num="9" source-line-num="9"><span class="tlv_ident_comment">//     * Redistributions of source code must retain the above copyright notice,</span></span>
+<span class="line" line-num="10" source-line-num="10"><span class="tlv_ident_comment">//       this list of conditions and the following disclaimer.</span></span>
+<span class="line" line-num="11" source-line-num="11"><span class="tlv_ident_comment">//     * Redistributions in binary form must reproduce the above copyright</span></span>
+<span class="line" line-num="12" source-line-num="12"><span class="tlv_ident_comment">//       notice, this list of conditions and the following disclaimer in the</span></span>
+<span class="line" line-num="13" source-line-num="13"><span class="tlv_ident_comment">//       documentation and/or other materials provided with the distribution.</span></span>
+<span class="line" line-num="14" source-line-num="14"><span class="tlv_ident_comment">//     * Neither the name of Redwood EDA nor the names of its contributors</span></span>
+<span class="line" line-num="15" source-line-num="15"><span class="tlv_ident_comment">//       may be used to endorse or promote products derived from this software</span></span>
+<span class="line" line-num="16" source-line-num="16"><span class="tlv_ident_comment">//       without specific prior written permission.</span></span>
+<span class="line" line-num="17" source-line-num="17"><span class="tlv_ident_comment">// </span></span>
+<span class="line" line-num="18" source-line-num="18"><span class="tlv_ident_comment">// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;</span></span>
+<span class="line" line-num="19" source-line-num="19"><span class="tlv_ident_comment">// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</span></span>
+<span class="line" line-num="20" source-line-num="20"><span class="tlv_ident_comment">// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE</span></span>
+<span class="line" line-num="21" source-line-num="21"><span class="tlv_ident_comment">// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE</span></span>
+<span class="line" line-num="22" source-line-num="22"><span class="tlv_ident_comment">// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</span></span>
+<span class="line" line-num="23" source-line-num="23"><span class="tlv_ident_comment">// DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR</span></span>
+<span class="line" line-num="24" source-line-num="24"><span class="tlv_ident_comment">// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER</span></span>
+<span class="line" line-num="25" source-line-num="25"><span class="tlv_ident_comment">// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,</span></span>
+<span class="line" line-num="26" source-line-num="26"><span class="tlv_ident_comment">// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE</span></span>
+<span class="line" line-num="27" source-line-num="27"><span class="tlv_ident_comment">// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</span></span>
+<span class="line" line-num="28" source-line-num="28"><span class="tlv_ident_comment">// -----------------------------------------------------------------------------</span></span>
+<span class="line" line-num="29" source-line-num="29"></span>
+<span class="line" line-num="30" source-line-num="30"></span>
+<span class="line" line-num="31" source-line-num="31"><span class="tlv_ident_comment">// A dirt-simple CPU for educational purposes.</span></span>
+<span class="line" line-num="32" source-line-num="32"></span>
+<span class="line" line-num="33" source-line-num="33"></span>
+<span class="line" line-num="34" source-line-num="34"></span>
+<span class="line" line-num="35" source-line-num="35"><span class="tlv_ident_comment">// The ISA:</span></span>
+<span class="line" line-num="36" source-line-num="36"></span>
+<span class="line" line-num="37" source-line-num="37"><span class="tlv_ident_comment">// What's interesting about this ISA?</span></span>
+<span class="line" line-num="38" source-line-num="38"><span class="tlv_ident_comment">//   o It's super small.</span></span>
+<span class="line" line-num="39" source-line-num="39"><span class="tlv_ident_comment">//   o It's easy to play with and learn from.</span></span>
+<span class="line" line-num="40" source-line-num="40"><span class="tlv_ident_comment">//   o Instructions are short, kind-of-readable strings, so no assembler is needed.</span></span>
+<span class="line" line-num="41" source-line-num="41"><span class="tlv_ident_comment">//     They would map directly to a denser (~17-bit) encoding if desired.</span></span>
+<span class="line" line-num="42" source-line-num="42"><span class="tlv_ident_comment">//   o The only instruction formats are op, load, and store.</span></span>
+<span class="line" line-num="43" source-line-num="43"><span class="tlv_ident_comment">//   o Branch/Jump: There is no special format for control-flow instructions. Any</span></span>
+<span class="line" line-num="44" source-line-num="44"><span class="tlv_ident_comment">//     instruction can write the PC (relative or absolute). A conditional branch</span></span>
+<span class="line" line-num="45" source-line-num="45"><span class="tlv_ident_comment">//     will typically utilize a condition operation that provides a (relative) branch</span></span>
+<span class="line" line-num="46" source-line-num="46"><span class="tlv_ident_comment">//     target or zero.</span></span>
+<span class="line" line-num="47" source-line-num="47"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="48" source-line-num="48"><span class="tlv_ident_comment">// Branch prediction ISA considerations:</span></span>
+<span class="line" line-num="49" source-line-num="49"><span class="tlv_ident_comment">//   Typical branch predication techniques can be utilized for conditional branches</span></span>
+<span class="line" line-num="50" source-line-num="50"><span class="tlv_ident_comment">//   with an immediate offset (eg p=4?c), though the immediate is VERY limited</span></span>
+<span class="line" line-num="51" source-line-num="51"><span class="tlv_ident_comment">//   (small, positive). The immediate could also be used to predicate off subsequent</span></span>
+<span class="line" line-num="52" source-line-num="52"><span class="tlv_ident_comment">//   instructions. By convention, b is a branch target register, so it is</span></span>
+<span class="line" line-num="53" source-line-num="53"><span class="tlv_ident_comment">//   reasonable to predict the target of &quot;p=b?c&quot;, using a stale side copy of b.</span></span>
+<span class="line" line-num="54" source-line-num="54"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="55" source-line-num="55"><span class="tlv_ident_comment">// ISA Machine Arch:</span></span>
+<span class="line" line-num="56" source-line-num="56"><span class="tlv_ident_comment">//   o Single stage &quot;pipeline&quot;.</span></span>
+<span class="line" line-num="57" source-line-num="57"><span class="tlv_ident_comment">//   o 8 registers.</span></span>
+<span class="line" line-num="58" source-line-num="58"><span class="tlv_ident_comment">//   o A word is 12 bits wide.</span></span>
+<span class="line" line-num="59" source-line-num="59"><span class="tlv_ident_comment">//   o Operators operate on and produce words as signed or unsigned values and</span></span>
+<span class="line" line-num="60" source-line-num="60"><span class="tlv_ident_comment">//     booleans (all-zero/one)</span></span>
+<span class="line" line-num="61" source-line-num="61"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="62" source-line-num="62"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="63" source-line-num="63"><span class="tlv_ident_comment">// Instruction Set:</span></span>
+<span class="line" line-num="64" source-line-num="64"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="65" source-line-num="65"><span class="tlv_ident_comment">// Instructions are 5-character strings: &quot;D=1o2&quot;</span></span>
+<span class="line" line-num="66" source-line-num="66"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="67" source-line-num="67"><span class="tlv_ident_comment">// =: Appears in every instruction (just for readability).</span></span>
+<span class="line" line-num="68" source-line-num="68"><span class="tlv_ident_comment">// D, 2, 1: &quot;a&quot; - &quot;h&quot; for registers;</span></span>
+<span class="line" line-num="69" source-line-num="69"><span class="tlv_ident_comment">//          &quot;0&quot; - &quot;7&quot; for immediate constants (sources, or &quot;0&quot; for unused dest);</span></span>
+<span class="line" line-num="70" source-line-num="70"><span class="tlv_ident_comment">//          &quot;P&quot; for absolute dest PC (jump);</span></span>
+<span class="line" line-num="71" source-line-num="71"><span class="tlv_ident_comment">//          &quot;p&quot; for relative dest PC (branch), PC = PC + 1 + result(signed).</span></span>
+<span class="line" line-num="72" source-line-num="72"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="73" source-line-num="73"><span class="tlv_ident_comment">// o: operator</span></span>
+<span class="line" line-num="74" source-line-num="74"><span class="tlv_ident_comment">//   Op: (D = 1 o 2) (Eg: &quot;c=a+b&quot;):</span></span>
+<span class="line" line-num="75" source-line-num="75"><span class="tlv_ident_comment">//     Arithmetic:</span></span>
+<span class="line" line-num="76" source-line-num="76"><span class="tlv_ident_comment">//       +, -, *, /: *, / are unsigned.</span></span>
+<span class="line" line-num="77" source-line-num="77"><span class="tlv_ident_comment">//     Compare: (D = (1 o 2) ? all-1s : 0)</span></span>
+<span class="line" line-num="78" source-line-num="78"><span class="tlv_ident_comment">//       =, !, &lt;, &gt;, [, ]: ] is &gt;=, [ is &lt;=</span></span>
+<span class="line" line-num="79" source-line-num="79"><span class="tlv_ident_comment">//          (On booleans these are XNOR, XOR, !1&amp;2, 1&amp;!2, !1|2, 1|!2)</span></span>
+<span class="line" line-num="80" source-line-num="80"><span class="tlv_ident_comment">//     Bitwise:</span></span>
+<span class="line" line-num="81" source-line-num="81"><span class="tlv_ident_comment">//       &amp;, |: (Can be used on booleans as well as vectors.)</span></span>
+<span class="line" line-num="82" source-line-num="82"><span class="tlv_ident_comment">//     (There are no operators for NAND and NOR and unary !.)</span></span>
+<span class="line" line-num="83" source-line-num="83"><span class="tlv_ident_comment">//     Concatination:</span></span>
+<span class="line" line-num="84" source-line-num="84"><span class="tlv_ident_comment">//       ~: Extended constant (D = {1[2:0], 2[2:0]})</span></span>
+<span class="line" line-num="85" source-line-num="85"><span class="tlv_ident_comment">//       ,: Combine (D = {1[5:0], 2[5:0]})</span></span>
+<span class="line" line-num="86" source-line-num="86"><span class="tlv_ident_comment">//     Conditional:</span></span>
+<span class="line" line-num="87" source-line-num="87"><span class="tlv_ident_comment">//       ?: (D = 2 ? `0 : 1)</span></span>
+<span class="line" line-num="88" source-line-num="88"><span class="tlv_ident_comment">//   Load (Eg: &quot;c=a{b&quot;):</span></span>
+<span class="line" line-num="89" source-line-num="89"><span class="tlv_ident_comment">//     {: Load (D = [1 + 2] (typically 1 would be an immediate offset)</span></span>
+<span class="line" line-num="90" source-line-num="90"><span class="tlv_ident_comment">//   Store (Eg: &quot;0=a}b&quot;):</span></span>
+<span class="line" line-num="91" source-line-num="91"><span class="tlv_ident_comment">//     }: Store ([2] = D = 1) (typically D would be &quot;0&quot; (no dest))</span></span>
+<span class="line" line-num="92" source-line-num="92"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="93" source-line-num="93"><span class="tlv_ident_comment">// A full-width immediate load sequence, to load octal 2017 is:</span></span>
+<span class="line" line-num="94" source-line-num="94"><span class="tlv_ident_comment">//   a=2~0</span></span>
+<span class="line" line-num="95" source-line-num="95"><span class="tlv_ident_comment">//   b=1~7</span></span>
+<span class="line" line-num="96" source-line-num="96"><span class="tlv_ident_comment">//   a=a,b</span></span>
+<span class="line" line-num="97" source-line-num="97"></span>
+<span class="line" line-num="98" source-line-num="98"><span class="tlv_ident_comment">// A typical local conditional branch sequence is:</span></span>
+<span class="line" line-num="99" source-line-num="99"><span class="tlv_ident_comment">//   a=0-6  // offset</span></span>
+<span class="line" line-num="100" source-line-num="100"><span class="tlv_ident_comment">//   c=c-1  // decrementing loop counter</span></span>
+<span class="line" line-num="101" source-line-num="101"><span class="tlv_ident_comment">//   p=a?c  // branch by a (to PC+1-6) if c is non-negative (MSB==0)</span></span>
+<span class="line" line-num="102" source-line-num="102"></span>
+<span class="line" line-num="103" source-line-num="103"></span>
+<span class="line" line-num="104" source-line-num="104"></span>
+<span class="line" line-num="105" source-line-num="105"><span class="tlv_ident_comment">// The CPU</span></span>
+<span class="line" line-num="106" source-line-num="106"></span>
+<span class="line" line-num="107" source-line-num="107"><span class="tlv_ident_comment">// The code is parameterized, using the M4 macro preprocessor, for adjustable pipeline</span></span>
+<span class="line" line-num="108" source-line-num="108"><span class="tlv_ident_comment">// depth.</span></span>
+<span class="line" line-num="109" source-line-num="109"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="110" source-line-num="110"><span class="tlv_ident_comment">// Overview:</span></span>
+<span class="line" line-num="111" source-line-num="111"><span class="tlv_ident_comment">//   o One instruction traverses the single free-flowing CPU pipeline per cycle.</span></span>
+<span class="line" line-num="112" source-line-num="112"><span class="tlv_ident_comment">//   o There is no branch or condition or target prediction.</span></span>
+<span class="line" line-num="113" source-line-num="113"><span class="tlv_ident_comment">//   o Instructions are in-order, but the uarch supports loads that return their</span></span>
+<span class="line" line-num="114" source-line-num="114"><span class="tlv_ident_comment">//     data out of order (though, they don't).</span></span>
+<span class="line" line-num="115" source-line-num="115"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="116" source-line-num="116"><span class="tlv_ident_comment">// Replays:</span></span>
+<span class="line" line-num="117" source-line-num="117"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="118" source-line-num="118"><span class="tlv_ident_comment">// The PC is redirected, and inflight instructions are squashed (their results are</span></span>
+<span class="line" line-num="119" source-line-num="119"><span class="tlv_ident_comment">// not committed) for:</span></span>
+<span class="line" line-num="120" source-line-num="120"><span class="tlv_ident_comment">//   o jumps (go to jump target)</span></span>
+<span class="line" line-num="121" source-line-num="121"><span class="tlv_ident_comment">//   o unconditioned and non-negative-conditioned branches (go to branch target)</span></span>
+<span class="line" line-num="122" source-line-num="122"><span class="tlv_ident_comment">//   o instructions that consume a pending register (replay instruction immediately)</span></span>
+<span class="line" line-num="123" source-line-num="123"><span class="tlv_ident_comment">//     (See &quot;Loads&quot;, below.)</span></span>
+<span class="line" line-num="124" source-line-num="124"><span class="tlv_ident_comment">//   o loads that write to a pending register (replay instruction immediately)</span></span>
+<span class="line" line-num="125" source-line-num="125"><span class="tlv_ident_comment">//     (See &quot;Loads&quot;, below.)</span></span>
+<span class="line" line-num="126" source-line-num="126"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="127" source-line-num="127"><span class="tlv_ident_comment">// Loads:</span></span>
+<span class="line" line-num="128" source-line-num="128"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="129" source-line-num="129"><span class="tlv_ident_comment">// Load destination registers are marked &quot;pending&quot;, and reads of pending</span></span>
+<span class="line" line-num="130" source-line-num="130"><span class="tlv_ident_comment">// registers are replayed. (This could again result in a read of the same</span></span>
+<span class="line" line-num="131" source-line-num="131"><span class="tlv_ident_comment">// pending register, to repeat until the load returns.) Writes to pending registers</span></span>
+<span class="line" line-num="132" source-line-num="132"><span class="tlv_ident_comment">// are also replayed, so there can be at most one oustanding load to any given</span></span>
+<span class="line" line-num="133" source-line-num="133"><span class="tlv_ident_comment">// register. This way, out-of-order loads are supported (though loads are implemented</span></span>
+<span class="line" line-num="134" source-line-num="134"><span class="tlv_ident_comment">// to have a fixed latency). A returning load reserves a slot at the beginning</span></span>
+<span class="line" line-num="135" source-line-num="135"><span class="tlv_ident_comment">// of the pipeline to reserve a register write port. The returning load writes its</span></span>
+<span class="line" line-num="136" source-line-num="136"><span class="tlv_ident_comment">// result and clears the destination register's pending flag.</span></span>
+<span class="line" line-num="137" source-line-num="137"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="138" source-line-num="138"><span class="tlv_ident_comment">// To support L1 and L2 caches, it would be reasonable to delay register write (if</span></span>
+<span class="line" line-num="139" source-line-num="139"><span class="tlv_ident_comment">// necessary) to wait for L1 hits (extending the bypass window), and mark &quot;pending&quot;</span></span>
+<span class="line" line-num="140" source-line-num="140"><span class="tlv_ident_comment">// for L1 misses.</span></span>
+<span class="line" line-num="141" source-line-num="141"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="142" source-line-num="142"><span class="tlv_ident_comment">// Bypass:</span></span>
+<span class="line" line-num="143" source-line-num="143"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="144" source-line-num="144"><span class="tlv_ident_comment">// Register bypass is provided if one instruction's result is not written to the</span></span>
+<span class="line" line-num="145" source-line-num="145"><span class="tlv_ident_comment">// register file in time for the next instruction's read. An additional bypass is</span></span>
+<span class="line" line-num="146" source-line-num="146"><span class="tlv_ident_comment">// provided for each additional cycle between read and write.</span></span>
+<span class="line" line-num="147" source-line-num="147"></span>
+<span class="line" line-num="148" source-line-num="148"></span>
+<span class="line" line-num="149" source-line-num="149"></span>
+<span class="line" line-num="150" source-line-num="150"><span class="tlv_ident_comment">// /============\</span></span>
+<span class="line" line-num="151" source-line-num="151"><span class="tlv_ident_comment">// | Parameters |</span></span>
+<span class="line" line-num="152" source-line-num="152"><span class="tlv_ident_comment">// \============/</span></span>
+<span class="line" line-num="153" source-line-num="153"></span>
+<span class="line" line-num="154" source-line-num="154"><span class="tlv_ident_comment">// Adjust the parameters below to define the pipeline depth and staging.</span></span>
+<span class="line" line-num="155" source-line-num="155"></span>
+<span class="line" line-num="156" source-line-num="156"><span class="tlv_ident_comment">// Pipeline stages for each piece of logic:</span></span>
+<span class="line" line-num="157" source-line-num="157"></span>
+<span class="line" line-num="158" source-line-num="158"></span>
+<span class="line" line-num="159" source-line-num="159"></span>
+<span class="line" line-num="160" source-line-num="160"></span>
+<span class="line" line-num="161" source-line-num="161"></span>
+<span class="line" line-num="162" source-line-num="162"></span>
+<span class="line" line-num="163" source-line-num="163"></span>
+<span class="line" line-num="164" source-line-num="164"></span>
+<span class="line" line-num="165" source-line-num="165"></span>
+<span class="line" line-num="166" source-line-num="166"><span class="tlv_ident_comment">// Feedback latencies:</span></span>
+<span class="line" line-num="167" source-line-num="167"></span>
+<span class="line" line-num="168" source-line-num="168">  <span class="tlv_ident_comment">// +1 or +0. +0 aligns PC_MUX with EXECUTE</span></span>
+<span class="line" line-num="169" source-line-num="169">  <span class="tlv_ident_comment">// +0 aligns PC_MUX with BRANCH_TARGET_CALC. Must be either equal to or one greater than JUMP_LATENCY.</span></span>
+<span class="line" line-num="170" source-line-num="170">   <span class="tlv_ident_comment">// From load to returning load</span></span>
+<span class="line" line-num="171" source-line-num="171"></span>
+<span class="line" line-num="172" source-line-num="172"></span>
+<span class="line" line-num="173" source-line-num="173"><span class="tlv_ident_comment">// Machine parameters:</span></span>
+<span class="line" line-num="174" source-line-num="174">  <span class="tlv_ident_comment">// (Must match program exactly.)</span></span>
+<span class="line" line-num="175" source-line-num="175"></span>
+<span class="line" line-num="176" source-line-num="176"></span>
+<span class="line" line-num="177" source-line-num="177"></span>
+<span class="line" line-num="178" source-line-num="178"><span class="tlv_ident_hdl_code">module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    </span><span class="tlv_ident_comment">/* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  </span><span class="tlv_ident_hdl_code">bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  </span><span class="tlv_ident_comment">/* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */</span></span>
+<span class="line" line-num="179" source-line-num="179"><span class="tlv_ident_comment">/* verilator lint_on WIDTH */  // Let's be strict about bit widths.</span></span>
+<span class="line" line-num="180" source-line-num="180">   <span class="tlv_ident_hdl_code">logic [39:0] instrs [0:13-1];</span></span>
+<span class="line" line-num="181" source-line-num="181"></span>
+<span class="line" line-num="182" source-line-num="182"></span>
+<span class="line" line-num="183" source-line-num="183">   <span class="tlv_ident_comment">// /=============\</span></span>
+<span class="line" line-num="184" source-line-num="184">   <span class="tlv_ident_comment">// | The Program |</span></span>
+<span class="line" line-num="185" source-line-num="185">   <span class="tlv_ident_comment">// \=============/</span></span>
+<span class="line" line-num="186" source-line-num="186"></span>
+<span class="line" line-num="187" source-line-num="187">   <span class="tlv_ident_comment">// Add 1,2,3,...,10 (in that order).</span></span>
+<span class="line" line-num="188" source-line-num="188">   <span class="tlv_ident_comment">// Store incremental results in memory locations 0..9. (1, 3, 6, 10, ...)</span></span>
+<span class="line" line-num="189" source-line-num="189">   <span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="190" source-line-num="190">   <span class="tlv_ident_comment">// Regs:</span></span>
+<span class="line" line-num="191" source-line-num="191">   <span class="tlv_ident_comment">// b: cnt</span></span>
+<span class="line" line-num="192" source-line-num="192">   <span class="tlv_ident_comment">// c: ten</span></span>
+<span class="line" line-num="193" source-line-num="193">   <span class="tlv_ident_comment">// d: out</span></span>
+<span class="line" line-num="194" source-line-num="194">   <span class="tlv_ident_comment">// e: tmp</span></span>
+<span class="line" line-num="195" source-line-num="195">   <span class="tlv_ident_comment">// f: offset</span></span>
+<span class="line" line-num="196" source-line-num="196">   <span class="tlv_ident_comment">// g: store addr</span></span>
+<span class="line" line-num="197" source-line-num="197"></span>
+<span class="line" line-num="198" source-line-num="198">   <span class="tlv_ident_hdl_code">assign instrs = '{</span></span>
+<span class="line" line-num="199" source-line-num="199">      <span class="tlv_ident_hdl_code">&quot;g=0~0&quot;, </span><span class="tlv_ident_comment">//     store_addr = 0</span></span>
+<span class="line" line-num="200" source-line-num="200">      <span class="tlv_ident_hdl_code">&quot;b=0~1&quot;, </span><span class="tlv_ident_comment">//     cnt = 1</span></span>
+<span class="line" line-num="201" source-line-num="201">      <span class="tlv_ident_hdl_code">&quot;c=1~2&quot;, </span><span class="tlv_ident_comment">//     ten = 10</span></span>
+<span class="line" line-num="202" source-line-num="202">      <span class="tlv_ident_hdl_code">&quot;d=0~0&quot;, </span><span class="tlv_ident_comment">//     out = 0</span></span>
+<span class="line" line-num="203" source-line-num="203">      <span class="tlv_ident_hdl_code">&quot;f=0-6&quot;, </span><span class="tlv_ident_comment">//     offset = -6</span></span>
+<span class="line" line-num="204" source-line-num="204">      <span class="tlv_ident_hdl_code">&quot;d=d+b&quot;, </span><span class="tlv_ident_comment">//  -&gt; out += cnt</span></span>
+<span class="line" line-num="205" source-line-num="205">      <span class="tlv_ident_hdl_code">&quot;0=d}g&quot;, </span><span class="tlv_ident_comment">//     store out at store_addr</span></span>
+<span class="line" line-num="206" source-line-num="206">      <span class="tlv_ident_hdl_code">&quot;b=b+1&quot;, </span><span class="tlv_ident_comment">//     cnt ++</span></span>
+<span class="line" line-num="207" source-line-num="207">      <span class="tlv_ident_hdl_code">&quot;g=g+1&quot;, </span><span class="tlv_ident_comment">//     store_addr++</span></span>
+<span class="line" line-num="208" source-line-num="208">      <span class="tlv_ident_hdl_code">&quot;e=c-b&quot;, </span><span class="tlv_ident_comment">//     tmp = 10 - cnt</span></span>
+<span class="line" line-num="209" source-line-num="209">      <span class="tlv_ident_hdl_code">&quot;p=f?e&quot;, </span><span class="tlv_ident_comment">//  ^- branch back if tmp &gt;= 0</span></span>
+<span class="line" line-num="210" source-line-num="210">      <span class="tlv_ident_hdl_code">&quot;h=0{c&quot;, </span><span class="tlv_ident_comment">//     load the final value</span></span>
+<span class="line" line-num="211" source-line-num="211">      <span class="tlv_ident_hdl_code">&quot;P=0-1&quot;  </span><span class="tlv_ident_comment">//     TERMINATE by jumping to -1</span></span>
+<span class="line" line-num="212" source-line-num="212">   <span class="tlv_ident_hdl_code">};</span></span>
+<span class="line" line-num="213" source-line-num="213"></span>
+<span class="line" line-num="214" source-line-num="214"></span>
+<span class="line" line-num="215" source-line-num="215"><span class="tlv_ident_keyword1">\TLV</span></span>
+<span class="line" line-num="216" source-line-num="216">   </span>
+<span class="line" line-num="217" source-line-num="217">   <span class="tlv_ident_comment">// /=========\</span></span>
+<span class="line" line-num="218" source-line-num="218">   <span class="tlv_ident_comment">// | The CPU |</span></span>
+<span class="line" line-num="219" source-line-num="219">   <span class="tlv_ident_comment">// \=========/</span></span>
+<span class="line" line-num="220" source-line-num="220">   </span>
+<span class="line" line-num="221" source-line-num="221">   <span class="tlv_ident_assigned_pipe_sig" logical_entity="$reset">$reset</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">reset;</span></span>
+<span class="line" line-num="222" source-line-num="222"></span>
+<span class="line" line-num="223" source-line-num="223">   <span class="tlv_ident_pipeline" logical_entity="|fetch">|fetch</span></span>
+<span class="line" line-num="224" source-line-num="224">      <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr">/instr</span></span>
+<span class="line" line-num="225" source-line-num="225">         <span class="tlv_ident_stage_expr" logical_entity="|fetch@0">@0</span></span>
+<span class="line" line-num="226" source-line-num="226">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$reset">$reset</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity=""tlx_ref="">/top</span><span class="tlv_ident_alignment_zero_expr" logical_entity="|none@0">&lt;&gt;0</span><span class="tlv_ident_pipe_sig" logical_entity="$reset">$reset</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="227" source-line-num="227"></span>
+<span class="line" line-num="228" source-line-num="228">         <span class="tlv_ident_stage_expr" logical_entity="|fetch@0">@0</span></span>
+<span class="line" line-num="229" source-line-num="229">            <span class="tlv_ident_comment">//?$fetch  // We'll need this once there are invalid cycles.</span></span>
+<span class="line" line-num="230" source-line-num="230"></span>
+<span class="line" line-num="231" source-line-num="231">            <span class="tlv_ident_comment">// =====</span></span>
+<span class="line" line-num="232" source-line-num="232">            <span class="tlv_ident_comment">// Fetch</span></span>
+<span class="line" line-num="233" source-line-num="233">            <span class="tlv_ident_comment">// =====</span></span>
+<span class="line" line-num="234" source-line-num="234"></span>
+<span class="line" line-num="235" source-line-num="235">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$raw">$raw</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">39</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">instrs</span><span class="tlv_ident_sv_sig">\</span><span class="tlv_ident_hdl_code">[</span><span class="tlv_ident_state_sig" logical_entity="|fetch/instr$Pc">$Pc</span><span class="tlv_ident_state_sig">[</span><span class="tlv_ident_hdl_code">3</span><span class="tlv_ident_state_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_state_sig">]</span><span class="tlv_ident_sv_sig">\</span><span class="tlv_ident_hdl_code">];</span></span>
+<span class="line" line-num="236" source-line-num="236">            </span>
+<span class="line" line-num="237" source-line-num="237">         <span class="tlv_ident_comment">// A returning load clobbers the instruction.</span></span>
+<span class="line" line-num="238" source-line-num="238">         <span class="tlv_ident_stage_expr" logical_entity="|fetch@0">@0</span></span>
+<span class="line" line-num="239" source-line-num="239">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$returning_ld">$returning_ld</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@8">&gt;&gt;4</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$valid_ld">$valid_ld</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="240" source-line-num="240">         <span class="tlv_ident_stage_expr" logical_entity="|fetch@2">@1</span></span>
+<span class="line" line-num="241" source-line-num="241">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$returning_ld_reg">$returning_ld_reg</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@10">&gt;&gt;4</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$dest_reg">$dest_reg</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="242" source-line-num="242">         </span>
+<span class="line" line-num="243" source-line-num="243">         <span class="tlv_ident_stage_expr" logical_entity="|fetch@0">@0</span></span>
+<span class="line" line-num="244" source-line-num="244">            <span class="tlv_ident_comment">// =======</span></span>
+<span class="line" line-num="245" source-line-num="245">            <span class="tlv_ident_comment">// Next PC</span></span>
+<span class="line" line-num="246" source-line-num="246">            <span class="tlv_ident_comment">// =======</span></span>
+<span class="line" line-num="247" source-line-num="247">            </span>
+<span class="line" line-num="248" source-line-num="248">            <span class="tlv_ident_comment">//?$fetch_or_reset</span></span>
+<span class="line" line-num="249" source-line-num="249">            <span class="tlv_ident_assigned_state_sig" logical_entity="|fetch/instr$Pc">$Pc</span><span class="tlv_ident_state_sig">[</span><span class="tlv_ident_hdl_code">11</span><span class="tlv_ident_state_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_state_sig">] </span><span class="tlv_ident_sv_sig">&lt;</span><span class="tlv_ident_hdl_code">=</span></span>
+<span class="line" line-num="250" source-line-num="250">               <span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$reset">$reset</span> <span class="tlv_ident_hdl_code">? 0 :</span></span>
+<span class="line" line-num="251" source-line-num="251">               <span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@6">&gt;&gt;3</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$valid_mispred_branch">$valid_mispred_branch</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@6">&gt;&gt;3</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$branch_target">$branch_target</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="252" source-line-num="252">               <span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@4">&gt;&gt;2</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$valid_jump">$valid_jump</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@4">&gt;&gt;2</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$jump_target">$jump_target</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="253" source-line-num="253">               <span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@4">&gt;&gt;2</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$replay">$replay</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@4">&gt;&gt;2</span><span class="tlv_ident_state_sig" logical_entity="|fetch/instr$Pc">$Pc</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="254" source-line-num="254">               <span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$returning_ld">$returning_ld</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_sig_keyword" logical_entity="|fetch/instr$Pc">$RETAIN</span> <span class="tlv_ident_hdl_code">:  </span><span class="tlv_ident_comment">// Returning load, so next PC is the previous next PC (unless there was a branch that wasn't visible yet)</span></span>
+<span class="line" line-num="255" source-line-num="255">                        <span class="tlv_ident_state_sig" logical_entity="|fetch/instr$Pc">$Pc</span> <span class="tlv_ident_hdl_code">+ 12'b1;</span></span>
+<span class="line" line-num="256" source-line-num="256"></span>
+<span class="line" line-num="257" source-line-num="257">         <span class="tlv_ident_stage_expr" logical_entity="|fetch@2">@1</span></span>
+<span class="line" line-num="258" source-line-num="258"></span>
+<span class="line" line-num="259" source-line-num="259">            <span class="tlv_ident_comment">// ======</span></span>
+<span class="line" line-num="260" source-line-num="260">            <span class="tlv_ident_comment">// DECODE</span></span>
+<span class="line" line-num="261" source-line-num="261">            <span class="tlv_ident_comment">// ======</span></span>
+<span class="line" line-num="262" source-line-num="262"></span>
+<span class="line" line-num="263" source-line-num="263">            <span class="tlv_ident_comment">// Characters</span></span>
+<span class="line" line-num="264" source-line-num="264">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$dest_char">$dest_char</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">7</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$raw">$raw</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">39</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">32</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="265" source-line-num="265">            <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">:</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">]</span></span>
+<span class="line" line-num="266" source-line-num="266">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/src$char">$char</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">7</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= (</span><span class="tlv_ident_sv_sig">#</span><span class="tlv_ident_hdl_code">src == 1) ? </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr"tlx_ref="">/instr</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$raw">$raw</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">23</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">16</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">: </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr"tlx_ref="">/instr</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$raw">$raw</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">7</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="267" source-line-num="267">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$op_char">$op_char</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">7</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$raw">$raw</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">15</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">8</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="268" source-line-num="268"></span>
+<span class="line" line-num="269" source-line-num="269">            <span class="tlv_ident_comment">// Dest</span></span>
+<span class="line" line-num="270" source-line-num="270">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$dest_is_reg">$dest_is_reg</span> <span class="tlv_ident_hdl_code">= (</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$dest_char">$dest_char</span> <span class="tlv_ident_hdl_code">&gt;= &quot;a&quot; &amp;&amp; </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$dest_char">$dest_char</span> <span class="tlv_ident_hdl_code">&lt;= &quot;h&quot;) || </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$returning_ld">$returning_ld</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="271" source-line-num="271">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$dest_tmp">$dest_tmp</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">7</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$dest_char">$dest_char</span> <span class="tlv_ident_hdl_code">- &quot;a&quot;;</span></span>
+<span class="line" line-num="272" source-line-num="272">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$dest_reg">$dest_reg</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$returning_ld">$returning_ld</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$returning_ld_reg">$returning_ld_reg</span> <span class="tlv_ident_hdl_code">: </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$dest_tmp">$dest_tmp</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="273" source-line-num="273">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$jump">$jump</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$dest_char">$dest_char</span> <span class="tlv_ident_hdl_code">== &quot;P&quot;;</span></span>
+<span class="line" line-num="274" source-line-num="274">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$branch">$branch</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$dest_char">$dest_char</span> <span class="tlv_ident_hdl_code">== &quot;p&quot;;</span></span>
+<span class="line" line-num="275" source-line-num="275">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$no_dest">$no_dest</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$dest_char">$dest_char</span> <span class="tlv_ident_hdl_code">== &quot;0&quot;;</span></span>
+<span class="line" line-num="276" source-line-num="276">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$write_pc">$write_pc</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$jump">$jump</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$branch">$branch</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="277" source-line-num="277">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$dest_valid">$dest_valid</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$write_pc">$write_pc</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$dest_is_reg">$dest_is_reg</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="278" source-line-num="278">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$illegal_dest">$illegal_dest</span> <span class="tlv_ident_hdl_code">= !(</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$dest_is_reg">$dest_is_reg</span> <span class="tlv_ident_hdl_code">|| </span></span>
+<span class="line" line-num="279" source-line-num="279">                              <span class="tlv_ident_hdl_code">((</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$branch">$branch</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$jump">$jump</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$no_dest">$no_dest</span><span class="tlv_ident_hdl_code">) &amp;&amp; ! </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$ld">$ld</span><span class="tlv_ident_hdl_code">));  </span><span class="tlv_ident_comment">// Load must have reg dest.</span></span>
+<span class="line" line-num="280" source-line-num="280"></span>
+<span class="line" line-num="281" source-line-num="281">            <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">*</span><span class="tlv_ident_beh_hier_2">]</span></span>
+<span class="line" line-num="282" source-line-num="282">               <span class="tlv_ident_comment">// Src1</span></span>
+<span class="line" line-num="283" source-line-num="283">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/src$is_reg">$is_reg</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$char">$char</span> <span class="tlv_ident_hdl_code">&gt;= &quot;a&quot; &amp;&amp; </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$char">$char</span> <span class="tlv_ident_hdl_code">&lt;= &quot;h&quot;;</span></span>
+<span class="line" line-num="284" source-line-num="284">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/src$reg_tmp">$reg_tmp</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">7</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$char">$char</span> <span class="tlv_ident_hdl_code">- &quot;a&quot;;</span></span>
+<span class="line" line-num="285" source-line-num="285">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/src$reg">$reg</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$reg_tmp">$reg_tmp</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="286" source-line-num="286">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/src$is_imm">$is_imm</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$char">$char</span> <span class="tlv_ident_hdl_code">&gt;= &quot;0&quot; &amp;&amp; </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$char">$char</span> <span class="tlv_ident_hdl_code">&lt; &quot;8&quot;;</span></span>
+<span class="line" line-num="287" source-line-num="287">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/src$imm_tmp">$imm_tmp</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">7</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$char">$char</span> <span class="tlv_ident_hdl_code">- &quot;0&quot;;</span></span>
+<span class="line" line-num="288" source-line-num="288">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/src$imm_value">$imm_value</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$imm_tmp">$imm_tmp</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="289" source-line-num="289">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/src$illegal">$illegal</span> <span class="tlv_ident_hdl_code">= !(</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$is_reg">$is_reg</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$is_imm">$is_imm</span><span class="tlv_ident_hdl_code">);</span></span>
+<span class="line" line-num="290" source-line-num="290"></span>
+<span class="line" line-num="291" source-line-num="291">            <span class="tlv_ident_comment">// Opcode:</span></span>
+<span class="line" line-num="292" source-line-num="292">            <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op">/op</span></span>
+<span class="line" line-num="293" source-line-num="293">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$char">$char</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">7</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr"tlx_ref="">/instr</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$op_char">$op_char</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="294" source-line-num="294">               <span class="tlv_ident_comment">// Arithmetic</span></span>
+<span class="line" line-num="295" source-line-num="295">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$add">$add</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$char">$char</span> <span class="tlv_ident_hdl_code">== &quot;+&quot;;</span></span>
+<span class="line" line-num="296" source-line-num="296">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$sub">$sub</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$char">$char</span> <span class="tlv_ident_hdl_code">== &quot;-&quot;;</span></span>
+<span class="line" line-num="297" source-line-num="297">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$mul">$mul</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$char">$char</span> <span class="tlv_ident_hdl_code">== &quot;*&quot;;</span></span>
+<span class="line" line-num="298" source-line-num="298">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$div">$div</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$char">$char</span> <span class="tlv_ident_hdl_code">== &quot;/&quot;;</span></span>
+<span class="line" line-num="299" source-line-num="299">               <span class="tlv_ident_comment">// Compare and bool (w/ 1 bit rslt)</span></span>
+<span class="line" line-num="300" source-line-num="300">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$eq">$eq</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$char">$char</span> <span class="tlv_ident_hdl_code">== &quot;=&quot;;</span></span>
+<span class="line" line-num="301" source-line-num="301">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$ne">$ne</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$char">$char</span> <span class="tlv_ident_hdl_code">== &quot;!&quot;;</span></span>
+<span class="line" line-num="302" source-line-num="302">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$lt">$lt</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$char">$char</span> <span class="tlv_ident_hdl_code">== &quot;&lt;&quot;;</span></span>
+<span class="line" line-num="303" source-line-num="303">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$gt">$gt</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$char">$char</span> <span class="tlv_ident_hdl_code">== &quot;&gt;&quot;;</span></span>
+<span class="line" line-num="304" source-line-num="304">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$le">$le</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$char">$char</span> <span class="tlv_ident_hdl_code">== &quot;[&quot;;</span></span>
+<span class="line" line-num="305" source-line-num="305">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$ge">$ge</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$char">$char</span> <span class="tlv_ident_hdl_code">== &quot;]&quot;;</span></span>
+<span class="line" line-num="306" source-line-num="306">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$and">$and</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$char">$char</span> <span class="tlv_ident_hdl_code">== &quot;&amp;&quot;;</span></span>
+<span class="line" line-num="307" source-line-num="307">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$or">$or</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$char">$char</span> <span class="tlv_ident_hdl_code">== &quot;|&quot;;</span></span>
+<span class="line" line-num="308" source-line-num="308">               <span class="tlv_ident_comment">// Wide Immediate</span></span>
+<span class="line" line-num="309" source-line-num="309">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$wide_imm">$wide_imm</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$char">$char</span> <span class="tlv_ident_hdl_code">== &quot;~&quot;;</span></span>
+<span class="line" line-num="310" source-line-num="310">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$combine">$combine</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$char">$char</span> <span class="tlv_ident_hdl_code">== &quot;,&quot;;</span></span>
+<span class="line" line-num="311" source-line-num="311">               <span class="tlv_ident_comment">// Conditional</span></span>
+<span class="line" line-num="312" source-line-num="312">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$conditional">$conditional</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$char">$char</span> <span class="tlv_ident_hdl_code">== &quot;?&quot;;</span></span>
+<span class="line" line-num="313" source-line-num="313">               <span class="tlv_ident_comment">// Memory</span></span>
+<span class="line" line-num="314" source-line-num="314">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$ld">$ld</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$char">$char</span> <span class="tlv_ident_hdl_code">== &quot;{&quot;;</span></span>
+<span class="line" line-num="315" source-line-num="315">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$st">$st</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$char">$char</span> <span class="tlv_ident_hdl_code">== &quot;}&quot;;</span></span>
+<span class="line" line-num="316" source-line-num="316">               <span class="tlv_ident_comment">// Opcode classes:</span></span>
+<span class="line" line-num="317" source-line-num="317">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$arith">$arith</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$add">$add</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$sub">$sub</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$mul">$mul</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$div">$div</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="318" source-line-num="318">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$compare">$compare</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$eq">$eq</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$ne">$ne</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$lt">$lt</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$gt">$gt</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$le">$le</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$ge">$ge</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="319" source-line-num="319">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$bitwise">$bitwise</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$and">$and</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$or">$or</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="320" source-line-num="320">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$full">$full</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$arith">$arith</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$bitwise">$bitwise</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$wide_imm">$wide_imm</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$combine">$combine</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$conditional">$conditional</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="321" source-line-num="321">               <span class="tlv_ident_comment">//$op3 = $compare || $full;</span></span>
+<span class="line" line-num="322" source-line-num="322">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$mem">$mem</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$ld">$ld</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$st">$st</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="323" source-line-num="323">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/op$illegal">$illegal</span> <span class="tlv_ident_hdl_code">= !(</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$compare">$compare</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$full">$full</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$mem">$mem</span><span class="tlv_ident_hdl_code">);</span></span>
+<span class="line" line-num="324" source-line-num="324">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$op_compare">$op_compare</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$compare">$compare</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="325" source-line-num="325">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$op_full">$op_full</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$full">$full</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="326" source-line-num="326">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$ld">$ld</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$ld">$ld</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="327" source-line-num="327">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$st">$st</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$st">$st</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="328" source-line-num="328">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$illegal">$illegal</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$illegal_dest">$illegal_dest</span> <span class="tlv_ident_hdl_code">|| (| </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">*</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$illegal">$illegal</span><span class="tlv_ident_hdl_code">) || </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$illegal">$illegal</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="329" source-line-num="329">            </span>
+<span class="line" line-num="330" source-line-num="330">            <span class="tlv_ident_comment">// Branch instructions with a condition (that might be worth predicting).</span></span>
+<span class="line" line-num="331" source-line-num="331">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$conditional_branch">$conditional_branch</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$branch">$branch</span> <span class="tlv_ident_hdl_code">&amp;&amp; </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$conditional">$conditional</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="332" source-line-num="332">            </span>
+<span class="line" line-num="333" source-line-num="333">         <span class="tlv_ident_stage_expr" logical_entity="|fetch@2">@1</span></span>
+<span class="line" line-num="334" source-line-num="334">            <span class="tlv_ident_comment">// ======</span></span>
+<span class="line" line-num="335" source-line-num="335">            <span class="tlv_ident_comment">// Reg Rd</span></span>
+<span class="line" line-num="336" source-line-num="336">            <span class="tlv_ident_comment">// ======</span></span>
+<span class="line" line-num="337" source-line-num="337">            </span>
+<span class="line" line-num="338" source-line-num="338">            <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/regs">/regs</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">7</span><span class="tlv_ident_beh_hier_2">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_beh_hier_2">]</span></span>
+<span class="line" line-num="339" source-line-num="339">            <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">*</span><span class="tlv_ident_beh_hier_2">]</span></span>
+<span class="line" line-num="340" source-line-num="340">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/src$is_reg_condition">$is_reg_condition</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$is_reg">$is_reg</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="341" source-line-num="341">               <span class="tlv_ident_when">?$is_reg_condition</span></span>
+<span class="line" line-num="342" source-line-num="342">                  <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/src$reg_value">$reg_value</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">11</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">=</span></span>
+<span class="line" line-num="343" source-line-num="343">                     <span class="tlv_ident_comment">// Bypass stages:</span></span>
+<span class="line" line-num="344" source-line-num="344">                     <span class="tlv_ident_hdl_code">(</span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr"tlx_ref="">/instr</span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@4">&gt;&gt;1</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$dest_is_reg">$dest_is_reg</span> <span class="tlv_ident_hdl_code">&amp;&amp; (</span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr"tlx_ref="">/instr</span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@4">&gt;&gt;1</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$dest_reg">$dest_reg</span> <span class="tlv_ident_hdl_code">== </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$reg">$reg</span><span class="tlv_ident_hdl_code">)) ? </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr"tlx_ref="">/instr</span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@4">&gt;&gt;1</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$rslt">$rslt</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="345" source-line-num="345">                     <span class="tlv_ident_hdl_code">(</span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr"tlx_ref="">/instr</span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@6">&gt;&gt;2</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$dest_is_reg">$dest_is_reg</span> <span class="tlv_ident_hdl_code">&amp;&amp; (</span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr"tlx_ref="">/instr</span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@6">&gt;&gt;2</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$dest_reg">$dest_reg</span> <span class="tlv_ident_hdl_code">== </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$reg">$reg</span><span class="tlv_ident_hdl_code">)) ? </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr"tlx_ref="">/instr</span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@6">&gt;&gt;2</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$rslt">$rslt</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="346" source-line-num="346">                     </span>
+<span class="line" line-num="347" source-line-num="347">                     <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr"tlx_ref="">/instr</span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/regs"tlx_ref="">/regs</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$reg">$reg</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@6">&gt;&gt;2</span><span class="tlv_ident_state_sig" logical_entity="|fetch/instr/regs$Value">$Value</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="348" source-line-num="348">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/src$valid">$valid</span> <span class="tlv_ident_hdl_code">= !</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$illegal">$illegal</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="349" source-line-num="349">               <span class="tlv_ident_when">?$valid</span></span>
+<span class="line" line-num="350" source-line-num="350">                  <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">11</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$is_reg">$is_reg</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$reg_value">$reg_value</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="351" source-line-num="351">                                           <span class="tlv_ident_hdl_code">{9'b0, </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$imm_value">$imm_value</span><span class="tlv_ident_hdl_code">}; </span><span class="tlv_ident_comment">// $is_imm</span></span>
+<span class="line" line-num="352" source-line-num="352">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/src$replay">$replay</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$is_reg">$is_reg</span> <span class="tlv_ident_hdl_code">&amp;&amp; </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr"tlx_ref="">/instr</span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/regs"tlx_ref="">/regs</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$reg">$reg</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@4">&gt;&gt;1</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/regs$next_pending">$next_pending</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="353" source-line-num="353">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$replay">$replay</span> <span class="tlv_ident_hdl_code">= | </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">*</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$replay">$replay</span> <span class="tlv_ident_hdl_code">|| (</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$dest_is_reg">$dest_is_reg</span> <span class="tlv_ident_hdl_code">&amp;&amp; </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/regs"tlx_ref="">/regs</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$dest_reg">$dest_reg</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@4">&gt;&gt;1</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/regs$next_pending">$next_pending</span><span class="tlv_ident_hdl_code">);</span></span>
+<span class="line" line-num="354" source-line-num="354">            </span>
+<span class="line" line-num="355" source-line-num="355">         <span class="tlv_ident_stage_expr" logical_entity="|fetch@4">@2</span></span>
+<span class="line" line-num="356" source-line-num="356">            <span class="tlv_ident_comment">// =======</span></span>
+<span class="line" line-num="357" source-line-num="357">            <span class="tlv_ident_comment">// Execute</span></span>
+<span class="line" line-num="358" source-line-num="358">            <span class="tlv_ident_comment">// =======</span></span>
+<span class="line" line-num="359" source-line-num="359">            </span>
+<span class="line" line-num="360" source-line-num="360">            <span class="tlv_ident_when">?$op_compare</span></span>
+<span class="line" line-num="361" source-line-num="361">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$compare_rslt">$compare_rslt</span> <span class="tlv_ident_hdl_code">=</span></span>
+<span class="line" line-num="362" source-line-num="362">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$eq">$eq</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">== </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="363" source-line-num="363">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$ne">$ne</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">!= </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="364" source-line-num="364">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$lt">$lt</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">&lt; </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="365" source-line-num="365">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$gt">$gt</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">&gt; </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="366" source-line-num="366">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$le">$le</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">&lt;= </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="367" source-line-num="367">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$ge">$ge</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">&gt;= </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="368" source-line-num="368">                           <span class="tlv_ident_hdl_code">1'b0;</span></span>
+<span class="line" line-num="369" source-line-num="369">            <span class="tlv_ident_when">?$op_full</span></span>
+<span class="line" line-num="370" source-line-num="370">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$op_full_rslt">$op_full_rslt</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">11</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">=</span></span>
+<span class="line" line-num="371" source-line-num="371">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$add">$add</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">+ </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="372" source-line-num="372">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$sub">$sub</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">- </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="373" source-line-num="373">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$mul">$mul</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">* </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="374" source-line-num="374">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$div">$div</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">* </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="375" source-line-num="375">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$and">$and</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">&amp; </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="376" source-line-num="376">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$or">$or</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">| </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="377" source-line-num="377">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$wide_imm">$wide_imm</span> <span class="tlv_ident_hdl_code">? {6'b0, </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">, </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">} :</span></span>
+<span class="line" line-num="378" source-line-num="378">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$combine">$combine</span> <span class="tlv_ident_hdl_code">? {</span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">5</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">, </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">5</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">} :</span></span>
+<span class="line" line-num="379" source-line-num="379">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/op"tlx_ref="">/op</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/op$conditional">$conditional</span> <span class="tlv_ident_hdl_code">? (</span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">11</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">? 12'b0 : </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span><span class="tlv_ident_hdl_code">) :</span></span>
+<span class="line" line-num="380" source-line-num="380">                                    <span class="tlv_ident_hdl_code">12'b0;</span></span>
+<span class="line" line-num="381" source-line-num="381">            <span class="tlv_ident_when">?$dest_valid</span></span>
+<span class="line" line-num="382" source-line-num="382">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$rslt">$rslt</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">11</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">=</span></span>
+<span class="line" line-num="383" source-line-num="383">                  <span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$returning_ld">$returning_ld</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@12">&gt;&gt;4</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$ld_rslt">$ld_rslt</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="384" source-line-num="384">                  <span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$st">$st</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="385" source-line-num="385">                  <span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$op_full">$op_full</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$op_full_rslt">$op_full_rslt</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="386" source-line-num="386">                  <span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$op_compare">$op_compare</span> <span class="tlv_ident_hdl_code">? {12{</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$compare_rslt">$compare_rslt</span><span class="tlv_ident_hdl_code">}} :</span></span>
+<span class="line" line-num="387" source-line-num="387">                  <span class="tlv_ident_comment">//$ld ? $ld_rslt :</span></span>
+<span class="line" line-num="388" source-line-num="388">                        <span class="tlv_ident_hdl_code">12'b0;</span></span>
+<span class="line" line-num="389" source-line-num="389">               </span>
+<span class="line" line-num="390" source-line-num="390">         <span class="tlv_ident_stage_expr" logical_entity="|fetch@4">@2</span></span>
+<span class="line" line-num="391" source-line-num="391">            <span class="tlv_ident_comment">// =========</span></span>
+<span class="line" line-num="392" source-line-num="392">            <span class="tlv_ident_comment">// Target PC</span></span>
+<span class="line" line-num="393" source-line-num="393">            <span class="tlv_ident_comment">// =========</span></span>
+<span class="line" line-num="394" source-line-num="394">            </span>
+<span class="line" line-num="395" source-line-num="395">            <span class="tlv_ident_comment">// Jump (Dest = &quot;P&quot;) and Branch (Dest = &quot;p&quot;) Targets.</span></span>
+<span class="line" line-num="396" source-line-num="396">            <span class="tlv_ident_when">?$jump</span></span>
+<span class="line" line-num="397" source-line-num="397">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$jump_target">$jump_target</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">11</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$rslt">$rslt</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="398" source-line-num="398">            <span class="tlv_ident_comment">// Always predict taken; mispredict if jump or unconditioned branch or</span></span>
+<span class="line" line-num="399" source-line-num="399">            <span class="tlv_ident_comment">//   conditioned branch with positive condition.</span></span>
+<span class="line" line-num="400" source-line-num="400">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$mispred_branch">$mispred_branch</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$branch">$branch</span> <span class="tlv_ident_hdl_code">&amp;&amp; ! (</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$conditional_branch">$conditional_branch</span> <span class="tlv_ident_hdl_code">&amp;&amp; </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">11</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">);</span></span>
+<span class="line" line-num="401" source-line-num="401">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$valid_jump">$valid_jump</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$jump">$jump</span> <span class="tlv_ident_hdl_code">&amp;&amp; ! </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$squash">$squash</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="402" source-line-num="402">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$valid_mispred_branch">$valid_mispred_branch</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$mispred_branch">$mispred_branch</span> <span class="tlv_ident_hdl_code">&amp;&amp; ~</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$squash">$squash</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="403" source-line-num="403">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$valid_ld">$valid_ld</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$ld">$ld</span> <span class="tlv_ident_hdl_code">&amp;&amp; ! </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$squash">$squash</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="404" source-line-num="404">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$valid_st">$valid_st</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$st">$st</span> <span class="tlv_ident_hdl_code">&amp;&amp; ! </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$squash">$squash</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="405" source-line-num="405">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$valid_illegal">$valid_illegal</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$illegal">$illegal</span> <span class="tlv_ident_hdl_code">&amp;&amp; ! </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$squash">$squash</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="406" source-line-num="406">            <span class="tlv_ident_comment">// Squash. Keep a count of the number of cycles remaining in the shadow of a mispredict.</span></span>
+<span class="line" line-num="407" source-line-num="407">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$squash">$squash</span> <span class="tlv_ident_hdl_code">= | </span><span class="tlv_ident_state_sig" logical_entity="|fetch/instr$SquashCnt">$SquashCnt</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$returning_ld">$returning_ld</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$replay">$replay</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="408" source-line-num="408">            <span class="tlv_ident_assigned_state_sig" logical_entity="|fetch/instr$SquashCnt">$SquashCnt</span><span class="tlv_ident_state_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_state_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_state_sig">] </span><span class="tlv_ident_sv_sig">&lt;</span><span class="tlv_ident_hdl_code">=</span></span>
+<span class="line" line-num="409" source-line-num="409">               <span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$reset">$reset</span>                <span class="tlv_ident_hdl_code">? 3'b0 :</span></span>
+<span class="line" line-num="410" source-line-num="410">               <span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$valid_mispred_branch">$valid_mispred_branch</span> <span class="tlv_ident_hdl_code">? 3 :</span></span>
+<span class="line" line-num="411" source-line-num="411">               <span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$valid_jump">$valid_jump</span>           <span class="tlv_ident_hdl_code">? 2 :</span></span>
+<span class="line" line-num="412" source-line-num="412">               <span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$replay">$replay</span>               <span class="tlv_ident_hdl_code">? 3 - 3'b1:</span></span>
+<span class="line" line-num="413" source-line-num="413">               <span class="tlv_ident_state_sig" logical_entity="|fetch/instr$SquashCnt">$SquashCnt</span> <span class="tlv_ident_hdl_code">== 3'b0    ? 3'b0 :</span></span>
+<span class="line" line-num="414" source-line-num="414">                                       <span class="tlv_ident_state_sig" logical_entity="|fetch/instr$SquashCnt">$SquashCnt</span> <span class="tlv_ident_hdl_code">- 3'b1;</span></span>
+<span class="line" line-num="415" source-line-num="415">         <span class="tlv_ident_stage_expr" logical_entity="|fetch@6">@3</span></span>
+<span class="line" line-num="416" source-line-num="416">            <span class="tlv_ident_when">?$branch</span></span>
+<span class="line" line-num="417" source-line-num="417">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$branch_target">$branch_target</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">11</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_state_sig" logical_entity="|fetch/instr$Pc">$Pc</span> <span class="tlv_ident_hdl_code">+ 12'b1 + </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$rslt">$rslt</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="418" source-line-num="418">            </span>
+<span class="line" line-num="419" source-line-num="419">            </span>
+<span class="line" line-num="420" source-line-num="420">            <span class="tlv_ident_comment">// ====</span></span>
+<span class="line" line-num="421" source-line-num="421">            <span class="tlv_ident_comment">// Load</span></span>
+<span class="line" line-num="422" source-line-num="422">            <span class="tlv_ident_comment">// ====</span></span>
+<span class="line" line-num="423" source-line-num="423">            </span>
+<span class="line" line-num="424" source-line-num="424">            <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/mem">/mem</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">31</span><span class="tlv_ident_beh_hier_2">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_beh_hier_2">]</span></span>
+<span class="line" line-num="425" source-line-num="425">         <span class="tlv_ident_when">?$ld</span></span>
+<span class="line" line-num="426" source-line-num="426">            <span class="tlv_ident_stage_expr" logical_entity="|fetch@4">@2</span></span>
+<span class="line" line-num="427" source-line-num="427">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$addr">$addr</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">11</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span> <span class="tlv_ident_hdl_code">+ </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="428" source-line-num="428">            <span class="tlv_ident_stage_expr" logical_entity="|fetch@6">@3</span></span>
+<span class="line" line-num="429" source-line-num="429">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$ld_rslt">$ld_rslt</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">11</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/mem"tlx_ref="">/mem</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$addr">$addr</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">4</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_state_sig" logical_entity="|fetch/instr/mem$Word">$Word</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="430" source-line-num="430">         </span>
+<span class="line" line-num="431" source-line-num="431">         <span class="tlv_ident_comment">// Array writes are not currently permitted to use assignment</span></span>
+<span class="line" line-num="432" source-line-num="432">         <span class="tlv_ident_comment">// syntax, so \always_comb is used, and this must be outside of</span></span>
+<span class="line" line-num="433" source-line-num="433">         <span class="tlv_ident_comment">// when conditions, so we need to use if. &lt;&lt;1 because no &lt;= support</span></span>
+<span class="line" line-num="434" source-line-num="434">         <span class="tlv_ident_comment">// in this context. (This limitation will be lifted.)</span></span>
+<span class="line" line-num="435" source-line-num="435"></span>
+<span class="line" line-num="436" source-line-num="436">         <span class="tlv_ident_stage_expr" logical_entity="|fetch@6">@3</span></span>
+<span class="line" line-num="437" source-line-num="437">            <span class="tlv_ident_comment">// =====</span></span>
+<span class="line" line-num="438" source-line-num="438">            <span class="tlv_ident_comment">// Store</span></span>
+<span class="line" line-num="439" source-line-num="439">            <span class="tlv_ident_comment">// =====</span></span>
+<span class="line" line-num="440" source-line-num="440"></span>
+<span class="line" line-num="441" source-line-num="441">            <span class="tlv_ident_keyword1">\always_comb</span></span>
+<span class="line" line-num="442" source-line-num="442">               <span class="tlv_ident_hdl_code">if (</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$valid_st">$valid_st</span><span class="tlv_ident_hdl_code">)</span></span>
+<span class="line" line-num="443" source-line-num="443">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/mem"tlx_ref="">/mem</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">4</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_alignment_behind_expr" logical_entity="|fetch@4">&lt;&lt;1</span><span class="tlv_ident_assigned_state_sig" logical_entity="|fetch/instr/mem$Word">$$Word</span><span class="tlv_ident_assigned_state_sig">[</span><span class="tlv_ident_hdl_code">11</span><span class="tlv_ident_assigned_state_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_assigned_state_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/src"tlx_ref="">/src</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/src$value">$value</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="444" source-line-num="444"></span>
+<span class="line" line-num="445" source-line-num="445">         <span class="tlv_ident_stage_expr" logical_entity="|fetch@6">@3</span></span>
+<span class="line" line-num="446" source-line-num="446">            <span class="tlv_ident_comment">// =========</span></span>
+<span class="line" line-num="447" source-line-num="447">            <span class="tlv_ident_comment">// Reg Write</span></span>
+<span class="line" line-num="448" source-line-num="448">            <span class="tlv_ident_comment">// =========</span></span>
+<span class="line" line-num="449" source-line-num="449"></span>
+<span class="line" line-num="450" source-line-num="450">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr$reg_write">$reg_write</span> <span class="tlv_ident_hdl_code">= (</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$dest_is_reg">$dest_is_reg</span> <span class="tlv_ident_hdl_code">&amp;&amp; ! </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$squash">$squash</span><span class="tlv_ident_hdl_code">) || </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$returning_ld">$returning_ld</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="451" source-line-num="451">            <span class="tlv_ident_keyword1">\always_comb</span></span>
+<span class="line" line-num="452" source-line-num="452">               <span class="tlv_ident_hdl_code">if (</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$reg_write">$reg_write</span><span class="tlv_ident_hdl_code">)</span></span>
+<span class="line" line-num="453" source-line-num="453">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/regs"tlx_ref="">/regs</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$dest_reg">$dest_reg</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_alignment_behind_expr" logical_entity="|fetch@4">&lt;&lt;1</span><span class="tlv_ident_assigned_state_sig" logical_entity="|fetch/instr/regs$Value">$$Value</span><span class="tlv_ident_assigned_state_sig">[</span><span class="tlv_ident_hdl_code">11</span><span class="tlv_ident_assigned_state_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_assigned_state_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$reset">$reset</span> <span class="tlv_ident_hdl_code">? 12'h0 : </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$rslt">$rslt</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="454" source-line-num="454">         </span>
+<span class="line" line-num="455" source-line-num="455">         <span class="tlv_ident_comment">// There's no bypass on pending, so we must write the same cycle we read.</span></span>
+<span class="line" line-num="456" source-line-num="456">         <span class="tlv_ident_stage_expr" logical_entity="|fetch@4">@2</span></span>
+<span class="line" line-num="457" source-line-num="457">            <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr/regs">/regs</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">*</span><span class="tlv_ident_beh_hier_2">]</span></span>
+<span class="line" line-num="458" source-line-num="458">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/regs$reg_match">$reg_match</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr"tlx_ref="">/instr</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$dest_reg">$dest_reg</span> <span class="tlv_ident_hdl_code">== </span><span class="tlv_ident_sv_sig">#</span><span class="tlv_ident_hdl_code">regs;</span></span>
+<span class="line" line-num="459" source-line-num="459">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|fetch/instr/regs$next_pending">$next_pending</span> <span class="tlv_ident_hdl_code">=  </span><span class="tlv_ident_comment">// Should be state, but need to consume prior to flop, which SandPiper doesn't support, yet.</span></span>
+<span class="line" line-num="460" source-line-num="460">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr"tlx_ref="">/instr</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$reset">$reset</span> <span class="tlv_ident_hdl_code">? 1'b0 :</span></span>
+<span class="line" line-num="461" source-line-num="461">                  <span class="tlv_ident_comment">// set for loads</span></span>
+<span class="line" line-num="462" source-line-num="462">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr"tlx_ref="">/instr</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$valid_ld">$valid_ld</span> <span class="tlv_ident_hdl_code">&amp;&amp; </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/regs$reg_match">$reg_match</span>   <span class="tlv_ident_hdl_code">? 1'b1 :</span></span>
+<span class="line" line-num="463" source-line-num="463">                  <span class="tlv_ident_comment">// clear when load returns</span></span>
+<span class="line" line-num="464" source-line-num="464">                  <span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr"tlx_ref="">/instr</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$returning_ld">$returning_ld</span> <span class="tlv_ident_hdl_code">&amp;&amp; </span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr/regs$reg_match">$reg_match</span> <span class="tlv_ident_hdl_code">? 1'b0 :</span></span>
+<span class="line" line-num="465" source-line-num="465">                               <span class="tlv_ident_sig_keyword" logical_entity="|fetch/instr/regs$next_pending">$RETAIN</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="466" source-line-num="466"></span>
+<span class="line" line-num="467" source-line-num="467">         </span>
+<span class="line" line-num="468" source-line-num="468">   <span class="tlv_ident_comment">// Assert these to end simulation (before Makerchip cycle limit).</span></span>
+<span class="line" line-num="469" source-line-num="469">   <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">passed = ! </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">reset &amp;&amp; </span><span class="tlv_ident_pipeline" logical_entity="|fetch"tlx_ref="">|fetch</span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr"tlx_ref="">/instr</span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@10">&gt;&gt;5</span><span class="tlv_ident_state_sig" logical_entity="|fetch/instr$Pc">$Pc</span> <span class="tlv_ident_hdl_code">== 12'hfff;</span></span>
+<span class="line" line-num="470" source-line-num="470">   <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">failed = ! </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">reset &amp;&amp; (</span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">cyc_cnt &gt; 1000 || (! </span><span class="tlv_ident_pipeline" logical_entity="|fetch"tlx_ref="">|fetch</span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr"tlx_ref="">/instr</span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@6">&gt;&gt;3</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$reset">$reset</span> <span class="tlv_ident_hdl_code">&amp;&amp; </span><span class="tlv_ident_pipeline" logical_entity="|fetch"tlx_ref="">|fetch</span><span class="tlv_ident_beh_hier_2" logical_entity="|fetch/instr"tlx_ref="">/instr</span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|fetch@12">&gt;&gt;6</span><span class="tlv_ident_pipe_sig" logical_entity="|fetch/instr$valid_illegal">$valid_illegal</span><span class="tlv_ident_hdl_code">));</span></span>
+<span class="line" line-num="471" source-line-num="471"><span class="tlv_ident_keyword1">\SV</span></span>
+<span class="line" line-num="472" source-line-num="472">   <span class="tlv_ident_hdl_code">endmodule</span></span>
+
+</pre>
+
+</body>
+</html>
