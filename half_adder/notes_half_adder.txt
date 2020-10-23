@@ -1,0 +1,48 @@
+half_adder 10/23/20 looking at generate example https://www.chipverify.com/verilog/verilog-generate-block#generate-for
+https://makerchip.com/sandbox/0VOflhJVM/0mwhjmL
+
+Downloaded top.m4 top.tlv top.m4.pre
+
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --debugSigs --viz --dhtml --stats --compiler verilator --graphTrans -i top.m4 -o top.sv
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --debugSigs --viz --dhtml --stats --compiler verilator --graphTrans -i top.m4 -o top.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Edward Vidal Jr." as: Full Edition.
+
+INFORM(0) (FILES):
+	From directory: /home/devel/sandpiper_test/half_adder
+	Reading "top.m4" to produce:
+		Translated HDL File: "top.sv"
+		Generated HDL File: "top_gen.sv"
+		HTML TLX File: "top.html"
+		Transaction Flow Graph (Dot) File: "top_trans.dot"
+		Simulation Visualization File: "top_viz.json"
+		Statistics Directory: "top_stats"
+
+WARNING(1) (UNUSED-SIG): File 'top.tlv' Line 61 (char 4)
+	Preprocessed as 'top.m4':61(ch4):
+	+---vvvvvv--------------------------------
+	>   $reset = *reset;
+	+---^^^^^^--------------------------------
+	Signal $reset is assigned but never used.
+	To silence this message use "`BOGUS_USE($reset)".
+
+INFORM(0) (STATS):
+	SandPiper generated 11% of your HDL code.
+	This includes: 1 signal declarations, 0 flops/latches, and 0 conditional clock signals.
+	View "top_stats" for more details.
+
+
+dot -Tpdf top_trans.dot -o top_trans.pdf
+
+cp ../extra_files/* .
+makerchip_module.v  pseudo_rand_gen.sv  sandpiper_gen.vh  sim_main.cpp
+makerchip.sv        pseudo_rand.sv      sandpiper.vh      sp_default.vh
+
+verilator --trace --debug --debugi 0 -gdbbt --no-dump-tree --cc makerchip.sv --exe --build sim_main.cpp
+
+
+yosys -l simple.log -p 'synth_ice40 -blif top.blif -json top.json' top.sv
