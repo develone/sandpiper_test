@@ -38,12 +38,12 @@ module tb;
     a <= 0;
     b <= 0;
 
-    $monitor ("a=0x%0h b=0x%0h sum=0x%0h cout=0x%0h", a, b, sum, cout);
+    //$monitor ("a=0x%0h b=0x%0h sum=0x%0h cout=0x%0h", a, b, sum, cout);
 
-    #10 a <= 'h2;
+    //#10 a <= 'h2;
     		b <= 'h3;
-    #20 b <= 'h4;
-    #10 a <= 'h5;
+    //#20 b <= 'h4;
+    //#10 a <= 'h5;
   end
 endmodule
    // =========================================
@@ -56,21 +56,19 @@ endmodule
    // stimulus support, and Verilator config.
    m4_makerchip_module   // (Expanded in Nav-TLV pane.)
 \TLV
-   //$reset = *reset;
-
+   $reset = *reset;
+   
    |pipe
       @0
-         $a[1:0] = a ;
-         $b[1:0] = b;
-         $c[4:0] = c;
-          
+         /* verilator lint_off IMPLICIT */ 
+         $a = a ;
+         $b = b;
+         //$c = c;
+         /* verilator lint_off IMPLICIT */  
       @5
-         *a[1:0] = $a[1:0];
-         *b[1:0] = $b[1:0];
-         *c[4:0] = $c[4:0];
- 
-         
-      
+         *a = $a;
+         *b = $b;
+         //*c= $c;
 
    //...
 
@@ -79,4 +77,3 @@ endmodule
    *failed = 1'b0;
 \SV
    endmodule
- 

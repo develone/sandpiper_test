@@ -25,10 +25,10 @@
   function chartData() {
     return [
       ['File(s)', 'Unknown', 'Untouched', 'Logic', 'Declarations', 'Staging', 'Structure', 'Validity', 'Gating', '(Instrumentation)', { role: 'style' }, '(Comments)', { role: 'style' }, '(Whitespace)', { role: 'style' }],
-      ['top.m4', 0, 762, 111, 0, 4, 38, 0, 0, 0, 'opacity: 0.1', 842, 'opacity: 0.1', 466, 'opacity: 0.1'],
-      ['top.sv', 0, 762, 195, 0, 0, 70, 0, 0, 0, 'opacity: 0.1', 955, 'opacity: 0.1', 481, 'opacity: 0.1'],
-      ['top_gen.sv', 0, 0, 0, 210, 795, 53, 0, 0, 177, 'opacity: 0.1', 549, 'opacity: 0.1', 606, 'opacity: 0.1'],
-      ['SV Total', 0, 762, 195, 210, 795, 123, 0, 0, 177, 'opacity: 0.1', 1504, 'opacity: 0.1', 1087, 'opacity: 0.1']
+      ['top.m4', 0, 673, 69, 0, 4, 38, 0, 0, 0, 'opacity: 0.1', 1022, 'opacity: 0.1', 441, 'opacity: 0.1'],
+      ['top.sv', 0, 673, 138, 0, 0, 70, 0, 0, 0, 'opacity: 0.1', 1135, 'opacity: 0.1', 455, 'opacity: 0.1'],
+      ['top_gen.sv', 0, 0, 0, 147, 430, 53, 0, 0, 172, 'opacity: 0.1', 538, 'opacity: 0.1', 404, 'opacity: 0.1'],
+      ['SV Total', 0, 673, 138, 147, 430, 123, 0, 0, 172, 'opacity: 0.1', 1673, 'opacity: 0.1', 859, 'opacity: 0.1']
     ];
   }
 
@@ -61,29 +61,24 @@
 // Signals declared top-level.
 //
 
-// For |pipe$a.
-</span><span class="tlx_declarations">logic [1:0] PIPE_a_a0,
-            PIPE_a_a1,
-            PIPE_a_a2,
-            PIPE_a_a3,
-            PIPE_a_a4,
-            PIPE_a_a5;
+// For $reset.
+</span><span class="tlx_declarations">logic L0_reset_a0;
+
+</span><span class="tlx_comments">// For |pipe$a.
+</span><span class="tlx_declarations">logic PIPE_a_a0,
+      PIPE_a_a1,
+      PIPE_a_a2,
+      PIPE_a_a3,
+      PIPE_a_a4,
+      PIPE_a_a5;
 
 </span><span class="tlx_comments">// For |pipe$b.
-</span><span class="tlx_declarations">logic [1:0] PIPE_b_a0,
-            PIPE_b_a1,
-            PIPE_b_a2,
-            PIPE_b_a3,
-            PIPE_b_a4,
-            PIPE_b_a5;
-
-</span><span class="tlx_comments">// For |pipe$c.
-</span><span class="tlx_declarations">logic [4:0] PIPE_c_a0,
-            PIPE_c_a1,
-            PIPE_c_a2,
-            PIPE_c_a3,
-            PIPE_c_a4,
-            PIPE_c_a5;
+</span><span class="tlx_declarations">logic PIPE_b_a0,
+      PIPE_b_a1,
+      PIPE_b_a2,
+      PIPE_b_a3,
+      PIPE_b_a4,
+      PIPE_b_a5;
 
 
 </span><span class="tlx_structure">
@@ -95,25 +90,18 @@ generate
    //
 
       // For $a.
-      </span><span class="tlx_staging">always_ff @(posedge clk) PIPE_a_a1[1:0] &lt;= PIPE_a_a0[1:0];
-      always_ff @(posedge clk) PIPE_a_a2[1:0] &lt;= PIPE_a_a1[1:0];
-      always_ff @(posedge clk) PIPE_a_a3[1:0] &lt;= PIPE_a_a2[1:0];
-      always_ff @(posedge clk) PIPE_a_a4[1:0] &lt;= PIPE_a_a3[1:0];
-      always_ff @(posedge clk) PIPE_a_a5[1:0] &lt;= PIPE_a_a4[1:0];
+      </span><span class="tlx_staging">always_ff @(posedge clk) PIPE_a_a1 &lt;= PIPE_a_a0;
+      always_ff @(posedge clk) PIPE_a_a2 &lt;= PIPE_a_a1;
+      always_ff @(posedge clk) PIPE_a_a3 &lt;= PIPE_a_a2;
+      always_ff @(posedge clk) PIPE_a_a4 &lt;= PIPE_a_a3;
+      always_ff @(posedge clk) PIPE_a_a5 &lt;= PIPE_a_a4;
 
       </span><span class="tlx_comments">// For $b.
-      </span><span class="tlx_staging">always_ff @(posedge clk) PIPE_b_a1[1:0] &lt;= PIPE_b_a0[1:0];
-      always_ff @(posedge clk) PIPE_b_a2[1:0] &lt;= PIPE_b_a1[1:0];
-      always_ff @(posedge clk) PIPE_b_a3[1:0] &lt;= PIPE_b_a2[1:0];
-      always_ff @(posedge clk) PIPE_b_a4[1:0] &lt;= PIPE_b_a3[1:0];
-      always_ff @(posedge clk) PIPE_b_a5[1:0] &lt;= PIPE_b_a4[1:0];
-
-      </span><span class="tlx_comments">// For $c.
-      </span><span class="tlx_staging">always_ff @(posedge clk) PIPE_c_a1[4:0] &lt;= PIPE_c_a0[4:0];
-      always_ff @(posedge clk) PIPE_c_a2[4:0] &lt;= PIPE_c_a1[4:0];
-      always_ff @(posedge clk) PIPE_c_a3[4:0] &lt;= PIPE_c_a2[4:0];
-      always_ff @(posedge clk) PIPE_c_a4[4:0] &lt;= PIPE_c_a3[4:0];
-      always_ff @(posedge clk) PIPE_c_a5[4:0] &lt;= PIPE_c_a4[4:0];
+      </span><span class="tlx_staging">always_ff @(posedge clk) PIPE_b_a1 &lt;= PIPE_b_a0;
+      always_ff @(posedge clk) PIPE_b_a2 &lt;= PIPE_b_a1;
+      always_ff @(posedge clk) PIPE_b_a3 &lt;= PIPE_b_a2;
+      always_ff @(posedge clk) PIPE_b_a4 &lt;= PIPE_b_a3;
+      always_ff @(posedge clk) PIPE_b_a5 &lt;= PIPE_b_a4;
 
 
 
@@ -130,18 +118,18 @@ generate
 </span><span class="tlx_instrumentation">generate
 
    if (1) begin : DEBUG_SIGS
-</span><span class="tlx_comments">
 
-      //
+      logic  \@0$reset ;
+      assign \@0$reset = L0_reset_a0;
+
+      </span><span class="tlx_comments">//
       // Scope: |pipe
       //
       </span><span class="tlx_instrumentation">if (1) begin : \|pipe 
-         logic [1:0] \@0$a ;
+         logic  \@0$a ;
          assign \@0$a = PIPE_a_a0;
-         logic [1:0] \@0$b ;
+         logic  \@0$b ;
          assign \@0$b = PIPE_b_a0;
-         logic [4:0] \@0$c ;
-         assign \@0$c = PIPE_c_a0;
       end
 
 
@@ -200,13 +188,13 @@ module tb;
     a &lt;= 0;
     b &lt;= 0;
 
-    $monitor (&quot;a=0x%0h b=0x%0h sum=0x%0h cout=0x%0h&quot;, a, b, sum, cout);
+    </span><span class="tlx_comments">//$monitor (&quot;a=0x%0h b=0x%0h sum=0x%0h cout=0x%0h&quot;, a, b, sum, cout);
 
-    #10 a &lt;= 'h2;
-    		b &lt;= 'h3;
-    #20 b &lt;= 'h4;
-    #10 a &lt;= 'h5;
-  end
+    //#10 a &lt;= 'h2;
+    		</span><span class="tlx_untouched">b &lt;= 'h3;
+    </span><span class="tlx_comments">//#20 b &lt;= 'h4;
+    //#10 a &lt;= 'h5;
+  </span><span class="tlx_untouched">end
 endmodule
    </span><span class="tlx_comments">// =========================================
    // Welcome!  Try the tutorials via the menu.
@@ -218,30 +206,27 @@ endmodule
    // stimulus support, and Verilator config.
    </span><span class="tlx_untouched">module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    </span><span class="tlx_comments">/* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  </span><span class="tlx_untouched">bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  </span><span class="tlx_comments">/* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */   // (Expanded in Nav-TLV pane.)
 </span><span class="tlx_structure">\TLV
-   </span><span class="tlx_comments">//$reset = *reset;
-
+   </span><span class="tlx_logic">$reset = *reset;
+   
    </span><span class="tlx_structure">|pipe
       </span><span class="tlx_staging">@0
-         </span><span class="tlx_logic">$a[1:0] = a ;
-         $b[1:0] = b;
-         $c[4:0] = c;
-          
+         </span><span class="tlx_comments">/* verilator lint_off IMPLICIT */ 
+         </span><span class="tlx_logic">$a = a ;
+         $b = b;
+         </span><span class="tlx_comments">//$c = c;
+         /* verilator lint_off IMPLICIT */  
       </span><span class="tlx_staging">@5
-         </span><span class="tlx_logic">*a[1:0] = $a[1:0];
-         *b[1:0] = $b[1:0];
-         *c[4:0] = $c[4:0];
- 
-         
-      
+         </span><span class="tlx_logic">*a = $a;
+         *b = $b;
+         </span><span class="tlx_comments">//*c= $c;
 
-   </span><span class="tlx_comments">//...
+   //...
 
    // Assert these to end simulation (before Makerchip cycle limit).
    </span><span class="tlx_logic">*passed = *cyc_cnt &gt; 40;
    *failed = 1'b0;
 </span><span class="tlx_structure">\SV
    </span><span class="tlx_untouched">endmodule
- 
 </span>
 </pre>
         </div>
@@ -289,13 +274,13 @@ module tb;
     a &lt;= 0;
     b &lt;= 0;
 
-    $monitor (&quot;a=0x%0h b=0x%0h sum=0x%0h cout=0x%0h&quot;, a, b, sum, cout);
+    </span><span class="tlx_comments">//$monitor (&quot;a=0x%0h b=0x%0h sum=0x%0h cout=0x%0h&quot;, a, b, sum, cout);
 
-    #10 a &lt;= 'h2;
-    		b &lt;= 'h3;
-    #20 b &lt;= 'h4;
-    #10 a &lt;= 'h5;
-  end
+    //#10 a &lt;= 'h2;
+    		</span><span class="tlx_untouched">b &lt;= 'h3;
+    </span><span class="tlx_comments">//#20 b &lt;= 'h4;
+    //#10 a &lt;= 'h5;
+  </span><span class="tlx_untouched">end
 endmodule
    </span><span class="tlx_comments">// =========================================
    // Welcome!  Try the tutorials via the menu.
@@ -307,30 +292,27 @@ endmodule
    // stimulus support, and Verilator config.
    </span><span class="tlx_untouched">module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    </span><span class="tlx_comments">/* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  </span><span class="tlx_untouched">bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  </span><span class="tlx_comments">/* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */   // (Expanded in Nav-TLV pane.)
 </span><span class="tlx_structure">`include &quot;top_gen.sv&quot; </span><span class="tlx_comments">//_\TLV
-   //$reset = *reset;
-
-   //_|pipe
+   </span><span class="tlx_logic">assign L0_reset_a0 = reset;
+   
+   </span><span class="tlx_comments">//_|pipe
       //_@0
-         </span><span class="tlx_logic">assign PIPE_a_a0[1:0] = a ;
-         assign PIPE_b_a0[1:0] = b;
-         assign PIPE_c_a0[4:0] = c;
-          
-      </span><span class="tlx_comments">//_@5
-         </span><span class="tlx_logic">assign a[1:0] = PIPE_a_a5[1:0];
-         assign b[1:0] = PIPE_b_a5[1:0];
-         assign c[4:0] = PIPE_c_a5[4:0];
- 
-         
-      
+         /* verilator lint_off IMPLICIT */ 
+         </span><span class="tlx_logic">assign PIPE_a_a0 = a ;
+         assign PIPE_b_a0 = b;
+         </span><span class="tlx_comments">//$c = c;
+         /* verilator lint_off IMPLICIT */  
+      //_@5
+         </span><span class="tlx_logic">assign a = PIPE_a_a5;
+         assign b = PIPE_b_a5;
+         </span><span class="tlx_comments">//*c= $c;
 
-   </span><span class="tlx_comments">//...
+   //...
 
    // Assert these to end simulation (before Makerchip cycle limit).
    </span><span class="tlx_logic">assign passed = cyc_cnt &gt; 40;
    assign failed = 1'b0; </span><span class="tlx_structure">endgenerate
 </span><span class="tlx_comments">//_\SV
    </span><span class="tlx_untouched">endmodule
- 
 </span>
 </pre>
         </div>

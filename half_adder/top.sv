@@ -38,12 +38,12 @@ module tb;
     a <= 0;
     b <= 0;
 
-    $monitor ("a=0x%0h b=0x%0h sum=0x%0h cout=0x%0h", a, b, sum, cout);
+    //$monitor ("a=0x%0h b=0x%0h sum=0x%0h cout=0x%0h", a, b, sum, cout);
 
-    #10 a <= 'h2;
+    //#10 a <= 'h2;
     		b <= 'h3;
-    #20 b <= 'h4;
-    #10 a <= 'h5;
+    //#20 b <= 'h4;
+    //#10 a <= 'h5;
   end
 endmodule
    // =========================================
@@ -56,21 +56,19 @@ endmodule
    // stimulus support, and Verilator config.
    module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    /* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  /* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */   // (Expanded in Nav-TLV pane.)
 `include "top_gen.sv" //_\TLV
-   //$reset = *reset;
-
+   assign L0_reset_a0 = reset;
+   
    //_|pipe
       //_@0
-         assign PIPE_a_a0[1:0] = a ;
-         assign PIPE_b_a0[1:0] = b;
-         assign PIPE_c_a0[4:0] = c;
-          
+         /* verilator lint_off IMPLICIT */ 
+         assign PIPE_a_a0 = a ;
+         assign PIPE_b_a0 = b;
+         //$c = c;
+         /* verilator lint_off IMPLICIT */  
       //_@5
-         assign a[1:0] = PIPE_a_a5[1:0];
-         assign b[1:0] = PIPE_b_a5[1:0];
-         assign c[4:0] = PIPE_c_a5[4:0];
- 
-         
-      
+         assign a = PIPE_a_a5;
+         assign b = PIPE_b_a5;
+         //*c= $c;
 
    //...
 
@@ -79,4 +77,3 @@ endmodule
    assign failed = 1'b0; endgenerate
 //_\SV
    endmodule
- 

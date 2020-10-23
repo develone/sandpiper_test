@@ -1010,7 +1010,7 @@
         }
       },
       "cells": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:181$28": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:181$23": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -1034,7 +1034,7 @@
             "Y": [ 6 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:181$30": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:181$25": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -1058,7 +1058,7 @@
             "Y": [ 8 ]
           }
         },
-        "$logic_or$/usr/local/bin/../share/yosys/ice40/cells_sim.v:181$29": {
+        "$logic_or$/usr/local/bin/../share/yosys/ice40/cells_sim.v:181$24": {
           "hide_name": 1,
           "type": "$logic_or",
           "parameters": {
@@ -1082,7 +1082,7 @@
             "Y": [ 7 ]
           }
         },
-        "$logic_or$/usr/local/bin/../share/yosys/ice40/cells_sim.v:181$31": {
+        "$logic_or$/usr/local/bin/../share/yosys/ice40/cells_sim.v:181$26": {
           "hide_name": 1,
           "type": "$logic_or",
           "parameters": {
@@ -1108,28 +1108,28 @@
         }
       },
       "netnames": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:181$28_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:181$23_Y": {
           "hide_name": 1,
           "bits": [ 6 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:181"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:181$30_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:181$25_Y": {
           "hide_name": 1,
           "bits": [ 8 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:181"
           }
         },
-        "$logic_or$/usr/local/bin/../share/yosys/ice40/cells_sim.v:181$29_Y": {
+        "$logic_or$/usr/local/bin/../share/yosys/ice40/cells_sim.v:181$24_Y": {
           "hide_name": 1,
           "bits": [ 7 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:181"
           }
         },
-        "$logic_or$/usr/local/bin/../share/yosys/ice40/cells_sim.v:181$31_Y": {
+        "$logic_or$/usr/local/bin/../share/yosys/ice40/cells_sim.v:181$26_Y": {
           "hide_name": 1,
           "bits": [ 2 ],
           "attributes": {
@@ -3906,7 +3906,7 @@
         }
       },
       "cells": {
-        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:173$24": {
+        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:173$19": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -3928,7 +3928,7 @@
             "Y": [ 7, 8, 9, 10, 11, 12, 13, 14 ]
           }
         },
-        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:174$25": {
+        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:174$20": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -3950,7 +3950,7 @@
             "Y": [ 15, 16, 17, 18 ]
           }
         },
-        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:175$26": {
+        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:175$21": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -3972,7 +3972,7 @@
             "Y": [ 19, 20 ]
           }
         },
-        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:176$27": {
+        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:176$22": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -3996,28 +3996,28 @@
         }
       },
       "netnames": {
-        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:173$24_Y": {
+        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:173$19_Y": {
           "hide_name": 1,
           "bits": [ 7, 8, 9, 10, 11, 12, 13, 14 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:173"
           }
         },
-        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:174$25_Y": {
+        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:174$20_Y": {
           "hide_name": 1,
           "bits": [ 15, 16, 17, 18 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:174"
           }
         },
-        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:175$26_Y": {
+        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:175$21_Y": {
           "hide_name": 1,
           "bits": [ 19, 20 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:175"
           }
         },
-        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:176$27_Y": {
+        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:176$22_Y": {
           "hide_name": 1,
           "bits": [ 2 ],
           "attributes": {
@@ -6649,14 +6649,14 @@
       "netnames": {
         "a": {
           "hide_name": 0,
-          "bits": [ "1", "0" ],
+          "bits": [ "0", "0" ],
           "attributes": {
             "src": "top.tlv:29"
           }
         },
         "b": {
           "hide_name": 0,
-          "bits": [ "0", "0" ],
+          "bits": [ "1", "1" ],
           "attributes": {
             "src": "top.tlv:29"
           }
@@ -6670,14 +6670,14 @@
         },
         "md.a": {
           "hide_name": 0,
-          "bits": [ "1", "0" ],
+          "bits": [ "0", "0" ],
           "attributes": {
             "src": "top.tlv:35|top.tlv:12"
           }
         },
         "md.b": {
           "hide_name": 0,
-          "bits": [ "0", "0" ],
+          "bits": [ "1", "1" ],
           "attributes": {
             "src": "top.tlv:35|top.tlv:12"
           }
@@ -6691,14 +6691,14 @@
         },
         "md.sum": {
           "hide_name": 0,
-          "bits": [ "1", "0" ],
+          "bits": [ "1", "1" ],
           "attributes": {
             "src": "top.tlv:35|top.tlv:13"
           }
         },
         "sum": {
           "hide_name": 0,
-          "bits": [ "1", "0" ],
+          "bits": [ "1", "1" ],
           "attributes": {
             "src": "top.tlv:30"
           }
