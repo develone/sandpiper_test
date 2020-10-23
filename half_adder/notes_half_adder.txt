@@ -22,18 +22,11 @@ INFORM(0) (FILES):
 		Simulation Visualization File: "top_viz.json"
 		Statistics Directory: "top_stats"
 
-WARNING(1) (UNUSED-SIG): File 'top.tlv' Line 61 (char 4)
-	Preprocessed as 'top.m4':61(ch4):
-	+---vvvvvv--------------------------------
-	>   $reset = *reset;
-	+---^^^^^^--------------------------------
-	Signal $reset is assigned but never used.
-	To silence this message use "`BOGUS_USE($reset)".
-
 INFORM(0) (STATS):
-	SandPiper generated 11% of your HDL code.
-	This includes: 1 signal declarations, 0 flops/latches, and 0 conditional clock signals.
+	SandPiper generated 56% of your HDL code.
+	This includes: 18 signal declarations, 15 flops/latches, and 0 conditional clock signals.
 	View "top_stats" for more details.
+
 
 
 dot -Tpdf top_trans.dot -o top_trans.pdf
@@ -43,6 +36,51 @@ makerchip_module.v  pseudo_rand_gen.sv  sandpiper_gen.vh  sim_main.cpp
 makerchip.sv        pseudo_rand.sv      sandpiper.vh      sp_default.vh
 
 verilator --trace --debug --debugi 0 -gdbbt --no-dump-tree --cc makerchip.sv --exe --build sim_main.cpp
+No stack.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/arm-linux-gnueabihf/libthread_db.so.1".
+Starting Verilator 4.100 2020-09-07 rev v4.100-10-g39eea781
+Starting Verilator 4.100 2020-09-07 rev v4.100-10-g39eea781
+%Warning-IMPLICIT: top.tlv:63:34: Signal definition not found, creating implicitly: 'a'
+   63 |          assign PIPE_a_a0[1:0] = a ;
+      |                                  ^
+                   ... Use "/* verilator lint_off IMPLICIT */" and lint_on around source to disable this message.
+%Warning-IMPLICIT: top.tlv:64:34: Signal definition not found, creating implicitly: 'b'
+   64 |          assign PIPE_b_a0[1:0] = b;
+      |                                  ^
+%Warning-IMPLICIT: top.tlv:65:34: Signal definition not found, creating implicitly: 'c'
+   65 |          assign PIPE_c_a0[4:0] = c;
+      |                                  ^
+%Error: top.tlv:68:18: Illegal bit or array select; type does not have a bit range, or bad dimension: data type is 'logic'
+                     : ... In instance makerchip.top
+   68 |          assign a[1:0] = PIPE_a_a5[1:0];
+      |                  ^
+%Error: top.tlv:68:18: Extracting 2 bits from only 1 bit number
+                     : ... In instance makerchip.top
+   68 |          assign a[1:0] = PIPE_a_a5[1:0];
+      |                  ^
+%Error: top.tlv:69:18: Illegal bit or array select; type does not have a bit range, or bad dimension: data type is 'logic'
+                     : ... In instance makerchip.top
+   69 |          assign b[1:0] = PIPE_b_a5[1:0];
+      |                  ^
+%Error: top.tlv:69:18: Extracting 2 bits from only 1 bit number
+                     : ... In instance makerchip.top
+   69 |          assign b[1:0] = PIPE_b_a5[1:0];
+      |                  ^
+%Error: top.tlv:70:18: Illegal bit or array select; type does not have a bit range, or bad dimension: data type is 'logic'
+                     : ... In instance makerchip.top
+   70 |          assign c[4:0] = PIPE_c_a5[4:0];
+      |                  ^
+%Error: top.tlv:70:18: Extracting 5 bits from only 1 bit number
+                     : ... In instance makerchip.top
+   70 |          assign c[4:0] = PIPE_c_a5[4:0];
+      |                  ^
+%Error: Exiting due to 6 error(s), 3 warning(s)
+[Inferior 1 (process 6714) exited with code 01]
+No stack.
+%Error: export VERILATOR_ROOT=
+%Error: gdb /usr/local/bin/verilator_bin_dbg --batch --quiet --return-child-result -ex "run --trace --debug --debugi 0 -gdbbt --no-dump-tree --cc makerchip.sv --exe --build sim_main.cpp" -ex 'set width 0' -ex 'bt' -ex 'quit'
+%Error: Command Failed gdb /usr/local/bin/verilator_bin_dbg --batch --quiet --return-child-result -ex "run --trace --debug --debugi 0 -gdbbt --no-dump-tree --cc makerchip.sv --exe --build sim_main.cpp" -ex 'set width 0' -ex 'bt' -ex 'quit'
 
 
 yosys -l simple.log -p 'synth_ice40 -blif top.blif -json top.json' top.sv

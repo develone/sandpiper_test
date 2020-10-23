@@ -17,32 +17,154 @@ strict digraph "top.tlv" {
       tooltip = "/top"
       id = "id0{logical_entity=#Q##Q#}"
       label = "/top"
-      subgraph "cluster.stage0" {
-         "$reset@0" [fillcolor = "#ffffffb0", shape = box, label = "$reset=", id = "id1{logical_entity=#Q#$reset#Q#}", tooltip = "$reset = *reset;"];
-      }
-      subgraph "cluster.stage0" {
-         style = "filled"
-         fontsize = 20
-         penwidth = 1.5
-         label = "@0"
-         id = "id2{logical_entity=#Q#|none@0#Q#}"
-         tooltip = "@0"
-         fillcolor = "#509050"
-      }
       subgraph "cluster.|none" {
          fillcolor = "orange"
          style = "filled,rounded"
          penwidth = 2.5
          fontsize = 50
          tooltip = "|none"
-         id = "id3{logical_entity=#Q#|none#Q#}"
+         id = "id1{logical_entity=#Q#|none#Q#}"
          label = "|none"
+      }
+      subgraph "cluster.|pipe" {
+         fillcolor = "orange"
+         style = "filled,rounded"
+         penwidth = 2.5
+         fontsize = 50
+         tooltip = "|pipe"
+         id = "id2{logical_entity=#Q#|pipe#Q#}"
+         label = "|pipe"
+         subgraph "cluster.stage0" {
+            "|pipe$a@0" [fillcolor = "#ffffffb0", shape = box, label = "$a=", id = "id3{logical_entity=#Q#|pipe$a#Q#}", tooltip = "$a[1:0] = a ;"];
+         }
+         subgraph "cluster.stage1" {
+            "|pipe$a@1" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage2" {
+            "|pipe$a@2" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage3" {
+            "|pipe$a@3" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage4" {
+            "|pipe$a@4" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage5" {
+            "|pipe$a@5" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage0" {
+            "|pipe$b@0" [fillcolor = "#ffffffb0", shape = box, label = "$b=", id = "id9{logical_entity=#Q#|pipe$b#Q#}", tooltip = "$b[1:0] = b;"];
+         }
+         subgraph "cluster.stage1" {
+            "|pipe$b@1" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage2" {
+            "|pipe$b@2" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage3" {
+            "|pipe$b@3" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage4" {
+            "|pipe$b@4" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage5" {
+            "|pipe$b@5" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage0" {
+            "|pipe$c@0" [fillcolor = "#ffffffb0", shape = box, label = "$c=", id = "id15{logical_entity=#Q#|pipe$c#Q#}", tooltip = "$c[4:0] = c;"];
+         }
+         subgraph "cluster.stage1" {
+            "|pipe$c@1" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage2" {
+            "|pipe$c@2" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage3" {
+            "|pipe$c@3" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage4" {
+            "|pipe$c@4" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage5" {
+            "|pipe$c@5" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage0" {
+            style = "filled"
+            fontsize = 20
+            penwidth = 1.5
+            label = "@0"
+            id = "id21{logical_entity=#Q#|pipe@0#Q#}"
+            tooltip = "|pipe@0"
+            fillcolor = "#509050"
+         }
+         subgraph "cluster.stage1" {
+            style = "filled"
+            fontsize = 20
+            penwidth = 1.5
+            label = "@1"
+            id = "id22{logical_entity=#Q#|pipe@2#Q#}"
+            tooltip = "|pipe@1"
+            fillcolor = "darkgreen"
+         }
+         subgraph "cluster.stage2" {
+            style = "filled"
+            fontsize = 20
+            penwidth = 1.5
+            label = "@2"
+            id = "id23{logical_entity=#Q#|pipe@4#Q#}"
+            tooltip = "|pipe@2"
+            fillcolor = "#509050"
+         }
+         subgraph "cluster.stage3" {
+            style = "filled"
+            fontsize = 20
+            penwidth = 1.5
+            label = "@3"
+            id = "id24{logical_entity=#Q#|pipe@6#Q#}"
+            tooltip = "|pipe@3"
+            fillcolor = "darkgreen"
+         }
+         subgraph "cluster.stage4" {
+            style = "filled"
+            fontsize = 20
+            penwidth = 1.5
+            label = "@4"
+            id = "id25{logical_entity=#Q#|pipe@8#Q#}"
+            tooltip = "|pipe@4"
+            fillcolor = "#509050"
+         }
+         subgraph "cluster.stage5" {
+            style = "filled"
+            fontsize = 20
+            penwidth = 1.5
+            label = "@5"
+            id = "id26{logical_entity=#Q#|pipe@10#Q#}"
+            tooltip = "|pipe@5"
+            fillcolor = "darkgreen"
+         }
       }
    }
 
+"*a" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
+"*b" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
+"*c" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
 "*cyc_cnt" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
 "*failed" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
 "*passed" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
-"*reset" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
 
+"|pipe$a@0" -> "|pipe$a@1" [id = "id4{logical_entity=#Q#|pipe$a#Q#}", weight = 10]
+"|pipe$a@1" -> "|pipe$a@2" [id = "id5{logical_entity=#Q#|pipe$a#Q#}", weight = 10]
+"|pipe$a@2" -> "|pipe$a@3" [id = "id6{logical_entity=#Q#|pipe$a#Q#}", weight = 10]
+"|pipe$a@3" -> "|pipe$a@4" [id = "id7{logical_entity=#Q#|pipe$a#Q#}", weight = 10]
+"|pipe$a@4" -> "|pipe$a@5" [id = "id8{logical_entity=#Q#|pipe$a#Q#}", weight = 10]
+"|pipe$b@0" -> "|pipe$b@1" [id = "id10{logical_entity=#Q#|pipe$b#Q#}", weight = 10]
+"|pipe$b@1" -> "|pipe$b@2" [id = "id11{logical_entity=#Q#|pipe$b#Q#}", weight = 10]
+"|pipe$b@2" -> "|pipe$b@3" [id = "id12{logical_entity=#Q#|pipe$b#Q#}", weight = 10]
+"|pipe$b@3" -> "|pipe$b@4" [id = "id13{logical_entity=#Q#|pipe$b#Q#}", weight = 10]
+"|pipe$b@4" -> "|pipe$b@5" [id = "id14{logical_entity=#Q#|pipe$b#Q#}", weight = 10]
+"|pipe$c@0" -> "|pipe$c@1" [id = "id16{logical_entity=#Q#|pipe$c#Q#}", weight = 10]
+"|pipe$c@1" -> "|pipe$c@2" [id = "id17{logical_entity=#Q#|pipe$c#Q#}", weight = 10]
+"|pipe$c@2" -> "|pipe$c@3" [id = "id18{logical_entity=#Q#|pipe$c#Q#}", weight = 10]
+"|pipe$c@3" -> "|pipe$c@4" [id = "id19{logical_entity=#Q#|pipe$c#Q#}", weight = 10]
+"|pipe$c@4" -> "|pipe$c@5" [id = "id20{logical_entity=#Q#|pipe$c#Q#}", weight = 10]
 }

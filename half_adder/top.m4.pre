@@ -46,8 +46,6 @@ module tb;
     #10 a <= 'h5;
   end
 endmodule
-
-
    // =========================================
    // Welcome!  Try the tutorials via the menu.
    // =========================================
@@ -58,7 +56,21 @@ endmodule
    // stimulus support, and Verilator config.
    m4_makerchip_module   // (Expanded in Nav-TLV pane.)
 \TLV
-   $reset = *reset;
+   //$reset = *reset;
+
+   |pipe
+      @0
+         $a[1:0] = a ;
+         $b[1:0] = b;
+         $c[4:0] = c;
+          
+      @5
+         *a[1:0] = $a[1:0];
+         *b[1:0] = $b[1:0];
+         *c[4:0] = $c[4:0];
+ 
+         
+      
 
    //...
 
@@ -67,4 +79,5 @@ endmodule
    *failed = 1'b0;
 \SV
    endmodule
+ 
 ['']m4_popdef(['m4_FILE'])m4_popdef(['m4_file_uri'])

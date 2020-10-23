@@ -31,7 +31,22 @@ Generating RTLIL representation for module `\my_design'.
 Generating RTLIL representation for module `\tb'.
 top.tlv:41: Warning: Ignoring call to system task $monitor.
 Generating RTLIL representation for module `\top'.
-Warning: reg '\RW_rand_vect' is assigned in a continuous assignment at top.tlv:59.
+Warning: reg '\RW_rand_vect' is assigned in a continuous assignment at top.tlv:57.
+top.tlv:63: Warning: Identifier `\a' is implicitly declared.
+top.tlv:64: Warning: Identifier `\b' is implicitly declared.
+top.tlv:65: Warning: Identifier `\c' is implicitly declared.
+top.tlv:68: Warning: Range select [1:0] out of bounds on signal `\a': Setting all 2 result bits to undef.
+top.tlv:68: Warning: Ignoring assignment to constant bits:
+    old assignment: 2'xx = \PIPE_a_a5
+    new assignment: { } = { }.
+top.tlv:69: Warning: Range select [1:0] out of bounds on signal `\b': Setting all 2 result bits to undef.
+top.tlv:69: Warning: Ignoring assignment to constant bits:
+    old assignment: 2'xx = \PIPE_b_a5
+    new assignment: { } = { }.
+top.tlv:70: Warning: Range select [4:0] out of bounds on signal `\c': Setting all 5 result bits to undef.
+top.tlv:70: Warning: Ignoring assignment to constant bits:
+    old assignment: 5'xxxxx = \PIPE_c_a5
+    new assignment: { } = { }.
 Successfully finished Verilog frontend.
 
 -- Running command `synth_ice40 -blif top.blif -json top.json' --
@@ -123,8 +138,8 @@ Used module:         \ha
 Removing unused module `\top'.
 Removing unused module `\my_design'.
 Removed 2 unused modules.
-Mapping positional arguments of cell $paramod\my_design\N=2.$genblock$top.tlv:21$138[1].\u0 (ha).
-Mapping positional arguments of cell $paramod\my_design\N=2.$genblock$top.tlv:21$137[0].\u0 (ha).
+Mapping positional arguments of cell $paramod\my_design\N=2.$genblock$top.tlv:21$153[1].\u0 (ha).
+Mapping positional arguments of cell $paramod\my_design\N=2.$genblock$top.tlv:21$152[0].\u0 (ha).
 
 2.3. Executing PROC pass (convert processes to netlists).
 
@@ -671,7 +686,7 @@ found and reported 0 problems.
 
 2.53. Executing JSON backend.
 
-Warnings: 2 unique messages, 2 total
-End of script. Logfile hash: c214d823c4, CPU: user 0.80s system 0.09s, MEM: 34.85 MB peak
+Warnings: 11 unique messages, 11 total
+End of script. Logfile hash: 49428c3bb2, CPU: user 0.78s system 0.08s, MEM: 34.74 MB peak
 Yosys 0.9+1706 (git sha1 7cc9d487, clang 7.0.1-8+rpi3 -fPIC -Os)
-Time spent: 60% 11x read_verilog (0 sec), 13% 1x share (0 sec), ...
+Time spent: 64% 11x read_verilog (0 sec), 13% 1x share (0 sec), ...

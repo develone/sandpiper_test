@@ -46,8 +46,6 @@ module tb;
     #10 a <= 'h5;
   end
 endmodule
-
-
    // =========================================
    // Welcome!  Try the tutorials via the menu.
    // =========================================
@@ -58,7 +56,21 @@ endmodule
    // stimulus support, and Verilator config.
    module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    /* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  /* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */   // (Expanded in Nav-TLV pane.)
 \TLV
-   $reset = *reset;
+   //$reset = *reset;
+
+   |pipe
+      @0
+         $a[1:0] = a ;
+         $b[1:0] = b;
+         $c[4:0] = c;
+          
+      @5
+         *a[1:0] = $a[1:0];
+         *b[1:0] = $b[1:0];
+         *c[4:0] = $c[4:0];
+ 
+         
+      
 
    //...
 
@@ -67,3 +79,4 @@ endmodule
    *failed = 1'b0;
 \SV
    endmodule
+ 

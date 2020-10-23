@@ -283,28 +283,40 @@ All rights reserved.
 <span class="line" line-num="46" source-line-num="46">    <span class="tlv_ident_hdl_code">#10 a &lt;= 'h5;</span></span>
 <span class="line" line-num="47" source-line-num="47">  <span class="tlv_ident_hdl_code">end</span></span>
 <span class="line" line-num="48" source-line-num="48"><span class="tlv_ident_hdl_code">endmodule</span></span>
-<span class="line" line-num="49" source-line-num="49"></span>
-<span class="line" line-num="50" source-line-num="50"></span>
+<span class="line" line-num="49" source-line-num="49">   <span class="tlv_ident_comment">// =========================================</span></span>
+<span class="line" line-num="50" source-line-num="50">   <span class="tlv_ident_comment">// Welcome!  Try the tutorials via the menu.</span></span>
 <span class="line" line-num="51" source-line-num="51">   <span class="tlv_ident_comment">// =========================================</span></span>
-<span class="line" line-num="52" source-line-num="52">   <span class="tlv_ident_comment">// Welcome!  Try the tutorials via the menu.</span></span>
-<span class="line" line-num="53" source-line-num="53">   <span class="tlv_ident_comment">// =========================================</span></span>
-<span class="line" line-num="54" source-line-num="54"></span>
-<span class="line" line-num="55" source-line-num="55">   <span class="tlv_ident_comment">// Default Makerchip TL-Verilog Code Template</span></span>
-<span class="line" line-num="56" source-line-num="56">   </span>
-<span class="line" line-num="57" source-line-num="57">   <span class="tlv_ident_comment">// Macro providing required top-level module definition, random</span></span>
-<span class="line" line-num="58" source-line-num="58">   <span class="tlv_ident_comment">// stimulus support, and Verilator config.</span></span>
-<span class="line" line-num="59" source-line-num="59">   <span class="tlv_ident_hdl_code">module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    </span><span class="tlv_ident_comment">/* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  </span><span class="tlv_ident_hdl_code">bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  </span><span class="tlv_ident_comment">/* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */   // (Expanded in Nav-TLV pane.)</span></span>
-<span class="line" line-num="60" source-line-num="60"><span class="tlv_ident_keyword1">\TLV</span></span>
-<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $reset is assigned but never used.
-To silence this message use &quot;`BOGUS_USE($reset)&quot;.">      </span></span></span><span class="line" line-num="61" source-line-num="61">   <span class="tlv_ident_assigned_pipe_sig" logical_entity="$reset">$reset</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">reset;</span></span>
-<span class="line" line-num="62" source-line-num="62"></span>
-<span class="line" line-num="63" source-line-num="63">   <span class="tlv_ident_comment">//...</span></span>
-<span class="line" line-num="64" source-line-num="64"></span>
-<span class="line" line-num="65" source-line-num="65">   <span class="tlv_ident_comment">// Assert these to end simulation (before Makerchip cycle limit).</span></span>
-<span class="line" line-num="66" source-line-num="66">   <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">passed = </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">cyc_cnt &gt; 40;</span></span>
-<span class="line" line-num="67" source-line-num="67">   <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">failed = 1'b0;</span></span>
-<span class="line" line-num="68" source-line-num="68"><span class="tlv_ident_keyword1">\SV</span></span>
-<span class="line" line-num="69" source-line-num="69">   <span class="tlv_ident_hdl_code">endmodule</span></span>
+<span class="line" line-num="52" source-line-num="52"></span>
+<span class="line" line-num="53" source-line-num="53">   <span class="tlv_ident_comment">// Default Makerchip TL-Verilog Code Template</span></span>
+<span class="line" line-num="54" source-line-num="54">   </span>
+<span class="line" line-num="55" source-line-num="55">   <span class="tlv_ident_comment">// Macro providing required top-level module definition, random</span></span>
+<span class="line" line-num="56" source-line-num="56">   <span class="tlv_ident_comment">// stimulus support, and Verilator config.</span></span>
+<span class="line" line-num="57" source-line-num="57">   <span class="tlv_ident_hdl_code">module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    </span><span class="tlv_ident_comment">/* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  </span><span class="tlv_ident_hdl_code">bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  </span><span class="tlv_ident_comment">/* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */   // (Expanded in Nav-TLV pane.)</span></span>
+<span class="line" line-num="58" source-line-num="58"><span class="tlv_ident_keyword1">\TLV</span></span>
+<span class="line" line-num="59" source-line-num="59">   <span class="tlv_ident_comment">//$reset = *reset;</span></span>
+<span class="line" line-num="60" source-line-num="60"></span>
+<span class="line" line-num="61" source-line-num="61">   <span class="tlv_ident_pipeline" logical_entity="|pipe">|pipe</span></span>
+<span class="line" line-num="62" source-line-num="62">      <span class="tlv_ident_stage_expr" logical_entity="|pipe@0">@0</span></span>
+<span class="line" line-num="63" source-line-num="63">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|pipe$a">$a</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= a ;</span></span>
+<span class="line" line-num="64" source-line-num="64">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|pipe$b">$b</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= b;</span></span>
+<span class="line" line-num="65" source-line-num="65">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|pipe$c">$c</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">4</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= c;</span></span>
+<span class="line" line-num="66" source-line-num="66">          </span>
+<span class="line" line-num="67" source-line-num="67">      <span class="tlv_ident_stage_expr" logical_entity="|pipe@10">@5</span></span>
+<span class="line" line-num="68" source-line-num="68">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">a[1:0] = </span><span class="tlv_ident_malformed_sig" logical_entity="|pipe$a">$a</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="69" source-line-num="69">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">b[1:0] = </span><span class="tlv_ident_malformed_sig" logical_entity="|pipe$b">$b</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="70" source-line-num="70">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">c[4:0] = </span><span class="tlv_ident_malformed_sig" logical_entity="|pipe$c">$c</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">4</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="71" source-line-num="71"> </span>
+<span class="line" line-num="72" source-line-num="72">         </span>
+<span class="line" line-num="73" source-line-num="73">      </span>
+<span class="line" line-num="74" source-line-num="74"></span>
+<span class="line" line-num="75" source-line-num="75">   <span class="tlv_ident_comment">//...</span></span>
+<span class="line" line-num="76" source-line-num="76"></span>
+<span class="line" line-num="77" source-line-num="77">   <span class="tlv_ident_comment">// Assert these to end simulation (before Makerchip cycle limit).</span></span>
+<span class="line" line-num="78" source-line-num="78">   <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">passed = </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">cyc_cnt &gt; 40;</span></span>
+<span class="line" line-num="79" source-line-num="79">   <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">failed = 1'b0;</span></span>
+<span class="line" line-num="80" source-line-num="80"><span class="tlv_ident_keyword1">\SV</span></span>
+<span class="line" line-num="81" source-line-num="81">   <span class="tlv_ident_hdl_code">endmodule</span></span>
+<span class="line" line-num="82" source-line-num="82"> </span>
 
 </pre>
 
