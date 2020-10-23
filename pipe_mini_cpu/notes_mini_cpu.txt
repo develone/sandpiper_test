@@ -1,7 +1,7 @@
 mini_cpu 10/22/20
 https://makerchip.com/sandbox/0zpfRhKPq/058hZVg
 
-Downloaded top.m4 & top.tlv 
+Downloaded top.m4 & top.tlv top.m4.pre
 
 java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --debugSigs --viz --dhtml --stats --compiler verilator --graphTrans -i top.m4 -o top.sv
 INFORM(0) (PROD_INFO):
