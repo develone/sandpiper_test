@@ -1,0 +1,6 @@
+,Unknown,Untouched,Logic,Declarations,Staging,Structure,Validity,Gating,Instrumentation,Comments,Whitespace,Total Meaningful Chars,Total Chars
+TL-Verilog,0,286,344,0,6,221,21,0,0,1061,523,878,2462
+top_gen.sv,0,0,0,178,75,114,0,0,461,652,471,367,1951
+top.sv,0,286,437,0,0,198,0,0,0,1262,546,921,2729
+SystemVerilog Total,0,286,437,178,75,312,0,0,461,1914,1017,1288,4680
+Color,DarkGray,#305050,purple,blue,#509050,#1090c0,#E04010,orange,#C0C0F0,#C04040,gray,,

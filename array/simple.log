@@ -1,0 +1,176 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2019  Clifford Wolf <clifford@clifford.at>           |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.9+1706 (git sha1 7cc9d487, clang 7.0.1-8+rpi3 -fPIC -Os)
+
+
+-- Parsing `top.sv' using frontend `verilog -sv' --
+
+1. Executing Verilog-2005 frontend: top.sv
+Parsing SystemVerilog input from `top.sv' to AST representation.
+Generating RTLIL representation for module `\top'.
+Warning: reg '\RW_rand_vect' is assigned in a continuous assignment at top.tlv:4.
+Warning: Replacing memory \Entry_data_a1 with list of registers. See top_gen.sv:48
+Warning: Replacing memory \Entry_data_a0 with list of registers. See /raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:47
+Successfully finished Verilog frontend.
+
+-- Parsing `pseudo_rand.sv' using frontend `verilog -sv' --
+
+2. Executing Verilog-2005 frontend: pseudo_rand.sv
+Parsing SystemVerilog input from `pseudo_rand.sv' to AST representation.
+Generating RTLIL representation for module `\pseudo_rand'.
+Successfully finished Verilog frontend.
+
+-- Running command `synth_ice40 -blif top.blif -json top.json' --
+
+3. Executing SYNTH_ICE40 pass.
+
+3.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/cells_sim.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/cells_sim.v' to AST representation.
+Generating RTLIL representation for module `\SB_IO'.
+Generating RTLIL representation for module `\SB_GB_IO'.
+Generating RTLIL representation for module `\SB_GB'.
+Generating RTLIL representation for module `\SB_LUT4'.
+Generating RTLIL representation for module `\SB_CARRY'.
+Generating RTLIL representation for module `\SB_DFF'.
+Generating RTLIL representation for module `\SB_DFFE'.
+Generating RTLIL representation for module `\SB_DFFSR'.
+Generating RTLIL representation for module `\SB_DFFR'.
+Generating RTLIL representation for module `\SB_DFFSS'.
+Generating RTLIL representation for module `\SB_DFFS'.
+Generating RTLIL representation for module `\SB_DFFESR'.
+Generating RTLIL representation for module `\SB_DFFER'.
+Generating RTLIL representation for module `\SB_DFFESS'.
+Generating RTLIL representation for module `\SB_DFFES'.
+Generating RTLIL representation for module `\SB_DFFN'.
+Generating RTLIL representation for module `\SB_DFFNE'.
+Generating RTLIL representation for module `\SB_DFFNSR'.
+Generating RTLIL representation for module `\SB_DFFNR'.
+Generating RTLIL representation for module `\SB_DFFNSS'.
+Generating RTLIL representation for module `\SB_DFFNS'.
+Generating RTLIL representation for module `\SB_DFFNESR'.
+Generating RTLIL representation for module `\SB_DFFNER'.
+Generating RTLIL representation for module `\SB_DFFNESS'.
+Generating RTLIL representation for module `\SB_DFFNES'.
+Generating RTLIL representation for module `\SB_RAM40_4K'.
+Generating RTLIL representation for module `\SB_RAM40_4KNR'.
+Generating RTLIL representation for module `\SB_RAM40_4KNW'.
+Generating RTLIL representation for module `\SB_RAM40_4KNRNW'.
+Generating RTLIL representation for module `\ICESTORM_LC'.
+Generating RTLIL representation for module `\SB_PLL40_CORE'.
+Generating RTLIL representation for module `\SB_PLL40_PAD'.
+Generating RTLIL representation for module `\SB_PLL40_2_PAD'.
+Generating RTLIL representation for module `\SB_PLL40_2F_CORE'.
+Generating RTLIL representation for module `\SB_PLL40_2F_PAD'.
+Generating RTLIL representation for module `\SB_WARMBOOT'.
+Generating RTLIL representation for module `\SB_SPRAM256KA'.
+Generating RTLIL representation for module `\SB_HFOSC'.
+Generating RTLIL representation for module `\SB_LFOSC'.
+Generating RTLIL representation for module `\SB_RGBA_DRV'.
+Generating RTLIL representation for module `\SB_LED_DRV_CUR'.
+Generating RTLIL representation for module `\SB_RGB_DRV'.
+Generating RTLIL representation for module `\SB_I2C'.
+Generating RTLIL representation for module `\SB_SPI'.
+Generating RTLIL representation for module `\SB_LEDDA_IP'.
+Generating RTLIL representation for module `\SB_FILTER_50NS'.
+Generating RTLIL representation for module `\SB_IO_I3C'.
+Generating RTLIL representation for module `\SB_IO_OD'.
+Generating RTLIL representation for module `\SB_MAC16'.
+Generating RTLIL representation for module `\ICESTORM_RAM'.
+Successfully finished Verilog frontend.
+
+3.2. Executing HIERARCHY pass (managing design hierarchy).
+
+3.2.1. Finding top of design hierarchy..
+root of   0 design levels: pseudo_rand         
+root of   1 design levels: top                 
+Automatically selected top as design top module.
+
+3.2.2. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \pseudo_rand
+Parameter \WIDTH = 257
+
+3.2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\pseudo_rand'.
+Parameter \WIDTH = 257
+Generating RTLIL representation for module `$paramod\pseudo_rand\WIDTH=257'.
+
+3.2.4. Analyzing design hierarchy..
+Top module:  \top
+Used module:     $paramod\pseudo_rand\WIDTH=257
+
+3.2.5. Analyzing design hierarchy..
+Top module:  \top
+Used module:     $paramod\pseudo_rand\WIDTH=257
+Removing unused module `\pseudo_rand'.
+Removed 1 unused modules.
+Mapping positional arguments of cell top.pseudo_rand ($paramod\pseudo_rand\WIDTH=257).
+
+3.3. Executing PROC pass (convert processes to netlists).
+
+3.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:55$22 in module top.
+Marked 1 switch rules as full_case in process $proc$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:55$22 in module top.
+Removed 1 dead cases from process $proc$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:45$8 in module top.
+Marked 2 switch rules as full_case in process $proc$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:45$8 in module top.
+Removed a total of 2 dead cases.
+
+3.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 20 assignments to connections.
+
+3.3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod\pseudo_rand\WIDTH=257.$proc$pseudo_rand.sv:54$166'.
+Creating decoders for process `$paramod\pseudo_rand\WIDTH=257.$proc$pseudo_rand_gen.sv:37$162'.
+Creating decoders for process `$paramod\pseudo_rand\WIDTH=257.$proc$pseudo_rand_gen.sv:34$161'.
+Creating decoders for process `\top.$proc$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:55$22'.
+     1/1: $1$mem2reg_rd$\Entry_data_a1$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:55$7_DATA[7:0]$26
+Creating decoders for process `\top.$proc$top_gen.sv:48$20'.
+Creating decoders for process `\top.$proc$top_gen.sv:48$18'.
+Creating decoders for process `\top.$proc$top_gen.sv:48$16'.
+Creating decoders for process `\top.$proc$top_gen.sv:48$14'.
+Creating decoders for process `\top.$proc$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:45$8'.
+     1/10: $2\Entry_data_a0[0][7:0]
+     2/10: $2\Entry_data_a0[3][7:0]
+     3/10: $2\Entry_data_a0[2][7:0]
+     4/10: $2\Entry_data_a0[1][7:0]
+     5/10: $1\Entry_data_a0[3][7:0]
+     6/10: $1\Entry_data_a0[2][7:0]
+     7/10: $1\Entry_data_a0[1][7:0]
+     8/10: $1\Entry_data_a0[0][7:0]
+     9/10: $1$mem2reg_wr$\Entry_data_a0$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:47$6_ADDR[1:0]$11
+    10/10: $1$mem2reg_wr$\Entry_data_a0$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:47$6_DATA[7:0]$12
+
+3.3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod\pseudo_rand\WIDTH=257.\SEED' from process `$paramod\pseudo_rand\WIDTH=257.$proc$pseudo_rand.sv:54$166'.
+No latch inferred for signal `\top.$mem2bits$\Entry_data_a1$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:55$5' from process `\top.$proc$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:55$22'.
+No latch inferred for signal `\top.$mem2reg_rd$\Entry_data_a1$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:55$7_ADDR' from process `\top.$proc$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:55$22'.
+No latch inferred for signal `\top.$mem2reg_rd$\Entry_data_a1$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:55$7_DATA' from process `\top.$proc$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:55$22'.
+No latch inferred for signal `\top.$mem2reg_wr$\Entry_data_a0$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:47$6_ADDR' from process `\top.$proc$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:45$8'.
+No latch inferred for signal `\top.$mem2reg_wr$\Entry_data_a0$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:47$6_DATA' from process `\top.$proc$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:45$8'.
+ERROR: Latch inferred for signal `\top.\Entry_data_a0[0]' from always_comb process `\top.$proc$/raw.githubusercontent.com/stevehoover/tlvflowlib/221c93b3603bb4c72d3b024b3ec410e48f60e199/arrays.tlv:45$8'.
