@@ -6649,56 +6649,56 @@
       "netnames": {
         "a": {
           "hide_name": 0,
-          "bits": [ "0", "0" ],
+          "bits": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
           "attributes": {
             "src": "top.tlv:29"
           }
         },
         "b": {
           "hide_name": 0,
-          "bits": [ "1", "1" ],
+          "bits": [ "1", "1", "0", "0", "0", "0", "0", "0" ],
           "attributes": {
             "src": "top.tlv:29"
           }
         },
         "cout": {
           "hide_name": 0,
-          "bits": [ "0", "0" ],
+          "bits": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
           "attributes": {
             "src": "top.tlv:30"
           }
         },
         "md.a": {
           "hide_name": 0,
-          "bits": [ "0", "0" ],
+          "bits": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
           "attributes": {
             "src": "top.tlv:35|top.tlv:12"
           }
         },
         "md.b": {
           "hide_name": 0,
-          "bits": [ "1", "1" ],
+          "bits": [ "1", "1", "0", "0", "0", "0", "0", "0" ],
           "attributes": {
             "src": "top.tlv:35|top.tlv:12"
           }
         },
         "md.cout": {
           "hide_name": 0,
-          "bits": [ "0", "0" ],
+          "bits": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
           "attributes": {
             "src": "top.tlv:35|top.tlv:13"
           }
         },
         "md.sum": {
           "hide_name": 0,
-          "bits": [ "1", "1" ],
+          "bits": [ "1", "1", "0", "0", "0", "0", "0", "0" ],
           "attributes": {
             "src": "top.tlv:35|top.tlv:13"
           }
         },
         "sum": {
           "hide_name": 0,
-          "bits": [ "1", "1" ],
+          "bits": [ "1", "1", "0", "0", "0", "0", "0", "0" ],
           "attributes": {
             "src": "top.tlv:30"
           }

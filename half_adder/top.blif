@@ -11,32 +11,128 @@
 1 1
 .names $false a[1]
 1 1
+.names $false a[2]
+1 1
+.names $false a[3]
+1 1
+.names $false a[4]
+1 1
+.names $false a[5]
+1 1
+.names $false a[6]
+1 1
+.names $false a[7]
+1 1
 .names $true b[0]
 1 1
 .names $true b[1]
+1 1
+.names $false b[2]
+1 1
+.names $false b[3]
+1 1
+.names $false b[4]
+1 1
+.names $false b[5]
+1 1
+.names $false b[6]
+1 1
+.names $false b[7]
 1 1
 .names $false cout[0]
 1 1
 .names $false cout[1]
 1 1
+.names $false cout[2]
+1 1
+.names $false cout[3]
+1 1
+.names $false cout[4]
+1 1
+.names $false cout[5]
+1 1
+.names $false cout[6]
+1 1
+.names $false cout[7]
+1 1
 .names $false md.a[0]
 1 1
 .names $false md.a[1]
+1 1
+.names $false md.a[2]
+1 1
+.names $false md.a[3]
+1 1
+.names $false md.a[4]
+1 1
+.names $false md.a[5]
+1 1
+.names $false md.a[6]
+1 1
+.names $false md.a[7]
 1 1
 .names $true md.b[0]
 1 1
 .names $true md.b[1]
 1 1
+.names $false md.b[2]
+1 1
+.names $false md.b[3]
+1 1
+.names $false md.b[4]
+1 1
+.names $false md.b[5]
+1 1
+.names $false md.b[6]
+1 1
+.names $false md.b[7]
+1 1
 .names $false md.cout[0]
 1 1
 .names $false md.cout[1]
+1 1
+.names $false md.cout[2]
+1 1
+.names $false md.cout[3]
+1 1
+.names $false md.cout[4]
+1 1
+.names $false md.cout[5]
+1 1
+.names $false md.cout[6]
+1 1
+.names $false md.cout[7]
 1 1
 .names $true md.sum[0]
 1 1
 .names $true md.sum[1]
 1 1
+.names $false md.sum[2]
+1 1
+.names $false md.sum[3]
+1 1
+.names $false md.sum[4]
+1 1
+.names $false md.sum[5]
+1 1
+.names $false md.sum[6]
+1 1
+.names $false md.sum[7]
+1 1
 .names $true sum[0]
 1 1
 .names $true sum[1]
+1 1
+.names $false sum[2]
+1 1
+.names $false sum[3]
+1 1
+.names $false sum[4]
+1 1
+.names $false sum[5]
+1 1
+.names $false sum[6]
+1 1
+.names $false sum[7]
 1 1
 .end

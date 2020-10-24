@@ -1,0 +1,40 @@
+{
+   "wr": {
+      "_typeof": "PIPELINE",
+      "entry": {
+         "_typeof": "BEH_HIER",
+         "_range": {
+            "min_index": "0",
+            "max_index": "3"
+         },
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      },
+      "trans": {
+         "_typeof": "BEH_HIER"
+      }
+   },
+   "rd": {
+      "_typeof": "PIPELINE",
+      "trans": {
+         "_typeof": "BEH_HIER"
+      }
+   },
+   "entry": {
+      "_typeof": "BEH_HIER",
+      "_range": {
+         "min_index": "0",
+         "max_index": "3"
+      },
+      "trans": {
+         "_typeof": "BEH_HIER"
+      }
+   },
+   "rd": {
+      "_typeof": "PIPELINE",
+      "trans": {
+         "_typeof": "BEH_HIER"
+      }
+   }
+}

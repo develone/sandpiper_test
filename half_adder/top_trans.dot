@@ -47,7 +47,7 @@ strict digraph "top.tlv" {
          id = "id4{logical_entity=#Q#|pipe#Q#}"
          label = "|pipe"
          subgraph "cluster.stage0" {
-            "|pipe$a@0" [fillcolor = "#ffffffb0", shape = box, label = "$a=", id = "id5{logical_entity=#Q#|pipe$a#Q#}", tooltip = "$a = a ;"];
+            "|pipe$a@0" [fillcolor = "#ffffffb0", shape = box, label = "$a=", id = "id5{logical_entity=#Q#|pipe$a#Q#}", tooltip = "$a = *a ;"];
          }
          subgraph "cluster.stage1" {
             "|pipe$a@1" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
@@ -65,7 +65,7 @@ strict digraph "top.tlv" {
             "|pipe$a@5" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
          }
          subgraph "cluster.stage0" {
-            "|pipe$b@0" [fillcolor = "#ffffffb0", shape = box, label = "$b=", id = "id11{logical_entity=#Q#|pipe$b#Q#}", tooltip = "$b = b;"];
+            "|pipe$b@0" [fillcolor = "#ffffffb0", shape = box, label = "$b=", id = "id11{logical_entity=#Q#|pipe$b#Q#}", tooltip = "$b = *b;"];
          }
          subgraph "cluster.stage1" {
             "|pipe$b@1" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];

@@ -106,26 +106,32 @@ Automatically selected tb as design top module.
 Top module:  \tb
 Used module:     \my_design
 Used module:         \ha
-Parameter \N = 2
+Parameter \N = 8
 
 2.2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\my_design'.
-Parameter \N = 2
-Generating RTLIL representation for module `$paramod\my_design\N=2'.
+Parameter \N = 8
+Generating RTLIL representation for module `$paramod\my_design\N=8'.
 
 2.2.4. Analyzing design hierarchy..
 Top module:  \tb
-Used module:     $paramod\my_design\N=2
+Used module:     $paramod\my_design\N=8
 Used module:         \ha
 
 2.2.5. Analyzing design hierarchy..
 Top module:  \tb
-Used module:     $paramod\my_design\N=2
+Used module:     $paramod\my_design\N=8
 Used module:         \ha
 Removing unused module `\top'.
 Removing unused module `\my_design'.
 Removed 2 unused modules.
-Mapping positional arguments of cell $paramod\my_design\N=2.$genblock$top.tlv:21$148[1].\u0 (ha).
-Mapping positional arguments of cell $paramod\my_design\N=2.$genblock$top.tlv:21$147[0].\u0 (ha).
+Mapping positional arguments of cell $paramod\my_design\N=8.$genblock$top.tlv:21$154[7].\u0 (ha).
+Mapping positional arguments of cell $paramod\my_design\N=8.$genblock$top.tlv:21$153[6].\u0 (ha).
+Mapping positional arguments of cell $paramod\my_design\N=8.$genblock$top.tlv:21$152[5].\u0 (ha).
+Mapping positional arguments of cell $paramod\my_design\N=8.$genblock$top.tlv:21$151[4].\u0 (ha).
+Mapping positional arguments of cell $paramod\my_design\N=8.$genblock$top.tlv:21$150[3].\u0 (ha).
+Mapping positional arguments of cell $paramod\my_design\N=8.$genblock$top.tlv:21$149[2].\u0 (ha).
+Mapping positional arguments of cell $paramod\my_design\N=8.$genblock$top.tlv:21$148[1].\u0 (ha).
+Mapping positional arguments of cell $paramod\my_design\N=8.$genblock$top.tlv:21$147[0].\u0 (ha).
 
 2.3. Executing PROC pass (convert processes to netlists).
 
@@ -157,11 +163,11 @@ Removing empty process `tb.$proc$top.tlv:37$7'.
 Cleaned up 0 empty switches.
 
 2.4. Executing FLATTEN pass (flatten design).
-Using template $paramod\my_design\N=2 for cells of type $paramod\my_design\N=2.
+Using template $paramod\my_design\N=8 for cells of type $paramod\my_design\N=8.
 Using template ha for cells of type ha.
-<suppressed ~3 debug messages>
+<suppressed ~9 debug messages>
 No more expansions possible.
-Deleting now unused module $paramod\my_design\N=2.
+Deleting now unused module $paramod\my_design\N=8.
 Deleting now unused module ha.
 
 2.5. Executing TRIBUF pass.
@@ -170,11 +176,11 @@ Deleting now unused module ha.
 
 2.7. Executing OPT_EXPR pass (perform const folding).
 Optimizing module tb.
-<suppressed ~6 debug messages>
+<suppressed ~24 debug messages>
 
 2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \tb..
-Removed 0 unused cells and 14 unused wires.
+Removed 0 unused cells and 50 unused wires.
 <suppressed ~1 debug messages>
 
 2.9. Executing CHECK pass (checking for obvious problems).
@@ -656,9 +662,9 @@ Removed 0 unused modules.
 === tb ===
 
    Number of wires:                  8
-   Number of wire bits:             16
+   Number of wire bits:             64
    Number of public wires:           8
-   Number of public wire bits:      16
+   Number of public wire bits:      64
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -673,6 +679,6 @@ found and reported 0 problems.
 2.53. Executing JSON backend.
 
 Warnings: 3 unique messages, 3 total
-End of script. Logfile hash: 53043e459a, CPU: user 0.74s system 0.10s, MEM: 34.99 MB peak
+End of script. Logfile hash: 55af9c7840, CPU: user 0.73s system 0.15s, MEM: 34.93 MB peak
 Yosys 0.9+1706 (git sha1 7cc9d487, clang 7.0.1-8+rpi3 -fPIC -Os)
 Time spent: 63% 11x read_verilog (0 sec), 13% 1x share (0 sec), ...

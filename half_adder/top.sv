@@ -25,7 +25,7 @@ module my_design
 endmodule
 
 module tb;
-	parameter N = 2;
+	parameter N = 8;
   reg  [N-1:0] a, b;
   wire [N-1:0] sum, cout;
 
@@ -40,10 +40,10 @@ module tb;
 
     //$monitor ("a=0x%0h b=0x%0h sum=0x%0h cout=0x%0h", a, b, sum, cout);
 
-    //#10 a <= 'h2;
+    #10 a <= 'h2;
     		b <= 'h3;
-    //#20 b <= 'h4;
-    //#10 a <= 'h5;
+    #20 b <= 'h4;
+    #10 a <= 'h5;
   end
 endmodule
    // =========================================
@@ -63,8 +63,9 @@ endmodule
          /* verilator lint_off IMPLICIT */ 
          assign PIPE_a_a0 = a ;
          assign PIPE_b_a0 = b;
-         //$c = c;
-         /* verilator lint_off IMPLICIT */  
+         //$c = *c;
+         /* verilator lint_off IMPLICIT */
+      
       //_@5
          assign a = PIPE_a_a5;
          assign b = PIPE_b_a5;
