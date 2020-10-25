@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <meta http-equiv="description" content="top.html">
+   <meta http-equiv="keywords" content="tl-verilog">
+
+   <title>top.m4</title>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+   <script src="http://www.rweda.com/lib/sp_1.9-2018_02_11-beta/ide.js"></script>
+   <link rel="stylesheet" href="http://www.rweda.com/lib/sp_1.9-2018_02_11-beta/ide.css" />
+
+<style>
+/*
+Copyright (c) 2015, Steven F. Hoover
+All rights reserved.
+*/
+.tlv_ident_error {
+  color: red;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_pipeline {
+  color: orange;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_beh_hier_1 {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_beh_hier_2 {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_grouping {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_pipe_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_state_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_sig_keyword {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_assigned_pipe_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_assigned_state_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_assigned_sig_keyword {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_malformed_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_malformed_assigned_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_when {
+  color: #E04010;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_sv_when {
+  color: #E04010;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_phys_hier {
+  color: blue;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_phys_beh_hier {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_stage_name {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_expr {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_next_operator {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_incr_expr {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_prev_operator {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_decr_expr {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_alignment_expr_1ab {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_expr_1c {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_keyword_1c {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_ahead_expr {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_behind_expr {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_zero_expr {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_crosspipe_name {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_ahead_name {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_behind_name {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_tlv_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_proj_rtl_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_misc_rtl_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_proj_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_sv_sig {
+  color: #00008b;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_sv_datatype {
+  color: DarkRed;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_keyword1 {
+  color: Blue;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_comment {
+  color: #808080;
+  font-style: italic;
+  font-weight: 600;
+}
+.tlv_ident_hdl_code {
+  color: #00008b;
+  font-style: normal;
+  font-weight: normal;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>top.m4</h2>
+
+<pre>
+<span class="line" line-num="1" source-line-num="1"><span class="tlv_ident_keyword1">\TLV_version 1d: tl-x.org</span></span>
+<span class="line" line-num="2" source-line-num="2"><span class="tlv_ident_keyword1">\SV</span></span>
+<span class="line" line-num="3" source-line-num="3"><span class="tlv_ident_comment">/*</span></span>
+<span class="line" line-num="4" source-line-num="4"> <span class="tlv_ident_comment">The MIT License (MIT)</span></span>
+<span class="line" line-num="5" source-line-num="5"> <span class="tlv_ident_comment">Copyright (c) 2019 Yuya Kudo.</span></span>
+<span class="line" line-num="6" source-line-num="6"> <span class="tlv_ident_comment">Permission is hereby granted, free of charge, to any person obtaining a copy</span></span>
+<span class="line" line-num="7" source-line-num="7"> <span class="tlv_ident_comment">of this software and associated documentation files (the &quot;Software&quot;), to deal</span></span>
+<span class="line" line-num="8" source-line-num="8"> <span class="tlv_ident_comment">in the Software without restriction, including without limitation the rights</span></span>
+<span class="line" line-num="9" source-line-num="9"> <span class="tlv_ident_comment">to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span></span>
+<span class="line" line-num="10" source-line-num="10"> <span class="tlv_ident_comment">copies of the Software, and to permit persons to whom the Software is</span></span>
+<span class="line" line-num="11" source-line-num="11"> <span class="tlv_ident_comment">furnished to do so, subject to the following conditions:</span></span>
+<span class="line" line-num="12" source-line-num="12"> <span class="tlv_ident_comment">The above copyright notice and this permission notice shall be included in</span></span>
+<span class="line" line-num="13" source-line-num="13"> <span class="tlv_ident_comment">all copies or substantial portions of the Software.</span></span>
+<span class="line" line-num="14" source-line-num="14"> <span class="tlv_ident_comment">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span></span>
+<span class="line" line-num="15" source-line-num="15"> <span class="tlv_ident_comment">IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span></span>
+<span class="line" line-num="16" source-line-num="16"> <span class="tlv_ident_comment">FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span></span>
+<span class="line" line-num="17" source-line-num="17"> <span class="tlv_ident_comment">AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span></span>
+<span class="line" line-num="18" source-line-num="18"> <span class="tlv_ident_comment">LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span></span>
+<span class="line" line-num="19" source-line-num="19"> <span class="tlv_ident_comment">OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</span></span>
+<span class="line" line-num="20" source-line-num="20"> <span class="tlv_ident_comment">THE SOFTWARE.</span></span>
+<span class="line" line-num="21" source-line-num="21"><span class="tlv_ident_comment">*/</span></span>
+<span class="line" line-num="22" source-line-num="22"></span>
+<span class="line" line-num="23" source-line-num="23"><span class="tlv_ident_hdl_code">interface uart_if</span></span>
+<span class="line" line-num="24" source-line-num="24">  <span class="tlv_ident_hdl_code">#(parameter</span></span>
+<span class="line" line-num="25" source-line-num="25">    <span class="tlv_ident_hdl_code">DATA_WIDTH = 8);</span></span>
+<span class="line" line-num="26" source-line-num="26"></span>
+<span class="line" line-num="27" source-line-num="27">   <span class="tlv_ident_hdl_code">logic                  sig;</span></span>
+<span class="line" line-num="28" source-line-num="28">   <span class="tlv_ident_hdl_code">logic [DATA_WIDTH-1:0] data;</span></span>
+<span class="line" line-num="29" source-line-num="29">   <span class="tlv_ident_hdl_code">logic                  valid;</span></span>
+<span class="line" line-num="30" source-line-num="30">   <span class="tlv_ident_hdl_code">logic                  ready;</span></span>
+<span class="line" line-num="31" source-line-num="31"></span>
+<span class="line" line-num="32" source-line-num="32">   <span class="tlv_ident_hdl_code">modport tx(output sig,</span></span>
+<span class="line" line-num="33" source-line-num="33">              <span class="tlv_ident_hdl_code">input  data,</span></span>
+<span class="line" line-num="34" source-line-num="34">              <span class="tlv_ident_hdl_code">input  valid,</span></span>
+<span class="line" line-num="35" source-line-num="35">              <span class="tlv_ident_hdl_code">output ready);</span></span>
+<span class="line" line-num="36" source-line-num="36"></span>
+<span class="line" line-num="37" source-line-num="37">   <span class="tlv_ident_hdl_code">modport rx(input  sig,</span></span>
+<span class="line" line-num="38" source-line-num="38">              <span class="tlv_ident_hdl_code">output data,</span></span>
+<span class="line" line-num="39" source-line-num="39">              <span class="tlv_ident_hdl_code">output valid,</span></span>
+<span class="line" line-num="40" source-line-num="40">              <span class="tlv_ident_hdl_code">input  ready);</span></span>
+<span class="line" line-num="41" source-line-num="41"></span>
+<span class="line" line-num="42" source-line-num="42"><span class="tlv_ident_hdl_code">endinterface</span></span>
+<span class="line" line-num="43" source-line-num="43"></span>
+<span class="line" line-num="44" source-line-num="44"><span class="tlv_ident_comment">/*</span></span>
+<span class="line" line-num="45" source-line-num="45"> <span class="tlv_ident_comment">The MIT License (MIT)</span></span>
+<span class="line" line-num="46" source-line-num="46"></span>
+<span class="line" line-num="47" source-line-num="47"> <span class="tlv_ident_comment">Copyright (c) 2019 Yuya Kudo.</span></span>
+<span class="line" line-num="48" source-line-num="48"></span>
+<span class="line" line-num="49" source-line-num="49"> <span class="tlv_ident_comment">Permission is hereby granted, free of charge, to any person obtaining a copy</span></span>
+<span class="line" line-num="50" source-line-num="50"> <span class="tlv_ident_comment">of this software and associated documentation files (the &quot;Software&quot;), to deal</span></span>
+<span class="line" line-num="51" source-line-num="51"> <span class="tlv_ident_comment">in the Software without restriction, including without limitation the rights</span></span>
+<span class="line" line-num="52" source-line-num="52"> <span class="tlv_ident_comment">to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span></span>
+<span class="line" line-num="53" source-line-num="53"> <span class="tlv_ident_comment">copies of the Software, and to permit persons to whom the Software is</span></span>
+<span class="line" line-num="54" source-line-num="54"> <span class="tlv_ident_comment">furnished to do so, subject to the following conditions:</span></span>
+<span class="line" line-num="55" source-line-num="55"></span>
+<span class="line" line-num="56" source-line-num="56"> <span class="tlv_ident_comment">The above copyright notice and this permission notice shall be included in</span></span>
+<span class="line" line-num="57" source-line-num="57"> <span class="tlv_ident_comment">all copies or substantial portions of the Software.</span></span>
+<span class="line" line-num="58" source-line-num="58"></span>
+<span class="line" line-num="59" source-line-num="59"> <span class="tlv_ident_comment">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span></span>
+<span class="line" line-num="60" source-line-num="60"> <span class="tlv_ident_comment">IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span></span>
+<span class="line" line-num="61" source-line-num="61"> <span class="tlv_ident_comment">FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span></span>
+<span class="line" line-num="62" source-line-num="62"> <span class="tlv_ident_comment">AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span></span>
+<span class="line" line-num="63" source-line-num="63"> <span class="tlv_ident_comment">LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span></span>
+<span class="line" line-num="64" source-line-num="64"> <span class="tlv_ident_comment">OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</span></span>
+<span class="line" line-num="65" source-line-num="65"> <span class="tlv_ident_comment">THE SOFTWARE.</span></span>
+<span class="line" line-num="66" source-line-num="66"><span class="tlv_ident_comment">*/</span></span>
+<span class="line" line-num="67" source-line-num="67"></span>
+<span class="line" line-num="68" source-line-num="68"><span class="tlv_ident_comment">//`include &quot;uart_if.sv&quot;</span></span>
+<span class="line" line-num="69" source-line-num="69"></span>
+<span class="line" line-num="70" source-line-num="70"><span class="tlv_ident_hdl_code">module uart</span></span>
+<span class="line" line-num="71" source-line-num="71">  <span class="tlv_ident_hdl_code">#(parameter</span></span>
+<span class="line" line-num="72" source-line-num="72">    <span class="tlv_ident_comment">/*</span></span>
+<span class="line" line-num="73" source-line-num="73">     <span class="tlv_ident_comment">You can specify the following three parameters.</span></span>
+<span class="line" line-num="74" source-line-num="74">     <span class="tlv_ident_comment">1. DATA_WIDTH : width of data that is transmited by this module</span></span>
+<span class="line" line-num="75" source-line-num="75">     <span class="tlv_ident_comment">2. BAUD_RATE  : baud rate of output uart signal</span></span>
+<span class="line" line-num="76" source-line-num="76">     <span class="tlv_ident_comment">3. CLK_FREQ   : freqency of input clock signal</span></span>
+<span class="line" line-num="77" source-line-num="77">    <span class="tlv_ident_comment">*/</span></span>
+<span class="line" line-num="78" source-line-num="78">    <span class="tlv_ident_hdl_code">DATA_WIDTH = 8,</span></span>
+<span class="line" line-num="79" source-line-num="79">    <span class="tlv_ident_hdl_code">BAUD_RATE  = 115200,</span></span>
+<span class="line" line-num="80" source-line-num="80">    <span class="tlv_ident_hdl_code">CLK_FREQ   = 100_000_000)</span></span>
+<span class="line" line-num="81" source-line-num="81">   <span class="tlv_ident_hdl_code">(uart_if.rx   rxif,</span></span>
+<span class="line" line-num="82" source-line-num="82">    <span class="tlv_ident_hdl_code">uart_if.tx   txif,</span></span>
+<span class="line" line-num="83" source-line-num="83">    <span class="tlv_ident_hdl_code">input logic  clk,</span></span>
+<span class="line" line-num="84" source-line-num="84">    <span class="tlv_ident_hdl_code">input logic  rstn);</span></span>
+<span class="line" line-num="85" source-line-num="85"></span>
+<span class="line" line-num="86" source-line-num="86">   <span class="tlv_ident_hdl_code">uart_tx #(DATA_WIDTH, BAUD_RATE, CLK_FREQ)</span></span>
+<span class="line" line-num="87" source-line-num="87">   <span class="tlv_ident_comment">/* verilator lint_off PINMISSING */</span></span>
+<span class="line" line-num="88" source-line-num="88">   <span class="tlv_ident_hdl_code">uart_tx_inst(.rxif(rxif),</span></span>
+<span class="line" line-num="89" source-line-num="89">   <span class="tlv_ident_comment">/* verilator lint_off PINMISSING */</span></span>
+<span class="line" line-num="90" source-line-num="90">                <span class="tlv_ident_hdl_code">.clk(clk),</span></span>
+<span class="line" line-num="91" source-line-num="91">                <span class="tlv_ident_hdl_code">.rstn(rstn));</span></span>
+<span class="line" line-num="92" source-line-num="92"></span>
+<span class="line" line-num="93" source-line-num="93">   <span class="tlv_ident_hdl_code">uart_rx #(DATA_WIDTH, BAUD_RATE, CLK_FREQ)</span></span>
+<span class="line" line-num="94" source-line-num="94">   <span class="tlv_ident_comment">/* verilator lint_off PINMISSING */</span></span>
+<span class="line" line-num="95" source-line-num="95">   <span class="tlv_ident_hdl_code">uart_rx_inst(.txif(txif),</span></span>
+<span class="line" line-num="96" source-line-num="96">   <span class="tlv_ident_comment">/* verilator lint_off PINMISSING */</span></span>
+<span class="line" line-num="97" source-line-num="97">                <span class="tlv_ident_hdl_code">.clk(clk),</span></span>
+<span class="line" line-num="98" source-line-num="98">                <span class="tlv_ident_hdl_code">.rstn(rstn));</span></span>
+<span class="line" line-num="99" source-line-num="99"><span class="tlv_ident_hdl_code">endmodule</span></span>
+<span class="line" line-num="100" source-line-num="100"><span class="tlv_ident_comment">/*</span></span>
+<span class="line" line-num="101" source-line-num="101"> <span class="tlv_ident_comment">The MIT License (MIT)</span></span>
+<span class="line" line-num="102" source-line-num="102"></span>
+<span class="line" line-num="103" source-line-num="103"> <span class="tlv_ident_comment">Copyright (c) 2019 Yuya Kudo.</span></span>
+<span class="line" line-num="104" source-line-num="104"></span>
+<span class="line" line-num="105" source-line-num="105"> <span class="tlv_ident_comment">Permission is hereby granted, free of charge, to any person obtaining a copy</span></span>
+<span class="line" line-num="106" source-line-num="106"> <span class="tlv_ident_comment">of this software and associated documentation files (the &quot;Software&quot;), to deal</span></span>
+<span class="line" line-num="107" source-line-num="107"> <span class="tlv_ident_comment">in the Software without restriction, including without limitation the rights</span></span>
+<span class="line" line-num="108" source-line-num="108"> <span class="tlv_ident_comment">to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span></span>
+<span class="line" line-num="109" source-line-num="109"> <span class="tlv_ident_comment">copies of the Software, and to permit persons to whom the Software is</span></span>
+<span class="line" line-num="110" source-line-num="110"> <span class="tlv_ident_comment">furnished to do so, subject to the following conditions:</span></span>
+<span class="line" line-num="111" source-line-num="111"></span>
+<span class="line" line-num="112" source-line-num="112"> <span class="tlv_ident_comment">The above copyright notice and this permission notice shall be included in</span></span>
+<span class="line" line-num="113" source-line-num="113"> <span class="tlv_ident_comment">all copies or substantial portions of the Software.</span></span>
+<span class="line" line-num="114" source-line-num="114"></span>
+<span class="line" line-num="115" source-line-num="115"> <span class="tlv_ident_comment">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span></span>
+<span class="line" line-num="116" source-line-num="116"> <span class="tlv_ident_comment">IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span></span>
+<span class="line" line-num="117" source-line-num="117"> <span class="tlv_ident_comment">FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span></span>
+<span class="line" line-num="118" source-line-num="118"> <span class="tlv_ident_comment">AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span></span>
+<span class="line" line-num="119" source-line-num="119"> <span class="tlv_ident_comment">LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span></span>
+<span class="line" line-num="120" source-line-num="120"> <span class="tlv_ident_comment">OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</span></span>
+<span class="line" line-num="121" source-line-num="121"> <span class="tlv_ident_comment">THE SOFTWARE.</span></span>
+<span class="line" line-num="122" source-line-num="122"><span class="tlv_ident_comment">*/</span></span>
+<span class="line" line-num="123" source-line-num="123"></span>
+<span class="line" line-num="124" source-line-num="124"><span class="tlv_ident_comment">//`include &quot;uart_if.sv&quot;</span></span>
+<span class="line" line-num="125" source-line-num="125"></span>
+<span class="line" line-num="126" source-line-num="126"><span class="tlv_ident_hdl_code">module uart_rx</span></span>
+<span class="line" line-num="127" source-line-num="127">  <span class="tlv_ident_hdl_code">#(parameter</span></span>
+<span class="line" line-num="128" source-line-num="128">    <span class="tlv_ident_comment">/*</span></span>
+<span class="line" line-num="129" source-line-num="129">     <span class="tlv_ident_comment">You can specify the following three parameters.</span></span>
+<span class="line" line-num="130" source-line-num="130">     <span class="tlv_ident_comment">1. DATA_WIDTH : width of data that is transmited by this module</span></span>
+<span class="line" line-num="131" source-line-num="131">     <span class="tlv_ident_comment">2. BAUD_RATE  : baud rate of output uart signal</span></span>
+<span class="line" line-num="132" source-line-num="132">     <span class="tlv_ident_comment">3. CLK_FREQ   : freqency of input clock signal</span></span>
+<span class="line" line-num="133" source-line-num="133">    <span class="tlv_ident_comment">*/</span></span>
+<span class="line" line-num="134" source-line-num="134">    <span class="tlv_ident_hdl_code">DATA_WIDTH = 8,</span></span>
+<span class="line" line-num="135" source-line-num="135">    <span class="tlv_ident_hdl_code">BAUD_RATE  = 115200,</span></span>
+<span class="line" line-num="136" source-line-num="136">    <span class="tlv_ident_hdl_code">CLK_FREQ   = 100_000_000,</span></span>
+<span class="line" line-num="137" source-line-num="137"></span>
+<span class="line" line-num="138" source-line-num="138">    <span class="tlv_ident_hdl_code">localparam</span></span>
+<span class="line" line-num="139" source-line-num="139">    <span class="tlv_ident_hdl_code">LB_DATA_WIDTH    = $clog2(DATA_WIDTH),</span></span>
+<span class="line" line-num="140" source-line-num="140">    <span class="tlv_ident_hdl_code">PULSE_WIDTH      = CLK_FREQ / BAUD_RATE,</span></span>
+<span class="line" line-num="141" source-line-num="141">    <span class="tlv_ident_hdl_code">LB_PULSE_WIDTH   = $clog2(PULSE_WIDTH),</span></span>
+<span class="line" line-num="142" source-line-num="142">    <span class="tlv_ident_hdl_code">HALF_PULSE_WIDTH = PULSE_WIDTH / 2)</span></span>
+<span class="line" line-num="143" source-line-num="143">   <span class="tlv_ident_hdl_code">(uart_if.rx  rxif,</span></span>
+<span class="line" line-num="144" source-line-num="144">    <span class="tlv_ident_hdl_code">input logic clk,</span></span>
+<span class="line" line-num="145" source-line-num="145">    <span class="tlv_ident_hdl_code">input logic rstn);</span></span>
+<span class="line" line-num="146" source-line-num="146"></span>
+<span class="line" line-num="147" source-line-num="147">   <span class="tlv_ident_comment">//-----------------------------------------------------------------------------</span></span>
+<span class="line" line-num="148" source-line-num="148">   <span class="tlv_ident_comment">// noise removing filter</span></span>
+<span class="line" line-num="149" source-line-num="149">   <span class="tlv_ident_hdl_code">function majority5(input [4:0] val);</span></span>
+<span class="line" line-num="150" source-line-num="150">      <span class="tlv_ident_hdl_code">case(val)</span></span>
+<span class="line" line-num="151" source-line-num="151">        <span class="tlv_ident_hdl_code">5'b00000: majority5 = 0;</span></span>
+<span class="line" line-num="152" source-line-num="152">        <span class="tlv_ident_hdl_code">5'b00001: majority5 = 0;</span></span>
+<span class="line" line-num="153" source-line-num="153">        <span class="tlv_ident_hdl_code">5'b00010: majority5 = 0;</span></span>
+<span class="line" line-num="154" source-line-num="154">        <span class="tlv_ident_hdl_code">5'b00100: majority5 = 0;</span></span>
+<span class="line" line-num="155" source-line-num="155">        <span class="tlv_ident_hdl_code">5'b01000: majority5 = 0;</span></span>
+<span class="line" line-num="156" source-line-num="156">        <span class="tlv_ident_hdl_code">5'b10000: majority5 = 0;</span></span>
+<span class="line" line-num="157" source-line-num="157">        <span class="tlv_ident_hdl_code">5'b00011: majority5 = 0;</span></span>
+<span class="line" line-num="158" source-line-num="158">        <span class="tlv_ident_hdl_code">5'b00101: majority5 = 0;</span></span>
+<span class="line" line-num="159" source-line-num="159">        <span class="tlv_ident_hdl_code">5'b01001: majority5 = 0;</span></span>
+<span class="line" line-num="160" source-line-num="160">        <span class="tlv_ident_hdl_code">5'b10001: majority5 = 0;</span></span>
+<span class="line" line-num="161" source-line-num="161">        <span class="tlv_ident_hdl_code">5'b00110: majority5 = 0;</span></span>
+<span class="line" line-num="162" source-line-num="162">        <span class="tlv_ident_hdl_code">5'b01010: majority5 = 0;</span></span>
+<span class="line" line-num="163" source-line-num="163">        <span class="tlv_ident_hdl_code">5'b10010: majority5 = 0;</span></span>
+<span class="line" line-num="164" source-line-num="164">        <span class="tlv_ident_hdl_code">5'b01100: majority5 = 0;</span></span>
+<span class="line" line-num="165" source-line-num="165">        <span class="tlv_ident_hdl_code">5'b10100: majority5 = 0;</span></span>
+<span class="line" line-num="166" source-line-num="166">        <span class="tlv_ident_hdl_code">5'b11000: majority5 = 0;</span></span>
+<span class="line" line-num="167" source-line-num="167">        <span class="tlv_ident_hdl_code">default:  majority5 = 1;</span></span>
+<span class="line" line-num="168" source-line-num="168">      <span class="tlv_ident_hdl_code">endcase</span></span>
+<span class="line" line-num="169" source-line-num="169">   <span class="tlv_ident_hdl_code">endfunction</span></span>
+<span class="line" line-num="170" source-line-num="170"></span>
+<span class="line" line-num="171" source-line-num="171">   <span class="tlv_ident_comment">//-----------------------------------------------------------------------------</span></span>
+<span class="line" line-num="172" source-line-num="172">   <span class="tlv_ident_comment">// description about input signal</span></span>
+<span class="line" line-num="173" source-line-num="173">   <span class="tlv_ident_hdl_code">logic [1:0] sampling_cnt;</span></span>
+<span class="line" line-num="174" source-line-num="174">   <span class="tlv_ident_hdl_code">logic [4:0] sig_q;</span></span>
+<span class="line" line-num="175" source-line-num="175">   <span class="tlv_ident_hdl_code">logic       sig_r;</span></span>
+<span class="line" line-num="176" source-line-num="176"></span>
+<span class="line" line-num="177" source-line-num="177">   <span class="tlv_ident_hdl_code">always_ff @(posedge clk) begin</span></span>
+<span class="line" line-num="178" source-line-num="178">      <span class="tlv_ident_hdl_code">if(!rstn) begin</span></span>
+<span class="line" line-num="179" source-line-num="179">         <span class="tlv_ident_hdl_code">sampling_cnt &lt;= 0;</span></span>
+<span class="line" line-num="180" source-line-num="180">         <span class="tlv_ident_hdl_code">sig_q        &lt;= 5'b11111;</span></span>
+<span class="line" line-num="181" source-line-num="181">         <span class="tlv_ident_hdl_code">sig_r        &lt;= 1;</span></span>
+<span class="line" line-num="182" source-line-num="182">      <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="183" source-line-num="183">      <span class="tlv_ident_hdl_code">else begin</span></span>
+<span class="line" line-num="184" source-line-num="184">         <span class="tlv_ident_comment">// connect to deserializer after removing noise</span></span>
+<span class="line" line-num="185" source-line-num="185">         <span class="tlv_ident_hdl_code">if(sampling_cnt == 0) begin</span></span>
+<span class="line" line-num="186" source-line-num="186">            <span class="tlv_ident_hdl_code">sig_q &lt;= {rxif.sig, sig_q[4:1]};</span></span>
+<span class="line" line-num="187" source-line-num="187">         <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="188" source-line-num="188"></span>
+<span class="line" line-num="189" source-line-num="189">         <span class="tlv_ident_hdl_code">sig_r        &lt;= majority5(sig_q);</span></span>
+<span class="line" line-num="190" source-line-num="190">         <span class="tlv_ident_hdl_code">sampling_cnt &lt;= sampling_cnt + 1;</span></span>
+<span class="line" line-num="191" source-line-num="191">      <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="192" source-line-num="192">   <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="193" source-line-num="193"></span>
+<span class="line" line-num="194" source-line-num="194">   <span class="tlv_ident_comment">//----------------------------------------------------------------</span></span>
+<span class="line" line-num="195" source-line-num="195">   <span class="tlv_ident_comment">// description about receive UART signal</span></span>
+<span class="line" line-num="196" source-line-num="196">   <span class="tlv_ident_hdl_code">typedef enum logic [1:0] {STT_DATA,</span></span>
+<span class="line" line-num="197" source-line-num="197">                             <span class="tlv_ident_hdl_code">STT_STOP,</span></span>
+<span class="line" line-num="198" source-line-num="198">                             <span class="tlv_ident_hdl_code">STT_WAIT</span></span>
+<span class="line" line-num="199" source-line-num="199">                             <span class="tlv_ident_hdl_code">} statetype;</span></span>
+<span class="line" line-num="200" source-line-num="200"></span>
+<span class="line" line-num="201" source-line-num="201">   <span class="tlv_ident_hdl_code">statetype                 state;</span></span>
+<span class="line" line-num="202" source-line-num="202"></span>
+<span class="line" line-num="203" source-line-num="203">   <span class="tlv_ident_hdl_code">logic [DATA_WIDTH-1:0]   data_tmp_r;</span></span>
+<span class="line" line-num="204" source-line-num="204">   <span class="tlv_ident_hdl_code">logic [LB_DATA_WIDTH:0]  data_cnt;</span></span>
+<span class="line" line-num="205" source-line-num="205">   <span class="tlv_ident_hdl_code">logic [LB_PULSE_WIDTH:0] clk_cnt;</span></span>
+<span class="line" line-num="206" source-line-num="206">   <span class="tlv_ident_hdl_code">logic                    rx_done;</span></span>
+<span class="line" line-num="207" source-line-num="207"></span>
+<span class="line" line-num="208" source-line-num="208">   <span class="tlv_ident_hdl_code">always_ff @(posedge clk) begin</span></span>
+<span class="line" line-num="209" source-line-num="209">      <span class="tlv_ident_hdl_code">if(!rstn) begin</span></span>
+<span class="line" line-num="210" source-line-num="210">         <span class="tlv_ident_hdl_code">state      &lt;= STT_WAIT;</span></span>
+<span class="line" line-num="211" source-line-num="211">         <span class="tlv_ident_hdl_code">data_tmp_r &lt;= 0;</span></span>
+<span class="line" line-num="212" source-line-num="212">         <span class="tlv_ident_hdl_code">data_cnt   &lt;= 0;</span></span>
+<span class="line" line-num="213" source-line-num="213">         <span class="tlv_ident_hdl_code">clk_cnt    &lt;= 0;</span></span>
+<span class="line" line-num="214" source-line-num="214">      <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="215" source-line-num="215">      <span class="tlv_ident_hdl_code">else begin</span></span>
+<span class="line" line-num="216" source-line-num="216"></span>
+<span class="line" line-num="217" source-line-num="217">         <span class="tlv_ident_comment">//-----------------------------------------------------------------------------</span></span>
+<span class="line" line-num="218" source-line-num="218">         <span class="tlv_ident_comment">// 3-state FSM</span></span>
+<span class="line" line-num="219" source-line-num="219">         <span class="tlv_ident_hdl_code">case(state)</span></span>
+<span class="line" line-num="220" source-line-num="220"></span>
+<span class="line" line-num="221" source-line-num="221">           <span class="tlv_ident_comment">//-----------------------------------------------------------------------------</span></span>
+<span class="line" line-num="222" source-line-num="222">           <span class="tlv_ident_comment">// state      : STT_DATA</span></span>
+<span class="line" line-num="223" source-line-num="223">           <span class="tlv_ident_comment">// behavior   : deserialize and recieve data</span></span>
+<span class="line" line-num="224" source-line-num="224">           <span class="tlv_ident_comment">// next state : when all data have recieved -&gt; STT_STOP</span></span>
+<span class="line" line-num="225" source-line-num="225">           <span class="tlv_ident_hdl_code">STT_DATA: begin</span></span>
+<span class="line" line-num="226" source-line-num="226">              <span class="tlv_ident_hdl_code">if(0 &lt; clk_cnt) begin</span></span>
+<span class="line" line-num="227" source-line-num="227">                 <span class="tlv_ident_hdl_code">clk_cnt &lt;= clk_cnt - 1;</span></span>
+<span class="line" line-num="228" source-line-num="228">              <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="229" source-line-num="229">              <span class="tlv_ident_hdl_code">else begin</span></span>
+<span class="line" line-num="230" source-line-num="230">                 <span class="tlv_ident_hdl_code">data_tmp_r &lt;= {sig_r, data_tmp_r[DATA_WIDTH-1:1]};</span></span>
+<span class="line" line-num="231" source-line-num="231">                 <span class="tlv_ident_hdl_code">clk_cnt    &lt;= PULSE_WIDTH;</span></span>
+<span class="line" line-num="232" source-line-num="232"></span>
+<span class="line" line-num="233" source-line-num="233">                 <span class="tlv_ident_hdl_code">if(data_cnt == DATA_WIDTH - 1) begin</span></span>
+<span class="line" line-num="234" source-line-num="234">                    <span class="tlv_ident_hdl_code">state &lt;= STT_STOP;</span></span>
+<span class="line" line-num="235" source-line-num="235">                 <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="236" source-line-num="236">                 <span class="tlv_ident_hdl_code">else begin</span></span>
+<span class="line" line-num="237" source-line-num="237">                    <span class="tlv_ident_hdl_code">data_cnt &lt;= data_cnt + 1;</span></span>
+<span class="line" line-num="238" source-line-num="238">                 <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="239" source-line-num="239">              <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="240" source-line-num="240">           <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="241" source-line-num="241"></span>
+<span class="line" line-num="242" source-line-num="242">           <span class="tlv_ident_comment">//-----------------------------------------------------------------------------</span></span>
+<span class="line" line-num="243" source-line-num="243">           <span class="tlv_ident_comment">// state      : STT_STOP</span></span>
+<span class="line" line-num="244" source-line-num="244">           <span class="tlv_ident_comment">// behavior   : watch stop bit</span></span>
+<span class="line" line-num="245" source-line-num="245">           <span class="tlv_ident_comment">// next state : STT_WAIT</span></span>
+<span class="line" line-num="246" source-line-num="246">           <span class="tlv_ident_hdl_code">STT_STOP: begin</span></span>
+<span class="line" line-num="247" source-line-num="247">              <span class="tlv_ident_hdl_code">if(0 &lt; clk_cnt) begin</span></span>
+<span class="line" line-num="248" source-line-num="248">                 <span class="tlv_ident_hdl_code">clk_cnt &lt;= clk_cnt - 1;</span></span>
+<span class="line" line-num="249" source-line-num="249">              <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="250" source-line-num="250">              <span class="tlv_ident_hdl_code">else if(sig_r) begin</span></span>
+<span class="line" line-num="251" source-line-num="251">                 <span class="tlv_ident_hdl_code">state &lt;= STT_WAIT;</span></span>
+<span class="line" line-num="252" source-line-num="252">              <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="253" source-line-num="253">           <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="254" source-line-num="254"></span>
+<span class="line" line-num="255" source-line-num="255">           <span class="tlv_ident_comment">//-----------------------------------------------------------------------------</span></span>
+<span class="line" line-num="256" source-line-num="256">           <span class="tlv_ident_comment">// state      : STT_WAIT</span></span>
+<span class="line" line-num="257" source-line-num="257">           <span class="tlv_ident_comment">// behavior   : watch start bit</span></span>
+<span class="line" line-num="258" source-line-num="258">           <span class="tlv_ident_comment">// next state : when start bit is observed -&gt; STT_DATA</span></span>
+<span class="line" line-num="259" source-line-num="259">           <span class="tlv_ident_hdl_code">STT_WAIT: begin</span></span>
+<span class="line" line-num="260" source-line-num="260">              <span class="tlv_ident_hdl_code">if(sig_r == 0) begin</span></span>
+<span class="line" line-num="261" source-line-num="261">                 <span class="tlv_ident_hdl_code">clk_cnt  &lt;= PULSE_WIDTH + HALF_PULSE_WIDTH;</span></span>
+<span class="line" line-num="262" source-line-num="262">                 <span class="tlv_ident_hdl_code">data_cnt &lt;= 0;</span></span>
+<span class="line" line-num="263" source-line-num="263">                 <span class="tlv_ident_hdl_code">state    &lt;= STT_DATA;</span></span>
+<span class="line" line-num="264" source-line-num="264">              <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="265" source-line-num="265">           <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="266" source-line-num="266"></span>
+<span class="line" line-num="267" source-line-num="267">           <span class="tlv_ident_hdl_code">default: begin</span></span>
+<span class="line" line-num="268" source-line-num="268">              <span class="tlv_ident_hdl_code">state &lt;= STT_WAIT;</span></span>
+<span class="line" line-num="269" source-line-num="269">           <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="270" source-line-num="270">         <span class="tlv_ident_hdl_code">endcase</span></span>
+<span class="line" line-num="271" source-line-num="271">      <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="272" source-line-num="272">   <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="273" source-line-num="273"></span>
+<span class="line" line-num="274" source-line-num="274">   <span class="tlv_ident_hdl_code">assign rx_done = (state == STT_STOP) &amp;&amp; (clk_cnt == 0);</span></span>
+<span class="line" line-num="275" source-line-num="275"></span>
+<span class="line" line-num="276" source-line-num="276">   <span class="tlv_ident_comment">//-----------------------------------------------------------------------------</span></span>
+<span class="line" line-num="277" source-line-num="277">   <span class="tlv_ident_comment">// description about output signal</span></span>
+<span class="line" line-num="278" source-line-num="278">   <span class="tlv_ident_hdl_code">logic [DATA_WIDTH-1:0] data_r;</span></span>
+<span class="line" line-num="279" source-line-num="279">   <span class="tlv_ident_hdl_code">logic                  valid_r;</span></span>
+<span class="line" line-num="280" source-line-num="280"></span>
+<span class="line" line-num="281" source-line-num="281">   <span class="tlv_ident_hdl_code">always_ff @(posedge clk) begin</span></span>
+<span class="line" line-num="282" source-line-num="282">      <span class="tlv_ident_hdl_code">if(!rstn) begin</span></span>
+<span class="line" line-num="283" source-line-num="283">         <span class="tlv_ident_hdl_code">data_r  &lt;= 0;</span></span>
+<span class="line" line-num="284" source-line-num="284">         <span class="tlv_ident_hdl_code">valid_r &lt;= 0;</span></span>
+<span class="line" line-num="285" source-line-num="285">      <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="286" source-line-num="286">      <span class="tlv_ident_hdl_code">else if(rx_done &amp;&amp; !valid_r) begin</span></span>
+<span class="line" line-num="287" source-line-num="287">         <span class="tlv_ident_hdl_code">valid_r &lt;= 1;</span></span>
+<span class="line" line-num="288" source-line-num="288">         <span class="tlv_ident_hdl_code">data_r  &lt;= data_tmp_r;</span></span>
+<span class="line" line-num="289" source-line-num="289">      <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="290" source-line-num="290">      <span class="tlv_ident_hdl_code">else if(valid_r &amp;&amp; rxif.ready) begin</span></span>
+<span class="line" line-num="291" source-line-num="291">         <span class="tlv_ident_hdl_code">valid_r &lt;= 0;</span></span>
+<span class="line" line-num="292" source-line-num="292">      <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="293" source-line-num="293">   <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="294" source-line-num="294"></span>
+<span class="line" line-num="295" source-line-num="295">   <span class="tlv_ident_hdl_code">assign rxif.data  = data_r;</span></span>
+<span class="line" line-num="296" source-line-num="296">   <span class="tlv_ident_hdl_code">assign rxif.valid = valid_r;</span></span>
+<span class="line" line-num="297" source-line-num="297"></span>
+<span class="line" line-num="298" source-line-num="298"><span class="tlv_ident_hdl_code">endmodule</span></span>
+<span class="line" line-num="299" source-line-num="299"><span class="tlv_ident_comment">/*</span></span>
+<span class="line" line-num="300" source-line-num="300"> <span class="tlv_ident_comment">The MIT License (MIT)</span></span>
+<span class="line" line-num="301" source-line-num="301"></span>
+<span class="line" line-num="302" source-line-num="302"> <span class="tlv_ident_comment">Copyright (c) 2019 Yuya Kudo.</span></span>
+<span class="line" line-num="303" source-line-num="303"></span>
+<span class="line" line-num="304" source-line-num="304"> <span class="tlv_ident_comment">Permission is hereby granted, free of charge, to any person obtaining a copy</span></span>
+<span class="line" line-num="305" source-line-num="305"> <span class="tlv_ident_comment">of this software and associated documentation files (the &quot;Software&quot;), to deal</span></span>
+<span class="line" line-num="306" source-line-num="306"> <span class="tlv_ident_comment">in the Software without restriction, including without limitation the rights</span></span>
+<span class="line" line-num="307" source-line-num="307"> <span class="tlv_ident_comment">to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span></span>
+<span class="line" line-num="308" source-line-num="308"> <span class="tlv_ident_comment">copies of the Software, and to permit persons to whom the Software is</span></span>
+<span class="line" line-num="309" source-line-num="309"> <span class="tlv_ident_comment">furnished to do so, subject to the following conditions:</span></span>
+<span class="line" line-num="310" source-line-num="310"></span>
+<span class="line" line-num="311" source-line-num="311"> <span class="tlv_ident_comment">The above copyright notice and this permission notice shall be included in</span></span>
+<span class="line" line-num="312" source-line-num="312"> <span class="tlv_ident_comment">all copies or substantial portions of the Software.</span></span>
+<span class="line" line-num="313" source-line-num="313"></span>
+<span class="line" line-num="314" source-line-num="314"> <span class="tlv_ident_comment">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span></span>
+<span class="line" line-num="315" source-line-num="315"> <span class="tlv_ident_comment">IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span></span>
+<span class="line" line-num="316" source-line-num="316"> <span class="tlv_ident_comment">FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span></span>
+<span class="line" line-num="317" source-line-num="317"> <span class="tlv_ident_comment">AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span></span>
+<span class="line" line-num="318" source-line-num="318"> <span class="tlv_ident_comment">LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span></span>
+<span class="line" line-num="319" source-line-num="319"> <span class="tlv_ident_comment">OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</span></span>
+<span class="line" line-num="320" source-line-num="320"> <span class="tlv_ident_comment">THE SOFTWARE.</span></span>
+<span class="line" line-num="321" source-line-num="321"><span class="tlv_ident_comment">*/</span></span>
+<span class="line" line-num="322" source-line-num="322"></span>
+<span class="line" line-num="323" source-line-num="323"><span class="tlv_ident_comment">//`include &quot;uart_if.sv&quot;</span></span>
+<span class="line" line-num="324" source-line-num="324"></span>
+<span class="line" line-num="325" source-line-num="325"><span class="tlv_ident_hdl_code">module uart_tx</span></span>
+<span class="line" line-num="326" source-line-num="326">  <span class="tlv_ident_hdl_code">#(parameter</span></span>
+<span class="line" line-num="327" source-line-num="327">    <span class="tlv_ident_comment">/*</span></span>
+<span class="line" line-num="328" source-line-num="328">     <span class="tlv_ident_comment">You can specify the following three parameters.</span></span>
+<span class="line" line-num="329" source-line-num="329">     <span class="tlv_ident_comment">1. DATA_WIDTH : width of data that is transmited by this module</span></span>
+<span class="line" line-num="330" source-line-num="330">     <span class="tlv_ident_comment">2. BAUD_RATE  : baud rate of output uart signal</span></span>
+<span class="line" line-num="331" source-line-num="331">     <span class="tlv_ident_comment">3. CLK_FREQ   : freqency of input clock signal</span></span>
+<span class="line" line-num="332" source-line-num="332">    <span class="tlv_ident_comment">*/</span></span>
+<span class="line" line-num="333" source-line-num="333">    <span class="tlv_ident_hdl_code">DATA_WIDTH = 8,</span></span>
+<span class="line" line-num="334" source-line-num="334">    <span class="tlv_ident_hdl_code">BAUD_RATE  = 115200,</span></span>
+<span class="line" line-num="335" source-line-num="335">    <span class="tlv_ident_hdl_code">CLK_FREQ   = 100_000_000,</span></span>
+<span class="line" line-num="336" source-line-num="336"></span>
+<span class="line" line-num="337" source-line-num="337">    <span class="tlv_ident_hdl_code">localparam</span></span>
+<span class="line" line-num="338" source-line-num="338">    <span class="tlv_ident_hdl_code">LB_DATA_WIDTH    = $clog2(DATA_WIDTH),</span></span>
+<span class="line" line-num="339" source-line-num="339">    <span class="tlv_ident_hdl_code">PULSE_WIDTH      = CLK_FREQ / BAUD_RATE,</span></span>
+<span class="line" line-num="340" source-line-num="340">    <span class="tlv_ident_hdl_code">LB_PULSE_WIDTH   = $clog2(PULSE_WIDTH),</span></span>
+<span class="line" line-num="341" source-line-num="341">    <span class="tlv_ident_hdl_code">HALF_PULSE_WIDTH = PULSE_WIDTH / 2)</span></span>
+<span class="line" line-num="342" source-line-num="342">   <span class="tlv_ident_hdl_code">(uart_if.tx   txif,</span></span>
+<span class="line" line-num="343" source-line-num="343">    <span class="tlv_ident_hdl_code">input logic  clk,</span></span>
+<span class="line" line-num="344" source-line-num="344">    <span class="tlv_ident_hdl_code">input logic  rstn);</span></span>
+<span class="line" line-num="345" source-line-num="345"></span>
+<span class="line" line-num="346" source-line-num="346">   <span class="tlv_ident_hdl_code">typedef enum logic [1:0] {STT_DATA,</span></span>
+<span class="line" line-num="347" source-line-num="347">                             <span class="tlv_ident_hdl_code">STT_STOP,</span></span>
+<span class="line" line-num="348" source-line-num="348">                             <span class="tlv_ident_hdl_code">STT_WAIT</span></span>
+<span class="line" line-num="349" source-line-num="349">                             <span class="tlv_ident_hdl_code">} statetype;</span></span>
+<span class="line" line-num="350" source-line-num="350"></span>
+<span class="line" line-num="351" source-line-num="351">   <span class="tlv_ident_hdl_code">statetype                 state;</span></span>
+<span class="line" line-num="352" source-line-num="352"></span>
+<span class="line" line-num="353" source-line-num="353">   <span class="tlv_ident_hdl_code">logic [DATA_WIDTH-1:0]     data_r;</span></span>
+<span class="line" line-num="354" source-line-num="354">   <span class="tlv_ident_hdl_code">logic                      sig_r;</span></span>
+<span class="line" line-num="355" source-line-num="355">   <span class="tlv_ident_hdl_code">logic                      ready_r;</span></span>
+<span class="line" line-num="356" source-line-num="356">   <span class="tlv_ident_hdl_code">logic [LB_DATA_WIDTH-1:0]  data_cnt;</span></span>
+<span class="line" line-num="357" source-line-num="357">   <span class="tlv_ident_hdl_code">logic [LB_PULSE_WIDTH:0]   clk_cnt;</span></span>
+<span class="line" line-num="358" source-line-num="358"></span>
+<span class="line" line-num="359" source-line-num="359">   <span class="tlv_ident_hdl_code">always_ff @(posedge clk) begin</span></span>
+<span class="line" line-num="360" source-line-num="360">      <span class="tlv_ident_hdl_code">if(!rstn) begin</span></span>
+<span class="line" line-num="361" source-line-num="361">         <span class="tlv_ident_hdl_code">state    &lt;= STT_WAIT;</span></span>
+<span class="line" line-num="362" source-line-num="362">         <span class="tlv_ident_hdl_code">sig_r    &lt;= 1;</span></span>
+<span class="line" line-num="363" source-line-num="363">         <span class="tlv_ident_hdl_code">data_r   &lt;= 0;</span></span>
+<span class="line" line-num="364" source-line-num="364">         <span class="tlv_ident_hdl_code">ready_r  &lt;= 1;</span></span>
+<span class="line" line-num="365" source-line-num="365">         <span class="tlv_ident_hdl_code">data_cnt &lt;= 0;</span></span>
+<span class="line" line-num="366" source-line-num="366">         <span class="tlv_ident_hdl_code">clk_cnt  &lt;= 0;</span></span>
+<span class="line" line-num="367" source-line-num="367">      <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="368" source-line-num="368">      <span class="tlv_ident_hdl_code">else begin</span></span>
+<span class="line" line-num="369" source-line-num="369"></span>
+<span class="line" line-num="370" source-line-num="370">         <span class="tlv_ident_comment">//-----------------------------------------------------------------------------</span></span>
+<span class="line" line-num="371" source-line-num="371">         <span class="tlv_ident_comment">// 3-state FSM</span></span>
+<span class="line" line-num="372" source-line-num="372">         <span class="tlv_ident_hdl_code">case(state)</span></span>
+<span class="line" line-num="373" source-line-num="373"></span>
+<span class="line" line-num="374" source-line-num="374">           <span class="tlv_ident_comment">//-----------------------------------------------------------------------------</span></span>
+<span class="line" line-num="375" source-line-num="375">           <span class="tlv_ident_comment">// state      : STT_DATA</span></span>
+<span class="line" line-num="376" source-line-num="376">           <span class="tlv_ident_comment">// behavior   : serialize and transmit data</span></span>
+<span class="line" line-num="377" source-line-num="377">           <span class="tlv_ident_comment">// next state : when all data have transmited -&gt; STT_STOP</span></span>
+<span class="line" line-num="378" source-line-num="378">           <span class="tlv_ident_hdl_code">STT_DATA: begin</span></span>
+<span class="line" line-num="379" source-line-num="379">              <span class="tlv_ident_hdl_code">if(0 &lt; clk_cnt) begin</span></span>
+<span class="line" line-num="380" source-line-num="380">                 <span class="tlv_ident_hdl_code">clk_cnt &lt;= clk_cnt - 1;</span></span>
+<span class="line" line-num="381" source-line-num="381">              <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="382" source-line-num="382">              <span class="tlv_ident_hdl_code">else begin</span></span>
+<span class="line" line-num="383" source-line-num="383">                 <span class="tlv_ident_hdl_code">sig_r   &lt;= data_r[data_cnt];</span></span>
+<span class="line" line-num="384" source-line-num="384">                 <span class="tlv_ident_hdl_code">clk_cnt &lt;= PULSE_WIDTH;</span></span>
+<span class="line" line-num="385" source-line-num="385"></span>
+<span class="line" line-num="386" source-line-num="386">                 <span class="tlv_ident_hdl_code">if(data_cnt == DATA_WIDTH - 1) begin</span></span>
+<span class="line" line-num="387" source-line-num="387">                    <span class="tlv_ident_hdl_code">state &lt;= STT_STOP;</span></span>
+<span class="line" line-num="388" source-line-num="388">                 <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="389" source-line-num="389">                 <span class="tlv_ident_hdl_code">else begin</span></span>
+<span class="line" line-num="390" source-line-num="390">                    <span class="tlv_ident_hdl_code">data_cnt &lt;= data_cnt + 1;</span></span>
+<span class="line" line-num="391" source-line-num="391">                 <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="392" source-line-num="392">              <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="393" source-line-num="393">           <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="394" source-line-num="394"></span>
+<span class="line" line-num="395" source-line-num="395">           <span class="tlv_ident_comment">//-----------------------------------------------------------------------------</span></span>
+<span class="line" line-num="396" source-line-num="396">           <span class="tlv_ident_comment">// state      : STT_STOP</span></span>
+<span class="line" line-num="397" source-line-num="397">           <span class="tlv_ident_comment">// behavior   : assert stop bit</span></span>
+<span class="line" line-num="398" source-line-num="398">           <span class="tlv_ident_comment">// next state : STT_WAIT</span></span>
+<span class="line" line-num="399" source-line-num="399">           <span class="tlv_ident_hdl_code">STT_STOP: begin</span></span>
+<span class="line" line-num="400" source-line-num="400">              <span class="tlv_ident_hdl_code">if(0 &lt; clk_cnt) begin</span></span>
+<span class="line" line-num="401" source-line-num="401">                 <span class="tlv_ident_hdl_code">clk_cnt &lt;= clk_cnt - 1;</span></span>
+<span class="line" line-num="402" source-line-num="402">              <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="403" source-line-num="403">              <span class="tlv_ident_hdl_code">else begin</span></span>
+<span class="line" line-num="404" source-line-num="404">                 <span class="tlv_ident_hdl_code">state   &lt;= STT_WAIT;</span></span>
+<span class="line" line-num="405" source-line-num="405">                 <span class="tlv_ident_hdl_code">sig_r   &lt;= 1;</span></span>
+<span class="line" line-num="406" source-line-num="406">                 <span class="tlv_ident_hdl_code">clk_cnt &lt;= PULSE_WIDTH + HALF_PULSE_WIDTH;</span></span>
+<span class="line" line-num="407" source-line-num="407">              <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="408" source-line-num="408">           <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="409" source-line-num="409"></span>
+<span class="line" line-num="410" source-line-num="410">           <span class="tlv_ident_comment">//-----------------------------------------------------------------------------</span></span>
+<span class="line" line-num="411" source-line-num="411">           <span class="tlv_ident_comment">// state      : STT_WAIT</span></span>
+<span class="line" line-num="412" source-line-num="412">           <span class="tlv_ident_comment">// behavior   : watch valid signal, and assert start bit when valid signal assert</span></span>
+<span class="line" line-num="413" source-line-num="413">           <span class="tlv_ident_comment">// next state : when valid signal assert -&gt; STT_STAT</span></span>
+<span class="line" line-num="414" source-line-num="414">           <span class="tlv_ident_hdl_code">STT_WAIT: begin</span></span>
+<span class="line" line-num="415" source-line-num="415">              <span class="tlv_ident_hdl_code">if(0 &lt; clk_cnt) begin</span></span>
+<span class="line" line-num="416" source-line-num="416">                 <span class="tlv_ident_hdl_code">clk_cnt &lt;= clk_cnt - 1;</span></span>
+<span class="line" line-num="417" source-line-num="417">              <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="418" source-line-num="418">              <span class="tlv_ident_hdl_code">else if(!ready_r) begin</span></span>
+<span class="line" line-num="419" source-line-num="419">                 <span class="tlv_ident_hdl_code">ready_r &lt;= 1;</span></span>
+<span class="line" line-num="420" source-line-num="420">              <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="421" source-line-num="421">              <span class="tlv_ident_hdl_code">else if(txif.valid) begin</span></span>
+<span class="line" line-num="422" source-line-num="422">                 <span class="tlv_ident_hdl_code">state    &lt;= STT_DATA;</span></span>
+<span class="line" line-num="423" source-line-num="423">                 <span class="tlv_ident_hdl_code">sig_r    &lt;= 0;</span></span>
+<span class="line" line-num="424" source-line-num="424">                 <span class="tlv_ident_hdl_code">data_r   &lt;= txif.data;</span></span>
+<span class="line" line-num="425" source-line-num="425">                 <span class="tlv_ident_hdl_code">ready_r  &lt;= 0;</span></span>
+<span class="line" line-num="426" source-line-num="426">                 <span class="tlv_ident_hdl_code">data_cnt &lt;= 0;</span></span>
+<span class="line" line-num="427" source-line-num="427">                 <span class="tlv_ident_hdl_code">clk_cnt  &lt;= PULSE_WIDTH;</span></span>
+<span class="line" line-num="428" source-line-num="428">              <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="429" source-line-num="429">           <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="430" source-line-num="430"></span>
+<span class="line" line-num="431" source-line-num="431">           <span class="tlv_ident_hdl_code">default: begin</span></span>
+<span class="line" line-num="432" source-line-num="432">              <span class="tlv_ident_hdl_code">state &lt;= STT_WAIT;</span></span>
+<span class="line" line-num="433" source-line-num="433">           <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="434" source-line-num="434">         <span class="tlv_ident_hdl_code">endcase</span></span>
+<span class="line" line-num="435" source-line-num="435">      <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="436" source-line-num="436">   <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="437" source-line-num="437"></span>
+<span class="line" line-num="438" source-line-num="438">   <span class="tlv_ident_hdl_code">assign txif.sig   = sig_r;</span></span>
+<span class="line" line-num="439" source-line-num="439">   <span class="tlv_ident_hdl_code">assign txif.ready = ready_r;</span></span>
+<span class="line" line-num="440" source-line-num="440"></span>
+<span class="line" line-num="441" source-line-num="441"><span class="tlv_ident_hdl_code">endmodule   </span><span class="tlv_ident_comment">// =========================================</span></span>
+<span class="line" line-num="442" source-line-num="442">   <span class="tlv_ident_comment">// Welcome!  Try the tutorials via the menu.</span></span>
+<span class="line" line-num="443" source-line-num="443">   <span class="tlv_ident_comment">// =========================================</span></span>
+<span class="line" line-num="444" source-line-num="444"></span>
+<span class="line" line-num="445" source-line-num="445">   <span class="tlv_ident_comment">// Default Makerchip TL-Verilog Code Template</span></span>
+<span class="line" line-num="446" source-line-num="446">   </span>
+<span class="line" line-num="447" source-line-num="447">   <span class="tlv_ident_comment">// Macro providing required top-level module definition, random</span></span>
+<span class="line" line-num="448" source-line-num="448">   <span class="tlv_ident_comment">// stimulus support, and Verilator config.</span></span>
+<span class="line" line-num="449" source-line-num="449">   <span class="tlv_ident_hdl_code">module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    </span><span class="tlv_ident_comment">/* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  </span><span class="tlv_ident_hdl_code">bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  </span><span class="tlv_ident_comment">/* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */   // (Expanded in Nav-TLV pane.)</span></span>
+<span class="line" line-num="450" source-line-num="450"><span class="tlv_ident_keyword1">\TLV</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $reset is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($reset)&quot;.">      </span></span></span><span class="line" line-num="451" source-line-num="451">   <span class="tlv_ident_assigned_pipe_sig" logical_entity="$reset">$reset</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">reset;</span></span>
+<span class="line" line-num="452" source-line-num="452"></span>
+<span class="line" line-num="453" source-line-num="453">   <span class="tlv_ident_comment">//...</span></span>
+<span class="line" line-num="454" source-line-num="454"></span>
+<span class="line" line-num="455" source-line-num="455">   <span class="tlv_ident_comment">// Assert these to end simulation (before Makerchip cycle limit).</span></span>
+<span class="line" line-num="456" source-line-num="456">   <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">passed = </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">cyc_cnt &gt; 40;</span></span>
+<span class="line" line-num="457" source-line-num="457">   <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">failed = 1'b0;</span></span>
+<span class="line" line-num="458" source-line-num="458"><span class="tlv_ident_keyword1">\SV</span></span>
+<span class="line" line-num="459" source-line-num="459">   <span class="tlv_ident_hdl_code">endmodule</span></span>
+
+</pre>
+
+</body>
+</html>

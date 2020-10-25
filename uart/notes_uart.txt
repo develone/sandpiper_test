@@ -1,0 +1,65 @@
+https://makerchip.com/sandbox/0XDfnhk1w/0qjh8YP
+Downloaded top.m4 top.tlv top.m4.pre
+
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --debugSigs --viz --dhtml --stats --compiler verilator --graphTrans -i top.m4 -o top.sv
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --debugSigs --viz --dhtml --stats --compiler verilator --graphTrans -i top.m4 -o top.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Edward Vidal Jr." as: Full Edition.
+
+INFORM(0) (FILES):
+	From directory: /home/devel/sandpiper_test/half_adder
+	Reading "top.m4" to produce:
+		Translated HDL File: "top.sv"
+		Generated HDL File: "top_gen.sv"
+		HTML TLX File: "top.html"
+		Transaction Flow Graph (Dot) File: "top_trans.dot"
+		Simulation Visualization File: "top_viz.json"
+		Statistics Directory: "top_stats"
+
+WARNING(1) (UNUSED-SIG): File 'top.tlv' Line 59 (char 4)
+	Preprocessed as 'top.m4':59(ch4):
+	+---vvvvvv--------------------------------
+	>   $reset = *reset;
+	+---^^^^^^--------------------------------
+	Signal $reset is assigned but never used.
+	To silence this message use "`BOGUS_USE($reset)".
+
+INFORM(0) (STATS):
+	SandPiper generated 48% of your HDL code.
+	This includes: 13 signal declarations, 10 flops/latches, and 0 conditional clock signals.
+	View "top_stats" for more details.
+
+
+
+dot -Tpdf top_trans.dot -o top_trans.pdf
+
+cp ../extra_files/* .
+makerchip_module.v  pseudo_rand_gen.sv  sandpiper_gen.vh  sim_main.cpp
+makerchip.sv        pseudo_rand.sv      sandpiper.vh      sp_default.vh
+
+cp ~/warp-v/formal/verilog/pseudo*.sv .
+
+verilator --trace --debug --debugi 0 -gdbbt --no-dump-tree --cc makerchip.sv --exe --build sim_main.cpp
+No stack.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/arm-linux-gnueabihf/libthread_db.so.1".
+Starting Verilator 4.100 2020-09-07 rev v4.100-10-g39eea781
+Starting Verilator 4.100 2020-09-07 rev v4.100-10-g39eea781
+[Detaching after fork from child process 12961]
+make: Entering directory '/home/devel/sandpiper_test/array/obj_dir'
+g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow      -std=gnu++14 -Os -c -o sim_main.o ../sim_main.cpp
+g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow      -std=gnu++14 -Os -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
+g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow      -std=gnu++14 -Os -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
+/usr/bin/perl /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vmakerchip.cpp Vmakerchip__Trace.cpp Vmakerchip__Slow.cpp Vmakerchip__Syms.cpp Vmakerchip__Trace__Slow.cpp > Vmakerchip__ALL.cpp
+g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow      -std=gnu++14 -Os -c -o Vmakerchip__ALL.o Vmakerchip__ALL.cpp
+Archive ar -cr Vmakerchip__ALL.a Vmakerchip__ALL.o
+g++    sim_main.o verilated.o verilated_vcd_c.o Vmakerchip__ALL.a      -o Vmakerchip
+make: Leaving directory '/home/devel/sandpiper_test/array/obj_dir'
+[Inferior 1 (process 12958) exited normally]
+No stack.
+
+yosys -l simple.log -p 'synth_ice40 -blif top.blif -json top.json' top.sv pseudo_rand.sv
