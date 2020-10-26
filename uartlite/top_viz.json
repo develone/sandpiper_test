@@ -1,0 +1,8 @@
+{
+   "tx": {
+      "_typeof": "PIPELINE"
+   },
+   "rx": {
+      "_typeof": "PIPELINE"
+   }
+}

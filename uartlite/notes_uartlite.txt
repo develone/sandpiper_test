@@ -1,0 +1,36 @@
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --debugSigs --viz --dhtml --stats --compiler verilator --graphTrans -i top.m4 -o top.sv
+dot -Tpdf top_trans.dot -o top_trans.pdf
+
+            4       8
+			0 1 0 0 1 0 0 0
+			  0 1 2 3 4 5 6 7 
+			0 0 0 0 1 0 0 1 0 1
+			
+            6       5
+			0 1 1 0 0 1 0 1 
+			  0 1 2 3 4 5 6 7
+            0 1 0 1 0 0 1 1 0 1
+            
+            6       C
+			0 1 1 0 1 1 0 0
+			  0 1 2 3 4 5 6 7
+			0 0 0 0 1 1 0 1 1  1
+			
+	always @(posedge i_clk)
+		if (!r_busy)
+			lcl_data <= i_data;
+		else if (zero_baud_counter)
+			lcl_data <= { 1'b0, lcl_data[7:1] };
+			
+	always @(posedge i_clk)
+		if (i_reset)
+			o_uart_tx <= 1'b1;
+		else if ((i_break)||((i_wr)&&(!r_busy)))
+			o_uart_tx <= 1'b0;
+		else if (zero_baud_counter)
+			casez(state)
+			4'b0???:	o_uart_tx <= lcl_data[0];
+			`TXU_PARITY:	o_uart_tx <= calc_parity;
+			default:	o_uart_tx <= 1'b1;
+			endcase			
+

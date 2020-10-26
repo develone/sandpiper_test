@@ -1,0 +1,1 @@
+r_uart_tx <= i_uart_rx;
