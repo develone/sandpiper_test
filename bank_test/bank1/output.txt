@@ -1,0 +1,383 @@
+Enabling waves...
+ NumTransaction #: 0
+     $    1 + $1137 = $ 1138
+ NumTransaction #: 1
+     $ 1138 + $ 226 = $ 1364
+ NumTransaction #: 3
+     $ 1817 - $ 907 = $  910
+ Insufficient funds. Balance: $64632 Withdrawal: $1814
+ NumTransaction #: 5
+     $64632 - $1580 = $63052
+ NumTransaction #: 10
+     $63985 + $1423 = $65408
+ NumTransaction #: 11
+     $65408 - $ 799 = $64609
+ NumTransaction #: 13
+     $63011 + $1148 = $64159
+ NumTransaction #: 14
+     $64159 + $ 248 = $64407
+ NumTransaction #: 17
+     $63910 - $1986 = $61924
+ NumTransaction #: 18
+     $61924 - $1925 = $59999
+ NumTransaction #: 19
+     $59999 - $1803 = $58196
+ NumTransaction #: 20
+     $58196 - $1558 = $56638
+ NumTransaction #: 21
+     $56638 + $1069 = $57707
+ NumTransaction #: 22
+     $57707 + $  90 = $57797
+ NumTransaction #: 23
+     $57797 + $ 180 = $57977
+ NumTransaction #: 26
+     $57617 + $1441 = $59058
+ NumTransaction #: 27
+     $59058 - $ 835 = $58223
+ NumTransaction #: 28
+     $58223 - $1671 = $56552
+ NumTransaction #: 30
+     $57846 - $ 540 = $57306
+ NumTransaction #: 31
+     $57306 + $1080 = $58386
+ NumTransaction #: 32
+     $58386 + $ 113 = $58499
+ NumTransaction #: 33
+     $58499 + $ 226 = $58725
+ NumTransaction #: 34
+     $58725 + $ 452 = $59177
+ NumTransaction #: 35
+     $59177 - $ 905 = $58272
+ NumTransaction #: 36
+     $58272 - $1811 = $56461
+ NumTransaction #: 37
+     $56461 - $1575 = $54886
+ NumTransaction #: 38
+     $54886 + $1103 = $55989
+ NumTransaction #: 42
+     $55830 + $1269 = $57099
+ NumTransaction #: 43
+     $57099 + $ 490 = $57589
+ NumTransaction #: 44
+     $57589 - $ 981 = $56608
+ NumTransaction #: 45
+     $56608 - $1962 = $54646
+ NumTransaction #: 46
+     $54646 - $1877 = $52769
+ NumTransaction #: 47
+     $52769 - $1706 = $51063
+ NumTransaction #: 50
+     $51747 + $1360 = $53107
+ NumTransaction #: 51
+     $53107 - $ 673 = $52434
+ NumTransaction #: 52
+     $52434 + $1347 = $53781
+ NumTransaction #: 54
+     $53135 + $1292 = $54427
+ NumTransaction #: 55
+     $54427 - $ 536 = $53891
+ NumTransaction #: 56
+     $53891 + $1073 = $54964
+ NumTransaction #: 57
+     $54964 + $  98 = $55062
+ NumTransaction #: 58
+     $55062 + $ 197 = $55259
+ NumTransaction #: 59
+     $55259 + $ 395 = $55654
+ NumTransaction #: 65
+     $54934 - $ 717 = $54217
+ NumTransaction #: 66
+     $54217 + $1434 = $55651
+ NumTransaction #: 67
+     $55651 - $ 820 = $54831
+ NumTransaction #: 70
+     $54423 + $ 417 = $54840
+ NumTransaction #: 71
+     $54840 - $ 834 = $54006
+ NumTransaction #: 74
+     $53627 - $ 531 = $53096
+ NumTransaction #: 75
+     $53096 + $1063 = $54159
+ NumTransaction #: 76
+     $54159 + $  78 = $54237
+ NumTransaction #: 77
+     $54237 + $ 156 = $54393
+ NumTransaction #: 78
+     $54393 + $ 312 = $54705
+ NumTransaction #: 79
+     $54705 - $ 624 = $54081
+ NumTransaction #: 80
+     $54081 + $1249 = $55330
+ NumTransaction #: 81
+     $55330 + $ 450 = $55780
+ NumTransaction #: 82
+     $55780 - $ 900 = $54880
+ NumTransaction #: 86
+     $52586 + $  76 = $52662
+ NumTransaction #: 87
+     $52662 + $ 153 = $52815
+ NumTransaction #: 88
+     $52815 + $ 306 = $53121
+ NumTransaction #: 90
+     $52509 + $1225 = $53734
+ NumTransaction #: 91
+     $53734 + $ 402 = $54136
+ NumTransaction #: 98
+     $53802 + $ 371 = $54173
+ NumTransaction #: 99
+     $54173 - $ 742 = $53431
+ NumTransaction #: 101
+     $54916 - $ 923 = $53993
+ NumTransaction #: 102
+     $53993 - $1846 = $52147
+ NumTransaction #: 103
+     $52147 - $1644 = $50503
+ NumTransaction #: 104
+     $50503 + $1240 = $51743
+ NumTransaction #: 106
+     $52175 - $ 865 = $51310
+ NumTransaction #: 107
+     $51310 - $1730 = $49580
+ NumTransaction #: 110
+     $50215 - $1554 = $48661
+ NumTransaction #: 111
+     $48661 + $1060 = $49721
+ NumTransaction #: 112
+     $49721 + $  72 = $49793
+ NumTransaction #: 113
+     $49793 + $ 144 = $49937
+ NumTransaction #: 114
+     $49937 + $ 289 = $50226
+ NumTransaction #: 118
+     $51069 - $ 530 = $50539
+ NumTransaction #: 119
+     $50539 + $1060 = $51599
+ NumTransaction #: 120
+     $51599 + $  72 = $51671
+ NumTransaction #: 121
+     $51671 + $ 145 = $51816
+ NumTransaction #: 122
+     $51816 + $ 291 = $52107
+ NumTransaction #: 125
+     $52691 + $ 286 = $52977
+ NumTransaction #: 126
+     $52977 - $ 572 = $52405
+ NumTransaction #: 127
+     $52405 + $1145 = $53550
+ NumTransaction #: 128
+     $53550 + $ 243 = $53793
+ NumTransaction #: 129
+     $53793 + $ 486 = $54279
+ NumTransaction #: 130
+     $54279 - $ 972 = $53307
+ NumTransaction #: 131
+     $53307 - $1944 = $51363
+ NumTransaction #: 132
+     $51363 - $1840 = $49523
+ NumTransaction #: 133
+     $49523 - $1632 = $47891
+ NumTransaction #: 134
+     $47891 + $1217 = $49108
+ NumTransaction #: 135
+     $49108 + $ 386 = $49494
+ NumTransaction #: 136
+     $49494 - $ 772 = $48722
+ NumTransaction #: 137
+     $48722 - $1545 = $47177
+ NumTransaction #: 139
+     $48219 + $  36 = $48255
+ NumTransaction #: 140
+     $48255 + $  72 = $48327
+ NumTransaction #: 142
+     $48472 + $ 290 = $48762
+ NumTransaction #: 143
+     $48762 - $ 581 = $48181
+ NumTransaction #: 146
+     $49622 - $ 557 = $49065
+ NumTransaction #: 147
+     $49065 + $1114 = $50179
+ NumTransaction #: 148
+     $50179 + $ 180 = $50359
+ NumTransaction #: 149
+     $50359 + $ 360 = $50719
+ NumTransaction #: 150
+     $50719 - $ 721 = $49998
+ NumTransaction #: 151
+     $49998 + $1443 = $51441
+ NumTransaction #: 152
+     $51441 - $ 838 = $50603
+ NumTransaction #: 153
+     $50603 - $1676 = $48927
+ NumTransaction #: 154
+     $48927 + $1305 = $50232
+ NumTransaction #: 155
+     $50232 - $ 563 = $49669
+ NumTransaction #: 156
+     $49669 + $1127 = $50796
+ NumTransaction #: 157
+     $50796 + $ 206 = $51002
+ NumTransaction #: 158
+     $51002 + $ 413 = $51415
+ NumTransaction #: 159
+     $51415 - $ 827 = $50588
+ NumTransaction #: 160
+     $50588 - $1654 = $48934
+ NumTransaction #: 161
+     $48934 + $1261 = $50195
+ NumTransaction #: 163
+     $50669 - $ 948 = $49721
+ NumTransaction #: 164
+     $49721 - $1896 = $47825
+ NumTransaction #: 168
+     $46687 - $1671 = $45016
+ NumTransaction #: 169
+     $45016 + $1294 = $46310
+ NumTransaction #: 170
+     $46310 - $ 541 = $45769
+ NumTransaction #: 171
+     $45769 + $1082 = $46851
+ NumTransaction #: 172
+     $46851 + $ 116 = $46967
+ NumTransaction #: 173
+     $46967 + $ 232 = $47199
+ NumTransaction #: 174
+     $47199 + $ 465 = $47664
+ NumTransaction #: 177
+     $44871 - $1676 = $43195
+ NumTransaction #: 178
+     $43195 + $1305 = $44500
+ NumTransaction #: 185
+     $43240 + $1192 = $44432
+ NumTransaction #: 186
+     $44432 + $ 336 = $44768
+ NumTransaction #: 187
+     $44768 - $ 672 = $44096
+ NumTransaction #: 188
+     $44096 + $1344 = $45440
+ NumTransaction #: 189
+     $45440 - $ 641 = $44799
+ NumTransaction #: 193
+     $46600 + $  24 = $46624
+ NumTransaction #: 194
+     $46624 + $  49 = $46673
+ NumTransaction #: 195
+     $46673 + $  98 = $46771
+ NumTransaction #: 196
+     $46771 + $ 196 = $46967
+ NumTransaction #: 197
+     $46967 + $ 392 = $47359
+ NumTransaction #: 198
+     $47359 - $ 785 = $46574
+ NumTransaction #: 199
+     $46574 - $1570 = $45004
+ NumTransaction #: 200
+     $45004 + $1093 = $46097
+ NumTransaction #: 201
+     $46097 + $ 139 = $46236
+ NumTransaction #: 202
+     $46236 + $ 279 = $46515
+ NumTransaction #: 203
+     $46515 - $ 559 = $45956
+ NumTransaction #: 204
+     $45956 + $1119 = $47075
+ NumTransaction #: 205
+     $47075 + $ 191 = $47266
+ NumTransaction #: 206
+     $47266 + $ 382 = $47648
+ NumTransaction #: 207
+     $47648 - $ 764 = $46884
+ NumTransaction #: 208
+     $46884 + $1528 = $48412
+ NumTransaction #: 209
+     $48412 - $1008 = $47404
+ NumTransaction #: 210
+     $47404 - $2017 = $45387
+ NumTransaction #: 215
+     $38109 + $1074 = $39183
+ NumTransaction #: 216
+     $39183 + $ 100 = $39283
+ NumTransaction #: 220
+     $39083 - $1600 = $37483
+ NumTransaction #: 221
+     $37483 + $1152 = $38635
+ NumTransaction #: 223
+     $38892 - $ 514 = $38378
+ NumTransaction #: 224
+     $38378 + $1028 = $39406
+ NumTransaction #: 225
+     $39406 + $   9 = $39415
+ NumTransaction #: 226
+     $39415 + $  19 = $39434
+ NumTransaction #: 227
+     $39434 + $  39 = $39473
+ NumTransaction #: 228
+     $39473 + $  78 = $39551
+ NumTransaction #: 229
+     $39551 + $ 156 = $39707
+ NumTransaction #: 230
+     $39707 + $ 313 = $40020
+ NumTransaction #: 231
+     $40020 - $ 626 = $39394
+ NumTransaction #: 234
+     $41102 - $ 913 = $40189
+ NumTransaction #: 235
+     $40189 - $1827 = $38362
+ NumTransaction #: 236
+     $38362 - $1606 = $36756
+ NumTransaction #: 237
+     $36756 + $1165 = $37921
+ NumTransaction #: 238
+     $37921 + $ 282 = $38203
+ NumTransaction #: 239
+     $38203 - $ 564 = $37639
+ NumTransaction #: 240
+     $37639 + $1128 = $38767
+ NumTransaction #: 241
+     $38767 + $ 208 = $38975
+ NumTransaction #: 242
+     $38975 + $ 417 = $39392
+ NumTransaction #: 243
+     $39392 - $ 834 = $38558
+ NumTransaction #: 244
+     $38558 - $1669 = $36889
+ NumTransaction #: 245
+     $36889 + $1291 = $38180
+ NumTransaction #: 246
+     $38180 - $ 534 = $37646
+ NumTransaction #: 248
+     $38714 + $  88 = $38802
+ NumTransaction #: 249
+     $38802 + $ 177 = $38979
+ NumTransaction #: 250
+     $38979 + $ 354 = $39333
+ NumTransaction #: 251
+     $39333 - $ 709 = $38624
+ NumTransaction #: 252
+     $38624 + $1418 = $40042
+ NumTransaction #: 253
+     $40042 - $ 789 = $39253
+ NumTransaction #: 255
+     $37674 + $1111 = $38785
+ NumTransaction #: 256
+     $38785 + $ 174 = $38959
+ NumTransaction #: 257
+     $38959 + $ 349 = $39308
+ NumTransaction #: 258
+     $39308 - $ 699 = $38609
+ NumTransaction #: 259
+     $38609 + $1399 = $40008
+ NumTransaction #: 260
+     $40008 - $ 751 = $39257
+ NumTransaction #: 263
+     $39803 - $1913 = $37890
+ NumTransaction #: 264
+     $37890 - $1778 = $36112
+ NumTransaction #: 265
+     $36112 + $1508 = $37620
+ NumTransaction #: 266
+     $37620 - $ 969 = $36651
+ NumTransaction #: 269
+     $32885 - $1608 = $31277
+ NumTransaction #: 270
+     $31277 + $1169 = $32446
+Simulation PASSED!!!
