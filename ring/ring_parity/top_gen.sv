@@ -33,6 +33,14 @@ logic Port_RG_Trans_cyc_cnt_a1 [3:0] /* verilator lint_save */ /* verilator lint
 logic [7:0] Port_RG_Trans_data_a1 [3:0] /* verilator lint_save */ /* verilator lint_off MULTIDRIVEN */,
             Port_RG_Trans_data_a2 [3:0] /* verilator lint_restore */;
 
+// For /port|rg/trans$dest.
+logic [1:0] Port_RG_Trans_dest_a1 [3:0] /* verilator lint_save */ /* verilator lint_off MULTIDRIVEN */,
+            Port_RG_Trans_dest_a2 [3:0] /* verilator lint_restore */;
+
+// For /port|rg/trans$parity.
+logic Port_RG_Trans_parity_a1 [3:0] /* verilator lint_save */ /* verilator lint_off MULTIDRIVEN */,
+      Port_RG_Trans_parity_a2 [3:0] /* verilator lint_restore */;
+
 // For /port|rg/trans$sender.
 logic [1:0] Port_RG_Trans_sender_a1 [3:0] /* verilator lint_save */ /* verilator lint_off MULTIDRIVEN */,
             Port_RG_Trans_sender_a2 [3:0] /* verilator lint_restore */;
@@ -120,6 +128,12 @@ generate
             // For $data.
             always_ff @(posedge clkP_Port_RG_valid_a2[port]) Port_RG_Trans_data_a2[port][7:0] <= Port_RG_Trans_data_a1[port][7:0];
 
+            // For $dest.
+            always_ff @(posedge clkP_Port_RG_valid_a2[port]) Port_RG_Trans_dest_a2[port][1:0] <= Port_RG_Trans_dest_a1[port][1:0];
+
+            // For $parity.
+            always_ff @(posedge clkP_Port_RG_valid_a2[port]) Port_RG_Trans_parity_a2[port] <= Port_RG_Trans_parity_a1[port];
+
             // For $sender.
             always_ff @(posedge clkP_Port_RG_valid_a2[port]) Port_RG_Trans_sender_a2[port][1:0] <= Port_RG_Trans_sender_a1[port][1:0];
 
@@ -140,6 +154,12 @@ generate
 
             // For $data.
             always_ff @(posedge clkP_Port_RING_OUT_trans_valid_a2[port]) L1b_Port[port].L1_RING_OUT_Trans_data_a2[7:0] <= L1b_Port[port].L1_RING_OUT_Trans_data_a1[7:0];
+
+            // For $dest.
+            always_ff @(posedge clkP_Port_RING_OUT_trans_valid_a2[port]) L1b_Port[port].L1_RING_OUT_Trans_dest_a2[1:0] <= L1b_Port[port].L1_RING_OUT_Trans_dest_a1[1:0];
+
+            // For $parity.
+            always_ff @(posedge clkP_Port_RING_OUT_trans_valid_a2[port]) L1b_Port[port].L1_RING_OUT_Trans_parity_a2 <= L1b_Port[port].L1_RING_OUT_Trans_parity_a1;
 
 
 
@@ -313,6 +333,8 @@ generate
                assign \@1$data = L1c_Port[port].L1_FIFO_IN_Trans_data_a1;
                logic [1:0] \@1$dest ;
                assign \@1$dest = L1e_Port[port].L1_FIFO_IN_Trans_dest_a1;
+               logic  \@1$parity ;
+               assign \@1$parity = L1c_Port[port].L1_FIFO_IN_Trans_parity_a1;
                logic  \@1$response_debug ;
                assign \@1$response_debug = L1e_Port[port].L1_FIFO_IN_Trans_response_debug_a1;
                logic [1:0] \@1$sender ;
@@ -341,6 +363,10 @@ generate
                assign \@1$cyc_cnt = Port_RG_Trans_cyc_cnt_a1[port];
                logic [7:0] \@1$data ;
                assign \@1$data = Port_RG_Trans_data_a1[port];
+               logic [1:0] \@1$dest ;
+               assign \@1$dest = Port_RG_Trans_dest_a1[port];
+               logic  \@1$parity ;
+               assign \@1$parity = Port_RG_Trans_parity_a1[port];
                logic [1:0] \@1$sender ;
                assign \@1$sender = Port_RG_Trans_sender_a1[port];
             end
@@ -371,6 +397,8 @@ generate
                assign \@1$data = L1_Port[port].L1_RING_IN_Trans_data_a1;
                logic [1:0] \@1$dest ;
                assign \@1$dest = L1_Port[port].L1_RING_IN_Trans_dest_a1;
+               logic  \@1$parity ;
+               assign \@1$parity = L1_Port[port].L1_RING_IN_Trans_parity_a1;
                logic [1:0] \@1$sender ;
                assign \@1$sender = L1_Port[port].L1_RING_IN_Trans_sender_a1;
             end
@@ -401,6 +429,12 @@ generate
                assign \@1$cyc_cnt = L1b_Port[port].L1_RING_OUT_Trans_cyc_cnt_a1;
                logic [7:0] \@1$data ;
                assign \@1$data = L1b_Port[port].L1_RING_OUT_Trans_data_a1;
+               logic [1:0] \@1$dest ;
+               assign \@1$dest = L1b_Port[port].L1_RING_OUT_Trans_dest_a1;
+               logic  \@1$parity ;
+               assign \@1$parity = L1b_Port[port].L1_RING_OUT_Trans_parity_a1;
+               logic  \@2$parity_error ;
+               assign \@2$parity_error = L1c_Port[port].L1_RING_OUT_Trans_parity_error_a2;
                logic [1:0] \@1$sender ;
                assign \@1$sender = L1b_Port[port].L1_RING_OUT_Trans_sender_a1;
             end

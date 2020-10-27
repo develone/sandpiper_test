@@ -46,7 +46,7 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
    // ------------
    
    // DUT Flow (FIFO and ring)
-   for (port = 0; port <= 3; port++) begin : L1_Port logic L1_FIFO_IN_accepted_a1; logic L1_FIFO_IN_blocked_a1; logic L1_FIFO_IN_out_blocked_a1; logic L1_FIFO_IN_reset_in_a1; logic [$clog2(4)-1:0] L1_FIFO_IN_Fifo_cnt_a1; logic L1_RING_IN_avail_a1; logic L1_RING_IN_reset_a1; logic L1_RING_IN_Trans_cyc_cnt_a1; logic [7:0] L1_RING_IN_Trans_data_a1; logic [1:0] L1_RING_IN_Trans_dest_a1; logic [1:0] L1_RING_IN_Trans_sender_a1; //_/port   // (becomes /port[3:0])
+   for (port = 0; port <= 3; port++) begin : L1_Port logic L1_FIFO_IN_accepted_a1; logic L1_FIFO_IN_blocked_a1; logic L1_FIFO_IN_out_blocked_a1; logic L1_FIFO_IN_reset_in_a1; logic [$clog2(4)-1:0] L1_FIFO_IN_Fifo_cnt_a1; logic L1_RING_IN_avail_a1; logic L1_RING_IN_reset_a1; logic L1_RING_IN_Trans_cyc_cnt_a1; logic [7:0] L1_RING_IN_Trans_data_a1; logic [1:0] L1_RING_IN_Trans_dest_a1; logic L1_RING_IN_Trans_parity_a1; logic [1:0] L1_RING_IN_Trans_sender_a1; //_/port   // (becomes /port[3:0])
       `line 775 "/raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv" 1   // Instantiated from top.tlv, 50 as: m4+simple_bypass_fifo_v2(/port, |fifo_in, @1, |ring_in, @1, 4, 100, /trans)
          `line 115 "/raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv" 1   // Instantiated from top.tlv, 775 as: m4+flow_interface(/port, [' |fifo_in, @1'], [' |ring_in, @1'], )
             `line 120 "/raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv" 1   // Instantiated from top.tlv, 115 as: m4+flow_inputs(/port, [' |fifo_in, @1'], )
@@ -86,9 +86,9 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
                   simple_bypass_fifo #(.WIDTH(100), .DEPTH(4))
                      fifo(.clk(clk), .reset(L1_FIFO_IN_reset_in_a1),
                           .push(L1_FIFO_IN_accepted_a1),
-                          .data_in({L1e_Port[port].L1_FIFO_IN_Trans_cyc_cnt_a1, L1c_Port[port].L1_FIFO_IN_Trans_data_a1, L1e_Port[port].L1_FIFO_IN_Trans_dest_a1, L1e_Port[port].L1_FIFO_IN_Trans_sender_a1}),
+                          .data_in({L1e_Port[port].L1_FIFO_IN_Trans_cyc_cnt_a1, L1c_Port[port].L1_FIFO_IN_Trans_data_a1, L1e_Port[port].L1_FIFO_IN_Trans_dest_a1, L1c_Port[port].L1_FIFO_IN_Trans_parity_a1, L1e_Port[port].L1_FIFO_IN_Trans_sender_a1}),
                           .pop(L1_FIFO_IN_accepted_a1),
-                          .data_out({L1_RING_IN_Trans_cyc_cnt_a1, L1_RING_IN_Trans_data_a1[7:0], L1_RING_IN_Trans_dest_a1[1:0], L1_RING_IN_Trans_sender_a1[1:0]}),
+                          .data_out({L1_RING_IN_Trans_cyc_cnt_a1, L1_RING_IN_Trans_data_a1[7:0], L1_RING_IN_Trans_dest_a1[1:0], L1_RING_IN_Trans_parity_a1, L1_RING_IN_Trans_sender_a1[1:0]}),
                           .cnt(L1_FIFO_IN_Fifo_cnt_a1[$clog2(4)-1:0]));
          //_|ring_in
             //_/trans
@@ -105,7 +105,7 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
       
       
       // Logic
-      for (port = 0; port <= 3; port++) begin : L1b_Port logic L1_RG_passed_on_a1; logic L1_RG_valid_a1; logic L1_RING_IN_accepted_a1; logic L1_RING_IN_blocked_a1; logic L1_RING_IN_reset_in_a1; logic L1_RING_OUT_avail_a1; logic L1_RING_OUT_reset_a1; logic L1_RING_OUT_trans_valid_a1, L1_RING_OUT_trans_valid_a2; logic L1_RING_OUT_Trans_cyc_cnt_a1; logic [7:0] L1_RING_OUT_Trans_data_a1, L1_RING_OUT_Trans_data_a2; logic [1:0] L1_RING_OUT_Trans_sender_a1; //_/port
+      for (port = 0; port <= 3; port++) begin : L1b_Port logic L1_RG_passed_on_a1; logic L1_RG_valid_a1; logic L1_RING_IN_accepted_a1; logic L1_RING_IN_blocked_a1; logic L1_RING_IN_reset_in_a1; logic L1_RING_OUT_avail_a1; logic L1_RING_OUT_reset_a1; logic L1_RING_OUT_trans_valid_a1, L1_RING_OUT_trans_valid_a2; logic L1_RING_OUT_Trans_cyc_cnt_a1; logic [7:0] L1_RING_OUT_Trans_data_a1, L1_RING_OUT_Trans_data_a2; logic [1:0] L1_RING_OUT_Trans_dest_a1, L1_RING_OUT_Trans_dest_a2; logic L1_RING_OUT_Trans_parity_a1, L1_RING_OUT_Trans_parity_a2; logic [1:0] L1_RING_OUT_Trans_sender_a1; //_/port
          `line 115 "/raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv" 1   // Instantiated from top.tlv, 1026 as: m4+flow_interface(/port, [' |ring_in, @1'], [' |ring_out, @1'], /top<>0$reset)
             `line 120 "/raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv" 1   // Instantiated from top.tlv, 115 as: m4+flow_inputs(/port, [' |ring_in, @1'], /top<>0$reset)
                // Avail/Blocked Input:
@@ -155,10 +155,10 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
             //_@1
                //_?$valid
                   //_/trans
-                     assign {Port_RG_Trans_cyc_cnt_a1[port], Port_RG_Trans_data_a1[port][7:0], Port_RG_Trans_sender_a1[port][1:0]} =
+                     assign {Port_RG_Trans_cyc_cnt_a1[port], Port_RG_Trans_data_a1[port][7:0], Port_RG_Trans_dest_a1[port][1:0], Port_RG_Trans_parity_a1[port], Port_RG_Trans_sender_a1[port][1:0]} =
                        L1_RG_passed_on_a1
-                           ? {Port_RG_Trans_cyc_cnt_a2[prev_hop], Port_RG_Trans_data_a2[prev_hop], Port_RG_Trans_sender_a2[prev_hop]}
-                           : {L1_Port[port].L1_RING_IN_Trans_cyc_cnt_a1, L1_Port[port].L1_RING_IN_Trans_data_a1, L1_Port[port].L1_RING_IN_Trans_sender_a1};
+                           ? {Port_RG_Trans_cyc_cnt_a2[prev_hop], Port_RG_Trans_data_a2[prev_hop], Port_RG_Trans_dest_a2[prev_hop], Port_RG_Trans_parity_a2[prev_hop], Port_RG_Trans_sender_a2[prev_hop]}
+                           : {L1_Port[port].L1_RING_IN_Trans_cyc_cnt_a1, L1_Port[port].L1_RING_IN_Trans_data_a1, L1_Port[port].L1_RING_IN_Trans_dest_a1, L1_Port[port].L1_RING_IN_Trans_parity_a1, L1_Port[port].L1_RING_IN_Trans_sender_a1};
          //_|ring_out
             // Ring out
             //_@1
@@ -169,7 +169,7 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
             //_?$trans_valid
                //_@1
                   //_/trans
-                     assign {L1_RING_OUT_Trans_cyc_cnt_a1, L1_RING_OUT_Trans_data_a1[7:0], L1_RING_OUT_Trans_sender_a1[1:0]} = {Port_RG_Trans_cyc_cnt_a1[port], Port_RG_Trans_data_a1[port], Port_RG_Trans_sender_a1[port]}; end
+                     assign {L1_RING_OUT_Trans_cyc_cnt_a1, L1_RING_OUT_Trans_data_a1[7:0], L1_RING_OUT_Trans_dest_a1[1:0], L1_RING_OUT_Trans_parity_a1, L1_RING_OUT_Trans_sender_a1[1:0]} = {Port_RG_Trans_cyc_cnt_a1[port], Port_RG_Trans_data_a1[port], Port_RG_Trans_dest_a1[port], Port_RG_Trans_parity_a1[port], Port_RG_Trans_sender_a1[port]}; end
       
       
       
@@ -179,23 +179,23 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
    `line 52 "top.tlv" 2
    
    // Transaction logic.
-   for (port = 0; port <= 3; port++) begin : L1c_Port logic [7:0] L1_FIFO_IN_Trans_data_a1; //_/port
+   for (port = 0; port <= 3; port++) begin : L1c_Port logic [7:0] L1_FIFO_IN_Trans_data_a1; logic L1_FIFO_IN_Trans_parity_a1; logic L1_RING_OUT_Trans_parity_error_a2; //_/port
       //_|fifo_in
          //_@1
             //_?$accepted
                //_/trans
                   assign L1_FIFO_IN_Trans_data_a1[7:0] = cyc_cnt[7:0];
                   // Compute parity
-                  // [+] $parity = ^ {$data, $dest};
+                  assign L1_FIFO_IN_Trans_parity_a1 = ^ {L1_FIFO_IN_Trans_data_a1, L1e_Port[port].L1_FIFO_IN_Trans_dest_a1};
       
       //_|ring_out
          //_@2
             //_?$trans_valid
                //_/trans
-                  `BOGUS_USE(L1b_Port[port].L1_RING_OUT_Trans_data_a2) end
+                  `BOGUS_USE(L1b_Port[port].L1_RING_OUT_Trans_data_a2)
                
                   // Check parity.
-                  // [+] $parity_error = $parity != ^ {$data, $dest};
+                  assign L1_RING_OUT_Trans_parity_error_a2 = L1b_Port[port].L1_RING_OUT_Trans_parity_a2 != ^ {L1b_Port[port].L1_RING_OUT_Trans_data_a2, L1b_Port[port].L1_RING_OUT_Trans_dest_a2}; end
 
    //--------------
    // Testbench

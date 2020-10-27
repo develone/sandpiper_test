@@ -174,7 +174,7 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
                /trans
                   $data[7:0] = *cyc_cnt[7:0];
                   // Compute parity
-                  // [+] $parity = ^ {$data, $dest};
+                  $parity = ^ {$data, $dest};
       
       |ring_out
          @2
@@ -183,7 +183,7 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
                   `BOGUS_USE($data)
                
                   // Check parity.
-                  // [+] $parity_error = $parity != ^ {$data, $dest};
+                  $parity_error = $parity != ^ {$data, $dest};
 
    //--------------
    // Testbench
