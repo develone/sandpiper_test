@@ -1,0 +1,28 @@
+{
+   "ctrl": {
+      "_typeof": "PIPELINE",
+      "floor": {
+         "_typeof": "BEH_HIER",
+         "_range": {
+            "min_index": "0",
+            "max_index": "2"
+         }
+      }
+   },
+   "version2": {
+      "_typeof": "BEH_HIER",
+      "ctrl": {
+         "_typeof": "PIPELINE"
+      }
+   },
+   "ctrl": {
+      "_typeof": "PIPELINE",
+      "floor": {
+         "_typeof": "BEH_HIER",
+         "_range": {
+            "min_index": "*",
+            "max_index": "*"
+         }
+      }
+   }
+}

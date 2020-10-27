@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <meta http-equiv="description" content="top.html">
+   <meta http-equiv="keywords" content="tl-verilog">
+
+   <title>top.m4</title>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+   <script src="http://www.rweda.com/lib/sp_1.9-2018_02_11-beta/ide.js"></script>
+   <link rel="stylesheet" href="http://www.rweda.com/lib/sp_1.9-2018_02_11-beta/ide.css" />
+
+<style>
+/*
+Copyright (c) 2015, Steven F. Hoover
+All rights reserved.
+*/
+.tlv_ident_error {
+  color: red;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_pipeline {
+  color: orange;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_beh_hier_1 {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_beh_hier_2 {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_grouping {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_pipe_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_state_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_sig_keyword {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_assigned_pipe_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_assigned_state_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_assigned_sig_keyword {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_malformed_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_malformed_assigned_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_when {
+  color: #E04010;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_sv_when {
+  color: #E04010;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_phys_hier {
+  color: blue;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_phys_beh_hier {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_stage_name {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_expr {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_next_operator {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_incr_expr {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_prev_operator {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_decr_expr {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_alignment_expr_1ab {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_expr_1c {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_keyword_1c {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_ahead_expr {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_behind_expr {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_zero_expr {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_crosspipe_name {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_ahead_name {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_behind_name {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_tlv_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_proj_rtl_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_misc_rtl_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_proj_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_sv_sig {
+  color: #00008b;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_sv_datatype {
+  color: DarkRed;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_keyword1 {
+  color: Blue;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_comment {
+  color: #808080;
+  font-style: italic;
+  font-weight: 600;
+}
+.tlv_ident_hdl_code {
+  color: #00008b;
+  font-style: normal;
+  font-weight: normal;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>top.m4</h2>
+
+<pre>
+<span class="line" line-num="1" source-line-num="1"><span class="tlv_ident_keyword1">\TLV_version 1d: tl-x.org</span></span>
+<span class="line" line-num="2" source-line-num="2"><span class="tlv_ident_keyword1">\SV</span></span>
+<span class="line" line-num="3" source-line-num="3">   <span class="tlv_ident_comment">// A state machine for a 3-floor elevator controller.</span></span>
+<span class="line" line-num="4" source-line-num="4">   <span class="tlv_ident_comment">// Elevator can travel one story each cycle, stopping at each floor (whether necessary or not).</span></span>
+<span class="line" line-num="5" source-line-num="5"></span>
+<span class="line" line-num="6" source-line-num="6">   <span class="tlv_ident_comment">// This controller is written three ways:</span></span>
+<span class="line" line-num="7" source-line-num="7">   <span class="tlv_ident_comment">//   1) in SystemVerilog, in a big always_ff block</span></span>
+<span class="line" line-num="8" source-line-num="8">   <span class="tlv_ident_comment">//   2) directly translated to TL-Verilog</span></span>
+<span class="line" line-num="9" source-line-num="9">   <span class="tlv_ident_comment">//   3) cleanly rewritten in TL-Verilog with a single assignment for each signal</span></span>
+<span class="line" line-num="10" source-line-num="10">   <span class="tlv_ident_comment">//   4) (and the SandPiper(TM)-generated Verilog could be considered a fourth style)</span></span>
+<span class="line" line-num="11" source-line-num="11">   <span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="12" source-line-num="12">   <span class="tlv_ident_comment">//   Sequential style: 1) SV -&gt; 2) TLV</span></span>
+<span class="line" line-num="13" source-line-num="13">   <span class="tlv_ident_comment">//                        |         |</span></span>
+<span class="line" line-num="14" source-line-num="14">   <span class="tlv_ident_comment">//   Parallel style:   4) SV &lt;- 3) TLV</span></span>
+<span class="line" line-num="15" source-line-num="15"></span>
+<span class="line" line-num="16" source-line-num="16">   <span class="tlv_ident_comment">// Observations:</span></span>
+<span class="line" line-num="17" source-line-num="17">   <span class="tlv_ident_comment">//  o Using a nested if-else structure (sequential style) is not better or worse than</span></span>
+<span class="line" line-num="18" source-line-num="18">   <span class="tlv_ident_comment">//    individual assignments (parallel style) in terms of code size. With sequential style,</span></span>
+<span class="line" line-num="19" source-line-num="19">   <span class="tlv_ident_comment">//    signals are repeated multiple times. With parallel style, cases are repeated</span></span>
+<span class="line" line-num="20" source-line-num="20">   <span class="tlv_ident_comment">//    multiple times.</span></span>
+<span class="line" line-num="21" source-line-num="21">   <span class="tlv_ident_comment">//  o TL-Verilog lends itself to parallel style. This:</span></span>
+<span class="line" line-num="22" source-line-num="22">   <span class="tlv_ident_comment">//     - allows signal declarations to be incorporated into assignments</span></span>
+<span class="line" line-num="23" source-line-num="23">   <span class="tlv_ident_comment">//     - provides individual atomic re-timable statements.</span></span>
+<span class="line" line-num="24" source-line-num="24">   <span class="tlv_ident_comment">//  o The logic representation chosen for TL-Verilog is less specific to 3 floors, with more</span></span>
+<span class="line" line-num="25" source-line-num="25">   <span class="tlv_ident_comment">//    logic replicated per floor, where Verilog logic is coded uniquely per-floor.</span></span>
+<span class="line" line-num="26" source-line-num="26">   <span class="tlv_ident_comment">//  o Coding time was roughly the same for Verilog and TL-Verilog (but, for what it's</span></span>
+<span class="line" line-num="27" source-line-num="27">   <span class="tlv_ident_comment">//    worth, I had two bugs of any significance in my Verilog and none in TL-Verilog).</span></span>
+<span class="line" line-num="28" source-line-num="28">   <span class="tlv_ident_comment">//  o Even though no simplicity benefit is claimed for TL-Verilog for state machines, the code</span></span>
+<span class="line" line-num="29" source-line-num="29">   <span class="tlv_ident_comment">//    is about half the size.</span></span>
+<span class="line" line-num="30" source-line-num="30"></span>
+<span class="line" line-num="31" source-line-num="31">   <span class="tlv_ident_hdl_code">module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    </span><span class="tlv_ident_comment">/* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  </span><span class="tlv_ident_hdl_code">bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  </span><span class="tlv_ident_comment">/* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */</span></span>
+<span class="line" line-num="32" source-line-num="32">   <span class="tlv_ident_comment">/* verilator lint_on WIDTH */</span></span>
+<span class="line" line-num="33" source-line-num="33"></span>
+<span class="line" line-num="34" source-line-num="34">   <span class="tlv_ident_comment">// ==========</span></span>
+<span class="line" line-num="35" source-line-num="35">   <span class="tlv_ident_comment">// Version 1) SystemVerilog by hand.</span></span>
+<span class="line" line-num="36" source-line-num="36">   <span class="tlv_ident_comment">// ==========</span></span>
+<span class="line" line-num="37" source-line-num="37"></span>
+<span class="line" line-num="38" source-line-num="38">   <span class="tlv_ident_comment">// Inputs:</span></span>
+<span class="line" line-num="39" source-line-num="39">   <span class="tlv_ident_hdl_code">logic [2:0] up_pressed, down_pressed;  </span><span class="tlv_ident_comment">// Elevator up/down button input on each floor. 1 == pressed.</span></span>
+<span class="line" line-num="40" source-line-num="40">   <span class="tlv_ident_hdl_code">logic [2:0] elevator_button_pressed;   </span><span class="tlv_ident_comment">// The floor buttons/lights in the elevator. 1 == pressed.</span></span>
+<span class="line" line-num="41" source-line-num="41"></span>
+<span class="line" line-num="42" source-line-num="42">   <span class="tlv_ident_hdl_code">logic [2:0] floor_mask;  </span><span class="tlv_ident_comment">// Floor the elevator is on (1-hot decoded).</span></span>
+<span class="line" line-num="43" source-line-num="43">   <span class="tlv_ident_hdl_code">logic [1:0] up_light; logic [2:1] down_light;   </span><span class="tlv_ident_comment">// Elevator up/down button lights on each floor. 1 == lit. Cleared after departure.</span></span>
+<span class="line" line-num="44" source-line-num="44">   <span class="tlv_ident_hdl_code">logic [2:0] elevator_light;  </span><span class="tlv_ident_comment">// The floor lights in the elevator. 1 == lit. Cleared on arrival.</span></span>
+<span class="line" line-num="45" source-line-num="45">   <span class="tlv_ident_hdl_code">logic went_up, went_down; </span><span class="tlv_ident_comment">// 1 if the elevator just went this direction to reach its current floor.</span></span>
+<span class="line" line-num="46" source-line-num="46"></span>
+<span class="line" line-num="47" source-line-num="47">   <span class="tlv_ident_hdl_code">logic called_top, called_bottom;  </span><span class="tlv_ident_comment">// 1 if there's a reason to go up/down.</span></span>
+<span class="line" line-num="48" source-line-num="48">   <span class="tlv_ident_hdl_code">always_comb begin</span></span>
+<span class="line" line-num="49" source-line-num="49">      <span class="tlv_ident_comment">// For decisions from floor 1:</span></span>
+<span class="line" line-num="50" source-line-num="50">      <span class="tlv_ident_hdl_code">called_top = elevator_light[2] || down_light[2] || up_light[1];</span></span>
+<span class="line" line-num="51" source-line-num="51">      <span class="tlv_ident_hdl_code">called_bottom = elevator_light[0] || up_light[0] || down_light[1];</span></span>
+<span class="line" line-num="52" source-line-num="52">   <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="53" source-line-num="53">   <span class="tlv_ident_hdl_code">always_ff @(posedge clk) begin</span></span>
+<span class="line" line-num="54" source-line-num="54">      <span class="tlv_ident_comment">// Random input:</span></span>
+<span class="line" line-num="55" source-line-num="55">      <span class="tlv_ident_comment">// Note that we do not keep track of who is in the elevator, and elevator buttons</span></span>
+<span class="line" line-num="56" source-line-num="56">      <span class="tlv_ident_comment">// can be pressed at any time, whether there is a passenger or not.</span></span>
+<span class="line" line-num="57" source-line-num="57">      <span class="tlv_ident_comment">// All button presses are given 1/8 probability, here.</span></span>
+<span class="line" line-num="58" source-line-num="58">      <span class="tlv_ident_hdl_code">{up_pressed, down_pressed, elevator_button_pressed} &lt;=</span></span>
+<span class="line" line-num="59" source-line-num="59">           <span class="tlv_ident_hdl_code">9'b011110111 &amp;  </span><span class="tlv_ident_comment">// Mask non-existant buttons.</span></span>
+<span class="line" line-num="60" source-line-num="60">           <span class="tlv_ident_hdl_code">RW_rand_raw[26:18] &amp; RW_rand_raw[17:9] &amp; RW_rand_raw[8:0];  </span><span class="tlv_ident_comment">// random w/ 1/8 probability.</span></span>
+<span class="line" line-num="61" source-line-num="61">      </span>
+<span class="line" line-num="62" source-line-num="62">      <span class="tlv_ident_comment">// State machine, to update:</span></span>
+<span class="line" line-num="63" source-line-num="63">      <span class="tlv_ident_comment">//   o floor</span></span>
+<span class="line" line-num="64" source-line-num="64">      <span class="tlv_ident_comment">//   o up/down_light</span></span>
+<span class="line" line-num="65" source-line-num="65">      <span class="tlv_ident_comment">//   o went_up/down</span></span>
+<span class="line" line-num="66" source-line-num="66">      </span>
+<span class="line" line-num="67" source-line-num="67">      <span class="tlv_ident_comment">// Stay, until we decide otherwise.</span></span>
+<span class="line" line-num="68" source-line-num="68">      <span class="tlv_ident_comment">//went_up &lt;= 1'b0;</span></span>
+<span class="line" line-num="69" source-line-num="69">      <span class="tlv_ident_hdl_code">went_down &lt;= 1'b0;</span></span>
+<span class="line" line-num="70" source-line-num="70">      </span>
+<span class="line" line-num="71" source-line-num="71">      <span class="tlv_ident_comment">// Update state for elevator button presses.</span></span>
+<span class="line" line-num="72" source-line-num="72">      <span class="tlv_ident_hdl_code">for (int fl = 0; fl &lt; 3; fl++) begin</span></span>
+<span class="line" line-num="73" source-line-num="73">         <span class="tlv_ident_hdl_code">if (elevator_button_pressed[fl]) elevator_light[fl] &lt;= '1;</span></span>
+<span class="line" line-num="74" source-line-num="74">            <span class="tlv_ident_comment">// Note that if button is pressed for our new floor, the light is not lit.</span></span>
+<span class="line" line-num="75" source-line-num="75">      <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="76" source-line-num="76">      <span class="tlv_ident_comment">// Note that we cannot have been called to the floor we are on.</span></span>
+<span class="line" line-num="77" source-line-num="77">      <span class="tlv_ident_hdl_code">if (reset) begin</span></span>
+<span class="line" line-num="78" source-line-num="78">         <span class="tlv_ident_hdl_code">floor_mask &lt;= 3'b001;</span></span>
+<span class="line" line-num="79" source-line-num="79">         <span class="tlv_ident_hdl_code">up_light &lt;= 2'b00;</span></span>
+<span class="line" line-num="80" source-line-num="80">         <span class="tlv_ident_hdl_code">down_light &lt;= 2'b00;</span></span>
+<span class="line" line-num="81" source-line-num="81">         <span class="tlv_ident_hdl_code">elevator_light &lt;= 3'b000;</span></span>
+<span class="line" line-num="82" source-line-num="82">      <span class="tlv_ident_hdl_code">end else if (floor_mask[0]) begin</span></span>
+<span class="line" line-num="83" source-line-num="83">         <span class="tlv_ident_comment">// From floor 0</span></span>
+<span class="line" line-num="84" source-line-num="84">         <span class="tlv_ident_hdl_code">if (| {up_light[1:0], down_light[2:1], elevator_light[2:1]}) begin</span></span>
+<span class="line" line-num="85" source-line-num="85">            <span class="tlv_ident_comment">// Go up.</span></span>
+<span class="line" line-num="86" source-line-num="86">            <span class="tlv_ident_comment">//went_up &lt;= '1;</span></span>
+<span class="line" line-num="87" source-line-num="87">            <span class="tlv_ident_hdl_code">floor_mask &lt;= 3'b010;</span></span>
+<span class="line" line-num="88" source-line-num="88">            <span class="tlv_ident_hdl_code">up_light[0] &lt;= '0;</span></span>
+<span class="line" line-num="89" source-line-num="89">            <span class="tlv_ident_hdl_code">elevator_light[1] &lt;= '0;</span></span>
+<span class="line" line-num="90" source-line-num="90">         <span class="tlv_ident_hdl_code">end else begin</span></span>
+<span class="line" line-num="91" source-line-num="91">            <span class="tlv_ident_comment">// Stay.</span></span>
+<span class="line" line-num="92" source-line-num="92">            <span class="tlv_ident_hdl_code">elevator_light[0] &lt;= '0;</span></span>
+<span class="line" line-num="93" source-line-num="93">         <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="94" source-line-num="94">      <span class="tlv_ident_hdl_code">end else if (floor_mask[2]) begin</span></span>
+<span class="line" line-num="95" source-line-num="95">         <span class="tlv_ident_comment">// From floor 2</span></span>
+<span class="line" line-num="96" source-line-num="96">         <span class="tlv_ident_hdl_code">if (| {down_light[2:1], up_light[1:0], elevator_light[1:0]}) begin</span></span>
+<span class="line" line-num="97" source-line-num="97">            <span class="tlv_ident_comment">// Go down.</span></span>
+<span class="line" line-num="98" source-line-num="98">            <span class="tlv_ident_hdl_code">went_down &lt;= '1;</span></span>
+<span class="line" line-num="99" source-line-num="99">            <span class="tlv_ident_hdl_code">floor_mask &lt;= 3'b010;</span></span>
+<span class="line" line-num="100" source-line-num="100">            <span class="tlv_ident_hdl_code">down_light[2] &lt;= '0;</span></span>
+<span class="line" line-num="101" source-line-num="101">            <span class="tlv_ident_hdl_code">elevator_light[1] &lt;= '0;</span></span>
+<span class="line" line-num="102" source-line-num="102">         <span class="tlv_ident_hdl_code">end else begin</span></span>
+<span class="line" line-num="103" source-line-num="103">            <span class="tlv_ident_comment">// Stay.</span></span>
+<span class="line" line-num="104" source-line-num="104">            <span class="tlv_ident_hdl_code">elevator_light[2] &lt;= '0;</span></span>
+<span class="line" line-num="105" source-line-num="105">         <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="106" source-line-num="106">      <span class="tlv_ident_hdl_code">end else begin</span></span>
+<span class="line" line-num="107" source-line-num="107">         <span class="tlv_ident_comment">// From floor 1</span></span>
+<span class="line" line-num="108" source-line-num="108">         <span class="tlv_ident_hdl_code">if (called_top &amp;&amp; (!went_down || !called_bottom)) begin</span></span>
+<span class="line" line-num="109" source-line-num="109">            <span class="tlv_ident_comment">// Go up (gets priority over down when no momentum).</span></span>
+<span class="line" line-num="110" source-line-num="110">            <span class="tlv_ident_comment">//went_up &lt;= '1;</span></span>
+<span class="line" line-num="111" source-line-num="111">            <span class="tlv_ident_hdl_code">floor_mask &lt;= 3'b100;</span></span>
+<span class="line" line-num="112" source-line-num="112">            <span class="tlv_ident_hdl_code">up_light[1] &lt;= '0;</span></span>
+<span class="line" line-num="113" source-line-num="113">            <span class="tlv_ident_hdl_code">elevator_light[2] &lt;= '0;</span></span>
+<span class="line" line-num="114" source-line-num="114">         <span class="tlv_ident_hdl_code">end else if (called_bottom &amp;&amp; (went_down || !called_top)) begin</span></span>
+<span class="line" line-num="115" source-line-num="115">            <span class="tlv_ident_comment">// Go down.</span></span>
+<span class="line" line-num="116" source-line-num="116">            <span class="tlv_ident_hdl_code">went_down &lt;= '1;</span></span>
+<span class="line" line-num="117" source-line-num="117">            <span class="tlv_ident_hdl_code">floor_mask &lt;= 3'b001;</span></span>
+<span class="line" line-num="118" source-line-num="118">            <span class="tlv_ident_hdl_code">down_light[1] &lt;= '0;</span></span>
+<span class="line" line-num="119" source-line-num="119">            <span class="tlv_ident_hdl_code">elevator_light[0] &lt;= '0;</span></span>
+<span class="line" line-num="120" source-line-num="120">         <span class="tlv_ident_hdl_code">end else begin</span></span>
+<span class="line" line-num="121" source-line-num="121">            <span class="tlv_ident_comment">// Stay.</span></span>
+<span class="line" line-num="122" source-line-num="122">            <span class="tlv_ident_hdl_code">elevator_light[1] &lt;= '0;</span></span>
+<span class="line" line-num="123" source-line-num="123">         <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="124" source-line-num="124">      <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="125" source-line-num="125">         </span>
+<span class="line" line-num="126" source-line-num="126">      <span class="tlv_ident_comment">// Update state for floor button presses.</span></span>
+<span class="line" line-num="127" source-line-num="127">      <span class="tlv_ident_hdl_code">for (int fl = 0; fl &lt; 3; fl++) begin</span></span>
+<span class="line" line-num="128" source-line-num="128">         <span class="tlv_ident_hdl_code">if (up_pressed[fl]) up_light[fl] &lt;= '1;</span></span>
+<span class="line" line-num="129" source-line-num="129">         <span class="tlv_ident_hdl_code">if (down_pressed[fl]) down_light[fl] &lt;= '1;</span></span>
+<span class="line" line-num="130" source-line-num="130">      <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="131" source-line-num="131">   <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="132" source-line-num="132"></span>
+<span class="line" line-num="133" source-line-num="133"><span class="tlv_ident_keyword1">\TLV</span></span>
+<span class="line" line-num="134" source-line-num="134">   <span class="tlv_ident_assigned_pipe_sig" logical_entity="$reset">$reset</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">reset;</span></span>
+<span class="line" line-num="135" source-line-num="135">   </span>
+<span class="line" line-num="136" source-line-num="136">   <span class="tlv_ident_comment">// -------------------------</span></span>
+<span class="line" line-num="137" source-line-num="137">   <span class="tlv_ident_comment">// Random stimulus.</span></span>
+<span class="line" line-num="138" source-line-num="138">   <span class="tlv_ident_comment">// Use values from Verilog model.</span></span>
+<span class="line" line-num="139" source-line-num="139">   <span class="tlv_ident_pipeline" logical_entity="|ctrl">|ctrl</span></span>
+<span class="line" line-num="140" source-line-num="140">      <span class="tlv_ident_stage_expr" logical_entity="|ctrl@0">@0</span></span>
+<span class="line" line-num="141" source-line-num="141">         <span class="tlv_ident_beh_hier_2" logical_entity="|ctrl/floor">/floor</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_beh_hier_2">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_beh_hier_2">]</span></span>
+<span class="line" line-num="142" source-line-num="142">            <span class="tlv_ident_comment">// Elevator up/down button input on each floor. 1 == pressed.</span></span>
+<span class="line" line-num="143" source-line-num="143">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|ctrl/floor$up_pressed">$up_pressed</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">up_pressed[floor];   </span><span class="tlv_ident_comment">// BUG: [#floor] doesn't work.</span></span>
+<span class="line" line-num="144" source-line-num="144">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|ctrl/floor$down_pressed">$down_pressed</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">down_pressed[floor];</span></span>
+<span class="line" line-num="145" source-line-num="145">            <span class="tlv_ident_comment">// The floor buttons/lights in the elevator. 1 == pressed.</span></span>
+<span class="line" line-num="146" source-line-num="146">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|ctrl/floor$elevator_button_pressed">$elevator_button_pressed</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">elevator_button_pressed[floor];</span></span>
+<span class="line" line-num="147" source-line-num="147">   <span class="tlv_ident_comment">// -------------------------</span></span>
+<span class="line" line-num="148" source-line-num="148">   </span>
+<span class="line" line-num="149" source-line-num="149">   <span class="tlv_ident_comment">// ==========</span></span>
+<span class="line" line-num="150" source-line-num="150">   <span class="tlv_ident_comment">// Version 2) Direct translation to TL-Verilog.</span></span>
+<span class="line" line-num="151" source-line-num="151">   <span class="tlv_ident_comment">// ==========</span></span>
+<span class="line" line-num="152" source-line-num="152">   </span>
+<span class="line" line-num="153" source-line-num="153">   <span class="tlv_ident_beh_hier_2" logical_entity="/version2">/version2</span></span>
+<span class="line" line-num="154" source-line-num="154">      <span class="tlv_ident_pipeline" logical_entity="/version2|ctrl">|ctrl</span></span>
+<span class="line" line-num="155" source-line-num="155">         <span class="tlv_ident_stage_expr" logical_entity="/version2|ctrl@0">@0</span></span>
+<span class="line" line-num="156" source-line-num="156">            <span class="tlv_ident_comment">// Random input:</span></span>
+<span class="line" line-num="157" source-line-num="157">            <span class="tlv_ident_comment">// Note that we do not keep track of who is in the elevator, and elevator buttons</span></span>
+<span class="line" line-num="158" source-line-num="158">            <span class="tlv_ident_comment">// can be pressed at any time, whether there is a passenger or not.</span></span>
+<span class="line" line-num="159" source-line-num="159">            <span class="tlv_ident_comment">// All button presses are given 1/8 probability, here.</span></span>
+<span class="line" line-num="160" source-line-num="160">            <span class="tlv_ident_hdl_code">{</span><span class="tlv_ident_assigned_pipe_sig" logical_entity="/version2|ctrl$up_pressed">$up_pressed</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">, </span><span class="tlv_ident_assigned_pipe_sig" logical_entity="/version2|ctrl$down_pressed">$down_pressed</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">, </span><span class="tlv_ident_assigned_pipe_sig" logical_entity="/version2|ctrl$elevator_button_pressed">$elevator_button_pressed</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">} =</span></span>
+<span class="line" line-num="161" source-line-num="161">                 <span class="tlv_ident_hdl_code">{</span><span class="tlv_ident_beh_hier_2" logical_entity=""tlx_ref="">/top</span><span class="tlv_ident_pipeline" logical_entity="|ctrl"tlx_ref="">|ctrl</span><span class="tlv_ident_beh_hier_2" logical_entity="|ctrl/floor"tlx_ref="">/floor</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">*</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl/floor$up_pressed">$up_pressed</span><span class="tlv_ident_hdl_code">, </span><span class="tlv_ident_beh_hier_2" logical_entity=""tlx_ref="">/top</span><span class="tlv_ident_pipeline" logical_entity="|ctrl"tlx_ref="">|ctrl</span><span class="tlv_ident_beh_hier_2" logical_entity="|ctrl/floor"tlx_ref="">/floor</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">*</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl/floor$down_pressed">$down_pressed</span><span class="tlv_ident_hdl_code">, </span><span class="tlv_ident_beh_hier_2" logical_entity=""tlx_ref="">/top</span><span class="tlv_ident_pipeline" logical_entity="|ctrl"tlx_ref="">|ctrl</span><span class="tlv_ident_beh_hier_2" logical_entity="|ctrl/floor"tlx_ref="">/floor</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">*</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl/floor$elevator_button_pressed">$elevator_button_pressed</span><span class="tlv_ident_hdl_code">};</span></span>
+<span class="line" line-num="162" source-line-num="162">            </span>
+<span class="line" line-num="163" source-line-num="163">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="/version2|ctrl$reset">$reset</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity=""tlx_ref="">/top</span><span class="tlv_ident_pipeline" logical_entity="|ctrl"tlx_ref="">|ctrl</span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl$reset">$reset</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="164" source-line-num="164">            </span>
+<span class="line" line-num="165" source-line-num="165">            <span class="tlv_ident_comment">// For decisions from floor 1:</span></span>
+<span class="line" line-num="166" source-line-num="166">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="/version2|ctrl$called_top">$called_top</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$elevator_light">$elevator_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$down_light">$down_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$up_light">$up_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="167" source-line-num="167">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="/version2|ctrl$called_bottom">$called_bottom</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$elevator_light">$elevator_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$up_light">$up_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$down_light">$down_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="168" source-line-num="168"></span>
+<span class="line" line-num="169" source-line-num="169">            <span class="tlv_ident_keyword1">\always_comb</span></span>
+<span class="line" line-num="170" source-line-num="170">               <span class="tlv_ident_comment">// State machine, to update:</span></span>
+<span class="line" line-num="171" source-line-num="171">               <span class="tlv_ident_comment">//   o floor</span></span>
+<span class="line" line-num="172" source-line-num="172">               <span class="tlv_ident_comment">//   o up/down_light</span></span>
+<span class="line" line-num="173" source-line-num="173">               <span class="tlv_ident_comment">//   o went_up/down</span></span>
+<span class="line" line-num="174" source-line-num="174">               </span>
+<span class="line" line-num="175" source-line-num="175">               <span class="tlv_ident_comment">// Stay, until we decide otherwise.</span></span>
+<span class="line" line-num="176" source-line-num="176">               <span class="tlv_ident_comment">// 1 if the elevator will have just gone this direction to reach its current floor.</span></span>
+<span class="line" line-num="177" source-line-num="177">               <span class="tlv_ident_comment">//$$next_went_up = 1'b0;</span></span>
+<span class="line" line-num="178" source-line-num="178">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="/version2|ctrl$next_went_down">$$next_went_down</span> <span class="tlv_ident_hdl_code">= 1'b0;</span></span>
+<span class="line" line-num="179" source-line-num="179">               </span>
+<span class="line" line-num="180" source-line-num="180">               <span class="tlv_ident_comment">// Update state for elevator button presses.</span></span>
+<span class="line" line-num="181" source-line-num="181">               <span class="tlv_ident_hdl_code">for (int fl = 0; fl &lt; 3; fl++) begin</span></span>
+<span class="line" line-num="182" source-line-num="182">                  <span class="tlv_ident_hdl_code">if (</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$elevator_button_pressed">$elevator_button_pressed</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">fl</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">) </span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_elevator_light">$next_elevator_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">fl</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= '1;</span></span>
+<span class="line" line-num="183" source-line-num="183">                     <span class="tlv_ident_comment">// Note that if button is pressed for our new floor, the light is not lit.</span></span>
+<span class="line" line-num="184" source-line-num="184">               <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="185" source-line-num="185">               <span class="tlv_ident_comment">// Note that we cannot have been called to the floor we are on.</span></span>
+<span class="line" line-num="186" source-line-num="186">               <span class="tlv_ident_hdl_code">if (</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$reset">$reset</span><span class="tlv_ident_hdl_code">) begin</span></span>
+<span class="line" line-num="187" source-line-num="187">                  <span class="tlv_ident_assigned_pipe_sig" logical_entity="/version2|ctrl$next_floor_mask">$$next_floor_mask</span><span class="tlv_ident_assigned_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_assigned_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_assigned_pipe_sig">] </span><span class="tlv_ident_hdl_code">= 3'b001;     </span><span class="tlv_ident_comment">// Next value of: The floor the elevator is on (1-hot decoded).</span></span>
+<span class="line" line-num="188" source-line-num="188">                  <span class="tlv_ident_assigned_pipe_sig" logical_entity="/version2|ctrl$next_up_light">$$next_up_light</span><span class="tlv_ident_assigned_pipe_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_assigned_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_assigned_pipe_sig">] </span><span class="tlv_ident_hdl_code">= 2'b00;        </span><span class="tlv_ident_comment">// Next value of: Elevator up/down button lights on each floor. 1 == lit. Cleared after departure.</span></span>
+<span class="line" line-num="189" source-line-num="189">                  <span class="tlv_ident_assigned_pipe_sig" logical_entity="/version2|ctrl$next_down_light">$$next_down_light</span><span class="tlv_ident_assigned_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_assigned_pipe_sig">:</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_assigned_pipe_sig">] </span><span class="tlv_ident_hdl_code">= 2'b00;      </span><span class="tlv_ident_comment">// Next value of: The floor lights in the elevator. 1 == lit. Cleared on arrival.</span></span>
+<span class="line" line-num="190" source-line-num="190">                  <span class="tlv_ident_assigned_pipe_sig" logical_entity="/version2|ctrl$next_elevator_light">$$next_elevator_light</span><span class="tlv_ident_assigned_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_assigned_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_assigned_pipe_sig">] </span><span class="tlv_ident_hdl_code">= 3'b000; </span><span class="tlv_ident_comment">// Next value of: The floor lights in the elevator. 1 == lit. Cleared on arrival.</span></span>
+<span class="line" line-num="191" source-line-num="191">               <span class="tlv_ident_hdl_code">end else if (</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$floor_mask">$floor_mask</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">) begin</span></span>
+<span class="line" line-num="192" source-line-num="192">                  <span class="tlv_ident_comment">// From floor 0</span></span>
+<span class="line" line-num="193" source-line-num="193">                  <span class="tlv_ident_hdl_code">if (| {</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$up_light">$up_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">, </span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$down_light">$down_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">, </span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$elevator_light">$elevator_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">}) begin</span></span>
+<span class="line" line-num="194" source-line-num="194">                     <span class="tlv_ident_comment">// Go up.</span></span>
+<span class="line" line-num="195" source-line-num="195">                     <span class="tlv_ident_comment">//$next_went_up = '1;</span></span>
+<span class="line" line-num="196" source-line-num="196">                     <span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_floor_mask">$next_floor_mask</span> <span class="tlv_ident_hdl_code">= 3'b010;</span></span>
+<span class="line" line-num="197" source-line-num="197">                     <span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_up_light">$next_up_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= '0;</span></span>
+<span class="line" line-num="198" source-line-num="198">                     <span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_elevator_light">$next_elevator_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= '0;</span></span>
+<span class="line" line-num="199" source-line-num="199">                  <span class="tlv_ident_hdl_code">end else begin</span></span>
+<span class="line" line-num="200" source-line-num="200">                     <span class="tlv_ident_comment">// Stay.</span></span>
+<span class="line" line-num="201" source-line-num="201">                     <span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_elevator_light">$next_elevator_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= '0;</span></span>
+<span class="line" line-num="202" source-line-num="202">                  <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="203" source-line-num="203">               <span class="tlv_ident_hdl_code">end else if (</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$floor_mask">$floor_mask</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">) begin</span></span>
+<span class="line" line-num="204" source-line-num="204">                  <span class="tlv_ident_comment">// From floor 2</span></span>
+<span class="line" line-num="205" source-line-num="205">                  <span class="tlv_ident_hdl_code">if (| {</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$down_light">$down_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">, </span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$up_light">$up_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">, </span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$elevator_light">$elevator_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">}) begin</span></span>
+<span class="line" line-num="206" source-line-num="206">                     <span class="tlv_ident_comment">// Go down.</span></span>
+<span class="line" line-num="207" source-line-num="207">                     <span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_went_down">$next_went_down</span> <span class="tlv_ident_hdl_code">= '1;</span></span>
+<span class="line" line-num="208" source-line-num="208">                     <span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_floor_mask">$next_floor_mask</span> <span class="tlv_ident_hdl_code">= 3'b010;</span></span>
+<span class="line" line-num="209" source-line-num="209">                     <span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_down_light">$next_down_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= '0;</span></span>
+<span class="line" line-num="210" source-line-num="210">                     <span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_elevator_light">$next_elevator_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= '0;</span></span>
+<span class="line" line-num="211" source-line-num="211">                  <span class="tlv_ident_hdl_code">end else begin</span></span>
+<span class="line" line-num="212" source-line-num="212">                     <span class="tlv_ident_comment">// Stay.</span></span>
+<span class="line" line-num="213" source-line-num="213">                     <span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_elevator_light">$next_elevator_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= '0;</span></span>
+<span class="line" line-num="214" source-line-num="214">                  <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="215" source-line-num="215">               <span class="tlv_ident_hdl_code">end else begin</span></span>
+<span class="line" line-num="216" source-line-num="216">                  <span class="tlv_ident_comment">// From floor 1</span></span>
+<span class="line" line-num="217" source-line-num="217">                  <span class="tlv_ident_hdl_code">if (</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$called_top">$called_top</span> <span class="tlv_ident_hdl_code">&amp;&amp; (!</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$went_down">$went_down</span> <span class="tlv_ident_hdl_code">|| !</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$called_bottom">$called_bottom</span><span class="tlv_ident_hdl_code">)) begin</span></span>
+<span class="line" line-num="218" source-line-num="218">                     <span class="tlv_ident_comment">// Go up (gets priority over down when no momentum).</span></span>
+<span class="line" line-num="219" source-line-num="219">                     <span class="tlv_ident_comment">//$next_went_up = '1;</span></span>
+<span class="line" line-num="220" source-line-num="220">                     <span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_floor_mask">$next_floor_mask</span> <span class="tlv_ident_hdl_code">= 3'b100;</span></span>
+<span class="line" line-num="221" source-line-num="221">                     <span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_up_light">$next_up_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= '0;</span></span>
+<span class="line" line-num="222" source-line-num="222">                     <span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_elevator_light">$next_elevator_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= '0;</span></span>
+<span class="line" line-num="223" source-line-num="223">                  <span class="tlv_ident_hdl_code">end else if (</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$called_bottom">$called_bottom</span> <span class="tlv_ident_hdl_code">&amp;&amp; (</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$went_down">$went_down</span> <span class="tlv_ident_hdl_code">|| !</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$called_top">$called_top</span><span class="tlv_ident_hdl_code">)) begin</span></span>
+<span class="line" line-num="224" source-line-num="224">                     <span class="tlv_ident_comment">// Go down.</span></span>
+<span class="line" line-num="225" source-line-num="225">                     <span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_went_down">$next_went_down</span> <span class="tlv_ident_hdl_code">= '1;</span></span>
+<span class="line" line-num="226" source-line-num="226">                     <span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_floor_mask">$next_floor_mask</span> <span class="tlv_ident_hdl_code">= 3'b001;</span></span>
+<span class="line" line-num="227" source-line-num="227">                     <span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_down_light">$next_down_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= '0;</span></span>
+<span class="line" line-num="228" source-line-num="228">                     <span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_elevator_light">$next_elevator_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= '0;</span></span>
+<span class="line" line-num="229" source-line-num="229">                  <span class="tlv_ident_hdl_code">end else begin</span></span>
+<span class="line" line-num="230" source-line-num="230">                     <span class="tlv_ident_comment">// Stay.</span></span>
+<span class="line" line-num="231" source-line-num="231">                     <span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_elevator_light">$next_elevator_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= '0;</span></span>
+<span class="line" line-num="232" source-line-num="232">                  <span class="tlv_ident_hdl_code">end </span></span>
+<span class="line" line-num="233" source-line-num="233">               <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="234" source-line-num="234">               </span>
+<span class="line" line-num="235" source-line-num="235">               <span class="tlv_ident_comment">// Update state for floor button presses.</span></span>
+<span class="line" line-num="236" source-line-num="236">               <span class="tlv_ident_hdl_code">for (int fl = 0; fl &lt; 3; fl++) begin</span></span>
+<span class="line" line-num="237" source-line-num="237">                  <span class="tlv_ident_hdl_code">if (</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$up_pressed">$up_pressed</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">fl</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">) </span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_up_light">$next_up_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">fl</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= '1;</span></span>
+<span class="line" line-num="238" source-line-num="238">                  <span class="tlv_ident_hdl_code">if (</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$down_pressed">$down_pressed</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">fl</span><span class="tlv_ident_pipe_sig">]</span><span class="tlv_ident_hdl_code">) </span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_down_light">$next_down_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">fl</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= '1;</span></span>
+<span class="line" line-num="239" source-line-num="239">               <span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="240" source-line-num="240">            </span>
+<span class="line" line-num="241" source-line-num="241">            <span class="tlv_ident_comment">// Stage next state values from combinational state update logic.</span></span>
+<span class="line" line-num="242" source-line-num="242">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="/version2|ctrl$went_down">$went_down</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_alignment_ahead_expr" logical_entity="/version2|ctrl@2">&gt;&gt;1</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_went_down">$next_went_down</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="243" source-line-num="243">            <span class="tlv_ident_comment">//$went_up = &gt;&gt;1$next_went_up;</span></span>
+<span class="line" line-num="244" source-line-num="244">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="/version2|ctrl$floor_mask">$floor_mask</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_alignment_ahead_expr" logical_entity="/version2|ctrl@2">&gt;&gt;1</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_floor_mask">$next_floor_mask</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="245" source-line-num="245">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="/version2|ctrl$up_light">$up_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_alignment_ahead_expr" logical_entity="/version2|ctrl@2">&gt;&gt;1</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_up_light">$next_up_light</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="246" source-line-num="246">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="/version2|ctrl$down_light">$down_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_alignment_ahead_expr" logical_entity="/version2|ctrl@2">&gt;&gt;1</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_down_light">$next_down_light</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="247" source-line-num="247">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="/version2|ctrl$elevator_light">$elevator_light</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_alignment_ahead_expr" logical_entity="/version2|ctrl@2">&gt;&gt;1</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$next_elevator_light">$next_elevator_light</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="248" source-line-num="248"></span>
+<span class="line" line-num="249" source-line-num="249">   </span>
+<span class="line" line-num="250" source-line-num="250">   <span class="tlv_ident_comment">// ==========</span></span>
+<span class="line" line-num="251" source-line-num="251">   <span class="tlv_ident_comment">// Version 3) Hand-coded TL-Verilog.</span></span>
+<span class="line" line-num="252" source-line-num="252">   <span class="tlv_ident_comment">// ==========</span></span>
+<span class="line" line-num="253" source-line-num="253">   </span>
+<span class="line" line-num="254" source-line-num="254">   <span class="tlv_ident_comment">// DUT</span></span>
+<span class="line" line-num="255" source-line-num="255">   <span class="tlv_ident_comment">// Macros to compute floor above/below with wrap (because some Verilog compilers complain about out-of-bounds accesses).</span></span>
+<span class="line" line-num="256" source-line-num="256">   <span class="tlv_ident_comment">// Note that for m4_above ($1 + 2) % 3 is ($1 - 1) % 3, but with positive modulo math.</span></span>
+<span class="line" line-num="257" source-line-num="257">   </span>
+<span class="line" line-num="258" source-line-num="258">   </span>
+<span class="line" line-num="259" source-line-num="259">   <span class="tlv_ident_pipeline" logical_entity="|ctrl">|ctrl</span></span>
+<span class="line" line-num="260" source-line-num="260">      <span class="tlv_ident_stage_expr" logical_entity="|ctrl@0">@0</span></span>
+<span class="line" line-num="261" source-line-num="261">         <span class="tlv_ident_assigned_pipe_sig" logical_entity="|ctrl$reset">$reset</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity=""tlx_ref="">/top</span><span class="tlv_ident_alignment_zero_expr" logical_entity="|none@0">&lt;&gt;0</span><span class="tlv_ident_pipe_sig" logical_entity="$reset">$reset</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="262" source-line-num="262">         <span class="tlv_ident_assigned_pipe_sig" logical_entity="|ctrl$next_floor">$next_floor</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl$reset">$reset</span>   <span class="tlv_ident_hdl_code">? 2'b0 :</span></span>
+<span class="line" line-num="263" source-line-num="263">                            <span class="tlv_ident_pipe_sig" logical_entity="|ctrl$go_up">$go_up</span>   <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_state_sig" logical_entity="|ctrl$Floor">$Floor</span> <span class="tlv_ident_hdl_code">+ 2'b1 :</span></span>
+<span class="line" line-num="264" source-line-num="264">                            <span class="tlv_ident_pipe_sig" logical_entity="|ctrl$go_down">$go_down</span> <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_state_sig" logical_entity="|ctrl$Floor">$Floor</span> <span class="tlv_ident_hdl_code">- 2'b1 :</span></span>
+<span class="line" line-num="265" source-line-num="265">                                       <span class="tlv_ident_sig_keyword" logical_entity="|ctrl$next_floor">$RETAIN</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="266" source-line-num="266">         <span class="tlv_ident_assigned_state_sig" logical_entity="|ctrl$Floor">$Floor</span><span class="tlv_ident_state_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_state_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_state_sig">] </span><span class="tlv_ident_sv_sig">&lt;</span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl$next_floor">$next_floor</span><span class="tlv_ident_hdl_code">;  </span><span class="tlv_ident_comment">// WORKAROUND: &lt;&lt;1$Floor can't be used, currently, so $next_floor created as temporary.</span></span>
+<span class="line" line-num="267" source-line-num="267">         <span class="tlv_ident_beh_hier_2" logical_entity="|ctrl/floor">/floor</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">*</span><span class="tlv_ident_beh_hier_2">]</span></span>
+<span class="line" line-num="268" source-line-num="268">            <span class="tlv_ident_comment">// Clear elevator light on arrival at next floor, or set it after pressed.</span></span>
+<span class="line" line-num="269" source-line-num="269">            <span class="tlv_ident_assigned_state_sig" logical_entity="|ctrl/floor$ElevatorLight">$ElevatorLight</span> <span class="tlv_ident_sv_sig">&lt;</span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipeline" logical_entity="|ctrl"tlx_ref="">|ctrl</span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl$reset">$reset</span> <span class="tlv_ident_hdl_code">? 1'b0 :</span></span>
+<span class="line" line-num="270" source-line-num="270">                              <span class="tlv_ident_pipeline" logical_entity="|ctrl"tlx_ref="">|ctrl</span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl$next_floor">$next_floor</span> <span class="tlv_ident_hdl_code">== </span><span class="tlv_ident_sv_sig">#</span><span class="tlv_ident_hdl_code">floor ? 1'b0 :</span></span>
+<span class="line" line-num="271" source-line-num="271">                              <span class="tlv_ident_state_sig" logical_entity="|ctrl/floor$ElevatorLight">$ElevatorLight</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl/floor$elevator_button_pressed">$elevator_button_pressed</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="272" source-line-num="272">            <span class="tlv_ident_comment">// Set up   light on this floor when pressed, and clear when leaving this floor upward.</span></span>
+<span class="line" line-num="273" source-line-num="273">            <span class="tlv_ident_assigned_state_sig" logical_entity="|ctrl/floor$UpLight">$UpLight</span>   <span class="tlv_ident_sv_sig">&lt;</span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl/floor$up_pressed">$up_pressed</span>                                <span class="tlv_ident_hdl_code">? 1'b1 :</span></span>
+<span class="line" line-num="274" source-line-num="274">                          <span class="tlv_ident_hdl_code">((</span><span class="tlv_ident_pipeline" logical_entity="|ctrl"tlx_ref="">|ctrl</span><span class="tlv_ident_state_sig" logical_entity="|ctrl$Floor">$Floor</span> <span class="tlv_ident_hdl_code">== </span><span class="tlv_ident_sv_sig">#</span><span class="tlv_ident_hdl_code">floor) &amp;&amp; </span><span class="tlv_ident_pipeline" logical_entity="|ctrl"tlx_ref="">|ctrl</span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl$go_up">$go_up</span><span class="tlv_ident_hdl_code">)   ? 1'b0 :</span></span>
+<span class="line" line-num="275" source-line-num="275">                                                                       <span class="tlv_ident_sig_keyword" logical_entity="|ctrl/floor$UpLight">$RETAIN</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="276" source-line-num="276">            <span class="tlv_ident_comment">// Set down light on this floor when pressed, and clear when leaving this floor downward.</span></span>
+<span class="line" line-num="277" source-line-num="277">            <span class="tlv_ident_assigned_state_sig" logical_entity="|ctrl/floor$DownLight">$DownLight</span> <span class="tlv_ident_sv_sig">&lt;</span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl/floor$down_pressed">$down_pressed</span>                              <span class="tlv_ident_hdl_code">? 1'b1 :</span></span>
+<span class="line" line-num="278" source-line-num="278">                          <span class="tlv_ident_hdl_code">((</span><span class="tlv_ident_pipeline" logical_entity="|ctrl"tlx_ref="">|ctrl</span><span class="tlv_ident_state_sig" logical_entity="|ctrl$Floor">$Floor</span> <span class="tlv_ident_hdl_code">== </span><span class="tlv_ident_sv_sig">#</span><span class="tlv_ident_hdl_code">floor) &amp;&amp; </span><span class="tlv_ident_pipeline" logical_entity="|ctrl"tlx_ref="">|ctrl</span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl$go_down">$go_down</span><span class="tlv_ident_hdl_code">) ? 1'b0 :</span></span>
+<span class="line" line-num="279" source-line-num="279">                                                                       <span class="tlv_ident_sig_keyword" logical_entity="|ctrl/floor$DownLight">$RETAIN</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="280" source-line-num="280">            <span class="tlv_ident_comment">// Call elevator to this floor when requested within elevator or at floor.</span></span>
+<span class="line" line-num="281" source-line-num="281">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|ctrl/floor$called">$called</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_state_sig" logical_entity="|ctrl/floor$ElevatorLight">$ElevatorLight</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_state_sig" logical_entity="|ctrl/floor$DownLight">$DownLight</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_state_sig" logical_entity="|ctrl/floor$UpLight">$UpLight</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="282" source-line-num="282">            <span class="tlv_ident_comment">// $called_above/below if $called above/below or up/down button is lit on this floor.</span></span>
+<span class="line" line-num="283" source-line-num="283">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|ctrl/floor$called_above">$called_above</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_state_sig" logical_entity="|ctrl/floor$UpLight">$UpLight</span>   <span class="tlv_ident_hdl_code">|| ((</span><span class="tlv_ident_sv_sig">#</span><span class="tlv_ident_hdl_code">floor == 2) ? 1'b0 : </span><span class="tlv_ident_beh_hier_2" logical_entity="|ctrl/floor"tlx_ref="">/floor</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">((</span><span class="tlv_ident_sv_sig">#</span><span class="tlv_ident_hdl_code">floor + 1) % 3)</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl/floor$called">$called</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_beh_hier_2" logical_entity="|ctrl/floor"tlx_ref="">/floor</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">((</span><span class="tlv_ident_sv_sig">#</span><span class="tlv_ident_hdl_code">floor + 1) % 3)</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl/floor$called_above">$called_above</span><span class="tlv_ident_hdl_code">);</span></span>
+<span class="line" line-num="284" source-line-num="284">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|ctrl/floor$called_below">$called_below</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_state_sig" logical_entity="|ctrl/floor$DownLight">$DownLight</span> <span class="tlv_ident_hdl_code">|| ((</span><span class="tlv_ident_sv_sig">#</span><span class="tlv_ident_hdl_code">floor == 0) ? 1'b0 : </span><span class="tlv_ident_beh_hier_2" logical_entity="|ctrl/floor"tlx_ref="">/floor</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">((</span><span class="tlv_ident_sv_sig">#</span><span class="tlv_ident_hdl_code">floor + 2) % 3)</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl/floor$called">$called</span> <span class="tlv_ident_hdl_code">|| </span><span class="tlv_ident_beh_hier_2" logical_entity="|ctrl/floor"tlx_ref="">/floor</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">((</span><span class="tlv_ident_sv_sig">#</span><span class="tlv_ident_hdl_code">floor + 2) % 3)</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl/floor$called_below">$called_below</span><span class="tlv_ident_hdl_code">);</span></span>
+<span class="line" line-num="285" source-line-num="285">         <span class="tlv_ident_comment">// Go up or down if called that way, breaking tie based on momentum and then prioritizing up.</span></span>
+<span class="line" line-num="286" source-line-num="286">         <span class="tlv_ident_assigned_pipe_sig" logical_entity="|ctrl$go_up">$go_up</span>   <span class="tlv_ident_hdl_code">= ((! </span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|ctrl@2">&gt;&gt;1</span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl$go_down">$go_down</span> <span class="tlv_ident_hdl_code">|| ! </span><span class="tlv_ident_beh_hier_2" logical_entity="|ctrl/floor"tlx_ref="">/floor</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_state_sig" logical_entity="|ctrl$Floor">$Floor</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl/floor$called_below">$called_below</span><span class="tlv_ident_hdl_code">) &amp;&amp; </span><span class="tlv_ident_beh_hier_2" logical_entity="|ctrl/floor"tlx_ref="">/floor</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_state_sig" logical_entity="|ctrl$Floor">$Floor</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl/floor$called_above">$called_above</span><span class="tlv_ident_hdl_code">);</span></span>
+<span class="line" line-num="287" source-line-num="287">         <span class="tlv_ident_assigned_pipe_sig" logical_entity="|ctrl$go_down">$go_down</span> <span class="tlv_ident_hdl_code">= ((  </span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|ctrl@2">&gt;&gt;1</span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl$go_down">$go_down</span> <span class="tlv_ident_hdl_code">|| ! </span><span class="tlv_ident_beh_hier_2" logical_entity="|ctrl/floor"tlx_ref="">/floor</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_state_sig" logical_entity="|ctrl$Floor">$Floor</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl/floor$called_above">$called_above</span><span class="tlv_ident_hdl_code">) &amp;&amp; </span><span class="tlv_ident_beh_hier_2" logical_entity="|ctrl/floor"tlx_ref="">/floor</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_state_sig" logical_entity="|ctrl$Floor">$Floor</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl/floor$called_below">$called_below</span><span class="tlv_ident_hdl_code">);</span></span>
+<span class="line" line-num="288" source-line-num="288"></span>
+<span class="line" line-num="289" source-line-num="289">         </span>
+<span class="line" line-num="290" source-line-num="290">         <span class="tlv_ident_comment">// Compare all three models.</span></span>
+<span class="line" line-num="291" source-line-num="291">         <span class="tlv_ident_assigned_state_sig" logical_entity="|ctrl$Error">$Error</span> <span class="tlv_ident_sv_sig">&lt;</span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|ctrl$reset">$reset</span> <span class="tlv_ident_hdl_code">? 1'b0 : !((</span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">floor_mask == </span><span class="tlv_ident_beh_hier_2" logical_entity=""tlx_ref="">/top</span><span class="tlv_ident_beh_hier_2" logical_entity="/version2"tlx_ref="">/version2</span><span class="tlv_ident_pipeline" logical_entity="/version2|ctrl"tlx_ref="">|ctrl</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$floor_mask">$floor_mask</span><span class="tlv_ident_hdl_code">) &amp;&amp; ((3'b1 &lt;&lt; </span><span class="tlv_ident_state_sig" logical_entity="|ctrl$Floor">$Floor</span><span class="tlv_ident_hdl_code">) == </span><span class="tlv_ident_beh_hier_2" logical_entity=""tlx_ref="">/top</span><span class="tlv_ident_beh_hier_2" logical_entity="/version2"tlx_ref="">/version2</span><span class="tlv_ident_pipeline" logical_entity="/version2|ctrl"tlx_ref="">|ctrl</span><span class="tlv_ident_pipe_sig" logical_entity="/version2|ctrl$floor_mask">$floor_mask</span><span class="tlv_ident_hdl_code">)) || </span><span class="tlv_ident_state_sig" logical_entity="|ctrl$Error">$Error</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="292" source-line-num="292">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">failed = (</span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">cyc_cnt &gt; 400) &amp;&amp;   </span><span class="tlv_ident_state_sig" logical_entity="|ctrl$Error">$Error</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="293" source-line-num="293">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">passed = (</span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">cyc_cnt &gt; 400) &amp;&amp; ! </span><span class="tlv_ident_state_sig" logical_entity="|ctrl$Error">$Error</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="294" source-line-num="294"><span class="tlv_ident_keyword1">\SV</span></span>
+<span class="line" line-num="295" source-line-num="295">   <span class="tlv_ident_hdl_code">endmodule</span></span>
+
+</pre>
+
+</body>
+</html>

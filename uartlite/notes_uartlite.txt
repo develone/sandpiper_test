@@ -35,3 +35,6 @@ verilator --trace --debug --debugi 0 -gdbbt --no-dump-tree --cc makerchip.sv --e
 			default:	o_uart_tx <= 1'b1;
 			endcase			
 
+RX_IDLE, RX_START, RX_DATA, RX_PARITY and RX_STOP.
+
+TX_IDLE, TX_START, TX_DATA, TX_PARITY and TX_STOP.
