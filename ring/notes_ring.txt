@@ -1,4 +1,4 @@
-Testing ring example 10/12/20
+Testing ring example 10/12/20  reworked 10/27/20
 
 java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --compiler verilator --graphTrans -i top.m4 -o top.sv
 INFORM(0) (PROD_INFO):
@@ -85,7 +85,8 @@ cp ../counter/sp_default.vh .
 
 cp ../counter/sim_main.cpp .
 
-verilator -Wall --trace --cc top.sv --exe --build sim_main.cpp
+verilator --trace --debug --debugi 0 -gdbbt --no-dump-tree --cc makerchip.sv --exe --build sim_main.cpp
+ 
 
 cp ~/warp-v/formal/verilog/clk_gate.v .
 
