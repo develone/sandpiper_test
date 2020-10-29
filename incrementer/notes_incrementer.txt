@@ -1,0 +1,37 @@
+10/29/20
+
+Started in Makerchip.com
+
+Downloaded top.tlv, top.m4.pre, and top.m4.
+
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --debugSigs --viz --dhtml --stats --compiler verilator --graphTrans -i top.m4 -o top.sv
+
+dot -Tpdf top_trans.dot -o top_trans.pdf
+
+qpdfview top_trans.pdf &
+
+cp ../extra_files/* .
+
+verilator --trace --debug --debugi 0 -gdbbt --no-dump-tree --cc makerchip.sv --exe --build sim_main.cpp
+
+Note:
+	Needed to delete in top.sv the following to get yosys to create the creates top. top.json and blif,simple.log
+	
+/* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  /* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */
+
+yosys -l simple.log -p 'synth_ice40 -blif top.blif -json top.json' top.sv
+
+
+=== top ===
+
+   Number of wires:                 36
+   Number of wire bits:            220
+   Number of public wires:          36
+   Number of public wire bits:     220
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                123
+     SB_CARRY                       37
+     SB_DFFSR                       16
+     SB_LUT4                        70
