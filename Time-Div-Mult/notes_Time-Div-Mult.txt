@@ -1,0 +1,23 @@
+10/29/20
+
+Started in Makerchip.com
+
+Downloaded top.tlv, top.m4.pre, and top.m4.
+
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --debugSigs --viz --dhtml --stats --compiler verilator --graphTrans -i top.m4 -o top.sv
+
+dot -Tpdf top_trans.dot -o top_trans.pdf
+
+qpdfview top_trans.pdf &
+
+cp ../extra_files/* .
+
+https://raw.githubusercontent.com/stevehoover/tlv_flow_lib/master/makerchip_files/verilog/sandhost/sqrt32.v
+
+cp ~/warp-v/formal/verilog/clk_gate.v
+
+//`include "sp_verilog.vh" in clk_gate.v
+
+verilator --trace --debug --debugi 0 -gdbbt --no-dump-tree --cc makerchip.sv --exe --build sim_main.cpp
+
+ 
