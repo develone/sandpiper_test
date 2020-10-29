@@ -64,7 +64,7 @@
         }
       },
       "cells": {
-        "$specify$168": {
+        "$specify$174": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -95,7 +95,7 @@
             "SRC": [ 6 ]
           }
         },
-        "$specify$169": {
+        "$specify$175": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -126,7 +126,7 @@
             "SRC": [ 2 ]
           }
         },
-        "$specify$170": {
+        "$specify$176": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -157,7 +157,7 @@
             "SRC": [ 2 ]
           }
         },
-        "$specify$171": {
+        "$specify$177": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -188,7 +188,7 @@
             "SRC": [ 3 ]
           }
         },
-        "$specify$172": {
+        "$specify$178": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -219,7 +219,7 @@
             "SRC": [ 3 ]
           }
         },
-        "$specify$173": {
+        "$specify$179": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -250,7 +250,7 @@
             "SRC": [ 3 ]
           }
         },
-        "$specify$174": {
+        "$specify$180": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -281,7 +281,7 @@
             "SRC": [ 4 ]
           }
         },
-        "$specify$175": {
+        "$specify$181": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -312,7 +312,7 @@
             "SRC": [ 4 ]
           }
         },
-        "$specify$176": {
+        "$specify$182": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -343,7 +343,7 @@
             "SRC": [ 4 ]
           }
         },
-        "$specify$177": {
+        "$specify$183": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -374,7 +374,7 @@
             "SRC": [ 5 ]
           }
         },
-        "$specify$178": {
+        "$specify$184": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -405,7 +405,7 @@
             "SRC": [ 5 ]
           }
         },
-        "$specify$179": {
+        "$specify$185": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -442,7 +442,7 @@
             "SRC": [ 7 ]
           }
         },
-        "$specify$180": {
+        "$specify$186": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -473,7 +473,7 @@
             "SRC": [ 9 ]
           }
         },
-        "$specify$181": {
+        "$specify$187": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -508,7 +508,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$182": {
+        "$specify$188": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -543,7 +543,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$183": {
+        "$specify$189": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -578,7 +578,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$184": {
+        "$specify$190": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -613,7 +613,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$185": {
+        "$specify$191": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -648,7 +648,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$186": {
+        "$specify$192": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -683,7 +683,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$187": {
+        "$specify$193": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -718,7 +718,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$188": {
+        "$specify$194": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -753,7 +753,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$189": {
+        "$specify$195": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -788,7 +788,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$190": {
+        "$specify$196": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -823,7 +823,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$191": {
+        "$specify$197": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -858,7 +858,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$192": {
+        "$specify$198": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -893,7 +893,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$193": {
+        "$specify$199": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -928,7 +928,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$194": {
+        "$specify$200": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -963,7 +963,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$195": {
+        "$specify$201": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -998,7 +998,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$196": {
+        "$specify$202": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -1033,7 +1033,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$197": {
+        "$specify$203": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -1068,7 +1068,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$198": {
+        "$specify$204": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -1103,7 +1103,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$199": {
+        "$specify$205": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -1138,7 +1138,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$200": {
+        "$specify$206": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -1173,7 +1173,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$201": {
+        "$specify$207": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -1208,7 +1208,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$202": {
+        "$specify$208": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -2219,7 +2219,7 @@
         }
       },
       "cells": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:213$207": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:213$213": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -2243,7 +2243,7 @@
             "Y": [ 6 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:213$209": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:213$215": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -2267,7 +2267,7 @@
             "Y": [ 8 ]
           }
         },
-        "$logic_or$/usr/local/bin/../share/yosys/ice40/cells_sim.v:213$208": {
+        "$logic_or$/usr/local/bin/../share/yosys/ice40/cells_sim.v:213$214": {
           "hide_name": 1,
           "type": "$logic_or",
           "parameters": {
@@ -2291,7 +2291,7 @@
             "Y": [ 7 ]
           }
         },
-        "$logic_or$/usr/local/bin/../share/yosys/ice40/cells_sim.v:213$210": {
+        "$logic_or$/usr/local/bin/../share/yosys/ice40/cells_sim.v:213$216": {
           "hide_name": 1,
           "type": "$logic_or",
           "parameters": {
@@ -2315,7 +2315,7 @@
             "Y": [ 2 ]
           }
         },
-        "$specify$47": {
+        "$specify$53": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -2346,7 +2346,7 @@
             "SRC": [ 5 ]
           }
         },
-        "$specify$48": {
+        "$specify$54": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -2377,7 +2377,7 @@
             "SRC": [ 3 ]
           }
         },
-        "$specify$49": {
+        "$specify$55": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -2410,28 +2410,28 @@
         }
       },
       "netnames": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:213$207_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:213$213_Y": {
           "hide_name": 1,
           "bits": [ 6 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:213.15-213.23"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:213$209_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:213$215_Y": {
           "hide_name": 1,
           "bits": [ 8 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:213.29-213.45"
           }
         },
-        "$logic_or$/usr/local/bin/../share/yosys/ice40/cells_sim.v:213$208_Y": {
+        "$logic_or$/usr/local/bin/../share/yosys/ice40/cells_sim.v:213$214_Y": {
           "hide_name": 1,
           "bits": [ 7 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:213.30-213.38"
           }
         },
-        "$logic_or$/usr/local/bin/../share/yosys/ice40/cells_sim.v:213$210_Y": {
+        "$logic_or$/usr/local/bin/../share/yosys/ice40/cells_sim.v:213$216_Y": {
           "hide_name": 1,
           "bits": [ 2 ],
           "attributes": {
@@ -2490,7 +2490,7 @@
         }
       },
       "cells": {
-        "$procdff$486": {
+        "$procdff$498": {
           "hide_name": 1,
           "type": "$dff",
           "parameters": {
@@ -2511,7 +2511,7 @@
             "Q": [ 2 ]
           }
         },
-        "$specify$50": {
+        "$specify$56": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -2546,7 +2546,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$51": {
+        "$specify$57": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -2649,7 +2649,7 @@
         }
       },
       "cells": {
-        "$procdff$485": {
+        "$procdff$497": {
           "hide_name": 1,
           "type": "$dff",
           "parameters": {
@@ -2670,7 +2670,7 @@
             "Q": [ 2 ]
           }
         },
-        "$procmux$465": {
+        "$procmux$477": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -2692,7 +2692,7 @@
             "Y": [ 6 ]
           }
         },
-        "$specify$52": {
+        "$specify$58": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -2727,7 +2727,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$53": {
+        "$specify$59": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -2762,7 +2762,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$54": {
+        "$specify$60": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -2815,13 +2815,13 @@
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:0.0-0.0"
           }
         },
-        "$procmux$465_Y": {
+        "$procmux$477_Y": {
           "hide_name": 1,
           "bits": [ 6 ],
           "attributes": {
           }
         },
-        "$procmux$466_CMP": {
+        "$procmux$478_CMP": {
           "hide_name": 1,
           "bits": [ 4 ],
           "attributes": {
@@ -2888,7 +2888,7 @@
         }
       },
       "cells": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:645$236": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:645$242": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -2912,7 +2912,7 @@
             "Y": [ 8 ]
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:645$235": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:645$241": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -2932,7 +2932,7 @@
             "Y": [ 7 ]
           }
         },
-        "$procdff$479": {
+        "$procdff$491": {
           "hide_name": 1,
           "type": "$adff",
           "parameters": {
@@ -2957,7 +2957,7 @@
             "Q": [ 2 ]
           }
         },
-        "$procmux$452": {
+        "$procmux$464": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -2979,7 +2979,7 @@
             "Y": [ 9 ]
           }
         },
-        "$specify$76": {
+        "$specify$82": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -3014,7 +3014,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$77": {
+        "$specify$83": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -3049,7 +3049,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$78": {
+        "$specify$84": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -3084,7 +3084,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$79": {
+        "$specify$85": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -3115,7 +3115,7 @@
             "SRC": [ 5 ]
           }
         },
-        "$specify$80": {
+        "$specify$86": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -3168,27 +3168,27 @@
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:0.0-0.0"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:645$236_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:645$242_Y": {
           "hide_name": 1,
           "bits": [ 8 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:645.7-645.14"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:645$235_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:645$241_Y": {
           "hide_name": 1,
           "bits": [ 7 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:645.12-645.14"
           }
         },
-        "$procmux$452_Y": {
+        "$procmux$464_Y": {
           "hide_name": 1,
           "bits": [ 9 ],
           "attributes": {
           }
         },
-        "$procmux$453_CMP": {
+        "$procmux$465_CMP": {
           "hide_name": 1,
           "bits": [ 4 ],
           "attributes": {
@@ -3262,7 +3262,7 @@
         }
       },
       "cells": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:776$247": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:776$253": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -3286,7 +3286,7 @@
             "Y": [ 8 ]
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:776$246": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:776$252": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -3306,7 +3306,7 @@
             "Y": [ 7 ]
           }
         },
-        "$procdff$477": {
+        "$procdff$489": {
           "hide_name": 1,
           "type": "$adff",
           "parameters": {
@@ -3331,7 +3331,7 @@
             "Q": [ 2 ]
           }
         },
-        "$procmux$445": {
+        "$procmux$457": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -3353,7 +3353,7 @@
             "Y": [ 9 ]
           }
         },
-        "$specify$86": {
+        "$specify$92": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -3388,7 +3388,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$87": {
+        "$specify$93": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -3423,7 +3423,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$88": {
+        "$specify$94": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -3458,7 +3458,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$89": {
+        "$specify$95": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -3489,7 +3489,7 @@
             "SRC": [ 5 ]
           }
         },
-        "$specify$90": {
+        "$specify$96": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -3542,27 +3542,27 @@
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:0.0-0.0"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:776$247_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:776$253_Y": {
           "hide_name": 1,
           "bits": [ 8 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:776.7-776.14"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:776$246_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:776$252_Y": {
           "hide_name": 1,
           "bits": [ 7 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:776.12-776.14"
           }
         },
-        "$procmux$445_Y": {
+        "$procmux$457_Y": {
           "hide_name": 1,
           "bits": [ 9 ],
           "attributes": {
           }
         },
-        "$procmux$446_CMP": {
+        "$procmux$458_CMP": {
           "hide_name": 1,
           "bits": [ 4 ],
           "attributes": {
@@ -3636,7 +3636,7 @@
         }
       },
       "cells": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:577$229": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:577$235": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -3660,7 +3660,7 @@
             "Y": [ 8 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:583$230": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:583$236": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -3684,7 +3684,7 @@
             "Y": [ 9 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:584$232": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:584$238": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -3708,7 +3708,7 @@
             "Y": [ 11 ]
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:577$228": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:577$234": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -3728,7 +3728,7 @@
             "Y": [ 7 ]
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:584$231": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:584$237": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -3748,7 +3748,7 @@
             "Y": [ 10 ]
           }
         },
-        "$procdff$480": {
+        "$procdff$492": {
           "hide_name": 1,
           "type": "$dff",
           "parameters": {
@@ -3769,7 +3769,7 @@
             "Q": [ 2 ]
           }
         },
-        "$procmux$455": {
+        "$procmux$467": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -3792,7 +3792,7 @@
             "Y": [ 13 ]
           }
         },
-        "$procmux$457": {
+        "$procmux$469": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -3814,7 +3814,7 @@
             "Y": [ 12 ]
           }
         },
-        "$specify$71": {
+        "$specify$77": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -3849,7 +3849,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$72": {
+        "$specify$78": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -3884,7 +3884,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$73": {
+        "$specify$79": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -3919,7 +3919,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$74": {
+        "$specify$80": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -3956,7 +3956,7 @@
             "SRC": [ 3 ]
           }
         },
-        "$specify$75": {
+        "$specify$81": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -4009,60 +4009,60 @@
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:0.0-0.0"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:577$229_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:577$235_Y": {
           "hide_name": 1,
           "bits": [ 8 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:577.27-577.34"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:583$230_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:583$236_Y": {
           "hide_name": 1,
           "bits": [ 9 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:583.7-583.14"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:584$232_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:584$238_Y": {
           "hide_name": 1,
           "bits": [ 11 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:584.7-584.14"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:577$228_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:577$234_Y": {
           "hide_name": 1,
           "bits": [ 7 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:577.32-577.34"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:584$231_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:584$237_Y": {
           "hide_name": 1,
           "bits": [ 10 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:584.12-584.14"
           }
         },
-        "$procmux$455_Y": {
+        "$procmux$467_Y": {
           "hide_name": 1,
           "bits": [ 13 ],
           "attributes": {
           }
         },
-        "$procmux$456_CMP": {
+        "$procmux$468_CMP": {
           "hide_name": 1,
           "bits": [ 5 ],
           "attributes": {
           }
         },
-        "$procmux$457_Y": {
+        "$procmux$469_Y": {
           "hide_name": 1,
           "bits": [ 12 ],
           "attributes": {
           }
         },
-        "$procmux$458_CMP": {
+        "$procmux$470_CMP": {
           "hide_name": 1,
           "bits": [ 4 ],
           "attributes": {
@@ -4136,7 +4136,7 @@
         }
       },
       "cells": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:708$240": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:708$246": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -4160,7 +4160,7 @@
             "Y": [ 8 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:714$241": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:714$247": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -4184,7 +4184,7 @@
             "Y": [ 9 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:715$243": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:715$249": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -4208,7 +4208,7 @@
             "Y": [ 11 ]
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:708$239": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:708$245": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -4228,7 +4228,7 @@
             "Y": [ 7 ]
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:715$242": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:715$248": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -4248,7 +4248,7 @@
             "Y": [ 10 ]
           }
         },
-        "$procdff$478": {
+        "$procdff$490": {
           "hide_name": 1,
           "type": "$dff",
           "parameters": {
@@ -4269,7 +4269,7 @@
             "Q": [ 2 ]
           }
         },
-        "$procmux$448": {
+        "$procmux$460": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -4292,7 +4292,7 @@
             "Y": [ 13 ]
           }
         },
-        "$procmux$450": {
+        "$procmux$462": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -4314,7 +4314,7 @@
             "Y": [ 12 ]
           }
         },
-        "$specify$81": {
+        "$specify$87": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -4349,7 +4349,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$82": {
+        "$specify$88": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -4384,7 +4384,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$83": {
+        "$specify$89": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -4419,7 +4419,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$84": {
+        "$specify$90": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -4456,7 +4456,7 @@
             "SRC": [ 3 ]
           }
         },
-        "$specify$85": {
+        "$specify$91": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -4509,60 +4509,60 @@
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:0.0-0.0"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:708$240_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:708$246_Y": {
           "hide_name": 1,
           "bits": [ 8 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:708.27-708.34"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:714$241_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:714$247_Y": {
           "hide_name": 1,
           "bits": [ 9 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:714.7-714.14"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:715$243_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:715$249_Y": {
           "hide_name": 1,
           "bits": [ 11 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:715.7-715.14"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:708$239_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:708$245_Y": {
           "hide_name": 1,
           "bits": [ 7 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:708.32-708.34"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:715$242_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:715$248_Y": {
           "hide_name": 1,
           "bits": [ 10 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:715.12-715.14"
           }
         },
-        "$procmux$448_Y": {
+        "$procmux$460_Y": {
           "hide_name": 1,
           "bits": [ 13 ],
           "attributes": {
           }
         },
-        "$procmux$449_CMP": {
+        "$procmux$461_CMP": {
           "hide_name": 1,
           "bits": [ 5 ],
           "attributes": {
           }
         },
-        "$procmux$450_Y": {
+        "$procmux$462_Y": {
           "hide_name": 1,
           "bits": [ 12 ],
           "attributes": {
           }
         },
-        "$procmux$451_CMP": {
+        "$procmux$463_CMP": {
           "hide_name": 1,
           "bits": [ 4 ],
           "attributes": {
@@ -4628,7 +4628,7 @@
         }
       },
       "cells": {
-        "$procdff$476": {
+        "$procdff$488": {
           "hide_name": 1,
           "type": "$dff",
           "parameters": {
@@ -4649,7 +4649,7 @@
             "Q": [ 2 ]
           }
         },
-        "$specify$91": {
+        "$specify$97": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -4684,7 +4684,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$92": {
+        "$specify$98": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -4787,7 +4787,7 @@
         }
       },
       "cells": {
-        "$procdff$475": {
+        "$procdff$487": {
           "hide_name": 1,
           "type": "$dff",
           "parameters": {
@@ -4808,7 +4808,7 @@
             "Q": [ 2 ]
           }
         },
-        "$procmux$443": {
+        "$procmux$455": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -4830,42 +4830,7 @@
             "Y": [ 6 ]
           }
         },
-        "$specify$93": {
-          "hide_name": 1,
-          "type": "$specrule",
-          "parameters": {
-            "DST_PEN": "1",
-            "DST_POL": "0",
-            "DST_WIDTH": "00000000000000000000000000000001",
-            "SRC_PEN": "0",
-            "SRC_POL": "0",
-            "SRC_WIDTH": "00000000000000000000000000000001",
-            "TYPE": "$setup",
-            "T_LIMIT2_MAX": "00000000000000000000000000000000",
-            "T_LIMIT2_MIN": "00000000000000000000000000000000",
-            "T_LIMIT2_TYP": "00000000000000000000000000000000",
-            "T_LIMIT_MAX": "00000000000000000000000000010101",
-            "T_LIMIT_MIN": "00000000000000000000000000010101",
-            "T_LIMIT_TYP": "00000000000000000000000000010101"
-          },
-          "attributes": {
-            "module_not_derived": "00000000000000000000000000000001",
-            "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:873.3-873.41"
-          },
-          "port_directions": {
-            "DST": "input",
-            "DST_EN": "output",
-            "SRC": "input",
-            "SRC_EN": "output"
-          },
-          "connections": {
-            "DST": [ 3 ],
-            "DST_EN": [ 4 ],
-            "SRC": [ 5 ],
-            "SRC_EN": [ "1" ]
-          }
-        },
-        "$specify$94": {
+        "$specify$100": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -4900,7 +4865,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$95": {
+        "$specify$101": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -4936,6 +4901,41 @@
             "EN": [ 4 ],
             "SRC": [ 3 ]
           }
+        },
+        "$specify$99": {
+          "hide_name": 1,
+          "type": "$specrule",
+          "parameters": {
+            "DST_PEN": "1",
+            "DST_POL": "0",
+            "DST_WIDTH": "00000000000000000000000000000001",
+            "SRC_PEN": "0",
+            "SRC_POL": "0",
+            "SRC_WIDTH": "00000000000000000000000000000001",
+            "TYPE": "$setup",
+            "T_LIMIT2_MAX": "00000000000000000000000000000000",
+            "T_LIMIT2_MIN": "00000000000000000000000000000000",
+            "T_LIMIT2_TYP": "00000000000000000000000000000000",
+            "T_LIMIT_MAX": "00000000000000000000000000010101",
+            "T_LIMIT_MIN": "00000000000000000000000000010101",
+            "T_LIMIT_TYP": "00000000000000000000000000010101"
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:873.3-873.41"
+          },
+          "port_directions": {
+            "DST": "input",
+            "DST_EN": "output",
+            "SRC": "input",
+            "SRC_EN": "output"
+          },
+          "connections": {
+            "DST": [ 3 ],
+            "DST_EN": [ 4 ],
+            "SRC": [ 5 ],
+            "SRC_EN": [ "1" ]
+          }
         }
       },
       "netnames": {
@@ -4953,13 +4953,13 @@
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:0.0-0.0"
           }
         },
-        "$procmux$443_Y": {
+        "$procmux$455_Y": {
           "hide_name": 1,
           "bits": [ 6 ],
           "attributes": {
           }
         },
-        "$procmux$444_CMP": {
+        "$procmux$456_CMP": {
           "hide_name": 1,
           "bits": [ 4 ],
           "attributes": {
@@ -5026,7 +5026,7 @@
         }
       },
       "cells": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1222$274": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1222$280": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -5050,7 +5050,7 @@
             "Y": [ 8 ]
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1222$273": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1222$279": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -5070,7 +5070,7 @@
             "Y": [ 7 ]
           }
         },
-        "$procdff$469": {
+        "$procdff$481": {
           "hide_name": 1,
           "type": "$adff",
           "parameters": {
@@ -5095,7 +5095,7 @@
             "Q": [ 2 ]
           }
         },
-        "$procmux$430": {
+        "$procmux$442": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -5117,7 +5117,7 @@
             "Y": [ 9 ]
           }
         },
-        "$specify$117": {
+        "$specify$123": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -5152,7 +5152,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$118": {
+        "$specify$124": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -5187,7 +5187,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$119": {
+        "$specify$125": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -5222,7 +5222,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$120": {
+        "$specify$126": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -5253,7 +5253,7 @@
             "SRC": [ 5 ]
           }
         },
-        "$specify$121": {
+        "$specify$127": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -5306,27 +5306,27 @@
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:0.0-0.0"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1222$274_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1222$280_Y": {
           "hide_name": 1,
           "bits": [ 8 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1222.7-1222.14"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1222$273_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1222$279_Y": {
           "hide_name": 1,
           "bits": [ 7 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1222.12-1222.14"
           }
         },
-        "$procmux$430_Y": {
+        "$procmux$442_Y": {
           "hide_name": 1,
           "bits": [ 9 ],
           "attributes": {
           }
         },
-        "$procmux$431_CMP": {
+        "$procmux$443_CMP": {
           "hide_name": 1,
           "bits": [ 4 ],
           "attributes": {
@@ -5400,7 +5400,7 @@
         }
       },
       "cells": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1354$285": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1354$291": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -5424,7 +5424,7 @@
             "Y": [ 8 ]
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1354$284": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1354$290": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -5444,7 +5444,7 @@
             "Y": [ 7 ]
           }
         },
-        "$procdff$467": {
+        "$procdff$479": {
           "hide_name": 1,
           "type": "$adff",
           "parameters": {
@@ -5469,7 +5469,7 @@
             "Q": [ 2 ]
           }
         },
-        "$procmux$423": {
+        "$procmux$435": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -5491,7 +5491,7 @@
             "Y": [ 9 ]
           }
         },
-        "$specify$127": {
+        "$specify$133": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -5526,7 +5526,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$128": {
+        "$specify$134": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -5561,7 +5561,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$129": {
+        "$specify$135": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -5596,7 +5596,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$130": {
+        "$specify$136": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -5627,7 +5627,7 @@
             "SRC": [ 5 ]
           }
         },
-        "$specify$131": {
+        "$specify$137": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -5680,27 +5680,27 @@
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:0.0-0.0"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1354$285_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1354$291_Y": {
           "hide_name": 1,
           "bits": [ 8 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1354.7-1354.14"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1354$284_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1354$290_Y": {
           "hide_name": 1,
           "bits": [ 7 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1354.12-1354.14"
           }
         },
-        "$procmux$423_Y": {
+        "$procmux$435_Y": {
           "hide_name": 1,
           "bits": [ 9 ],
           "attributes": {
           }
         },
-        "$procmux$424_CMP": {
+        "$procmux$436_CMP": {
           "hide_name": 1,
           "bits": [ 4 ],
           "attributes": {
@@ -5774,7 +5774,7 @@
         }
       },
       "cells": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1154$267": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1154$273": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -5798,7 +5798,7 @@
             "Y": [ 8 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1160$268": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1160$274": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -5822,7 +5822,7 @@
             "Y": [ 9 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1161$270": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1161$276": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -5846,7 +5846,7 @@
             "Y": [ 11 ]
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1154$266": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1154$272": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -5866,7 +5866,7 @@
             "Y": [ 7 ]
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1161$269": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1161$275": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -5886,7 +5886,7 @@
             "Y": [ 10 ]
           }
         },
-        "$procdff$470": {
+        "$procdff$482": {
           "hide_name": 1,
           "type": "$dff",
           "parameters": {
@@ -5907,7 +5907,7 @@
             "Q": [ 2 ]
           }
         },
-        "$procmux$433": {
+        "$procmux$445": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -5930,7 +5930,7 @@
             "Y": [ 13 ]
           }
         },
-        "$procmux$435": {
+        "$procmux$447": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -5952,7 +5952,7 @@
             "Y": [ 12 ]
           }
         },
-        "$specify$112": {
+        "$specify$118": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -5987,7 +5987,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$113": {
+        "$specify$119": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -6022,7 +6022,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$114": {
+        "$specify$120": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -6057,7 +6057,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$115": {
+        "$specify$121": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -6094,7 +6094,7 @@
             "SRC": [ 3 ]
           }
         },
-        "$specify$116": {
+        "$specify$122": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -6147,60 +6147,60 @@
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:0.0-0.0"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1154$267_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1154$273_Y": {
           "hide_name": 1,
           "bits": [ 8 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1154.27-1154.34"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1160$268_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1160$274_Y": {
           "hide_name": 1,
           "bits": [ 9 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1160.7-1160.14"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1161$270_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1161$276_Y": {
           "hide_name": 1,
           "bits": [ 11 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1161.7-1161.14"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1154$266_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1154$272_Y": {
           "hide_name": 1,
           "bits": [ 7 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1154.32-1154.34"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1161$269_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1161$275_Y": {
           "hide_name": 1,
           "bits": [ 10 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1161.12-1161.14"
           }
         },
-        "$procmux$433_Y": {
+        "$procmux$445_Y": {
           "hide_name": 1,
           "bits": [ 13 ],
           "attributes": {
           }
         },
-        "$procmux$434_CMP": {
+        "$procmux$446_CMP": {
           "hide_name": 1,
           "bits": [ 5 ],
           "attributes": {
           }
         },
-        "$procmux$435_Y": {
+        "$procmux$447_Y": {
           "hide_name": 1,
           "bits": [ 12 ],
           "attributes": {
           }
         },
-        "$procmux$436_CMP": {
+        "$procmux$448_CMP": {
           "hide_name": 1,
           "bits": [ 4 ],
           "attributes": {
@@ -6274,7 +6274,7 @@
         }
       },
       "cells": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1285$278": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1285$284": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -6298,7 +6298,7 @@
             "Y": [ 8 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1291$279": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1291$285": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -6322,7 +6322,7 @@
             "Y": [ 9 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1292$281": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1292$287": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -6346,7 +6346,7 @@
             "Y": [ 11 ]
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1285$277": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1285$283": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -6366,7 +6366,7 @@
             "Y": [ 7 ]
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1292$280": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1292$286": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -6386,7 +6386,7 @@
             "Y": [ 10 ]
           }
         },
-        "$procdff$468": {
+        "$procdff$480": {
           "hide_name": 1,
           "type": "$dff",
           "parameters": {
@@ -6407,7 +6407,7 @@
             "Q": [ 2 ]
           }
         },
-        "$procmux$426": {
+        "$procmux$438": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -6430,7 +6430,7 @@
             "Y": [ 13 ]
           }
         },
-        "$procmux$428": {
+        "$procmux$440": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -6452,7 +6452,7 @@
             "Y": [ 12 ]
           }
         },
-        "$specify$122": {
+        "$specify$128": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -6487,7 +6487,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$123": {
+        "$specify$129": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -6522,7 +6522,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$124": {
+        "$specify$130": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -6557,7 +6557,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$125": {
+        "$specify$131": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -6594,7 +6594,7 @@
             "SRC": [ 3 ]
           }
         },
-        "$specify$126": {
+        "$specify$132": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -6647,60 +6647,60 @@
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:0.0-0.0"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1285$278_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1285$284_Y": {
           "hide_name": 1,
           "bits": [ 8 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1285.27-1285.34"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1291$279_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1291$285_Y": {
           "hide_name": 1,
           "bits": [ 9 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1291.7-1291.14"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1292$281_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1292$287_Y": {
           "hide_name": 1,
           "bits": [ 11 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1292.7-1292.14"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1285$277_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1285$283_Y": {
           "hide_name": 1,
           "bits": [ 7 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1285.32-1285.34"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1292$280_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1292$286_Y": {
           "hide_name": 1,
           "bits": [ 10 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1292.12-1292.14"
           }
         },
-        "$procmux$426_Y": {
+        "$procmux$438_Y": {
           "hide_name": 1,
           "bits": [ 13 ],
           "attributes": {
           }
         },
-        "$procmux$427_CMP": {
+        "$procmux$439_CMP": {
           "hide_name": 1,
           "bits": [ 5 ],
           "attributes": {
           }
         },
-        "$procmux$428_Y": {
+        "$procmux$440_Y": {
           "hide_name": 1,
           "bits": [ 12 ],
           "attributes": {
           }
         },
-        "$procmux$429_CMP": {
+        "$procmux$441_CMP": {
           "hide_name": 1,
           "bits": [ 4 ],
           "attributes": {
@@ -6770,7 +6770,7 @@
         }
       },
       "cells": {
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:978$257": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:978$263": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -6790,7 +6790,7 @@
             "Y": [ 6 ]
           }
         },
-        "$procdff$473": {
+        "$procdff$485": {
           "hide_name": 1,
           "type": "$adff",
           "parameters": {
@@ -6815,7 +6815,7 @@
             "Q": [ 2 ]
           }
         },
-        "$specify$100": {
+        "$specify$106": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -6850,7 +6850,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$101": {
+        "$specify$107": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -6885,7 +6885,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$102": {
+        "$specify$108": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -6916,7 +6916,7 @@
             "SRC": [ 4 ]
           }
         },
-        "$specify$103": {
+        "$specify$109": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -6969,7 +6969,7 @@
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:0.0-0.0"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:978$257_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:978$263_Y": {
           "hide_name": 1,
           "bits": [ 6 ],
           "attributes": {
@@ -7033,7 +7033,7 @@
         }
       },
       "cells": {
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1095$263": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1095$269": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -7053,7 +7053,7 @@
             "Y": [ 6 ]
           }
         },
-        "$procdff$471": {
+        "$procdff$483": {
           "hide_name": 1,
           "type": "$adff",
           "parameters": {
@@ -7078,7 +7078,7 @@
             "Q": [ 2 ]
           }
         },
-        "$specify$108": {
+        "$specify$114": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -7113,7 +7113,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$109": {
+        "$specify$115": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -7148,7 +7148,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$110": {
+        "$specify$116": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -7179,7 +7179,7 @@
             "SRC": [ 4 ]
           }
         },
-        "$specify$111": {
+        "$specify$117": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -7232,7 +7232,7 @@
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:0.0-0.0"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1095$263_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1095$269_Y": {
           "hide_name": 1,
           "bits": [ 6 ],
           "attributes": {
@@ -7296,7 +7296,7 @@
         }
       },
       "cells": {
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:923$254": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:923$260": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -7316,7 +7316,7 @@
             "Y": [ 6 ]
           }
         },
-        "$procdff$474": {
+        "$procdff$486": {
           "hide_name": 1,
           "type": "$dff",
           "parameters": {
@@ -7337,7 +7337,7 @@
             "Q": [ 2 ]
           }
         },
-        "$procmux$441": {
+        "$procmux$453": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -7360,7 +7360,7 @@
             "Y": [ 7 ]
           }
         },
-        "$specify$96": {
+        "$specify$102": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -7395,7 +7395,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$97": {
+        "$specify$103": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -7430,7 +7430,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$98": {
+        "$specify$104": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -7467,7 +7467,7 @@
             "SRC": [ 3 ]
           }
         },
-        "$specify$99": {
+        "$specify$105": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -7520,20 +7520,20 @@
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:0.0-0.0"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:923$254_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:923$260_Y": {
           "hide_name": 1,
           "bits": [ 6 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:923.7-923.9"
           }
         },
-        "$procmux$441_Y": {
+        "$procmux$453_Y": {
           "hide_name": 1,
           "bits": [ 7 ],
           "attributes": {
           }
         },
-        "$procmux$442_CMP": {
+        "$procmux$454_CMP": {
           "hide_name": 1,
           "bits": [ 4 ],
           "attributes": {
@@ -7596,7 +7596,7 @@
         }
       },
       "cells": {
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1040$260": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1040$266": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -7616,7 +7616,7 @@
             "Y": [ 6 ]
           }
         },
-        "$procdff$472": {
+        "$procdff$484": {
           "hide_name": 1,
           "type": "$dff",
           "parameters": {
@@ -7637,7 +7637,7 @@
             "Q": [ 2 ]
           }
         },
-        "$procmux$438": {
+        "$procmux$450": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -7660,7 +7660,7 @@
             "Y": [ 7 ]
           }
         },
-        "$specify$104": {
+        "$specify$110": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -7695,7 +7695,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$105": {
+        "$specify$111": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -7730,7 +7730,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$106": {
+        "$specify$112": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -7767,7 +7767,7 @@
             "SRC": [ 3 ]
           }
         },
-        "$specify$107": {
+        "$specify$113": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -7820,20 +7820,20 @@
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:0.0-0.0"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1040$260_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1040$266_Y": {
           "hide_name": 1,
           "bits": [ 6 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1040.7-1040.9"
           }
         },
-        "$procmux$438_Y": {
+        "$procmux$450_Y": {
           "hide_name": 1,
           "bits": [ 7 ],
           "attributes": {
           }
         },
-        "$procmux$439_CMP": {
+        "$procmux$451_CMP": {
           "hide_name": 1,
           "bits": [ 4 ],
           "attributes": {
@@ -7896,7 +7896,7 @@
         }
       },
       "cells": {
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:401$219": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:401$225": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -7916,7 +7916,7 @@
             "Y": [ 6 ]
           }
         },
-        "$procdff$483": {
+        "$procdff$495": {
           "hide_name": 1,
           "type": "$adff",
           "parameters": {
@@ -7941,7 +7941,7 @@
             "Q": [ 2 ]
           }
         },
-        "$specify$59": {
+        "$specify$65": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -7976,7 +7976,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$60": {
+        "$specify$66": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -8011,7 +8011,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$61": {
+        "$specify$67": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -8042,7 +8042,7 @@
             "SRC": [ 4 ]
           }
         },
-        "$specify$62": {
+        "$specify$68": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -8095,7 +8095,7 @@
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:0.0-0.0"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:401$219_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:401$225_Y": {
           "hide_name": 1,
           "bits": [ 6 ],
           "attributes": {
@@ -8159,7 +8159,7 @@
         }
       },
       "cells": {
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:518$225": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:518$231": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -8179,7 +8179,7 @@
             "Y": [ 6 ]
           }
         },
-        "$procdff$481": {
+        "$procdff$493": {
           "hide_name": 1,
           "type": "$adff",
           "parameters": {
@@ -8204,7 +8204,7 @@
             "Q": [ 2 ]
           }
         },
-        "$specify$67": {
+        "$specify$73": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -8239,7 +8239,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$68": {
+        "$specify$74": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -8274,7 +8274,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$69": {
+        "$specify$75": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -8305,7 +8305,7 @@
             "SRC": [ 4 ]
           }
         },
-        "$specify$70": {
+        "$specify$76": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -8358,7 +8358,7 @@
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:0.0-0.0"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:518$225_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:518$231_Y": {
           "hide_name": 1,
           "bits": [ 6 ],
           "attributes": {
@@ -8421,7 +8421,7 @@
         }
       },
       "cells": {
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:346$216": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:346$222": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -8441,7 +8441,7 @@
             "Y": [ 6 ]
           }
         },
-        "$procdff$484": {
+        "$procdff$496": {
           "hide_name": 1,
           "type": "$dff",
           "parameters": {
@@ -8462,7 +8462,7 @@
             "Q": [ 2 ]
           }
         },
-        "$procmux$463": {
+        "$procmux$475": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -8485,7 +8485,7 @@
             "Y": [ 7 ]
           }
         },
-        "$specify$55": {
+        "$specify$61": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -8520,7 +8520,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$56": {
+        "$specify$62": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -8555,7 +8555,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$57": {
+        "$specify$63": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -8592,7 +8592,7 @@
             "SRC": [ 3 ]
           }
         },
-        "$specify$58": {
+        "$specify$64": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -8645,20 +8645,20 @@
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:0.0-0.0"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:346$216_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:346$222_Y": {
           "hide_name": 1,
           "bits": [ 6 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:346.7-346.9"
           }
         },
-        "$procmux$463_Y": {
+        "$procmux$475_Y": {
           "hide_name": 1,
           "bits": [ 7 ],
           "attributes": {
           }
         },
-        "$procmux$464_CMP": {
+        "$procmux$476_CMP": {
           "hide_name": 1,
           "bits": [ 4 ],
           "attributes": {
@@ -8721,7 +8721,7 @@
         }
       },
       "cells": {
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:463$222": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:463$228": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -8741,7 +8741,7 @@
             "Y": [ 6 ]
           }
         },
-        "$procdff$482": {
+        "$procdff$494": {
           "hide_name": 1,
           "type": "$dff",
           "parameters": {
@@ -8762,7 +8762,7 @@
             "Q": [ 2 ]
           }
         },
-        "$procmux$460": {
+        "$procmux$472": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -8785,7 +8785,7 @@
             "Y": [ 7 ]
           }
         },
-        "$specify$63": {
+        "$specify$69": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -8820,7 +8820,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$64": {
+        "$specify$70": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -8855,7 +8855,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$65": {
+        "$specify$71": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -8892,7 +8892,7 @@
             "SRC": [ 3 ]
           }
         },
-        "$specify$66": {
+        "$specify$72": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -8945,20 +8945,20 @@
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:0.0-0.0"
           }
         },
-        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:463$222_Y": {
+        "$logic_not$/usr/local/bin/../share/yosys/ice40/cells_sim.v:463$228_Y": {
           "hide_name": 1,
           "bits": [ 6 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:463.7-463.9"
           }
         },
-        "$procmux$460_Y": {
+        "$procmux$472_Y": {
           "hide_name": 1,
           "bits": [ 7 ],
           "attributes": {
           }
         },
-        "$procmux$461_CMP": {
+        "$procmux$473_CMP": {
           "hide_name": 1,
           "bits": [ 4 ],
           "attributes": {
@@ -10543,7 +10543,7 @@
         }
       },
       "cells": {
-        "$specify$43": {
+        "$specify$49": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -10574,7 +10574,7 @@
             "SRC": [ 3 ]
           }
         },
-        "$specify$44": {
+        "$specify$50": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -10605,7 +10605,7 @@
             "SRC": [ 4 ]
           }
         },
-        "$specify$45": {
+        "$specify$51": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -10636,7 +10636,7 @@
             "SRC": [ 5 ]
           }
         },
-        "$specify$46": {
+        "$specify$52": {
           "hide_name": 1,
           "type": "$specify2",
           "parameters": {
@@ -10667,7 +10667,7 @@
             "SRC": [ 6 ]
           }
         },
-        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:169$203": {
+        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:169$209": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -10689,7 +10689,7 @@
             "Y": [ 7, 8, 9, 10, 11, 12, 13, 14 ]
           }
         },
-        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:170$204": {
+        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:170$210": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -10711,7 +10711,7 @@
             "Y": [ 15, 16, 17, 18 ]
           }
         },
-        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:171$205": {
+        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:171$211": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -10733,7 +10733,7 @@
             "Y": [ 19, 20 ]
           }
         },
-        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:172$206": {
+        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:172$212": {
           "hide_name": 1,
           "type": "$mux",
           "parameters": {
@@ -10757,28 +10757,28 @@
         }
       },
       "netnames": {
-        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:169$203_Y": {
+        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:169$209_Y": {
           "hide_name": 1,
           "bits": [ 7, 8, 9, 10, 11, 12, 13, 14 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:169.18-169.53"
           }
         },
-        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:170$204_Y": {
+        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:170$210_Y": {
           "hide_name": 1,
           "bits": [ 15, 16, 17, 18 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:170.18-170.53"
           }
         },
-        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:171$205_Y": {
+        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:171$211_Y": {
           "hide_name": 1,
           "bits": [ 19, 20 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:171.18-171.53"
           }
         },
-        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:172$206_Y": {
+        "$ternary$/usr/local/bin/../share/yosys/ice40/cells_sim.v:172$212_Y": {
           "hide_name": 1,
           "bits": [ 2 ],
           "attributes": {
@@ -12125,7 +12125,7 @@
         }
       },
       "cells": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1572$287": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1572$293": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -12149,7 +12149,7 @@
             "Y": [ 78 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1574$288": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1574$294": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -12173,7 +12173,7 @@
             "Y": [ 79 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1580$289": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1580$295": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -12197,7 +12197,7 @@
             "Y": [ 80 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1584$290": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1584$296": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -12221,7 +12221,7 @@
             "Y": [ 81 ]
           }
         },
-        "$specify$132": {
+        "$specify$138": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -12256,7 +12256,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$133": {
+        "$specify$139": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -12291,7 +12291,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$134": {
+        "$specify$140": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -12326,7 +12326,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$135": {
+        "$specify$141": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -12361,7 +12361,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$136": {
+        "$specify$142": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -12396,7 +12396,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$137": {
+        "$specify$143": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -12431,7 +12431,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$138": {
+        "$specify$144": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -12466,7 +12466,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$139": {
+        "$specify$145": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -12501,7 +12501,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$140": {
+        "$specify$146": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -12540,28 +12540,28 @@
         }
       },
       "netnames": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1572$287_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1572$293_Y": {
           "hide_name": 1,
           "bits": [ 78 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1572.33-1572.44"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1574$288_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1574$294_Y": {
           "hide_name": 1,
           "bits": [ 79 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1574.34-1574.45"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1580$289_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1580$295_Y": {
           "hide_name": 1,
           "bits": [ 80 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1580.34-1580.45"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1584$290_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1584$296_Y": {
           "hide_name": 1,
           "bits": [ 81 ],
           "attributes": {
@@ -12721,7 +12721,7 @@
         }
       },
       "cells": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1703$291": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1703$297": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -12745,7 +12745,7 @@
             "Y": [ 78 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1705$292": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1705$298": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -12769,7 +12769,7 @@
             "Y": [ 79 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1711$293": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1711$299": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -12793,7 +12793,7 @@
             "Y": [ 80 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1715$294": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1715$300": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -12817,7 +12817,7 @@
             "Y": [ 81 ]
           }
         },
-        "$specify$141": {
+        "$specify$147": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -12852,7 +12852,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$142": {
+        "$specify$148": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -12887,7 +12887,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$143": {
+        "$specify$149": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -12922,7 +12922,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$144": {
+        "$specify$150": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -12957,7 +12957,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$145": {
+        "$specify$151": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -12992,7 +12992,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$146": {
+        "$specify$152": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -13027,7 +13027,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$147": {
+        "$specify$153": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -13062,7 +13062,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$148": {
+        "$specify$154": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -13097,7 +13097,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$149": {
+        "$specify$155": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -13136,28 +13136,28 @@
         }
       },
       "netnames": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1703$291_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1703$297_Y": {
           "hide_name": 1,
           "bits": [ 78 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1703.33-1703.44"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1705$292_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1705$298_Y": {
           "hide_name": 1,
           "bits": [ 79 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1705.35-1705.46"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1711$293_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1711$299_Y": {
           "hide_name": 1,
           "bits": [ 80 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1711.34-1711.45"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1715$294_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1715$300_Y": {
           "hide_name": 1,
           "bits": [ 81 ],
           "attributes": {
@@ -13317,7 +13317,7 @@
         }
       },
       "cells": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1965$299": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1965$305": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -13341,7 +13341,7 @@
             "Y": [ 78 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1967$300": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1967$306": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -13365,7 +13365,7 @@
             "Y": [ 79 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1973$301": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1973$307": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -13389,7 +13389,7 @@
             "Y": [ 80 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1977$302": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1977$308": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -13413,7 +13413,7 @@
             "Y": [ 81 ]
           }
         },
-        "$specify$159": {
+        "$specify$165": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -13448,7 +13448,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$160": {
+        "$specify$166": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -13483,7 +13483,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$161": {
+        "$specify$167": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -13518,7 +13518,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$162": {
+        "$specify$168": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -13553,7 +13553,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$163": {
+        "$specify$169": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -13588,7 +13588,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$164": {
+        "$specify$170": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -13623,7 +13623,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$165": {
+        "$specify$171": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -13658,7 +13658,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$166": {
+        "$specify$172": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -13693,7 +13693,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$167": {
+        "$specify$173": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -13732,28 +13732,28 @@
         }
       },
       "netnames": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1965$299_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1965$305_Y": {
           "hide_name": 1,
           "bits": [ 78 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1965.34-1965.45"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1967$300_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1967$306_Y": {
           "hide_name": 1,
           "bits": [ 79 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1967.35-1967.46"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1973$301_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1973$307_Y": {
           "hide_name": 1,
           "bits": [ 80 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1973.35-1973.46"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1977$302_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1977$308_Y": {
           "hide_name": 1,
           "bits": [ 81 ],
           "attributes": {
@@ -13913,7 +13913,7 @@
         }
       },
       "cells": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1834$295": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1834$301": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -13937,7 +13937,7 @@
             "Y": [ 78 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1836$296": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1836$302": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -13961,7 +13961,7 @@
             "Y": [ 79 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1842$297": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1842$303": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -13985,7 +13985,7 @@
             "Y": [ 80 ]
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1846$298": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1846$304": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -14009,7 +14009,7 @@
             "Y": [ 81 ]
           }
         },
-        "$specify$150": {
+        "$specify$156": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -14044,7 +14044,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$151": {
+        "$specify$157": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -14079,7 +14079,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$152": {
+        "$specify$158": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -14114,7 +14114,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$153": {
+        "$specify$159": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -14149,7 +14149,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$154": {
+        "$specify$160": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -14184,7 +14184,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$155": {
+        "$specify$161": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -14219,7 +14219,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$156": {
+        "$specify$162": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -14254,7 +14254,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$157": {
+        "$specify$163": {
           "hide_name": 1,
           "type": "$specrule",
           "parameters": {
@@ -14289,7 +14289,7 @@
             "SRC_EN": [ "1" ]
           }
         },
-        "$specify$158": {
+        "$specify$164": {
           "hide_name": 1,
           "type": "$specify3",
           "parameters": {
@@ -14328,28 +14328,28 @@
         }
       },
       "netnames": {
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1834$295_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1834$301_Y": {
           "hide_name": 1,
           "bits": [ 78 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1834.34-1834.45"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1836$296_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1836$302_Y": {
           "hide_name": 1,
           "bits": [ 79 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1836.34-1836.45"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1842$297_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1842$303_Y": {
           "hide_name": 1,
           "bits": [ 80 ],
           "attributes": {
             "src": "/usr/local/bin/../share/yosys/ice40/cells_sim.v:1842.35-1842.46"
           }
         },
-        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1846$298_Y": {
+        "$logic_and$/usr/local/bin/../share/yosys/ice40/cells_sim.v:1846$304_Y": {
           "hide_name": 1,
           "bits": [ 81 ],
           "attributes": {
@@ -18527,6 +18527,38 @@
           "attributes": {
             "force_downto": "00000000000000000000000000000001",
             "src": "top.tlv:35.47-35.64|/usr/local/bin/../share/yosys/ice40/arith_map.v:49.21-49.23"
+          }
+        },
+        "pseudo_rand.DEFAULT_reset_a0": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "hdlname": "pseudo_rand DEFAULT_reset_a0",
+            "src": "top.tlv:11.268-11.312|pseudo_rand_gen.sv:21.7-21.23"
+          }
+        },
+        "pseudo_rand.SEED": {
+          "hide_name": 0,
+          "bits": [ "0", "1", "0", "1", "0", "0", "1", "0", "0", "0", "0", "1", "0", "1", "1", "0", "0", "0", "1", "0", "0", "1", "1", "1", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0", "1", "1", "0", "0", "0", "0", "1", "1", "1", "1", "1", "1", "0", "1", "0", "0", "0", "1", "0", "0", "0", "1", "1", "0", "0", "0", "0", "0", "0", "1", "0", "1", "0", "1", "0", "0", "1", "1", "0", "0", "0", "1", "0", "1", "1", "1", "0", "0", "0", "0", "1", "0", "1", "1", "0", "1", "1", "1", "0", "0", "1", "1", "0", "0", "0", "1", "0", "1", "1", "0", "1", "0", "0", "0", "1", "0", "0", "1", "0", "0", "0", "0", "0", "1", "1", "0", "0", "1", "1", "1", "1", "0", "0", "0", "1", "0", "0", "1", "0", "0", "0", "0", "1", "0", "0", "1", "0", "0", "0", "0", "1", "1", "0", "1", "1", "0", "0", "1", "1", "1", "0", "1", "0", "0", "1", "0", "0", "1", "1", "0", "0", "1", "0", "0", "0", "0", "1", "1", "1", "0", "0", "1", "0", "0", "0", "0", "1", "0", "1", "1", "0", "0", "1", "1", "0", "1", "0", "0", "0", "1", "1", "0", "0", "0", "0", "1", "0", "1", "0", "1", "0", "1", "0", "1", "1", "1", "1", "0", "0", "1", "0", "0", "0", "1", "1", "1", "0", "0", "0", "0", "1", "0", "1", "1", "0", "1", "0", "0", "0", "0", "1", "1", "1", "1", "1", "0", "0", "0", "1", "1", "0", "1", "0", "0", "0", "1", "1", "1", "0", "0" ],
+          "attributes": {
+            "hdlname": "pseudo_rand SEED",
+            "src": "top.tlv:11.268-11.312|pseudo_rand.sv:54.13-54.17"
+          }
+        },
+        "pseudo_rand.clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "hdlname": "pseudo_rand clk",
+            "src": "top.tlv:11.268-11.312|pseudo_rand.sv:32.17-32.20"
+          }
+        },
+        "pseudo_rand.reset": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "hdlname": "pseudo_rand reset",
+            "src": "top.tlv:11.268-11.312|pseudo_rand.sv:33.17-33.22"
           }
         },
         "reset": {
