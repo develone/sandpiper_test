@@ -1,0 +1,9 @@
+Enabling waves...
+a128 became 0
+1636 became 0
+62ea became 0
+2b9c became 0
+bb9b became 0
+bc8c became 0
+c94a became 0
+Simulation FAILED!!!
