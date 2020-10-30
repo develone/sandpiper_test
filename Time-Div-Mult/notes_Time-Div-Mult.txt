@@ -12,6 +12,8 @@ qpdfview top_trans.pdf &
 
 cp ../extra_files/* .
 
+note this is not needed.
+
 https://raw.githubusercontent.com/stevehoover/tlv_flow_lib/master/makerchip_files/verilog/sandhost/sqrt32.v
 
 cp ~/warp-v/formal/verilog/clk_gate.v
@@ -21,3 +23,20 @@ cp ~/warp-v/formal/verilog/clk_gate.v
 verilator --trace --debug --debugi 0 -gdbbt --no-dump-tree --cc makerchip.sv --exe --build sim_main.cpp
 
  
+yosys -l simple.log -p 'synth_ice40 -blif top.blif -json top.json' top.sv clk_gate.v  pseudo_rand.sv
+
+=== top ===
+
+   Number of wires:                129
+   Number of wire bits:           1627
+   Number of public wires:         129
+   Number of public wire bits:    1627
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                476
+     SB_CARRY                       62
+     SB_DFF                         88
+     SB_DFFSR                      152
+     SB_DFFSS                      108
+     SB_LUT4                        66
