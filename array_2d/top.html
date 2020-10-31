@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <meta http-equiv="description" content="top.html">
+   <meta http-equiv="keywords" content="tl-verilog">
+
+   <title>top.m4</title>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+   <script src="http://www.rweda.com/lib/sp_1.9-2018_02_11-beta/ide.js"></script>
+   <link rel="stylesheet" href="http://www.rweda.com/lib/sp_1.9-2018_02_11-beta/ide.css" />
+
+<style>
+/*
+Copyright (c) 2015, Steven F. Hoover
+All rights reserved.
+*/
+.tlv_ident_error {
+  color: red;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_pipeline {
+  color: orange;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_beh_hier_1 {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_beh_hier_2 {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_grouping {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_pipe_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_state_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_sig_keyword {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_assigned_pipe_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_assigned_state_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_assigned_sig_keyword {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_malformed_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_malformed_assigned_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_when {
+  color: #E04010;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_sv_when {
+  color: #E04010;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_phys_hier {
+  color: blue;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_phys_beh_hier {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_stage_name {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_expr {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_next_operator {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_incr_expr {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_prev_operator {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_decr_expr {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_alignment_expr_1ab {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_expr_1c {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_keyword_1c {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_ahead_expr {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_behind_expr {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_zero_expr {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_crosspipe_name {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_ahead_name {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_behind_name {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_tlv_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_proj_rtl_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_misc_rtl_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_proj_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_sv_sig {
+  color: #00008b;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_sv_datatype {
+  color: DarkRed;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_keyword1 {
+  color: Blue;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_comment {
+  color: #808080;
+  font-style: italic;
+  font-weight: 600;
+}
+.tlv_ident_hdl_code {
+  color: #00008b;
+  font-style: normal;
+  font-weight: normal;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>top.m4</h2>
+
+<pre>
+<span class="line" line-num="1" source-line-num="1"><span class="tlv_ident_keyword1">\TLV_version 1d: tl-x.org</span></span>
+<span class="line" line-num="2" source-line-num="2"><span class="tlv_ident_keyword1">\SV</span></span>
+<span class="line" line-num="3" source-line-num="3"></span>
+<span class="line" line-num="4" source-line-num="4"><span class="tlv_ident_comment">// An example of a two-dimensional array (a banked register file) implemented various ways.</span></span>
+<span class="line" line-num="5" source-line-num="5"><span class="tlv_ident_comment">// The RF is written with a transaction (/top|wr/trans$ANY @0) and read into (/top|rd/trans$ANY @1).</span></span>
+<span class="line" line-num="6" source-line-num="6"><span class="tlv_ident_comment">// |rd and |wr pipelines are naturally-aligned in the sense that data written to the array from |wr is first</span></span>
+<span class="line" line-num="7" source-line-num="7"><span class="tlv_ident_comment">// visible to the stage-aligned |rd transaction.</span></span>
+<span class="line" line-num="8" source-line-num="8"></span>
+<span class="line" line-num="9" source-line-num="9"><span class="tlv_ident_hdl_code">module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    </span><span class="tlv_ident_comment">/* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  </span><span class="tlv_ident_hdl_code">bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  </span><span class="tlv_ident_comment">/* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */</span></span>
+<span class="line" line-num="10" source-line-num="10"><span class="tlv_ident_comment">// Included URL: &quot;https://raw.githubusercontent.com/stevehoover/tlv_flow_lib/aa1f91c9e09326e8506bd81d8a077455ddfb0606/arrays.tlv&quot;</span></span>
+<span class="line" line-num="11" source-line-num="11"></span>
+<span class="line" line-num="12" source-line-num="12"><span class="tlv_ident_keyword1">\TLV</span></span>
+<span class="line" line-num="13" source-line-num="13">   <span class="tlv_ident_comment">//$reset = *reset;</span></span>
+<span class="line" line-num="14" source-line-num="14"></span>
+<span class="line" line-num="15" source-line-num="15">   <span class="tlv_ident_comment">//--------------------------------------------------</span></span>
+<span class="line" line-num="16" source-line-num="16">   <span class="tlv_ident_comment">// Stimulus</span></span>
+<span class="line" line-num="17" source-line-num="17">   <span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="18" source-line-num="18">   </span>
+<span class="line" line-num="19" source-line-num="19">   <span class="tlv_ident_comment">// Explicit random inputs (same inputs for all approaches).</span></span>
+<span class="line" line-num="20" source-line-num="20">   </span>
+<span class="line" line-num="21" source-line-num="21">   </span>
+<span class="line" line-num="22" source-line-num="22">   </span>
+<span class="line" line-num="23" source-line-num="23">   <span class="tlv_ident_pipeline" logical_entity="|wr">|wr</span></span>
+<span class="line" line-num="24" source-line-num="24">      <span class="tlv_ident_stage_expr" logical_entity="|wr@0">@0</span></span>
+<span class="line" line-num="25" source-line-num="25">         <span class="tlv_ident_comment">// The array hierarchy (to declare ranges)</span></span>
+<span class="line" line-num="26" source-line-num="26">         <span class="tlv_ident_beh_hier_2" logical_entity="|wr/bank">/bank</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_beh_hier_2">]</span></span>
+<span class="line" line-num="27" source-line-num="27">            <span class="tlv_ident_beh_hier_2" logical_entity="|wr/bank/entry">/entry</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">3</span><span class="tlv_ident_beh_hier_2">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_beh_hier_2">]</span></span>
+<span class="line" line-num="28" source-line-num="28">               <span class="tlv_ident_comment">// These must be declared before referenced (currently).</span></span>
+<span class="line" line-num="29" source-line-num="29">               <span class="tlv_ident_beh_hier_2" logical_entity="|wr/bank/entry/trans2">/trans2</span></span>
+<span class="line" line-num="30" source-line-num="30">               <span class="tlv_ident_beh_hier_2" logical_entity="|wr/bank/entry/trans3">/trans3</span></span>
+<span class="line" line-num="31" source-line-num="31">               <span class="tlv_ident_beh_hier_2" logical_entity="|wr/bank/entry/trans4">/trans4</span></span>
+<span class="line" line-num="32" source-line-num="32">         <span class="tlv_ident_assigned_pipe_sig" logical_entity="|wr$wr_en">$wr_en</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">RW_rand_vect[(0 + (0)) % 257 +: 1];</span></span>
+<span class="line" line-num="33" source-line-num="33">         <span class="tlv_ident_when">?$wr_en</span></span>
+<span class="line" line-num="34" source-line-num="34">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|wr$bank">$bank</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">RW_rand_vect[(124 + (0)) % 257 +: 1];</span></span>
+<span class="line" line-num="35" source-line-num="35">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|wr$entry">$entry</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">RW_rand_vect[(248 + (0)) % 257 +: 2];</span></span>
+<span class="line" line-num="36" source-line-num="36">            <span class="tlv_ident_beh_hier_2" logical_entity="|wr/trans">/trans</span></span>
+<span class="line" line-num="37" source-line-num="37">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|wr/trans$data1">$data1</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">7</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">RW_rand_vect[(115 + (0)) % 257 +: 8];</span></span>
+<span class="line" line-num="38" source-line-num="38">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="|wr/trans$data2">$data2</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">3</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">RW_rand_vect[(239 + (0)) % 257 +: 4];</span></span>
+<span class="line" line-num="39" source-line-num="39">   <span class="tlv_ident_pipeline" logical_entity="|rd">|rd</span></span>
+<span class="line" line-num="40" source-line-num="40">      <span class="tlv_ident_stage_expr" logical_entity="|rd@2">@1</span></span>
+<span class="line" line-num="41" source-line-num="41">         <span class="tlv_ident_assigned_pipe_sig" logical_entity="|rd$rd_en">$rd_en</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">RW_rand_vect[(106 + (0)) % 257 +: 1];</span></span>
+<span class="line" line-num="42" source-line-num="42">         <span class="tlv_ident_when">?$rd_en</span></span>
+<span class="line" line-num="43" source-line-num="43">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|rd$bank">$bank</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">RW_rand_vect[(230 + (0)) % 257 +: 1];</span></span>
+<span class="line" line-num="44" source-line-num="44">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="|rd$entry">$entry</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">RW_rand_vect[(97 + (0)) % 257 +: 2];</span></span>
+<span class="line" line-num="45" source-line-num="45">         </span>
+<span class="line" line-num="46" source-line-num="46">   </span>
+<span class="line" line-num="47" source-line-num="47">   <span class="tlv_ident_comment">//----------------------------------------------------</span></span>
+<span class="line" line-num="48" source-line-num="48">   <span class="tlv_ident_comment">// Approach 1:</span></span>
+<span class="line" line-num="49" source-line-num="49">   <span class="tlv_ident_comment">// Utilizing SV module instantiation.</span></span>
+<span class="line" line-num="50" source-line-num="50">   </span>
+<span class="line" line-num="51" source-line-num="51">   <span class="tlv_ident_comment">// ... (not implemented)</span></span>
+<span class="line" line-num="52" source-line-num="52">   </span>
+<span class="line" line-num="53" source-line-num="53">   </span>
+<span class="line" line-num="54" source-line-num="54">   <span class="tlv_ident_comment">//----------------------------------------------------</span></span>
+<span class="line" line-num="55" source-line-num="55">   <span class="tlv_ident_comment">// Approach 2:</span></span>
+<span class="line" line-num="56" source-line-num="56">   <span class="tlv_ident_comment">// Utilizing array write.</span></span>
+<span class="line" line-num="57" source-line-num="57">   </span>
+<span class="line" line-num="58" source-line-num="58">   <span class="tlv_ident_comment">// Write Pipeline</span></span>
+<span class="line" line-num="59" source-line-num="59">   <span class="tlv_ident_pipeline" logical_entity="|wr">|wr</span></span>
+<span class="line" line-num="60" source-line-num="60">      <span class="tlv_ident_stage_expr" logical_entity="|wr@0">@0</span></span>
+<span class="line" line-num="61" source-line-num="61">         <span class="tlv_ident_comment">// Write the transaction</span></span>
+<span class="line" line-num="62" source-line-num="62">         <span class="tlv_ident_comment">// (TLV assignment syntax prohibits assignment outside of it's own scope, but \SV_plus does not.)</span></span>
+<span class="line" line-num="63" source-line-num="63">         <span class="tlv_ident_keyword1">\SV_plus</span></span>
+<span class="line" line-num="64" source-line-num="64">            <span class="tlv_ident_hdl_code">always_comb</span></span>
+<span class="line" line-num="65" source-line-num="65">               <span class="tlv_ident_hdl_code">if (</span><span class="tlv_ident_pipe_sig" logical_entity="|wr$wr_en">$wr_en</span><span class="tlv_ident_hdl_code">)</span></span>
+<span class="line" line-num="66" source-line-num="66">                  <span class="tlv_ident_beh_hier_2" logical_entity="|wr/bank"tlx_ref="">/bank</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_pipe_sig" logical_entity="|wr$bank">$bank</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_beh_hier_2" logical_entity="|wr/bank/entry"tlx_ref="">/entry</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_pipe_sig" logical_entity="|wr$entry">$entry</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_beh_hier_2" logical_entity="|wr/bank/entry/trans2"tlx_ref="">/trans2</span><span class="tlv_ident_assigned_sig_keyword" logical_entity="|wr/bank/entry/trans2$ANY">$$ANY</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity="|wr/trans"tlx_ref="">/trans</span><span class="tlv_ident_sig_keyword" logical_entity="|wr/trans$ANY">$ANY</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="67" source-line-num="67">   </span>
+<span class="line" line-num="68" source-line-num="68">   <span class="tlv_ident_comment">// Read Pipeline</span></span>
+<span class="line" line-num="69" source-line-num="69">   <span class="tlv_ident_pipeline" logical_entity="|rd">|rd</span></span>
+<span class="line" line-num="70" source-line-num="70">      <span class="tlv_ident_stage_expr" logical_entity="|rd@2">@1</span></span>
+<span class="line" line-num="71" source-line-num="71">         <span class="tlv_ident_comment">// Read transaction from array</span></span>
+<span class="line" line-num="72" source-line-num="72">         <span class="tlv_ident_when">?$rd_en</span></span>
+<span class="line" line-num="73" source-line-num="73">            <span class="tlv_ident_beh_hier_2" logical_entity="|rd/trans2">/trans2</span></span>
+<span class="line" line-num="74" source-line-num="74">               <span class="tlv_ident_assigned_sig_keyword" logical_entity="|rd/trans2$ANY">$ANY</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity=""tlx_ref="">/top</span><span class="tlv_ident_pipeline" logical_entity="|wr"tlx_ref="">|wr</span><span class="tlv_ident_beh_hier_2" logical_entity="|wr/bank"tlx_ref="">/bank</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_pipeline" logical_entity="|rd"tlx_ref="">|rd</span><span class="tlv_ident_pipe_sig" logical_entity="|rd$bank">$bank</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_beh_hier_2" logical_entity="|wr/bank/entry"tlx_ref="">/entry</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_pipeline" logical_entity="|rd"tlx_ref="">|rd</span><span class="tlv_ident_pipe_sig" logical_entity="|rd$entry">$entry</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_beh_hier_2" logical_entity="|wr/bank/entry/trans2"tlx_ref="">/trans2</span><span class="tlv_ident_alignment_zero_expr" logical_entity="|wr@2">&lt;&gt;0</span><span class="tlv_ident_sig_keyword" logical_entity="|wr/bank/entry/trans2$ANY">$ANY</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="75" source-line-num="75">               <span class="tlv_ident_hdl_code">`BOGUS_USE(</span><span class="tlv_ident_pipe_sig" logical_entity="|rd/trans2$data1">$data1</span> <span class="tlv_ident_pipe_sig" logical_entity="|rd/trans2$data2">$data2</span><span class="tlv_ident_hdl_code">)  </span><span class="tlv_ident_comment">// Pull transaction through.</span></span>
+<span class="line" line-num="76" source-line-num="76"></span>
+<span class="line" line-num="77" source-line-num="77">   </span>
+<span class="line" line-num="78" source-line-num="78">   <span class="tlv_ident_comment">//----------------------------------------------------</span></span>
+<span class="line" line-num="79" source-line-num="79">   <span class="tlv_ident_comment">// Approach 3:</span></span>
+<span class="line" line-num="80" source-line-num="80">   <span class="tlv_ident_comment">// Write each entry every cycle (preserving value w/ recirculation).</span></span>
+<span class="line" line-num="81" source-line-num="81">   <span class="tlv_ident_comment">// Most-native TLV, but poor simulation performance today.</span></span>
+<span class="line" line-num="82" source-line-num="82">   </span>
+<span class="line" line-num="83" source-line-num="83">   <span class="tlv_ident_comment">// Write Pipeline</span></span>
+<span class="line" line-num="84" source-line-num="84">   <span class="tlv_ident_pipeline" logical_entity="|wr">|wr</span></span>
+<span class="line" line-num="85" source-line-num="85">      <span class="tlv_ident_stage_expr" logical_entity="|wr@0">@0</span></span>
+<span class="line" line-num="86" source-line-num="86">         <span class="tlv_ident_comment">// The array hierarchy</span></span>
+<span class="line" line-num="87" source-line-num="87">         <span class="tlv_ident_beh_hier_2" logical_entity="|wr/bank">/bank</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">*</span><span class="tlv_ident_beh_hier_2">]</span></span>
+<span class="line" line-num="88" source-line-num="88">            <span class="tlv_ident_beh_hier_2" logical_entity="|wr/bank/entry">/entry</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">*</span><span class="tlv_ident_beh_hier_2">]</span></span>
+<span class="line" line-num="89" source-line-num="89">               <span class="tlv_ident_beh_hier_2" logical_entity="|wr/bank/entry/trans3">/trans3</span></span>
+<span class="line" line-num="90" source-line-num="90">                  <span class="tlv_ident_assigned_sig_keyword" logical_entity="|wr/bank/entry/trans3$ANY">$ANY</span> <span class="tlv_ident_hdl_code">= (</span><span class="tlv_ident_pipeline" logical_entity="|wr"tlx_ref="">|wr</span><span class="tlv_ident_pipe_sig" logical_entity="|wr$wr_en">$wr_en</span> <span class="tlv_ident_hdl_code">&amp;&amp; (</span><span class="tlv_ident_pipeline" logical_entity="|wr"tlx_ref="">|wr</span><span class="tlv_ident_pipe_sig" logical_entity="|wr$bank">$bank</span> <span class="tlv_ident_hdl_code">== </span><span class="tlv_ident_sv_sig">#</span><span class="tlv_ident_hdl_code">bank) &amp;&amp; (</span><span class="tlv_ident_pipeline" logical_entity="|wr"tlx_ref="">|wr</span><span class="tlv_ident_pipe_sig" logical_entity="|wr$entry">$entry</span> <span class="tlv_ident_hdl_code">== </span><span class="tlv_ident_sv_sig">#</span><span class="tlv_ident_hdl_code">entry))</span></span>
+<span class="line" line-num="91" source-line-num="91">                              <span class="tlv_ident_hdl_code">? </span><span class="tlv_ident_pipeline" logical_entity="|wr"tlx_ref="">|wr</span><span class="tlv_ident_beh_hier_2" logical_entity="|wr/trans"tlx_ref="">/trans</span><span class="tlv_ident_sig_keyword" logical_entity="|wr/trans$ANY">$ANY</span> <span class="tlv_ident_hdl_code">:</span></span>
+<span class="line" line-num="92" source-line-num="92">                                <span class="tlv_ident_alignment_ahead_expr" logical_entity="|wr@2">&gt;&gt;1</span><span class="tlv_ident_sig_keyword" logical_entity="|wr/bank/entry/trans3$ANY">$ANY</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="93" source-line-num="93">   </span>
+<span class="line" line-num="94" source-line-num="94">   <span class="tlv_ident_comment">// Read Pipeline</span></span>
+<span class="line" line-num="95" source-line-num="95">   <span class="tlv_ident_pipeline" logical_entity="|rd">|rd</span></span>
+<span class="line" line-num="96" source-line-num="96">      <span class="tlv_ident_stage_expr" logical_entity="|rd@2">@1</span></span>
+<span class="line" line-num="97" source-line-num="97">         <span class="tlv_ident_comment">// Read</span></span>
+<span class="line" line-num="98" source-line-num="98">         <span class="tlv_ident_when">?$rd_en</span></span>
+<span class="line" line-num="99" source-line-num="99">            <span class="tlv_ident_beh_hier_2" logical_entity="|rd/trans3">/trans3</span></span>
+<span class="line" line-num="100" source-line-num="100">               <span class="tlv_ident_assigned_sig_keyword" logical_entity="|rd/trans3$ANY">$ANY</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity=""tlx_ref="">/top</span><span class="tlv_ident_pipeline" logical_entity="|wr"tlx_ref="">|wr</span><span class="tlv_ident_beh_hier_2" logical_entity="|wr/bank"tlx_ref="">/bank</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_pipeline" logical_entity="|rd"tlx_ref="">|rd</span><span class="tlv_ident_pipe_sig" logical_entity="|rd$bank">$bank</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_beh_hier_2" logical_entity="|wr/bank/entry"tlx_ref="">/entry</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_pipeline" logical_entity="|rd"tlx_ref="">|rd</span><span class="tlv_ident_pipe_sig" logical_entity="|rd$entry">$entry</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_beh_hier_2" logical_entity="|wr/bank/entry/trans3"tlx_ref="">/trans3</span><span class="tlv_ident_alignment_zero_expr" logical_entity="|wr@2">&lt;&gt;0</span><span class="tlv_ident_sig_keyword" logical_entity="|wr/bank/entry/trans3$ANY">$ANY</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="101" source-line-num="101">               <span class="tlv_ident_hdl_code">`BOGUS_USE(</span><span class="tlv_ident_pipe_sig" logical_entity="|rd/trans3$data1">$data1</span> <span class="tlv_ident_pipe_sig" logical_entity="|rd/trans3$data2">$data2</span><span class="tlv_ident_hdl_code">)  </span><span class="tlv_ident_comment">// Pull transaction through.</span></span>
+<span class="line" line-num="102" source-line-num="102"></span>
+<span class="line" line-num="103" source-line-num="103">   <span class="tlv_ident_comment">//----------------------------------------------------</span></span>
+<span class="line" line-num="104" source-line-num="104">   <span class="tlv_ident_comment">// Approach 4:</span></span>
+<span class="line" line-num="105" source-line-num="105">   <span class="tlv_ident_comment">// Utilizing macro, per bank.</span></span>
+<span class="line" line-num="106" source-line-num="106"></span>
+<span class="line" line-num="107" source-line-num="107">   <span class="tlv_ident_beh_hier_2" logical_entity="/bank">/bank</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_beh_hier_2">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_beh_hier_2">]</span></span>
+<span class="line" line-num="108" source-line-num="108">      <span class="tlv_ident_comment">// Copy of /top|wr and /top|rd per bank.</span></span>
+<span class="line" line-num="109" source-line-num="109">      <span class="tlv_ident_pipeline" logical_entity="/bank|wr">|wr</span></span>
+<span class="line" line-num="110" source-line-num="110">         <span class="tlv_ident_stage_expr" logical_entity="/bank|wr@0">@0</span></span>
+<span class="line" line-num="111" source-line-num="111">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="/bank|wr$wr_en">$wr_en</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity=""tlx_ref="">/top</span><span class="tlv_ident_pipeline" logical_entity="|wr"tlx_ref="">|wr</span><span class="tlv_ident_pipe_sig" logical_entity="|wr$wr_en">$wr_en</span> <span class="tlv_ident_hdl_code">&amp;&amp; </span><span class="tlv_ident_beh_hier_2" logical_entity=""tlx_ref="">/top</span><span class="tlv_ident_pipeline" logical_entity="|wr"tlx_ref="">|wr</span><span class="tlv_ident_pipe_sig" logical_entity="|wr$bank">$bank</span> <span class="tlv_ident_hdl_code">== </span><span class="tlv_ident_sv_sig">#</span><span class="tlv_ident_hdl_code">bank;</span></span>
+<span class="line" line-num="112" source-line-num="112">            <span class="tlv_ident_when">?$wr_en</span></span>
+<span class="line" line-num="113" source-line-num="113">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="/bank|wr$entry">$entry</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">3</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity=""tlx_ref="">/top</span><span class="tlv_ident_pipeline" logical_entity="|wr"tlx_ref="">|wr</span><span class="tlv_ident_pipe_sig" logical_entity="|wr$entry">$entry</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="114" source-line-num="114">               <span class="tlv_ident_beh_hier_2" logical_entity="/bank|wr/trans4">/trans4</span></span>
+<span class="line" line-num="115" source-line-num="115">                  <span class="tlv_ident_assigned_sig_keyword" logical_entity="/bank|wr/trans4$ANY">$ANY</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity=""tlx_ref="">/top</span><span class="tlv_ident_pipeline" logical_entity="|wr"tlx_ref="">|wr</span><span class="tlv_ident_beh_hier_2" logical_entity="|wr/trans"tlx_ref="">/trans</span><span class="tlv_ident_sig_keyword" logical_entity="|wr/trans$ANY">$ANY</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="116" source-line-num="116">      <span class="tlv_ident_pipeline" logical_entity="/bank|rd">|rd</span></span>
+<span class="line" line-num="117" source-line-num="117">         <span class="tlv_ident_stage_expr" logical_entity="/bank|rd@2">@1</span></span>
+<span class="line" line-num="118" source-line-num="118">            <span class="tlv_ident_assigned_pipe_sig" logical_entity="/bank|rd$rd_en">$rd_en</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity=""tlx_ref="">/top</span><span class="tlv_ident_pipeline" logical_entity="|rd"tlx_ref="">|rd</span><span class="tlv_ident_pipe_sig" logical_entity="|rd$rd_en">$rd_en</span> <span class="tlv_ident_hdl_code">&amp;&amp; </span><span class="tlv_ident_beh_hier_2" logical_entity=""tlx_ref="">/top</span><span class="tlv_ident_pipeline" logical_entity="|rd"tlx_ref="">|rd</span><span class="tlv_ident_pipe_sig" logical_entity="|rd$bank">$bank</span> <span class="tlv_ident_hdl_code">== </span><span class="tlv_ident_sv_sig">#</span><span class="tlv_ident_hdl_code">bank;</span></span>
+<span class="line" line-num="119" source-line-num="119">            <span class="tlv_ident_when">?$rd_en</span></span>
+<span class="line" line-num="120" source-line-num="120">               <span class="tlv_ident_assigned_pipe_sig" logical_entity="/bank|rd$entry">$entry</span><span class="tlv_ident_pipe_sig">[</span><span class="tlv_ident_hdl_code">3</span><span class="tlv_ident_pipe_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_pipe_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity=""tlx_ref="">/top</span><span class="tlv_ident_pipeline" logical_entity="|rd"tlx_ref="">|rd</span><span class="tlv_ident_pipe_sig" logical_entity="|rd$entry">$entry</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="121" source-line-num="121">      <span class="tlv_ident_keyword1">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/aa1f91c9e09326e8506bd81d8a077455ddfb0606/arrays.tlv 33   </span><span class="tlv_ident_comment">// Instantiated from top.tlv, 121 as: m4+array1r1w(/bank, /entry, |wr, @0, $wr_en, $entry, |rd, @1, $rd_en, $entry, $ANY, /trans4)</span></span>
+<span class="line" line-num="122" source-line-num="121">         <span class="tlv_ident_comment">// Write Pipeline</span></span>
+<span class="line" line-num="123" source-line-num="121">         <span class="tlv_ident_comment">// The array entries hierarchy (needs a definition to define range, and currently, /trans4 declaration required before reference).</span></span>
+<span class="line" line-num="124" source-line-num="121">         <span class="tlv_ident_beh_hier_2" logical_entity="/bank/entry">/entry</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">3</span><span class="tlv_ident_beh_hier_2">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_beh_hier_2">]</span></span>
+<span class="line" line-num="125" source-line-num="121">            <span class="tlv_ident_beh_hier_2" logical_entity="/bank/entry/trans4">/trans4</span></span>
+<span class="line" line-num="126" source-line-num="121">               </span>
+<span class="line" line-num="127" source-line-num="121">         <span class="tlv_ident_comment">// Write transaction to cache</span></span>
+<span class="line" line-num="128" source-line-num="121">         <span class="tlv_ident_comment">// (TLV assignment syntax prohibits assignment outside of it's own scope, but \SV_plus does not.)</span></span>
+<span class="line" line-num="129" source-line-num="121">         <span class="tlv_ident_keyword1">\SV_plus</span></span>
+<span class="line" line-num="130" source-line-num="121">            <span class="tlv_ident_hdl_code">always_comb</span></span>
+<span class="line" line-num="131" source-line-num="121">               <span class="tlv_ident_hdl_code">if (</span><span class="tlv_ident_pipeline" logical_entity="/bank|wr"tlx_ref="">|wr</span><span class="tlv_ident_alignment_ahead_expr" logical_entity="/bank|wr@0">&gt;&gt;0</span><span class="tlv_ident_pipe_sig" logical_entity="/bank|wr$wr_en">$wr_en</span><span class="tlv_ident_hdl_code">)</span></span>
+<span class="line" line-num="132" source-line-num="121">                  <span class="tlv_ident_beh_hier_2" logical_entity="/bank/entry"tlx_ref="">/entry</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_pipeline" logical_entity="/bank|wr"tlx_ref="">|wr</span><span class="tlv_ident_alignment_ahead_expr" logical_entity="/bank|wr@0">&gt;&gt;0</span><span class="tlv_ident_pipe_sig" logical_entity="/bank|wr$entry">$entry</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_beh_hier_2" logical_entity="/bank/entry/trans4"tlx_ref="">/trans4</span><span class="tlv_ident_assigned_sig_keyword" logical_entity="/bank/entry/trans4$ANY">$$ANY</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipeline" logical_entity="/bank|wr"tlx_ref="">|wr</span><span class="tlv_ident_beh_hier_2" logical_entity="/bank|wr/trans4"tlx_ref="">/trans4</span><span class="tlv_ident_alignment_ahead_expr" logical_entity="/bank|wr@0">&gt;&gt;0</span><span class="tlv_ident_sig_keyword" logical_entity="/bank|wr/trans4$ANY">$ANY</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="133" source-line-num="121">         </span>
+<span class="line" line-num="134" source-line-num="121">         <span class="tlv_ident_comment">// Read Pipeline</span></span>
+<span class="line" line-num="135" source-line-num="121">         <span class="tlv_ident_pipeline" logical_entity="/bank|rd">|rd</span></span>
+<span class="line" line-num="136" source-line-num="121">            <span class="tlv_ident_stage_expr" logical_entity="/bank|rd@2">@1</span></span>
+<span class="line" line-num="137" source-line-num="121">               <span class="tlv_ident_comment">// Read transaction from cache.</span></span>
+<span class="line" line-num="138" source-line-num="121">               <span class="tlv_ident_when">?$rd_en</span></span>
+<span class="line" line-num="139" source-line-num="121">                  <span class="tlv_ident_beh_hier_2" logical_entity="/bank|rd/trans4">/trans4</span></span>
+<span class="line" line-num="140" source-line-num="121">                     <span class="tlv_ident_assigned_sig_keyword" logical_entity="/bank|rd/trans4$ANY">$ANY</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity="/bank"tlx_ref="">/bank</span><span class="tlv_ident_beh_hier_2" logical_entity="/bank/entry"tlx_ref="">/entry</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_pipeline" logical_entity="/bank|rd"tlx_ref="">|rd</span><span class="tlv_ident_pipe_sig" logical_entity="/bank|rd$entry">$entry</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_beh_hier_2" logical_entity="/bank/entry/trans4"tlx_ref="">/trans4</span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|none@0">&gt;&gt;-1</span><span class="tlv_ident_sig_keyword" logical_entity="/bank/entry/trans4$ANY">$ANY</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="141" source-line-num="121">      <span class="tlv_ident_keyword1">\end_source</span></span>
+<span class="line" line-num="142" source-line-num="122">   <span class="tlv_ident_comment">// Pull read out of the bank.</span></span>
+<span class="line" line-num="143" source-line-num="123">   <span class="tlv_ident_pipeline" logical_entity="|rd">|rd</span></span>
+<span class="line" line-num="144" source-line-num="124">      <span class="tlv_ident_stage_expr" logical_entity="|rd@2">@1</span></span>
+<span class="line" line-num="145" source-line-num="125">         <span class="tlv_ident_when">?$rd_en</span></span>
+<span class="line" line-num="146" source-line-num="126">            <span class="tlv_ident_beh_hier_2" logical_entity="|rd/trans4">/trans4</span></span>
+<span class="line" line-num="147" source-line-num="127">               <span class="tlv_ident_assigned_sig_keyword" logical_entity="|rd/trans4$ANY">$ANY</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_beh_hier_2" logical_entity=""tlx_ref="">/top</span><span class="tlv_ident_beh_hier_2" logical_entity="/bank"tlx_ref="">/bank</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_pipeline" logical_entity="|rd"tlx_ref="">|rd</span><span class="tlv_ident_pipe_sig" logical_entity="|rd$bank">$bank</span><span class="tlv_ident_beh_hier_2">]</span><span class="tlv_ident_pipeline" logical_entity="/bank|rd"tlx_ref="">|rd</span><span class="tlv_ident_beh_hier_2" logical_entity="/bank|rd/trans4"tlx_ref="">/trans4</span><span class="tlv_ident_sig_keyword" logical_entity="/bank|rd/trans4$ANY">$ANY</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="148" source-line-num="128"></span>
+<span class="line" line-num="149" source-line-num="129"></span>
+<span class="line" line-num="150" source-line-num="130">   <span class="tlv_ident_comment">//-----------------------------------------------------</span></span>
+<span class="line" line-num="151" source-line-num="131">   <span class="tlv_ident_comment">// Checking</span></span>
+<span class="line" line-num="152" source-line-num="132">   </span>
+<span class="line" line-num="153" source-line-num="133">   <span class="tlv_ident_pipeline" logical_entity="|rd">|rd</span></span>
+<span class="line" line-num="154" source-line-num="134">      <span class="tlv_ident_stage_expr" logical_entity="|rd@2">@1</span></span>
+<span class="line" line-num="155" source-line-num="135">         <span class="tlv_ident_when">?$rd_en</span></span>
+<span class="line" line-num="156" source-line-num="136">            <span class="tlv_ident_beh_hier_2" logical_entity="|rd/mismatch">/mismatch</span></span>
+<span class="line" line-num="157" source-line-num="137">               <span class="tlv_ident_comment">// A vector pulled through $ANY, with bits asserted for any mismatches between read data for</span></span>
+<span class="line" line-num="158" source-line-num="138">               <span class="tlv_ident_comment">// different implementations.</span></span>
+<span class="line" line-num="159" source-line-num="139">               <span class="tlv_ident_assigned_sig_keyword" logical_entity="|rd/mismatch$ANY">$ANY</span> <span class="tlv_ident_hdl_code">= (</span><span class="tlv_ident_pipeline" logical_entity="|rd"tlx_ref="">|rd</span><span class="tlv_ident_beh_hier_2" logical_entity="|rd/trans2"tlx_ref="">/trans2</span><span class="tlv_ident_sig_keyword" logical_entity="|rd/trans2$ANY">$ANY</span> <span class="tlv_ident_hdl_code">^ </span><span class="tlv_ident_pipeline" logical_entity="|rd"tlx_ref="">|rd</span><span class="tlv_ident_beh_hier_2" logical_entity="|rd/trans3"tlx_ref="">/trans3</span><span class="tlv_ident_sig_keyword" logical_entity="|rd/trans3$ANY">$ANY</span><span class="tlv_ident_hdl_code">) |</span></span>
+<span class="line" line-num="160" source-line-num="140">                      <span class="tlv_ident_hdl_code">(</span><span class="tlv_ident_pipeline" logical_entity="|rd"tlx_ref="">|rd</span><span class="tlv_ident_beh_hier_2" logical_entity="|rd/trans2"tlx_ref="">/trans2</span><span class="tlv_ident_sig_keyword" logical_entity="|rd/trans2$ANY">$ANY</span> <span class="tlv_ident_hdl_code">^ </span><span class="tlv_ident_pipeline" logical_entity="|rd"tlx_ref="">|rd</span><span class="tlv_ident_beh_hier_2" logical_entity="|rd/trans4"tlx_ref="">/trans4</span><span class="tlv_ident_sig_keyword" logical_entity="|rd/trans4$ANY">$ANY</span><span class="tlv_ident_hdl_code">);</span></span>
+<span class="line" line-num="161" source-line-num="141">         <span class="tlv_ident_comment">// $error if any mismatching data was read.</span></span>
+<span class="line" line-num="162" source-line-num="142">         <span class="tlv_ident_assigned_pipe_sig" logical_entity="|rd$error">$error</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_pipe_sig" logical_entity="|rd$rd_en">$rd_en</span> <span class="tlv_ident_hdl_code">&amp;&amp;</span></span>
+<span class="line" line-num="163" source-line-num="143">                  <span class="tlv_ident_hdl_code">(| </span><span class="tlv_ident_beh_hier_2" logical_entity="|rd/mismatch"tlx_ref="">/mismatch</span><span class="tlv_ident_pipe_sig" logical_entity="|rd/mismatch$data1">$data1</span> <span class="tlv_ident_hdl_code">||</span></span>
+<span class="line" line-num="164" source-line-num="144">                   <span class="tlv_ident_hdl_code">| </span><span class="tlv_ident_beh_hier_2" logical_entity="|rd/mismatch"tlx_ref="">/mismatch</span><span class="tlv_ident_pipe_sig" logical_entity="|rd/mismatch$data2">$data2</span><span class="tlv_ident_hdl_code">);</span></span>
+<span class="line" line-num="165" source-line-num="145">      </span>
+<span class="line" line-num="166" source-line-num="146">      </span>
+<span class="line" line-num="167" source-line-num="147">   <span class="tlv_ident_comment">// Assert these to end simulation (before Makerchip cycle limit).</span></span>
+<span class="line" line-num="168" source-line-num="148">   <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">passed = </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">cyc_cnt &gt; 50;</span></span>
+<span class="line" line-num="169" source-line-num="149">   <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">failed = </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">cyc_cnt &gt; 4 &amp;&amp; </span><span class="tlv_ident_pipeline" logical_entity="|rd"tlx_ref="">|rd</span><span class="tlv_ident_alignment_ahead_expr" logical_entity="|rd@4">&gt;&gt;2</span><span class="tlv_ident_pipe_sig" logical_entity="|rd$error">$error</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="170" source-line-num="150"></span>
+<span class="line" line-num="171" source-line-num="151"><span class="tlv_ident_keyword1">\SV</span></span>
+<span class="line" line-num="172" source-line-num="152">   <span class="tlv_ident_hdl_code">endmodule</span></span>
+
+</pre>
+
+</body>
+</html>
