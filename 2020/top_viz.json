@@ -1,0 +1,29 @@
+{
+   "view": {
+      "_typeof": "PIPELINE"
+   },
+   "imem": {
+      "_typeof": "BEH_HIER",
+      "_range": {
+         "min_index": "0",
+         "max_index": "7"
+      }
+   },
+   "xreg": {
+      "_typeof": "BEH_HIER",
+      "_range": {
+         "min_index": "0",
+         "max_index": "31"
+      }
+   },
+   "view": {
+      "_typeof": "PIPELINE",
+      "imem": {
+         "_typeof": "BEH_HIER",
+         "_range": {
+            "min_index": "0",
+            "max_index": "7"
+         }
+      }
+   }
+}

@@ -1,0 +1,167 @@
+10/15/20
+https://github.com/stevehoover/immutable/tree/master/VSDOpen2020 
+
+firefox adds and additional tab VIZ
+
+cd ~/sandpiper_test/2020
+
+Downloaded top.tlv, top.m4 top.m4.pre
+
+cp ../extra_files/* .
+
+top.m4.fails -> top.m4 removed lines 176-406 top.m4.wkg
+
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --debugSigs --viz --dhtml --stats --compiler verilator --graphTrans -i top.m4 -o top.sv
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --debugSigs --viz --dhtml --stats --compiler verilator --graphTrans -i top.m4 -o top.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Edward Vidal Jr." as: Full Edition.
+
+INFORM(0) (FILES):
+	From directory: /home/devel/sandpiper_test/2020
+	Reading "top.m4" to produce:
+		Translated HDL File: "top.sv"
+		Generated HDL File: "top_gen.sv"
+		HTML TLX File: "top.html"
+		Transaction Flow Graph (Dot) File: "top_trans.dot"
+		Simulation Visualization File: "top_viz.json"
+		Statistics Directory: "top_stats"
+
+FATAL_ERROR(10) (PARSE-IDENT): File 'top.tlv' Line 123 (char 13)
+			-> instantiated: '/raw.githubusercontent.com/stevehoover/VSDOpen2020TLVRISCVTutorial/da942f09ddf780e5da5ee0466c72a610f07aa73f/lib/shell.tlv':69, which
+	resulted in 'top.m4':176(ch13):
+	+------------v----------------------------
+	>            \viz_alpha
+	+------------^----------------------------
+	Identifier beginning \viz_alpha looks like a keyword/attribute/operand of type KEYWORD1, but this is not a recognized one.	
+
+top.m4.wkg -> top.m4
+top_viz.json top.html top_trans.dot
+top_stats/
+index.html  stats.csv  tlx.css
+
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --debugSigs --viz --dhtml --stats --compiler verilator --graphTrans -i top.m4 -o top.sv
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	Run as: "java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --debugSigs --viz --dhtml --stats --compiler verilator --graphTrans -i top.m4 -o top.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Edward Vidal Jr." as: Full Edition.
+
+INFORM(0) (FILES):
+	From directory: /home/devel/sandpiper_test/2020
+	Reading "top.m4" to produce:
+		Translated HDL File: "top.sv"
+		Generated HDL File: "top_gen.sv"
+		HTML TLX File: "top.html"
+		Transaction Flow Graph (Dot) File: "top_trans.dot"
+		Simulation Visualization File: "top_viz.json"
+		Statistics Directory: "top_stats"
+
+SYNTAX_ERROR(3) (INDENT): File 'top.tlv' Line 123 (char 5)
+			-> instantiated: '/raw.githubusercontent.com/stevehoover/VSDOpen2020TLVRISCVTutorial/da942f09ddf780e5da5ee0466c72a610f07aa73f/lib/shell.tlv':69, which
+	resulted in 'top.m4':176(ch5):
+	+----v------------------------------------
+	>    \end_source
+	+----^------------------------------------
+	Indentation is 4 spaces, which is not a multiple of 3.  Interpretting as 3 spaces.
+
+WARNING(1) (UNUSED-SIG): File 'top.tlv' Line 92 (char 4)
+	Preprocessed as 'top.m4':92(ch4):
+	+---vvvvvvvvvv----------------------------
+	|   
+	|   
+	|   // Lab: Register File Read
+	>   $rf_rd_en1         = $rs1_valid;
+	+---^^^^^^^^^^----------------------------
+	Signal $rf_rd_en1 is assigned but never used.
+	To silence this message use "`BOGUS_USE($rf_rd_en1)".
+
+WARNING(1) (UNUSED-SIG): File 'top.tlv' Line 93 (char 4)
+	Preprocessed as 'top.m4':93(ch4):
+	+---vvvvvvvvvv----------------------------
+	>   $rf_rd_en2         = $rs2_valid;
+	+---^^^^^^^^^^----------------------------
+	Signal $rf_rd_en2 is assigned but never used.
+	To silence this message use "`BOGUS_USE($rf_rd_en2)".
+
+WARNING(1) (UNUSED-SIG): File 'top.tlv' Line 123 (char 13)
+			-> instantiated: '/raw.githubusercontent.com/stevehoover/VSDOpen2020TLVRISCVTutorial/da942f09ddf780e5da5ee0466c72a610f07aa73f/lib/shell.tlv':68, which
+	resulted in 'top.m4':175(ch13):
+	+------------vvvvvvvvvvvvvvvvvvvvvvvvvv---
+	>            $fetch_instr_str[40*8-1:0] = *instr_strs\[$pc[\$clog2(8+1)+1:2]\];
+	+------------^^^^^^^^^^^^^^^^^^^^^^^^^^---
+	Signal |view$fetch_instr_str is assigned but never used.
+	To silence this message use "`BOGUS_USE($fetch_instr_str)".
+
+WARNING(1) (UNUSED-SIG): File 'top.tlv' Line 123 (char 13)
+			-> instantiated: '/raw.githubusercontent.com/stevehoover/VSDOpen2020TLVRISCVTutorial/da942f09ddf780e5da5ee0466c72a610f07aa73f/lib/shell.tlv':63, which
+	resulted in 'top.m4':170(ch13):
+	+------------vvvvvvvvvvvvvvvvvvv----------
+	|   
+	>            $mnemonic[10*8-1:0] = $is_blt  ? "BLT       " :
+	|                                  $is_addi ? "ADDI      " :
+	|                                  $is_add  ? "ADD       " :  "UNKNOWN   ";
+	+------------^^^^^^^^^^^^^^^^^^^----------
+	Signal |view$mnemonic is assigned but never used.
+	To silence this message use "`BOGUS_USE($mnemonic)".
+
+WARNING(1) (UNUSED-SIG): File 'top.tlv' Line 123 (char 13)
+			-> instantiated: '/raw.githubusercontent.com/stevehoover/VSDOpen2020TLVRISCVTutorial/da942f09ddf780e5da5ee0466c72a610f07aa73f/lib/shell.tlv':66, which
+	resulted in 'top.m4':173(ch13):
+	+------------vvvvvv-----------------------
+	>            $valid = ! $reset;
+	+------------^^^^^^-----------------------
+	Signal |view$valid is assigned but never used.
+	To silence this message use "`BOGUS_USE($valid)".
+
+WARNING(1) (UNUSED-SIG): File 'top.tlv' Line 123 (char 16)
+			-> instantiated: '/raw.githubusercontent.com/stevehoover/VSDOpen2020TLVRISCVTutorial/da942f09ddf780e5da5ee0466c72a610f07aa73f/lib/shell.tlv':61, which
+	resulted in 'top.m4':168(ch16):
+	+---------------vvvvvvvvvvvvvvvvvvvv------
+	>               $instr_str[40*8-1:0] = *instr_strs[imem];
+	+---------------^^^^^^^^^^^^^^^^^^^^------
+	Signal |view/imem$instr_str is assigned but never used.
+	To silence this message use "`BOGUS_USE($instr_str)".
+
+GEN_ERROR(6) (EMPTY-ANY): File 'top.tlv' Line 123 (char 16)
+			-> instantiated: '/raw.githubusercontent.com/stevehoover/VSDOpen2020TLVRISCVTutorial/da942f09ddf780e5da5ee0466c72a610f07aa73f/lib/shell.tlv':60, which
+	resulted in 'top.m4':167(ch16):
+	+---------------v-------------------------
+	>               $ANY = /top/imem<>0$ANY;
+	+---------------^-------------------------
+	Wildcarded assignment with no signals pulled through it.  This is not yet supported.
+
+GEN_ERROR(6) (EMPTY-ANY): File 'top.tlv' Line 123 (char 23)
+			-> instantiated: '/raw.githubusercontent.com/stevehoover/VSDOpen2020TLVRISCVTutorial/da942f09ddf780e5da5ee0466c72a610f07aa73f/lib/shell.tlv':60, which
+	resulted in 'top.m4':167(ch23):
+	+----------------------v------------------
+	>               $ANY = /top/imem<>0$ANY;
+	+----------------------^------------------
+	Wildcarded assignment with no signals pulled through it.  This is not yet supported.
+
+GEN_ERROR(6) (EMPTY-ANY): File 'top.tlv' Line 123 (char 16)
+			-> instantiated: '/raw.githubusercontent.com/stevehoover/VSDOpen2020TLVRISCVTutorial/da942f09ddf780e5da5ee0466c72a610f07aa73f/lib/shell.tlv':60, which
+	resulted in 'top.m4':167(ch16):
+	+---------------v-------------------------
+	>               $ANY = /top/imem<>0$ANY;
+	+---------------^-------------------------
+	Wildcarded assignment with no signals pulled through it.  This is not yet supported.
+
+GEN_ERROR(6) (EMPTY-ANY): File 'top.tlv' Line 123 (char 23)
+			-> instantiated: '/raw.githubusercontent.com/stevehoover/VSDOpen2020TLVRISCVTutorial/da942f09ddf780e5da5ee0466c72a610f07aa73f/lib/shell.tlv':60, which
+	resulted in 'top.m4':167(ch23):
+	+----------------------v------------------
+	>               $ANY = /top/imem<>0$ANY;
+	+----------------------^------------------
+	Wildcarded assignment with no signals pulled through it.  This is not yet supported.
+
+INFORM(0) (STATS):
+	SandPiper generated 47% of your HDL code.
+	This includes: 52 signal declarations, 5 flops/latches, and 0 conditional clock signals.
+	View "top_stats" for more details.
+ 
