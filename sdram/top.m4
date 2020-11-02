@@ -43,9 +43,12 @@
             
             
       @1
-         //?refresh_clk == 10'd25 : $refresh[9:0] = 10'd25;
-         //$refresh_clk[9:0] == 10'b0 ? : $refresh_clk[9:0] = 10'd25;
-         //?refresh_clk == 10'h3ff: $refresh_clk[9:0] = 10'd25;
+         //example
+         //                                if true        true             false
+         //assign  o_dbgwires_scope[2:0] = (o_ram_we_n)? i_ram_data[2:0] : o_ram_data[2:0];
+         //                   if true   true                          false
+         //$refresh_clk[9:0] = 10'd0 ? 10'd25 : >> $refresh_clk[9:0] : >> $refresh_clk[9:0]; 
+          
       @5
          //*in_data = $in_data[DW-1:0];
          //*out_data = $out_data[DW-1:0];
