@@ -1050,6 +1050,7 @@ endmodule
    // stimulus support, and Verilator config.
    module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    /* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  /* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */   // (Expanded in Nav-TLV pane.)
 \TLV
+   //NCA=9, NRA=13, AW=(NCA+NRA+2)-1, DW=32;
    $reset = *reset;
    $i_wb_cyc = *i_wb_cyc;
    $i_wb_stb = *i_wb_stb;
@@ -1069,20 +1070,17 @@ endmodule
    $o_ram_data[15:0] = *o_ram_data;
    $o_ram_dqm[1:0] = *o_ram_dqm;
    $o_debug[31:0] = *o_debug;
- 
-   /*
-   #(
-      .i_clk,
-		i_wb_cyc, i_wb_stb, i_wb_we, i_wb_addr, i_wb_data, i_wb_sel,
-			o_wb_ack, o_wb_stall, o_wb_data,
-		o_ram_cs_n, o_ram_cke, o_ram_ras_n, o_ram_cas_n, o_ram_we_n,
-			o_ram_bs, o_ram_addr,
-			o_ram_dmod, i_ram_data, o_ram_data, o_ram_dqm,
-		o_debug);
-   
-   \SV_plus 
-   */
-
+   $i_wb_cyc = *i_wb_cyc;
+   $i_wb_stb = *i_wb_stb;
+   $i_wb_we = *i_wb_we;
+   $i_wb_addr[23:0] = *i_wb_addr;
+   $i_wb_data[31:0] = *i_wb_data;
+   $i_wb_sel = *i_wb_sel;
+   $o_wb_ack = *o_wb_ack;
+   $o_wb_stall = *o_wb_stall;
+   $o_wb_data[31:0] = *o_wb_data; 
+    
+         
    //...
 
    // Assert these to end simulation (before Makerchip cycle limit).
