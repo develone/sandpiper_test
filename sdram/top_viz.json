@@ -1,0 +1,14 @@
+{
+   "sdram": {
+      "_typeof": "PIPELINE",
+      "wr": {
+         "_typeof": "BEH_HIER"
+      },
+      "rd": {
+         "_typeof": "BEH_HIER"
+      },
+      "refresh": {
+         "_typeof": "BEH_HIER"
+      }
+   }
+}

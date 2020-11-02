@@ -1,0 +1,54 @@
+\m4_TLV_version 1d: tl-x.org
+\SV
+
+   // =========================================
+   // Welcome!  Try the tutorials via the menu.
+   // =========================================
+
+   // Default Makerchip TL-Verilog Code Template
+   
+   // Macro providing required top-level module definition, random
+   // stimulus support, and Verilator config.
+   m4_makerchip_module   // (Expanded in Nav-TLV pane.)
+\TLV
+   $reset = *reset;
+   |sdram
+      @0
+         $refresh_clk[9:0] = *refresh_clk;
+         $need_refresh = *need_refresh;
+         $refresh_cmd = *refresh_cmd;
+         
+         localparam	NCA=9, NRA=13, AW=(NCA+NRA+2)-1, DW=32;
+         
+         $in_data[DW-1:0] = *in_data;
+         $out_data[DW-1:0] = *out_data;
+         $in_add[AW-1:0] = *in_add;
+         $bs[1:0] = *bs;
+         $dqm[1:0] = *dqm;
+         $cs = *cs;
+         $ras = *ras;
+         $cas = *cas;
+         $we = *we;
+         /wr
+            
+         /rd
+         /refresh
+            
+            //?$refresh_clk[9:0] != 10'b0 : $refresh_clk[9:0] = $refresh_clk[9:0] - 10'b1;
+            
+      @1
+         
+      @5
+         *in_data = $in_data[DW-1:0];
+         *out_data = $out_data[DW-1:0];
+         *in_add = $in_add[AW-1];
+         *refresh_clk = $refresh_clk[9:0] = 10'b1;
+         *refresh_clk[9:0] = 10'b0; 
+         
+   //...
+
+   // Assert these to end simulation (before Makerchip cycle limit).
+   *passed = *cyc_cnt > 40;
+   *failed = 1'b0;
+\SV
+   endmodule
