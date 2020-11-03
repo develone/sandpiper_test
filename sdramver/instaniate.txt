@@ -1,0 +1,113 @@
+   /SV_plus
+      wbsdram sdrami(
+      .$clk(i_clk),
+      .$i_wb_cyc(wb_cyc), .$i_wb_stb(wb_stb)&&(sdram_sel),
+      .$i_wb_we (wb_we), 
+      /* verilator lint_off WIDTH */
+      .$i_wb_addr[24-2:0](wb_add)[(24-2):0]), 
+      /* verilator lint_off WIDTH */
+      .$i_wb_data[31:0](wb_data), .$i_wb_sel(wb_sel),
+ 
+      sdram_ack, sdram_stall, sdram_data,
+      .$o_ram_cs_n(o_ram_cs_n), .$o_ram_cke(o_ram_cke),.$o_ram_ras_n(o_ram_ras_n), 
+      .$o_ram_cas_n(o_ram_cas_n), .$o_ram_we_n(o_ram_we_n),
+      .$o_ram_bs[1:0](o_ram_bs), .$o_ram_addr[12:0](o_ram_addr),
+      o_ram_drive_data, .$i_ram_data[15:0](i_ram_data),
+      .$o_ram_data[15:0](o_ram_data),.$o_ram_dqm[1:0](o_ram_dqm),
+      .$o_debug[31:0](o_debug)); 
+Example 1
+
+module dff (clk, d, q);
+input clk, d;
+output q;
+reg q;
+always @(posedge clk) q = d;
+endmodule
+ 
+module top;
+reg data, clock;
+wire q_out, net_1;
+  dff inst_1 (.d(data), .q(net_1), .clk(clock));
+  dff inst_2 (.clk(clock), .d(net_1), .q(q_out));
+endmodule
+
+In the top module there are two instantiations of the 'dff' module. In both cases port connections are done by name, so the port order is insignificant. The first port is input port 'd', the second is output 'q' and the last is the clock in the 'inst_1'. In the dff module the order of ports is different than either of the two instantiations.
+
+Example 2
+
+module dff (clk, d, q);
+input clk, d;
+output q;
+reg q;
+always @(posedge clk) q = d;
+endmodule
+ 
+module top;
+reg data, clock;
+wire q_out, net_1;
+  dff inst_1 (clock, data, net_1);
+  dff inst_2 (clock, net_1, q_out);
+endmodule
+
+Example 3
+
+dff inst_1 (clock, , net_1);
+
+Second port is unconnected and has the value Z because it is of the net type.
+
+Example 4
+
+module my_module (a, b, c);
+input a, b;
+output c;
+  assign c = a & b ;
+endmodule
+ 
+module top (a, b, c) ;
+input [3:0] a, b;
+output [3:0] c;
+  my_module inst [3:0] (a, b, c);
+endmodule
+
+TLV
+\m4_TLV_version 1d: tl-x.org
+\SV
+module dff (clk, d, q);
+input clk, d;
+output q;
+reg q;
+always @(posedge clk) q = d;
+endmodule
+
+   // =========================================
+   // Welcome!  Try the tutorials via the menu.
+   // =========================================
+
+   // Default Makerchip TL-Verilog Code Template
+   
+   // Macro providing required top-level module definition, random
+   // stimulus support, and Verilator config.
+   m4_makerchip_module   // (Expanded in Nav-TLV pane.)
+\TLV dff($data,$q_out,$net_1)
+   $reset = *reset;
+   //$data = *data;
+   //$q_out = *q_out;
+   //$net_1 = *net_1;
+   
+   //SV_plus
+      dff  #(.d($data), .q($net_1), .clk($clk));
+      //dff inst_2 (.clk($clk), .d($net_1), .q($q_out));
+   SV_plus
+      dff inst_1 (.$data(dats), .$net_1(q), .$clk(clk));
+      //dff inst_2 (.$clk(clk), .$net_1(d), .$q_out(q));
+
+      
+   
+
+   //...
+
+   // Assert these to end simulation (before Makerchip cycle limit).
+   *passed = *cyc_cnt > 40;
+   *failed = 1'b0;
+\SV
+   endmodule

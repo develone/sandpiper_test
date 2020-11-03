@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <meta http-equiv="description" content="top.html">
+   <meta http-equiv="keywords" content="tl-verilog">
+
+   <title>top.m4</title>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+   <script src="http://www.rweda.com/lib/sp_1.9-2018_02_11-beta/ide.js"></script>
+   <link rel="stylesheet" href="http://www.rweda.com/lib/sp_1.9-2018_02_11-beta/ide.css" />
+
+<style>
+/*
+Copyright (c) 2015, Steven F. Hoover
+All rights reserved.
+*/
+.tlv_ident_error {
+  color: red;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_pipeline {
+  color: orange;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_beh_hier_1 {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_beh_hier_2 {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_grouping {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_pipe_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_state_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_sig_keyword {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_assigned_pipe_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_assigned_state_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_assigned_sig_keyword {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_malformed_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_malformed_assigned_sig {
+  color: purple;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_when {
+  color: #E04010;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_sv_when {
+  color: #E04010;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_phys_hier {
+  color: blue;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_phys_beh_hier {
+  color: #1090c0;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_stage_name {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_expr {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_next_operator {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_incr_expr {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_prev_operator {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_stage_decr_expr {
+  color: #509050;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_alignment_expr_1ab {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_expr_1c {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_keyword_1c {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_ahead_expr {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_behind_expr {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_zero_expr {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_crosspipe_name {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_ahead_name {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_alignment_behind_name {
+  color: #00D000;
+  font-style: normal;
+  font-weight: 600;
+}
+.tlv_ident_tlv_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_proj_rtl_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_misc_rtl_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_proj_attribute {
+  color: #503890;
+  font-style: italic;
+  font-weight: normal;
+}
+.tlv_ident_sv_sig {
+  color: #00008b;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_sv_datatype {
+  color: DarkRed;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_keyword1 {
+  color: Blue;
+  font-style: normal;
+  font-weight: normal;
+}
+.tlv_ident_comment {
+  color: #808080;
+  font-style: italic;
+  font-weight: 600;
+}
+.tlv_ident_hdl_code {
+  color: #00008b;
+  font-style: normal;
+  font-weight: normal;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>top.m4</h2>
+
+<pre>
+<span class="line" line-num="1" source-line-num="1"><span class="tlv_ident_keyword1">\TLV_version 1d: tl-x.org</span></span>
+<span class="line" line-num="2" source-line-num="2"><span class="tlv_ident_keyword1">\SV</span></span>
+<span class="line" line-num="3" source-line-num="3"><span class="tlv_ident_comment">////////////////////////////////////////////////////////////////////////////////</span></span>
+<span class="line" line-num="4" source-line-num="4"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="5" source-line-num="5"><span class="tlv_ident_comment">// Filename: 	wbsdram.v</span></span>
+<span class="line" line-num="6" source-line-num="6"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="7" source-line-num="7"><span class="tlv_ident_comment">// Project:	ArrowZip, a demonstration of the Arrow MAX1000 FPGA board</span></span>
+<span class="line" line-num="8" source-line-num="8"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="9" source-line-num="9"><span class="tlv_ident_comment">// Purpose:	Provide 32-bit wishbone access to the SDRAM memory on a MAX1000</span></span>
+<span class="line" line-num="10" source-line-num="10"><span class="tlv_ident_comment">//		board.  Specifically, on each access, the controller will</span></span>
+<span class="line" line-num="11" source-line-num="11"><span class="tlv_ident_comment">//	activate an appropriate bank of RAM (the SDRAM has four banks), and</span></span>
+<span class="line" line-num="12" source-line-num="12"><span class="tlv_ident_comment">//	then issue the read/write command.  In the case of walking off the</span></span>
+<span class="line" line-num="13" source-line-num="13"><span class="tlv_ident_comment">//	bank, the controller will activate the next bank before you get to it.</span></span>
+<span class="line" line-num="14" source-line-num="14"><span class="tlv_ident_comment">//	Upon concluding any wishbone access, all banks will be precharged and</span></span>
+<span class="line" line-num="15" source-line-num="15"><span class="tlv_ident_comment">//	returned to idle.</span></span>
+<span class="line" line-num="16" source-line-num="16"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="17" source-line-num="17"><span class="tlv_ident_comment">//	This particular implementation represents a second generation version</span></span>
+<span class="line" line-num="18" source-line-num="18"><span class="tlv_ident_comment">//	because my first version was too complex.  To speed things up, this</span></span>
+<span class="line" line-num="19" source-line-num="19"><span class="tlv_ident_comment">//	version includes an extra wait state where the wishbone inputs are</span></span>
+<span class="line" line-num="20" source-line-num="20"><span class="tlv_ident_comment">//	clocked into a flip flop before any action is taken on them.</span></span>
+<span class="line" line-num="21" source-line-num="21"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="22" source-line-num="22"><span class="tlv_ident_comment">// Creator:	Dan Gisselquist, Ph.D.</span></span>
+<span class="line" line-num="23" source-line-num="23"><span class="tlv_ident_comment">//		Gisselquist Technology, LLC</span></span>
+<span class="line" line-num="24" source-line-num="24"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="25" source-line-num="25"><span class="tlv_ident_comment">////////////////////////////////////////////////////////////////////////////////</span></span>
+<span class="line" line-num="26" source-line-num="26"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="27" source-line-num="27"><span class="tlv_ident_comment">// Copyright (C) 2015-2019, Gisselquist Technology, LLC</span></span>
+<span class="line" line-num="28" source-line-num="28"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="29" source-line-num="29"><span class="tlv_ident_comment">// This program is free software (firmware): you can redistribute it and/or</span></span>
+<span class="line" line-num="30" source-line-num="30"><span class="tlv_ident_comment">// modify it under the terms of  the GNU General Public License as published</span></span>
+<span class="line" line-num="31" source-line-num="31"><span class="tlv_ident_comment">// by the Free Software Foundation, either version 3 of the License, or (at</span></span>
+<span class="line" line-num="32" source-line-num="32"><span class="tlv_ident_comment">// your option) any later version.</span></span>
+<span class="line" line-num="33" source-line-num="33"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="34" source-line-num="34"><span class="tlv_ident_comment">// This program is distributed in the hope that it will be useful, but WITHOUT</span></span>
+<span class="line" line-num="35" source-line-num="35"><span class="tlv_ident_comment">// ANY WARRANTY; without even the implied warranty of MERCHANTIBILITY or</span></span>
+<span class="line" line-num="36" source-line-num="36"><span class="tlv_ident_comment">// FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</span></span>
+<span class="line" line-num="37" source-line-num="37"><span class="tlv_ident_comment">// for more details.</span></span>
+<span class="line" line-num="38" source-line-num="38"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="39" source-line-num="39"><span class="tlv_ident_comment">// You should have received a copy of the GNU General Public License along</span></span>
+<span class="line" line-num="40" source-line-num="40"><span class="tlv_ident_comment">// with this program.  (It's in the $(ROOT)/doc directory.  Run make with no</span></span>
+<span class="line" line-num="41" source-line-num="41"><span class="tlv_ident_comment">// target there if the PDF file isn't present.)  If not, see</span></span>
+<span class="line" line-num="42" source-line-num="42"><span class="tlv_ident_comment">// &lt;http://www.gnu.org/licenses/&gt; for a copy.</span></span>
+<span class="line" line-num="43" source-line-num="43"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="44" source-line-num="44"><span class="tlv_ident_comment">// License:	GPL, v3, as defined and found on www.gnu.org,</span></span>
+<span class="line" line-num="45" source-line-num="45"><span class="tlv_ident_comment">//		http://www.gnu.org/licenses/gpl.html</span></span>
+<span class="line" line-num="46" source-line-num="46"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="47" source-line-num="47"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="48" source-line-num="48"><span class="tlv_ident_comment">////////////////////////////////////////////////////////////////////////////////</span></span>
+<span class="line" line-num="49" source-line-num="49"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="50" source-line-num="50"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="51" source-line-num="51"><span class="tlv_ident_hdl_code">`default_nettype	none</span></span>
+<span class="line" line-num="52" source-line-num="52"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="53" source-line-num="53"><span class="tlv_ident_hdl_code">`define	DMOD_GETINPUT	1'b0</span></span>
+<span class="line" line-num="54" source-line-num="54"><span class="tlv_ident_hdl_code">`define	DMOD_PUTOUTPUT	1'b1</span></span>
+<span class="line" line-num="55" source-line-num="55"><span class="tlv_ident_hdl_code">`define	RAM_OPERATIONAL	2'b00</span></span>
+<span class="line" line-num="56" source-line-num="56"><span class="tlv_ident_hdl_code">`define	RAM_POWER_UP	2'b01</span></span>
+<span class="line" line-num="57" source-line-num="57"><span class="tlv_ident_hdl_code">`define	RAM_SET_MODE	2'b10</span></span>
+<span class="line" line-num="58" source-line-num="58"><span class="tlv_ident_hdl_code">`define	RAM_INITIAL_REFRESH	2'b11</span></span>
+<span class="line" line-num="59" source-line-num="59"><span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="60" source-line-num="60"><span class="tlv_ident_hdl_code">module	wbsdram(i_clk,</span></span>
+<span class="line" line-num="61" source-line-num="61">		<span class="tlv_ident_hdl_code">i_wb_cyc, i_wb_stb, i_wb_we, i_wb_addr, i_wb_data, i_wb_sel,</span></span>
+<span class="line" line-num="62" source-line-num="62">			<span class="tlv_ident_hdl_code">o_wb_ack, o_wb_stall, o_wb_data,</span></span>
+<span class="line" line-num="63" source-line-num="63">		<span class="tlv_ident_hdl_code">o_ram_cs_n, o_ram_cke, o_ram_ras_n, o_ram_cas_n, o_ram_we_n,</span></span>
+<span class="line" line-num="64" source-line-num="64">			<span class="tlv_ident_hdl_code">o_ram_bs, o_ram_addr,</span></span>
+<span class="line" line-num="65" source-line-num="65">			<span class="tlv_ident_hdl_code">o_ram_dmod, i_ram_data, o_ram_data, o_ram_dqm,</span></span>
+<span class="line" line-num="66" source-line-num="66">		<span class="tlv_ident_hdl_code">o_debug);</span></span>
+<span class="line" line-num="67" source-line-num="67">	<span class="tlv_ident_hdl_code">parameter	RDLY = 6;</span></span>
+<span class="line" line-num="68" source-line-num="68">	<span class="tlv_ident_hdl_code">localparam	NCA=9, NRA=13, AW=(NCA+NRA+2)-1, DW=32;</span></span>
+<span class="line" line-num="69" source-line-num="69">	<span class="tlv_ident_hdl_code">localparam	[NCA-2:0] COL_THRESHOLD = -16;</span></span>
+<span class="line" line-num="70" source-line-num="70">	<span class="tlv_ident_hdl_code">input	wire			i_clk;</span></span>
+<span class="line" line-num="71" source-line-num="71">	<span class="tlv_ident_comment">// Wishbone</span></span>
+<span class="line" line-num="72" source-line-num="72">	<span class="tlv_ident_comment">//	inputs</span></span>
+<span class="line" line-num="73" source-line-num="73">	<span class="tlv_ident_hdl_code">input	wire			i_wb_cyc, i_wb_stb, i_wb_we;</span></span>
+<span class="line" line-num="74" source-line-num="74">	<span class="tlv_ident_hdl_code">input	wire	[(AW-1):0]	i_wb_addr;</span></span>
+<span class="line" line-num="75" source-line-num="75">	<span class="tlv_ident_hdl_code">input	wire	[(DW-1):0]	i_wb_data;</span></span>
+<span class="line" line-num="76" source-line-num="76">	<span class="tlv_ident_hdl_code">input	wire	[(DW/8-1):0]	i_wb_sel;</span></span>
+<span class="line" line-num="77" source-line-num="77">	<span class="tlv_ident_comment">//	outputs</span></span>
+<span class="line" line-num="78" source-line-num="78">	<span class="tlv_ident_hdl_code">output	wire		o_wb_ack;</span></span>
+<span class="line" line-num="79" source-line-num="79">	<span class="tlv_ident_hdl_code">output	reg		o_wb_stall;</span></span>
+<span class="line" line-num="80" source-line-num="80">	<span class="tlv_ident_hdl_code">output	wire [31:0]	o_wb_data;</span></span>
+<span class="line" line-num="81" source-line-num="81">	<span class="tlv_ident_comment">// SDRAM control</span></span>
+<span class="line" line-num="82" source-line-num="82">	<span class="tlv_ident_hdl_code">output	wire		o_ram_cke;</span></span>
+<span class="line" line-num="83" source-line-num="83">	<span class="tlv_ident_hdl_code">output	reg		o_ram_cs_n,</span></span>
+<span class="line" line-num="84" source-line-num="84">				<span class="tlv_ident_hdl_code">o_ram_ras_n, o_ram_cas_n, o_ram_we_n;</span></span>
+<span class="line" line-num="85" source-line-num="85">	<span class="tlv_ident_hdl_code">output	reg	[1:0]	o_ram_bs;</span></span>
+<span class="line" line-num="86" source-line-num="86">	<span class="tlv_ident_hdl_code">output	reg	[12:0]	o_ram_addr;</span></span>
+<span class="line" line-num="87" source-line-num="87">	<span class="tlv_ident_hdl_code">output	reg		o_ram_dmod;</span></span>
+<span class="line" line-num="88" source-line-num="88">	<span class="tlv_ident_hdl_code">input		[15:0]	i_ram_data;</span></span>
+<span class="line" line-num="89" source-line-num="89">	<span class="tlv_ident_hdl_code">output	reg	[15:0]	o_ram_data;</span></span>
+<span class="line" line-num="90" source-line-num="90">	<span class="tlv_ident_hdl_code">output	reg	[1:0]	o_ram_dqm;</span></span>
+<span class="line" line-num="91" source-line-num="91">	<span class="tlv_ident_hdl_code">output	wire [(DW-1):0]	o_debug;</span></span>
+<span class="line" line-num="92" source-line-num="92"></span>
+<span class="line" line-num="93" source-line-num="93"></span>
+<span class="line" line-num="94" source-line-num="94">	<span class="tlv_ident_comment">// Calculate some metrics</span></span>
+<span class="line" line-num="95" source-line-num="95"></span>
+<span class="line" line-num="96" source-line-num="96">	<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="97" source-line-num="97">	<span class="tlv_ident_comment">// First, do we *need* a refresh now --- i.e., must we break out of</span></span>
+<span class="line" line-num="98" source-line-num="98">	<span class="tlv_ident_comment">// whatever we are doing to issue a refresh command?</span></span>
+<span class="line" line-num="99" source-line-num="99">	<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="100" source-line-num="100">	<span class="tlv_ident_comment">// The step size here must be such that 8192 charges may be done in</span></span>
+<span class="line" line-num="101" source-line-num="101">	<span class="tlv_ident_comment">// 64 ms.  Thus for a clock of:</span></span>
+<span class="line" line-num="102" source-line-num="102">	<span class="tlv_ident_comment">//	ClkRate(MHz)	(64ms/1000(ms/s)*ClkRate)/8192</span></span>
+<span class="line" line-num="103" source-line-num="103">	<span class="tlv_ident_comment">//	100 MHz		781</span></span>
+<span class="line" line-num="104" source-line-num="104">	<span class="tlv_ident_comment">//	 96 MHz		750</span></span>
+<span class="line" line-num="105" source-line-num="105">	<span class="tlv_ident_comment">//	 92 MHz		718</span></span>
+<span class="line" line-num="106" source-line-num="106">	<span class="tlv_ident_comment">//	 88 MHz		687</span></span>
+<span class="line" line-num="107" source-line-num="107">	<span class="tlv_ident_comment">//	 84 MHz		656</span></span>
+<span class="line" line-num="108" source-line-num="108">	<span class="tlv_ident_comment">//	 80 MHz		625</span></span>
+<span class="line" line-num="109" source-line-num="109">	<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="110" source-line-num="110">	<span class="tlv_ident_comment">// However, since we do two refresh cycles everytime we need a refresh,</span></span>
+<span class="line" line-num="111" source-line-num="111">	<span class="tlv_ident_comment">// this standard is close to overkill--but we'll use it anyway.  At</span></span>
+<span class="line" line-num="112" source-line-num="112">	<span class="tlv_ident_comment">// some later time we should address this, once we are entirely</span></span>
+<span class="line" line-num="113" source-line-num="113">	<span class="tlv_ident_comment">// convinced that the memory is otherwise working without failure.  Of</span></span>
+<span class="line" line-num="114" source-line-num="114">	<span class="tlv_ident_comment">// course, at that time, it may no longer be a priority ...</span></span>
+<span class="line" line-num="115" source-line-num="115">	<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="116" source-line-num="116">	<span class="tlv_ident_hdl_code">reg		need_refresh;</span></span>
+<span class="line" line-num="117" source-line-num="117">	<span class="tlv_ident_hdl_code">reg	[9:0]	refresh_clk;</span></span>
+<span class="line" line-num="118" source-line-num="118">	<span class="tlv_ident_hdl_code">wire	refresh_cmd;</span></span>
+<span class="line" line-num="119" source-line-num="119">	<span class="tlv_ident_hdl_code">assign	refresh_cmd = (!o_ram_cs_n)&amp;&amp;(!o_ram_ras_n)&amp;&amp;(!o_ram_cas_n)&amp;&amp;(o_ram_we_n);</span></span>
+<span class="line" line-num="120" source-line-num="120">	<span class="tlv_ident_hdl_code">initial	refresh_clk = 0;</span></span>
+<span class="line" line-num="121" source-line-num="121">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="122" source-line-num="122">	<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="123" source-line-num="123">		<span class="tlv_ident_hdl_code">if (refresh_cmd)</span></span>
+<span class="line" line-num="124" source-line-num="124">			<span class="tlv_ident_comment">//refresh_clk &lt;= 10'd625; // Make suitable for 80 MHz clk</span></span>
+<span class="line" line-num="125" source-line-num="125">			<span class="tlv_ident_hdl_code">refresh_clk &lt;= 10'd313; </span><span class="tlv_ident_comment">// Make suitable for 40 MHz clk</span></span>
+<span class="line" line-num="126" source-line-num="126">		<span class="tlv_ident_hdl_code">else if (|refresh_clk)</span></span>
+<span class="line" line-num="127" source-line-num="127">			<span class="tlv_ident_hdl_code">refresh_clk &lt;= refresh_clk - 10'h1;</span></span>
+<span class="line" line-num="128" source-line-num="128">	<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="129" source-line-num="129">	<span class="tlv_ident_hdl_code">initial	need_refresh = 1'b0;</span></span>
+<span class="line" line-num="130" source-line-num="130">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="131" source-line-num="131">		<span class="tlv_ident_hdl_code">need_refresh &lt;= (refresh_clk == 10'h00)&amp;&amp;(!refresh_cmd);</span></span>
+<span class="line" line-num="132" source-line-num="132"></span>
+<span class="line" line-num="133" source-line-num="133">	<span class="tlv_ident_hdl_code">reg	in_refresh;</span></span>
+<span class="line" line-num="134" source-line-num="134">	<span class="tlv_ident_hdl_code">reg	[2:0]	in_refresh_clk;</span></span>
+<span class="line" line-num="135" source-line-num="135">	<span class="tlv_ident_hdl_code">initial	in_refresh_clk = 3'h0;</span></span>
+<span class="line" line-num="136" source-line-num="136">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="137" source-line-num="137">		<span class="tlv_ident_hdl_code">if (refresh_cmd)</span></span>
+<span class="line" line-num="138" source-line-num="138">			<span class="tlv_ident_hdl_code">in_refresh_clk &lt;= 3'h6;</span></span>
+<span class="line" line-num="139" source-line-num="139">		<span class="tlv_ident_hdl_code">else if (|in_refresh_clk)</span></span>
+<span class="line" line-num="140" source-line-num="140">			<span class="tlv_ident_hdl_code">in_refresh_clk &lt;= in_refresh_clk - 3'h1;</span></span>
+<span class="line" line-num="141" source-line-num="141">	<span class="tlv_ident_hdl_code">initial	in_refresh = 0;</span></span>
+<span class="line" line-num="142" source-line-num="142">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="143" source-line-num="143">		<span class="tlv_ident_hdl_code">in_refresh &lt;= (in_refresh_clk != 3'h0)||(refresh_cmd);</span></span>
+<span class="line" line-num="144" source-line-num="144"><span class="tlv_ident_hdl_code">`ifdef	FORMAL</span></span>
+<span class="line" line-num="145" source-line-num="145">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="146" source-line-num="146">		<span class="tlv_ident_hdl_code">if (in_refresh)</span></span>
+<span class="line" line-num="147" source-line-num="147">			<span class="tlv_ident_hdl_code">assert((refresh_cmd)||($past(in_refresh_clk) &lt;= 3'h6));</span></span>
+<span class="line" line-num="148" source-line-num="148">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="149" source-line-num="149">		<span class="tlv_ident_hdl_code">if (in_refresh)</span></span>
+<span class="line" line-num="150" source-line-num="150">			<span class="tlv_ident_hdl_code">assert(refresh_clk==10'd619+{{(7){1'b0}},in_refresh_clk});</span></span>
+<span class="line" line-num="151" source-line-num="151"><span class="tlv_ident_hdl_code">`endif</span></span>
+<span class="line" line-num="152" source-line-num="152"></span>
+<span class="line" line-num="153" source-line-num="153"></span>
+<span class="line" line-num="154" source-line-num="154">	<span class="tlv_ident_hdl_code">reg	[2:0]		bank_active	[0:3];</span></span>
+<span class="line" line-num="155" source-line-num="155">	<span class="tlv_ident_hdl_code">reg	[(RDLY-1):0]	r_barrell_ack;</span></span>
+<span class="line" line-num="156" source-line-num="156">	<span class="tlv_ident_hdl_code">reg			r_pending;</span></span>
+<span class="line" line-num="157" source-line-num="157">	<span class="tlv_ident_hdl_code">reg			r_we;</span></span>
+<span class="line" line-num="158" source-line-num="158">	<span class="tlv_ident_hdl_code">reg	[(AW-1):0]	r_addr;</span></span>
+<span class="line" line-num="159" source-line-num="159">	<span class="tlv_ident_hdl_code">reg	[31:0]		r_data;</span></span>
+<span class="line" line-num="160" source-line-num="160">	<span class="tlv_ident_hdl_code">reg	[3:0]		r_sel;</span></span>
+<span class="line" line-num="161" source-line-num="161">	<span class="tlv_ident_hdl_code">reg	[(AW-NCA-2):0]	bank_row	[0:3];</span></span>
+<span class="line" line-num="162" source-line-num="162"></span>
+<span class="line" line-num="163" source-line-num="163"></span>
+<span class="line" line-num="164" source-line-num="164">	<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="165" source-line-num="165">	<span class="tlv_ident_comment">// Second, do we *need* a precharge now --- must be break out of</span></span>
+<span class="line" line-num="166" source-line-num="166">	<span class="tlv_ident_comment">// whatever we are doing to issue a precharge command?</span></span>
+<span class="line" line-num="167" source-line-num="167">	<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="168" source-line-num="168">	<span class="tlv_ident_comment">// Keep in mind, the number of clocks to wait has to be reduced by</span></span>
+<span class="line" line-num="169" source-line-num="169">	<span class="tlv_ident_comment">// the amount of time it may take us to go into a precharge state.</span></span>
+<span class="line" line-num="170" source-line-num="170">	<span class="tlv_ident_comment">// You may also notice that the precharge requirement is tighter</span></span>
+<span class="line" line-num="171" source-line-num="171">	<span class="tlv_ident_comment">// than this one, so ... perhaps this isn't as required?</span></span>
+<span class="line" line-num="172" source-line-num="172">	<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="173" source-line-num="173"></span>
+<span class="line" line-num="174" source-line-num="174">	<span class="tlv_ident_hdl_code">reg	[2:0]	clocks_til_idle;</span></span>
+<span class="line" line-num="175" source-line-num="175">	<span class="tlv_ident_hdl_code">reg	[1:0]	m_state;</span></span>
+<span class="line" line-num="176" source-line-num="176">	<span class="tlv_ident_hdl_code">wire		bus_cyc;</span></span>
+<span class="line" line-num="177" source-line-num="177">	<span class="tlv_ident_hdl_code">assign	bus_cyc  = ((i_wb_cyc)&amp;&amp;(i_wb_stb)&amp;&amp;(!o_wb_stall));</span></span>
+<span class="line" line-num="178" source-line-num="178">	<span class="tlv_ident_hdl_code">reg	nxt_dmod;</span></span>
+<span class="line" line-num="179" source-line-num="179"></span>
+<span class="line" line-num="180" source-line-num="180">	<span class="tlv_ident_comment">// Pre-process pending operations</span></span>
+<span class="line" line-num="181" source-line-num="181">	<span class="tlv_ident_hdl_code">wire	pending;</span></span>
+<span class="line" line-num="182" source-line-num="182">	<span class="tlv_ident_hdl_code">initial	r_pending = 1'b0;</span></span>
+<span class="line" line-num="183" source-line-num="183">	<span class="tlv_ident_hdl_code">reg	[(AW-1):0]	fwd_addr;</span></span>
+<span class="line" line-num="184" source-line-num="184">	<span class="tlv_ident_hdl_code">initial	r_addr = 0;</span></span>
+<span class="line" line-num="185" source-line-num="185">	<span class="tlv_ident_hdl_code">initial	fwd_addr = { {(AW-(NCA)){1'b0}}, 1'b1, {(NCA-1){1'b0}} };</span></span>
+<span class="line" line-num="186" source-line-num="186">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="187" source-line-num="187">	<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="188" source-line-num="188">		<span class="tlv_ident_hdl_code">fwd_addr[NCA-2:0] &lt;= 0;</span></span>
+<span class="line" line-num="189" source-line-num="189">		<span class="tlv_ident_hdl_code">if (bus_cyc)</span></span>
+<span class="line" line-num="190" source-line-num="190">		<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="191" source-line-num="191">			<span class="tlv_ident_hdl_code">r_pending &lt;= 1'b1;</span></span>
+<span class="line" line-num="192" source-line-num="192">			<span class="tlv_ident_hdl_code">r_we      &lt;= i_wb_we;</span></span>
+<span class="line" line-num="193" source-line-num="193">			<span class="tlv_ident_hdl_code">r_addr    &lt;= i_wb_addr;</span></span>
+<span class="line" line-num="194" source-line-num="194">			<span class="tlv_ident_hdl_code">r_data    &lt;= i_wb_data;</span></span>
+<span class="line" line-num="195" source-line-num="195">			<span class="tlv_ident_hdl_code">r_sel     &lt;= i_wb_sel;</span></span>
+<span class="line" line-num="196" source-line-num="196">			<span class="tlv_ident_hdl_code">fwd_addr[AW-1:NCA-1]&lt;=i_wb_addr[(AW-1):(NCA-1)] + 1'b1;</span></span>
+<span class="line" line-num="197" source-line-num="197">		<span class="tlv_ident_hdl_code">end else if ((!o_ram_cs_n)&amp;&amp;(o_ram_ras_n)&amp;&amp;(!o_ram_cas_n))</span></span>
+<span class="line" line-num="198" source-line-num="198">			<span class="tlv_ident_hdl_code">r_pending &lt;= 1'b0;</span></span>
+<span class="line" line-num="199" source-line-num="199">		<span class="tlv_ident_hdl_code">else if (!i_wb_cyc)</span></span>
+<span class="line" line-num="200" source-line-num="200">			<span class="tlv_ident_hdl_code">r_pending &lt;= 1'b0;</span></span>
+<span class="line" line-num="201" source-line-num="201">	<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="202" source-line-num="202"></span>
+<span class="line" line-num="203" source-line-num="203"><span class="tlv_ident_hdl_code">`ifdef	FORMAL</span></span>
+<span class="line" line-num="204" source-line-num="204">	<span class="tlv_ident_hdl_code">always @(*)</span></span>
+<span class="line" line-num="205" source-line-num="205">		<span class="tlv_ident_hdl_code">assert(fwd_addr[AW-1:NCA-1] == r_addr[(AW-1):(NCA-1)] + 1'b1);</span></span>
+<span class="line" line-num="206" source-line-num="206">	<span class="tlv_ident_hdl_code">always @(*)</span></span>
+<span class="line" line-num="207" source-line-num="207">		<span class="tlv_ident_hdl_code">assert(fwd_addr[NCA-3:0] == 0);</span></span>
+<span class="line" line-num="208" source-line-num="208"><span class="tlv_ident_hdl_code">`endif</span></span>
+<span class="line" line-num="209" source-line-num="209"></span>
+<span class="line" line-num="210" source-line-num="210">	<span class="tlv_ident_hdl_code">wire	[1:0]	wb_bs, r_bs, fwd_bs;	</span><span class="tlv_ident_comment">// Bank select</span></span>
+<span class="line" line-num="211" source-line-num="211">	<span class="tlv_ident_hdl_code">assign	wb_bs = i_wb_addr[NCA:NCA-1];</span></span>
+<span class="line" line-num="212" source-line-num="212">	<span class="tlv_ident_hdl_code">assign	r_bs  =    r_addr[NCA:NCA-1];</span></span>
+<span class="line" line-num="213" source-line-num="213">	<span class="tlv_ident_hdl_code">assign fwd_bs =  fwd_addr[NCA:NCA-1];</span></span>
+<span class="line" line-num="214" source-line-num="214">	<span class="tlv_ident_hdl_code">wire	[NRA-1:0]	wb_row, r_row, fwd_row;</span></span>
+<span class="line" line-num="215" source-line-num="215">	<span class="tlv_ident_hdl_code">assign	wb_row = i_wb_addr[AW-1:NCA+1];</span></span>
+<span class="line" line-num="216" source-line-num="216">	<span class="tlv_ident_hdl_code">assign	 r_row =    r_addr[AW-1:NCA+1];</span></span>
+<span class="line" line-num="217" source-line-num="217">	<span class="tlv_ident_hdl_code">assign fwd_row =  fwd_addr[AW-1:NCA+1];</span></span>
+<span class="line" line-num="218" source-line-num="218"></span>
+<span class="line" line-num="219" source-line-num="219">	<span class="tlv_ident_hdl_code">reg	r_bank_valid;</span></span>
+<span class="line" line-num="220" source-line-num="220">	<span class="tlv_ident_hdl_code">initial	r_bank_valid = 1'b0;</span></span>
+<span class="line" line-num="221" source-line-num="221">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="222" source-line-num="222">		<span class="tlv_ident_hdl_code">if (bus_cyc)</span></span>
+<span class="line" line-num="223" source-line-num="223">			<span class="tlv_ident_hdl_code">r_bank_valid &lt;=((bank_active[wb_bs][2])</span></span>
+<span class="line" line-num="224" source-line-num="224">					<span class="tlv_ident_hdl_code">&amp;&amp;(bank_row[wb_bs] == wb_row));</span></span>
+<span class="line" line-num="225" source-line-num="225">		<span class="tlv_ident_hdl_code">else</span></span>
+<span class="line" line-num="226" source-line-num="226">			<span class="tlv_ident_hdl_code">r_bank_valid &lt;= ((bank_active[r_bs][2])</span></span>
+<span class="line" line-num="227" source-line-num="227">				<span class="tlv_ident_hdl_code">&amp;&amp;(bank_row[r_bs] == r_row));</span></span>
+<span class="line" line-num="228" source-line-num="228"></span>
+<span class="line" line-num="229" source-line-num="229">	<span class="tlv_ident_hdl_code">reg	fwd_bank_valid;</span></span>
+<span class="line" line-num="230" source-line-num="230">	<span class="tlv_ident_hdl_code">initial	fwd_bank_valid = 0;</span></span>
+<span class="line" line-num="231" source-line-num="231">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="232" source-line-num="232">		<span class="tlv_ident_hdl_code">fwd_bank_valid &lt;= ((bank_active[fwd_bs][2])</span></span>
+<span class="line" line-num="233" source-line-num="233">				<span class="tlv_ident_hdl_code">&amp;&amp;(bank_row[fwd_bs] == fwd_row));</span></span>
+<span class="line" line-num="234" source-line-num="234"></span>
+<span class="line" line-num="235" source-line-num="235">	<span class="tlv_ident_hdl_code">assign	pending = (r_pending)&amp;&amp;(o_wb_stall);</span></span>
+<span class="line" line-num="236" source-line-num="236"></span>
+<span class="line" line-num="237" source-line-num="237">	<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="238" source-line-num="238">	<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="239" source-line-num="239">	<span class="tlv_ident_comment">// Maintenance mode (i.e. startup) wires and logic</span></span>
+<span class="line" line-num="240" source-line-num="240">	<span class="tlv_ident_hdl_code">reg	maintenance_mode;</span></span>
+<span class="line" line-num="241" source-line-num="241">	<span class="tlv_ident_hdl_code">reg	m_ram_cs_n, m_ram_ras_n, m_ram_cas_n, m_ram_we_n, m_ram_dmod;</span></span>
+<span class="line" line-num="242" source-line-num="242">	<span class="tlv_ident_hdl_code">reg	[(NRA-1):0]	m_ram_addr;</span></span>
+<span class="line" line-num="243" source-line-num="243">	<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="244" source-line-num="244">	<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="245" source-line-num="245">	<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="246" source-line-num="246"></span>
+<span class="line" line-num="247" source-line-num="247">	<span class="tlv_ident_comment">// Address MAP:</span></span>
+<span class="line" line-num="248" source-line-num="248">	<span class="tlv_ident_comment">//	22-bits bits in, 23-bits out</span></span>
+<span class="line" line-num="249" source-line-num="249">	<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="250" source-line-num="250">	<span class="tlv_ident_comment">//	22 1111 1111 1100 0000 0000</span></span>
+<span class="line" line-num="251" source-line-num="251">	<span class="tlv_ident_comment">//	10 9876 5432 1098 7654 3210</span></span>
+<span class="line" line-num="252" source-line-num="252">	<span class="tlv_ident_comment">//	rr rrrr rrrr rrBB cccc cccc 0</span></span>
+<span class="line" line-num="253" source-line-num="253">	<span class="tlv_ident_comment">//	                  8765 4321 0</span></span>
+<span class="line" line-num="254" source-line-num="254">	<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="255" source-line-num="255">	<span class="tlv_ident_hdl_code">initial r_barrell_ack = 0;</span></span>
+<span class="line" line-num="256" source-line-num="256">	<span class="tlv_ident_hdl_code">initial	clocks_til_idle = 3'h0;</span></span>
+<span class="line" line-num="257" source-line-num="257">	<span class="tlv_ident_hdl_code">initial o_wb_stall = 1'b1;</span></span>
+<span class="line" line-num="258" source-line-num="258">	<span class="tlv_ident_hdl_code">initial	o_ram_dmod = `DMOD_GETINPUT;</span></span>
+<span class="line" line-num="259" source-line-num="259">	<span class="tlv_ident_hdl_code">initial	nxt_dmod = `DMOD_GETINPUT;</span></span>
+<span class="line" line-num="260" source-line-num="260">	<span class="tlv_ident_hdl_code">initial o_ram_cs_n  = 1'b0;</span></span>
+<span class="line" line-num="261" source-line-num="261">	<span class="tlv_ident_hdl_code">initial o_ram_ras_n = 1'b1;</span></span>
+<span class="line" line-num="262" source-line-num="262">	<span class="tlv_ident_hdl_code">initial o_ram_cas_n = 1'b1;</span></span>
+<span class="line" line-num="263" source-line-num="263">	<span class="tlv_ident_hdl_code">initial o_ram_we_n  = 1'b1;</span></span>
+<span class="line" line-num="264" source-line-num="264">	<span class="tlv_ident_hdl_code">initial	o_ram_dqm   = 2'b11;</span></span>
+<span class="line" line-num="265" source-line-num="265">	<span class="tlv_ident_hdl_code">assign	o_ram_cke   = 1'b1;</span></span>
+<span class="line" line-num="266" source-line-num="266">	<span class="tlv_ident_hdl_code">initial bank_active[0] = 3'b000;</span></span>
+<span class="line" line-num="267" source-line-num="267">	<span class="tlv_ident_hdl_code">initial bank_active[1] = 3'b000;</span></span>
+<span class="line" line-num="268" source-line-num="268">	<span class="tlv_ident_hdl_code">initial bank_active[2] = 3'b000;</span></span>
+<span class="line" line-num="269" source-line-num="269">	<span class="tlv_ident_hdl_code">initial bank_active[3] = 3'b000;</span></span>
+<span class="line" line-num="270" source-line-num="270">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="271" source-line-num="271">	<span class="tlv_ident_hdl_code">if (maintenance_mode)</span></span>
+<span class="line" line-num="272" source-line-num="272">	<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="273" source-line-num="273">		<span class="tlv_ident_hdl_code">bank_active[0] &lt;= 0;</span></span>
+<span class="line" line-num="274" source-line-num="274">		<span class="tlv_ident_hdl_code">bank_active[1] &lt;= 0;</span></span>
+<span class="line" line-num="275" source-line-num="275">		<span class="tlv_ident_hdl_code">bank_active[2] &lt;= 0;</span></span>
+<span class="line" line-num="276" source-line-num="276">		<span class="tlv_ident_hdl_code">bank_active[3] &lt;= 0;</span></span>
+<span class="line" line-num="277" source-line-num="277">		<span class="tlv_ident_hdl_code">r_barrell_ack[(RDLY-1):0] &lt;= 0;</span></span>
+<span class="line" line-num="278" source-line-num="278">		<span class="tlv_ident_hdl_code">o_wb_stall  &lt;= 1'b1;</span></span>
+<span class="line" line-num="279" source-line-num="279">		<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="280" source-line-num="280">		<span class="tlv_ident_hdl_code">o_ram_cs_n  &lt;= m_ram_cs_n;</span></span>
+<span class="line" line-num="281" source-line-num="281">		<span class="tlv_ident_hdl_code">o_ram_ras_n &lt;= m_ram_ras_n;</span></span>
+<span class="line" line-num="282" source-line-num="282">		<span class="tlv_ident_hdl_code">o_ram_cas_n &lt;= m_ram_cas_n;</span></span>
+<span class="line" line-num="283" source-line-num="283">		<span class="tlv_ident_hdl_code">o_ram_we_n  &lt;= m_ram_we_n;</span></span>
+<span class="line" line-num="284" source-line-num="284">		<span class="tlv_ident_hdl_code">o_ram_dmod  &lt;= m_ram_dmod;</span></span>
+<span class="line" line-num="285" source-line-num="285">		<span class="tlv_ident_hdl_code">o_ram_addr  &lt;= m_ram_addr;</span></span>
+<span class="line" line-num="286" source-line-num="286">		<span class="tlv_ident_hdl_code">o_ram_bs    &lt;= 2'b00;</span></span>
+<span class="line" line-num="287" source-line-num="287">		<span class="tlv_ident_hdl_code">nxt_dmod &lt;= `DMOD_GETINPUT;</span></span>
+<span class="line" line-num="288" source-line-num="288">	<span class="tlv_ident_hdl_code">end else begin</span></span>
+<span class="line" line-num="289" source-line-num="289">		<span class="tlv_ident_hdl_code">o_wb_stall &lt;= (r_pending)||(bus_cyc);</span></span>
+<span class="line" line-num="290" source-line-num="290">		<span class="tlv_ident_hdl_code">if (!i_wb_cyc)</span></span>
+<span class="line" line-num="291" source-line-num="291">			<span class="tlv_ident_hdl_code">r_barrell_ack &lt;= 0;</span></span>
+<span class="line" line-num="292" source-line-num="292">		<span class="tlv_ident_hdl_code">else</span></span>
+<span class="line" line-num="293" source-line-num="293">			<span class="tlv_ident_hdl_code">r_barrell_ack &lt;= r_barrell_ack &gt;&gt; 1;</span></span>
+<span class="line" line-num="294" source-line-num="294">		<span class="tlv_ident_hdl_code">nxt_dmod &lt;= `DMOD_GETINPUT;</span></span>
+<span class="line" line-num="295" source-line-num="295">		<span class="tlv_ident_hdl_code">o_ram_dmod &lt;= nxt_dmod;</span></span>
+<span class="line" line-num="296" source-line-num="296"></span>
+<span class="line" line-num="297" source-line-num="297">		<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="298" source-line-num="298">		<span class="tlv_ident_comment">// We assume that, whatever state the bank is in, that it</span></span>
+<span class="line" line-num="299" source-line-num="299">		<span class="tlv_ident_comment">// continues in that state and set up a series of shift</span></span>
+<span class="line" line-num="300" source-line-num="300">		<span class="tlv_ident_comment">// registers to contain that information.  If it will not</span></span>
+<span class="line" line-num="301" source-line-num="301">		<span class="tlv_ident_comment">// continue in that state, all that therefore needs to be</span></span>
+<span class="line" line-num="302" source-line-num="302">		<span class="tlv_ident_comment">// done is to set bank_active[?][2] below.</span></span>
+<span class="line" line-num="303" source-line-num="303">		<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="304" source-line-num="304">		<span class="tlv_ident_hdl_code">bank_active[0] &lt;= { bank_active[0][2], bank_active[0][2:1] };</span></span>
+<span class="line" line-num="305" source-line-num="305">		<span class="tlv_ident_hdl_code">bank_active[1] &lt;= { bank_active[1][2], bank_active[1][2:1] };</span></span>
+<span class="line" line-num="306" source-line-num="306">		<span class="tlv_ident_hdl_code">bank_active[2] &lt;= { bank_active[2][2], bank_active[2][2:1] };</span></span>
+<span class="line" line-num="307" source-line-num="307">		<span class="tlv_ident_hdl_code">bank_active[3] &lt;= { bank_active[3][2], bank_active[3][2:1] };</span></span>
+<span class="line" line-num="308" source-line-num="308">		<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="309" source-line-num="309">		<span class="tlv_ident_hdl_code">o_ram_cs_n &lt;= (!i_wb_cyc);</span></span>
+<span class="line" line-num="310" source-line-num="310">		<span class="tlv_ident_comment">// o_ram_cke  &lt;= 1'b1;</span></span>
+<span class="line" line-num="311" source-line-num="311">		<span class="tlv_ident_hdl_code">if (|clocks_til_idle[2:0])</span></span>
+<span class="line" line-num="312" source-line-num="312">			<span class="tlv_ident_hdl_code">clocks_til_idle[2:0] &lt;= clocks_til_idle[2:0] - 3'h1;</span></span>
+<span class="line" line-num="313" source-line-num="313"></span>
+<span class="line" line-num="314" source-line-num="314">		<span class="tlv_ident_comment">// Default command is a</span></span>
+<span class="line" line-num="315" source-line-num="315">		<span class="tlv_ident_comment">//	NOOP if (i_wb_cyc)</span></span>
+<span class="line" line-num="316" source-line-num="316">		<span class="tlv_ident_comment">//	Device deselect if (!i_wb_cyc)</span></span>
+<span class="line" line-num="317" source-line-num="317">		<span class="tlv_ident_comment">// o_ram_cs_n  &lt;= (!i_wb_cyc) above, NOOP</span></span>
+<span class="line" line-num="318" source-line-num="318">		<span class="tlv_ident_hdl_code">o_ram_ras_n &lt;= 1'b1;</span></span>
+<span class="line" line-num="319" source-line-num="319">		<span class="tlv_ident_hdl_code">o_ram_cas_n &lt;= 1'b1;</span></span>
+<span class="line" line-num="320" source-line-num="320">		<span class="tlv_ident_hdl_code">o_ram_we_n  &lt;= 1'b1;</span></span>
+<span class="line" line-num="321" source-line-num="321"></span>
+<span class="line" line-num="322" source-line-num="322">		<span class="tlv_ident_comment">// o_ram_data &lt;= r_data[15:0];</span></span>
+<span class="line" line-num="323" source-line-num="323"></span>
+<span class="line" line-num="324" source-line-num="324">		<span class="tlv_ident_hdl_code">if (nxt_dmod)</span></span>
+<span class="line" line-num="325" source-line-num="325">			<span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="326" source-line-num="326">		<span class="tlv_ident_hdl_code">else</span></span>
+<span class="line" line-num="327" source-line-num="327">		<span class="tlv_ident_hdl_code">if ((!i_wb_cyc)||(need_refresh))</span></span>
+<span class="line" line-num="328" source-line-num="328">		<span class="tlv_ident_hdl_code">begin </span><span class="tlv_ident_comment">// Issue a precharge all command (if any banks are open),</span></span>
+<span class="line" line-num="329" source-line-num="329">		<span class="tlv_ident_comment">// otherwise an autorefresh command</span></span>
+<span class="line" line-num="330" source-line-num="330">			<span class="tlv_ident_hdl_code">if ((bank_active[0][2:1]==2'b10)</span></span>
+<span class="line" line-num="331" source-line-num="331">					<span class="tlv_ident_hdl_code">||(bank_active[1][2:1]==2'b10)</span></span>
+<span class="line" line-num="332" source-line-num="332">					<span class="tlv_ident_hdl_code">||(bank_active[2][2:1]==2'b10)</span></span>
+<span class="line" line-num="333" source-line-num="333">					<span class="tlv_ident_hdl_code">||(bank_active[3][2:1]==2'b10)</span></span>
+<span class="line" line-num="334" source-line-num="334">				<span class="tlv_ident_hdl_code">||(|clocks_til_idle[2:0]))</span></span>
+<span class="line" line-num="335" source-line-num="335">			<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="336" source-line-num="336">				<span class="tlv_ident_comment">// Do nothing this clock</span></span>
+<span class="line" line-num="337" source-line-num="337">				<span class="tlv_ident_comment">// Can't precharge a bank immediately after</span></span>
+<span class="line" line-num="338" source-line-num="338">				<span class="tlv_ident_comment">// activating it</span></span>
+<span class="line" line-num="339" source-line-num="339">			<span class="tlv_ident_hdl_code">end else if (bank_active[0][2]</span></span>
+<span class="line" line-num="340" source-line-num="340">				<span class="tlv_ident_hdl_code">||(bank_active[1][2])</span></span>
+<span class="line" line-num="341" source-line-num="341">				<span class="tlv_ident_hdl_code">||(bank_active[2][2])</span></span>
+<span class="line" line-num="342" source-line-num="342">				<span class="tlv_ident_hdl_code">||(bank_active[3][2]))</span></span>
+<span class="line" line-num="343" source-line-num="343">			<span class="tlv_ident_hdl_code">begin  </span><span class="tlv_ident_comment">// Close all active banks</span></span>
+<span class="line" line-num="344" source-line-num="344">				<span class="tlv_ident_hdl_code">o_ram_cs_n  &lt;= 1'b0;</span></span>
+<span class="line" line-num="345" source-line-num="345">				<span class="tlv_ident_hdl_code">o_ram_ras_n &lt;= 1'b0;</span></span>
+<span class="line" line-num="346" source-line-num="346">				<span class="tlv_ident_hdl_code">o_ram_cas_n &lt;= 1'b1;</span></span>
+<span class="line" line-num="347" source-line-num="347">				<span class="tlv_ident_hdl_code">o_ram_we_n  &lt;= 1'b0;</span></span>
+<span class="line" line-num="348" source-line-num="348">				<span class="tlv_ident_hdl_code">o_ram_addr[10] &lt;= 1'b1;</span></span>
+<span class="line" line-num="349" source-line-num="349">				<span class="tlv_ident_hdl_code">bank_active[0][2] &lt;= 1'b0;</span></span>
+<span class="line" line-num="350" source-line-num="350">				<span class="tlv_ident_hdl_code">bank_active[1][2] &lt;= 1'b0;</span></span>
+<span class="line" line-num="351" source-line-num="351">				<span class="tlv_ident_hdl_code">bank_active[2][2] &lt;= 1'b0;</span></span>
+<span class="line" line-num="352" source-line-num="352">				<span class="tlv_ident_hdl_code">bank_active[3][2] &lt;= 1'b0;</span></span>
+<span class="line" line-num="353" source-line-num="353">			<span class="tlv_ident_hdl_code">end else if ((|bank_active[0])</span></span>
+<span class="line" line-num="354" source-line-num="354">					<span class="tlv_ident_hdl_code">||(|bank_active[1])</span></span>
+<span class="line" line-num="355" source-line-num="355">					<span class="tlv_ident_hdl_code">||(|bank_active[2])</span></span>
+<span class="line" line-num="356" source-line-num="356">					<span class="tlv_ident_hdl_code">||(|bank_active[3]))</span></span>
+<span class="line" line-num="357" source-line-num="357">				<span class="tlv_ident_comment">// Can't precharge yet, the bus is still busy</span></span>
+<span class="line" line-num="358" source-line-num="358">			<span class="tlv_ident_hdl_code">begin end else if ((!in_refresh)&amp;&amp;((refresh_clk[9:8]==2'b00)||(need_refresh)))</span></span>
+<span class="line" line-num="359" source-line-num="359">			<span class="tlv_ident_hdl_code">begin </span><span class="tlv_ident_comment">// Send autorefresh command</span></span>
+<span class="line" line-num="360" source-line-num="360">				<span class="tlv_ident_hdl_code">o_ram_cs_n  &lt;= 1'b0;</span></span>
+<span class="line" line-num="361" source-line-num="361">				<span class="tlv_ident_hdl_code">o_ram_ras_n &lt;= 1'b0;</span></span>
+<span class="line" line-num="362" source-line-num="362">				<span class="tlv_ident_hdl_code">o_ram_cas_n &lt;= 1'b0;</span></span>
+<span class="line" line-num="363" source-line-num="363">				<span class="tlv_ident_hdl_code">o_ram_we_n  &lt;= 1'b1;</span></span>
+<span class="line" line-num="364" source-line-num="364">			<span class="tlv_ident_hdl_code">end </span><span class="tlv_ident_comment">// Else just send NOOP's, the default command</span></span>
+<span class="line" line-num="365" source-line-num="365">		<span class="tlv_ident_hdl_code">end else if (in_refresh)</span></span>
+<span class="line" line-num="366" source-line-num="366">		<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="367" source-line-num="367">			<span class="tlv_ident_comment">// NOOPS only here, until we are out of refresh</span></span>
+<span class="line" line-num="368" source-line-num="368">		<span class="tlv_ident_hdl_code">end else if ((pending)&amp;&amp;(!r_bank_valid)&amp;&amp;(bank_active[r_bs]==3'h0))</span></span>
+<span class="line" line-num="369" source-line-num="369">		<span class="tlv_ident_hdl_code">begin </span><span class="tlv_ident_comment">// Need to activate the requested bank</span></span>
+<span class="line" line-num="370" source-line-num="370">			<span class="tlv_ident_hdl_code">o_ram_cs_n  &lt;= 1'b0;</span></span>
+<span class="line" line-num="371" source-line-num="371">			<span class="tlv_ident_hdl_code">o_ram_ras_n &lt;= 1'b0;</span></span>
+<span class="line" line-num="372" source-line-num="372">			<span class="tlv_ident_hdl_code">o_ram_cas_n &lt;= 1'b1;</span></span>
+<span class="line" line-num="373" source-line-num="373">			<span class="tlv_ident_hdl_code">o_ram_we_n  &lt;= 1'b1;</span></span>
+<span class="line" line-num="374" source-line-num="374">			<span class="tlv_ident_hdl_code">o_ram_addr  &lt;= r_row;</span></span>
+<span class="line" line-num="375" source-line-num="375">			<span class="tlv_ident_hdl_code">o_ram_bs    &lt;= r_bs;</span></span>
+<span class="line" line-num="376" source-line-num="376">			<span class="tlv_ident_comment">// clocks_til_idle[2:0] &lt;= 1;</span></span>
+<span class="line" line-num="377" source-line-num="377">			<span class="tlv_ident_hdl_code">bank_active[r_bs][2] &lt;= 1'b1;</span></span>
+<span class="line" line-num="378" source-line-num="378">			<span class="tlv_ident_hdl_code">bank_row[r_bs] &lt;= r_row;</span></span>
+<span class="line" line-num="379" source-line-num="379">			<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="380" source-line-num="380">		<span class="tlv_ident_hdl_code">end else if ((pending)&amp;&amp;(!r_bank_valid)</span></span>
+<span class="line" line-num="381" source-line-num="381">				<span class="tlv_ident_hdl_code">&amp;&amp;(bank_active[r_bs]==3'b111))</span></span>
+<span class="line" line-num="382" source-line-num="382">		<span class="tlv_ident_hdl_code">begin </span><span class="tlv_ident_comment">// Need to close an active bank</span></span>
+<span class="line" line-num="383" source-line-num="383">			<span class="tlv_ident_hdl_code">o_ram_cs_n  &lt;= 1'b0;</span></span>
+<span class="line" line-num="384" source-line-num="384">			<span class="tlv_ident_hdl_code">o_ram_ras_n &lt;= 1'b0;</span></span>
+<span class="line" line-num="385" source-line-num="385">			<span class="tlv_ident_hdl_code">o_ram_cas_n &lt;= 1'b1;</span></span>
+<span class="line" line-num="386" source-line-num="386">			<span class="tlv_ident_hdl_code">o_ram_we_n  &lt;= 1'b0;</span></span>
+<span class="line" line-num="387" source-line-num="387">			<span class="tlv_ident_comment">// o_ram_addr  &lt;= r_addr[(AW-1):(NCA+2)];</span></span>
+<span class="line" line-num="388" source-line-num="388">			<span class="tlv_ident_hdl_code">o_ram_addr[10]&lt;= 1'b0;</span></span>
+<span class="line" line-num="389" source-line-num="389">			<span class="tlv_ident_hdl_code">o_ram_bs    &lt;= r_bs;</span></span>
+<span class="line" line-num="390" source-line-num="390">			<span class="tlv_ident_comment">// clocks_til_idle[2:0] &lt;= 1;</span></span>
+<span class="line" line-num="391" source-line-num="391">			<span class="tlv_ident_hdl_code">bank_active[r_bs][2] &lt;= 1'b0;</span></span>
+<span class="line" line-num="392" source-line-num="392">			<span class="tlv_ident_comment">// bank_row[r_bs] &lt;= r_row;</span></span>
+<span class="line" line-num="393" source-line-num="393">		<span class="tlv_ident_hdl_code">end else if ((pending)&amp;&amp;(!r_we)</span></span>
+<span class="line" line-num="394" source-line-num="394">				<span class="tlv_ident_hdl_code">&amp;&amp;(bank_active[r_bs][2])</span></span>
+<span class="line" line-num="395" source-line-num="395">				<span class="tlv_ident_hdl_code">&amp;&amp;(r_bank_valid)</span></span>
+<span class="line" line-num="396" source-line-num="396">				<span class="tlv_ident_hdl_code">&amp;&amp;(clocks_til_idle[2:0] &lt; 4))</span></span>
+<span class="line" line-num="397" source-line-num="397">		<span class="tlv_ident_hdl_code">begin </span><span class="tlv_ident_comment">// Issue the read command</span></span>
+<span class="line" line-num="398" source-line-num="398">			<span class="tlv_ident_hdl_code">o_ram_cs_n  &lt;= 1'b0;</span></span>
+<span class="line" line-num="399" source-line-num="399">			<span class="tlv_ident_hdl_code">o_ram_ras_n &lt;= 1'b1;</span></span>
+<span class="line" line-num="400" source-line-num="400">			<span class="tlv_ident_hdl_code">o_ram_cas_n &lt;= 1'b0;</span></span>
+<span class="line" line-num="401" source-line-num="401">			<span class="tlv_ident_hdl_code">o_ram_we_n  &lt;= 1'b1;</span></span>
+<span class="line" line-num="402" source-line-num="402">			<span class="tlv_ident_hdl_code">o_ram_addr  &lt;= { 4'h0, r_addr[NCA-2:0], 1'b0 };</span></span>
+<span class="line" line-num="403" source-line-num="403">			<span class="tlv_ident_hdl_code">o_ram_bs    &lt;= r_bs;</span></span>
+<span class="line" line-num="404" source-line-num="404">			<span class="tlv_ident_hdl_code">clocks_til_idle[2:0] &lt;= 4;</span></span>
+<span class="line" line-num="405" source-line-num="405"></span>
+<span class="line" line-num="406" source-line-num="406">			<span class="tlv_ident_hdl_code">o_wb_stall &lt;= 1'b0;</span></span>
+<span class="line" line-num="407" source-line-num="407">			<span class="tlv_ident_hdl_code">r_barrell_ack[(RDLY-1)] &lt;= 1'b1;</span></span>
+<span class="line" line-num="408" source-line-num="408">		<span class="tlv_ident_hdl_code">end else if ((pending)&amp;&amp;(r_we)</span></span>
+<span class="line" line-num="409" source-line-num="409">			<span class="tlv_ident_hdl_code">&amp;&amp;(bank_active[r_bs][2])</span></span>
+<span class="line" line-num="410" source-line-num="410">			<span class="tlv_ident_hdl_code">&amp;&amp;(r_bank_valid)</span></span>
+<span class="line" line-num="411" source-line-num="411">			<span class="tlv_ident_hdl_code">&amp;&amp;(clocks_til_idle[2:0] == 0))</span></span>
+<span class="line" line-num="412" source-line-num="412">		<span class="tlv_ident_hdl_code">begin </span><span class="tlv_ident_comment">// Issue the write command</span></span>
+<span class="line" line-num="413" source-line-num="413">			<span class="tlv_ident_hdl_code">o_ram_cs_n  &lt;= 1'b0;</span></span>
+<span class="line" line-num="414" source-line-num="414">			<span class="tlv_ident_hdl_code">o_ram_ras_n &lt;= 1'b1;</span></span>
+<span class="line" line-num="415" source-line-num="415">			<span class="tlv_ident_hdl_code">o_ram_cas_n &lt;= 1'b0;</span></span>
+<span class="line" line-num="416" source-line-num="416">			<span class="tlv_ident_hdl_code">o_ram_we_n  &lt;= 1'b0;</span></span>
+<span class="line" line-num="417" source-line-num="417">			<span class="tlv_ident_hdl_code">o_ram_addr  &lt;= { 4'h0, r_addr[NCA-2:0], 1'b0 };</span></span>
+<span class="line" line-num="418" source-line-num="418">			<span class="tlv_ident_hdl_code">o_ram_bs    &lt;= r_bs;</span></span>
+<span class="line" line-num="419" source-line-num="419">			<span class="tlv_ident_hdl_code">clocks_til_idle[2:0] &lt;= 3'h1;</span></span>
+<span class="line" line-num="420" source-line-num="420"></span>
+<span class="line" line-num="421" source-line-num="421">			<span class="tlv_ident_hdl_code">o_wb_stall &lt;= 1'b0;</span></span>
+<span class="line" line-num="422" source-line-num="422">			<span class="tlv_ident_hdl_code">r_barrell_ack[1] &lt;= 1'b1;</span></span>
+<span class="line" line-num="423" source-line-num="423">			<span class="tlv_ident_comment">// o_ram_data &lt;= r_data[31:16];</span></span>
+<span class="line" line-num="424" source-line-num="424">			<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="425" source-line-num="425">			<span class="tlv_ident_hdl_code">o_ram_dmod &lt;= `DMOD_PUTOUTPUT;</span></span>
+<span class="line" line-num="426" source-line-num="426">			<span class="tlv_ident_hdl_code">nxt_dmod &lt;= `DMOD_PUTOUTPUT;</span></span>
+<span class="line" line-num="427" source-line-num="427">		<span class="tlv_ident_hdl_code">end else if ((r_pending)&amp;&amp;(r_addr[(NCA-2):0] &gt;= COL_THRESHOLD)</span></span>
+<span class="line" line-num="428" source-line-num="428">				<span class="tlv_ident_hdl_code">&amp;&amp;(!fwd_bank_valid))</span></span>
+<span class="line" line-num="429" source-line-num="429">		<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="430" source-line-num="430">			<span class="tlv_ident_comment">// Do I need to close the next bank I'll need?</span></span>
+<span class="line" line-num="431" source-line-num="431">			<span class="tlv_ident_hdl_code">if (bank_active[fwd_bs][2:1]==2'b11)</span></span>
+<span class="line" line-num="432" source-line-num="432">			<span class="tlv_ident_hdl_code">begin </span><span class="tlv_ident_comment">// Need to close the bank first</span></span>
+<span class="line" line-num="433" source-line-num="433">				<span class="tlv_ident_hdl_code">o_ram_cs_n &lt;= 1'b0;</span></span>
+<span class="line" line-num="434" source-line-num="434">				<span class="tlv_ident_hdl_code">o_ram_ras_n &lt;= 1'b0;</span></span>
+<span class="line" line-num="435" source-line-num="435">				<span class="tlv_ident_hdl_code">o_ram_cas_n &lt;= 1'b1;</span></span>
+<span class="line" line-num="436" source-line-num="436">				<span class="tlv_ident_hdl_code">o_ram_we_n  &lt;= 1'b0;</span></span>
+<span class="line" line-num="437" source-line-num="437">				<span class="tlv_ident_hdl_code">o_ram_addr[10] &lt;= 1'b0;</span></span>
+<span class="line" line-num="438" source-line-num="438">				<span class="tlv_ident_hdl_code">o_ram_bs       &lt;= fwd_bs;</span></span>
+<span class="line" line-num="439" source-line-num="439">				<span class="tlv_ident_hdl_code">bank_active[fwd_bs][2] &lt;= 1'b0;</span></span>
+<span class="line" line-num="440" source-line-num="440">			<span class="tlv_ident_hdl_code">end else if (bank_active[fwd_bs]==0)</span></span>
+<span class="line" line-num="441" source-line-num="441">			<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="442" source-line-num="442">				<span class="tlv_ident_comment">// Need to (pre-)activate the next bank</span></span>
+<span class="line" line-num="443" source-line-num="443">				<span class="tlv_ident_hdl_code">o_ram_cs_n  &lt;= 1'b0;</span></span>
+<span class="line" line-num="444" source-line-num="444">				<span class="tlv_ident_hdl_code">o_ram_ras_n &lt;= 1'b0;</span></span>
+<span class="line" line-num="445" source-line-num="445">				<span class="tlv_ident_hdl_code">o_ram_cas_n &lt;= 1'b1;</span></span>
+<span class="line" line-num="446" source-line-num="446">				<span class="tlv_ident_hdl_code">o_ram_we_n  &lt;= 1'b1;</span></span>
+<span class="line" line-num="447" source-line-num="447">				<span class="tlv_ident_hdl_code">o_ram_addr  &lt;= fwd_row;</span></span>
+<span class="line" line-num="448" source-line-num="448">				<span class="tlv_ident_hdl_code">o_ram_bs    &lt;= fwd_bs;</span></span>
+<span class="line" line-num="449" source-line-num="449">				<span class="tlv_ident_comment">// clocks_til_idle[3:0] &lt;= 1;</span></span>
+<span class="line" line-num="450" source-line-num="450">				<span class="tlv_ident_hdl_code">bank_active[fwd_bs] &lt;= 3'h4;</span></span>
+<span class="line" line-num="451" source-line-num="451">				<span class="tlv_ident_hdl_code">bank_row[fwd_bs] &lt;= fwd_row;</span></span>
+<span class="line" line-num="452" source-line-num="452">			<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="453" source-line-num="453">		<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="454" source-line-num="454">		<span class="tlv_ident_hdl_code">if (!i_wb_cyc)</span></span>
+<span class="line" line-num="455" source-line-num="455">			<span class="tlv_ident_hdl_code">r_barrell_ack &lt;= 0;</span></span>
+<span class="line" line-num="456" source-line-num="456">	<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="457" source-line-num="457"></span>
+<span class="line" line-num="458" source-line-num="458">	<span class="tlv_ident_hdl_code">reg		startup_hold;</span></span>
+<span class="line" line-num="459" source-line-num="459">	<span class="tlv_ident_hdl_code">reg	[15:0]	startup_idle;</span></span>
+<span class="line" line-num="460" source-line-num="460">	<span class="tlv_ident_hdl_code">initial	startup_idle = 16'd20500;</span></span>
+<span class="line" line-num="461" source-line-num="461">	<span class="tlv_ident_hdl_code">initial	startup_hold = 1'b1;</span></span>
+<span class="line" line-num="462" source-line-num="462">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="463" source-line-num="463">		<span class="tlv_ident_hdl_code">if (|startup_idle)</span></span>
+<span class="line" line-num="464" source-line-num="464">			<span class="tlv_ident_hdl_code">startup_idle &lt;= startup_idle - 1'b1;</span></span>
+<span class="line" line-num="465" source-line-num="465">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="466" source-line-num="466">		<span class="tlv_ident_hdl_code">startup_hold &lt;= |startup_idle;</span></span>
+<span class="line" line-num="467" source-line-num="467"><span class="tlv_ident_hdl_code">`ifdef	FORMAL</span></span>
+<span class="line" line-num="468" source-line-num="468">	<span class="tlv_ident_hdl_code">always @(*)</span></span>
+<span class="line" line-num="469" source-line-num="469">		<span class="tlv_ident_hdl_code">if (startup_hold)</span></span>
+<span class="line" line-num="470" source-line-num="470">			<span class="tlv_ident_hdl_code">assert(maintenance_mode);</span></span>
+<span class="line" line-num="471" source-line-num="471">	<span class="tlv_ident_hdl_code">always @(*)</span></span>
+<span class="line" line-num="472" source-line-num="472">		<span class="tlv_ident_hdl_code">if (|startup_idle)</span></span>
+<span class="line" line-num="473" source-line-num="473">			<span class="tlv_ident_hdl_code">assert(startup_hold);</span></span>
+<span class="line" line-num="474" source-line-num="474"><span class="tlv_ident_hdl_code">`endif</span></span>
+<span class="line" line-num="475" source-line-num="475"></span>
+<span class="line" line-num="476" source-line-num="476">	<span class="tlv_ident_hdl_code">reg	[3:0]	maintenance_clocks;</span></span>
+<span class="line" line-num="477" source-line-num="477">	<span class="tlv_ident_hdl_code">reg		maintenance_clocks_zero;</span></span>
+<span class="line" line-num="478" source-line-num="478">	<span class="tlv_ident_hdl_code">initial	maintenance_mode = 1'b1;</span></span>
+<span class="line" line-num="479" source-line-num="479">	<span class="tlv_ident_hdl_code">initial	maintenance_clocks = 4'hf;</span></span>
+<span class="line" line-num="480" source-line-num="480">	<span class="tlv_ident_hdl_code">initial	maintenance_clocks_zero = 1'b0;</span></span>
+<span class="line" line-num="481" source-line-num="481">	<span class="tlv_ident_hdl_code">initial	m_ram_addr  = { 3'b000, 1'b0, 2'b00, 3'b010, 1'b0, 3'b001 };</span></span>
+<span class="line" line-num="482" source-line-num="482">	<span class="tlv_ident_hdl_code">initial	m_state = `RAM_POWER_UP;</span></span>
+<span class="line" line-num="483" source-line-num="483">	<span class="tlv_ident_hdl_code">initial	m_ram_cs_n  = 1'b1;</span></span>
+<span class="line" line-num="484" source-line-num="484">	<span class="tlv_ident_hdl_code">initial	m_ram_ras_n = 1'b1;</span></span>
+<span class="line" line-num="485" source-line-num="485">	<span class="tlv_ident_hdl_code">initial	m_ram_cas_n = 1'b1;</span></span>
+<span class="line" line-num="486" source-line-num="486">	<span class="tlv_ident_hdl_code">initial	m_ram_we_n  = 1'b1;</span></span>
+<span class="line" line-num="487" source-line-num="487">	<span class="tlv_ident_hdl_code">initial	m_ram_dmod  = `DMOD_GETINPUT;</span></span>
+<span class="line" line-num="488" source-line-num="488">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="489" source-line-num="489">	<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="490" source-line-num="490">		<span class="tlv_ident_hdl_code">if (!maintenance_clocks_zero)</span></span>
+<span class="line" line-num="491" source-line-num="491">		<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="492" source-line-num="492">			<span class="tlv_ident_hdl_code">maintenance_clocks &lt;= maintenance_clocks - 4'h1;</span></span>
+<span class="line" line-num="493" source-line-num="493">			<span class="tlv_ident_hdl_code">maintenance_clocks_zero &lt;= (maintenance_clocks == 4'h1);</span></span>
+<span class="line" line-num="494" source-line-num="494">		<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="495" source-line-num="495">		<span class="tlv_ident_comment">// The only time the RAM address matters is when we set</span></span>
+<span class="line" line-num="496" source-line-num="496">		<span class="tlv_ident_comment">// the mode.  At other times, addr[10] matters, but the rest</span></span>
+<span class="line" line-num="497" source-line-num="497">		<span class="tlv_ident_comment">// is ignored.  Hence ... we'll set it to a constant.</span></span>
+<span class="line" line-num="498" source-line-num="498">		<span class="tlv_ident_hdl_code">m_ram_addr  &lt;= { 3'b000, 1'b0, 2'b00, 3'b010, 1'b0, 3'b001 };</span></span>
+<span class="line" line-num="499" source-line-num="499">		<span class="tlv_ident_hdl_code">if (m_state == `RAM_POWER_UP)</span></span>
+<span class="line" line-num="500" source-line-num="500">		<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="501" source-line-num="501">			<span class="tlv_ident_comment">// All signals must be held in NOOP state during powerup</span></span>
+<span class="line" line-num="502" source-line-num="502">			<span class="tlv_ident_comment">// m_ram_cke &lt;= 1'b1;</span></span>
+<span class="line" line-num="503" source-line-num="503">			<span class="tlv_ident_hdl_code">m_ram_cs_n  &lt;= 1'b1;</span></span>
+<span class="line" line-num="504" source-line-num="504">			<span class="tlv_ident_hdl_code">m_ram_ras_n &lt;= 1'b1;</span></span>
+<span class="line" line-num="505" source-line-num="505">			<span class="tlv_ident_hdl_code">m_ram_cas_n &lt;= 1'b1;</span></span>
+<span class="line" line-num="506" source-line-num="506">			<span class="tlv_ident_hdl_code">m_ram_we_n  &lt;= 1'b1;</span></span>
+<span class="line" line-num="507" source-line-num="507">			<span class="tlv_ident_hdl_code">m_ram_dmod  &lt;= `DMOD_GETINPUT;</span></span>
+<span class="line" line-num="508" source-line-num="508">			<span class="tlv_ident_hdl_code">if (!startup_hold)</span></span>
+<span class="line" line-num="509" source-line-num="509">			<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="510" source-line-num="510">				<span class="tlv_ident_hdl_code">m_state &lt;= `RAM_SET_MODE;</span></span>
+<span class="line" line-num="511" source-line-num="511">				<span class="tlv_ident_hdl_code">maintenance_clocks &lt;= 4'h3;</span></span>
+<span class="line" line-num="512" source-line-num="512">				<span class="tlv_ident_hdl_code">maintenance_clocks_zero &lt;= 1'b0;</span></span>
+<span class="line" line-num="513" source-line-num="513">				<span class="tlv_ident_comment">// Precharge all cmd</span></span>
+<span class="line" line-num="514" source-line-num="514">				<span class="tlv_ident_hdl_code">m_ram_cs_n  &lt;= 1'b0;</span></span>
+<span class="line" line-num="515" source-line-num="515">				<span class="tlv_ident_hdl_code">m_ram_ras_n &lt;= 1'b0;</span></span>
+<span class="line" line-num="516" source-line-num="516">				<span class="tlv_ident_hdl_code">m_ram_cas_n &lt;= 1'b1;</span></span>
+<span class="line" line-num="517" source-line-num="517">				<span class="tlv_ident_hdl_code">m_ram_we_n  &lt;= 1'b0;</span></span>
+<span class="line" line-num="518" source-line-num="518">				<span class="tlv_ident_hdl_code">m_ram_addr[10] &lt;= 1'b1;</span></span>
+<span class="line" line-num="519" source-line-num="519">			<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="520" source-line-num="520">		<span class="tlv_ident_hdl_code">end else if (m_state == `RAM_SET_MODE)</span></span>
+<span class="line" line-num="521" source-line-num="521">		<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="522" source-line-num="522">			<span class="tlv_ident_comment">// Wait</span></span>
+<span class="line" line-num="523" source-line-num="523">			<span class="tlv_ident_hdl_code">m_ram_cs_n     &lt;= 1'b1;</span></span>
+<span class="line" line-num="524" source-line-num="524">			<span class="tlv_ident_hdl_code">m_ram_cs_n     &lt;= 1'b1;</span></span>
+<span class="line" line-num="525" source-line-num="525">			<span class="tlv_ident_hdl_code">m_ram_ras_n    &lt;= 1'b1;</span></span>
+<span class="line" line-num="526" source-line-num="526">			<span class="tlv_ident_hdl_code">m_ram_cas_n    &lt;= 1'b1;</span></span>
+<span class="line" line-num="527" source-line-num="527">			<span class="tlv_ident_hdl_code">m_ram_we_n     &lt;= 1'b1;</span></span>
+<span class="line" line-num="528" source-line-num="528">			<span class="tlv_ident_hdl_code">m_ram_addr[10] &lt;= 1'b1;</span></span>
+<span class="line" line-num="529" source-line-num="529"></span>
+<span class="line" line-num="530" source-line-num="530">			<span class="tlv_ident_hdl_code">if (maintenance_clocks_zero)</span></span>
+<span class="line" line-num="531" source-line-num="531">			<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="532" source-line-num="532">				<span class="tlv_ident_comment">// Set mode cycle</span></span>
+<span class="line" line-num="533" source-line-num="533">				<span class="tlv_ident_hdl_code">m_ram_cs_n  &lt;= 1'b0;</span></span>
+<span class="line" line-num="534" source-line-num="534">				<span class="tlv_ident_hdl_code">m_ram_ras_n &lt;= 1'b0;</span></span>
+<span class="line" line-num="535" source-line-num="535">				<span class="tlv_ident_hdl_code">m_ram_cas_n &lt;= 1'b0;</span></span>
+<span class="line" line-num="536" source-line-num="536">				<span class="tlv_ident_hdl_code">m_ram_we_n  &lt;= 1'b0;</span></span>
+<span class="line" line-num="537" source-line-num="537">				<span class="tlv_ident_hdl_code">m_ram_dmod  &lt;= `DMOD_GETINPUT;</span></span>
+<span class="line" line-num="538" source-line-num="538">				<span class="tlv_ident_hdl_code">m_ram_addr[10] &lt;= 1'b0;</span></span>
+<span class="line" line-num="539" source-line-num="539"></span>
+<span class="line" line-num="540" source-line-num="540">				<span class="tlv_ident_hdl_code">m_state &lt;= `RAM_INITIAL_REFRESH;</span></span>
+<span class="line" line-num="541" source-line-num="541">				<span class="tlv_ident_hdl_code">maintenance_clocks &lt;= 4'hc;</span></span>
+<span class="line" line-num="542" source-line-num="542">				<span class="tlv_ident_hdl_code">maintenance_clocks_zero &lt;= 1'b0;</span></span>
+<span class="line" line-num="543" source-line-num="543">			<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="544" source-line-num="544">		<span class="tlv_ident_hdl_code">end else if (m_state == `RAM_INITIAL_REFRESH)</span></span>
+<span class="line" line-num="545" source-line-num="545">		<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="546" source-line-num="546">			<span class="tlv_ident_comment">// Refresh command</span></span>
+<span class="line" line-num="547" source-line-num="547">			<span class="tlv_ident_hdl_code">if (maintenance_clocks &gt; 4'ha)</span></span>
+<span class="line" line-num="548" source-line-num="548">				<span class="tlv_ident_comment">// Wait two clocks first</span></span>
+<span class="line" line-num="549" source-line-num="549">				<span class="tlv_ident_hdl_code">m_ram_cs_n &lt;= 1'b1;</span></span>
+<span class="line" line-num="550" source-line-num="550">			<span class="tlv_ident_hdl_code">else if (maintenance_clocks &gt; 4'h2)</span></span>
+<span class="line" line-num="551" source-line-num="551">				<span class="tlv_ident_hdl_code">m_ram_cs_n  &lt;= 1'b0;</span></span>
+<span class="line" line-num="552" source-line-num="552">			<span class="tlv_ident_hdl_code">else</span></span>
+<span class="line" line-num="553" source-line-num="553">				<span class="tlv_ident_hdl_code">m_ram_cs_n &lt;= 1'b1;</span></span>
+<span class="line" line-num="554" source-line-num="554">			<span class="tlv_ident_hdl_code">m_ram_ras_n &lt;= 1'b0;</span></span>
+<span class="line" line-num="555" source-line-num="555">			<span class="tlv_ident_hdl_code">m_ram_cas_n &lt;= 1'b0;</span></span>
+<span class="line" line-num="556" source-line-num="556">			<span class="tlv_ident_hdl_code">m_ram_we_n  &lt;= 1'b1;</span></span>
+<span class="line" line-num="557" source-line-num="557">			<span class="tlv_ident_hdl_code">m_ram_dmod  &lt;= `DMOD_GETINPUT;</span></span>
+<span class="line" line-num="558" source-line-num="558">			<span class="tlv_ident_comment">// m_ram_addr  &lt;= { 3'b000, 1'b0, 2'b00, 3'b010, 1'b0, 3'b001 };</span></span>
+<span class="line" line-num="559" source-line-num="559">			<span class="tlv_ident_hdl_code">if (maintenance_clocks_zero)</span></span>
+<span class="line" line-num="560" source-line-num="560">				<span class="tlv_ident_hdl_code">maintenance_mode &lt;= 1'b0;</span></span>
+<span class="line" line-num="561" source-line-num="561">		<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="562" source-line-num="562">	<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="563" source-line-num="563"></span>
+<span class="line" line-num="564" source-line-num="564">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="565" source-line-num="565">	<span class="tlv_ident_hdl_code">if (nxt_dmod)</span></span>
+<span class="line" line-num="566" source-line-num="566">		<span class="tlv_ident_hdl_code">o_ram_data &lt;= r_data[15:0];</span></span>
+<span class="line" line-num="567" source-line-num="567">	<span class="tlv_ident_hdl_code">else</span></span>
+<span class="line" line-num="568" source-line-num="568">		<span class="tlv_ident_hdl_code">o_ram_data &lt;= r_data[31:16];</span></span>
+<span class="line" line-num="569" source-line-num="569"></span>
+<span class="line" line-num="570" source-line-num="570">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="571" source-line-num="571">	<span class="tlv_ident_hdl_code">if (maintenance_mode)</span></span>
+<span class="line" line-num="572" source-line-num="572">		<span class="tlv_ident_hdl_code">o_ram_dqm &lt;= 2'b11;</span></span>
+<span class="line" line-num="573" source-line-num="573">	<span class="tlv_ident_hdl_code">else if (r_we)</span></span>
+<span class="line" line-num="574" source-line-num="574">	<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="575" source-line-num="575">		<span class="tlv_ident_hdl_code">if (nxt_dmod)</span></span>
+<span class="line" line-num="576" source-line-num="576">			<span class="tlv_ident_hdl_code">o_ram_dqm &lt;= ~r_sel[1:0];</span></span>
+<span class="line" line-num="577" source-line-num="577">		<span class="tlv_ident_hdl_code">else</span></span>
+<span class="line" line-num="578" source-line-num="578">			<span class="tlv_ident_hdl_code">o_ram_dqm &lt;= ~r_sel[3:2];</span></span>
+<span class="line" line-num="579" source-line-num="579">	<span class="tlv_ident_hdl_code">end else</span></span>
+<span class="line" line-num="580" source-line-num="580">		<span class="tlv_ident_hdl_code">o_ram_dqm &lt;= 2'b00;</span></span>
+<span class="line" line-num="581" source-line-num="581"></span>
+<span class="line" line-num="582" source-line-num="582"><span class="tlv_ident_hdl_code">`ifdef	VERILATOR</span></span>
+<span class="line" line-num="583" source-line-num="583">	<span class="tlv_ident_comment">// While I hate to build something that works one way under Verilator</span></span>
+<span class="line" line-num="584" source-line-num="584">	<span class="tlv_ident_comment">// and another way in practice, this really isn't that.  The problem</span></span>
+<span class="line" line-num="585" source-line-num="585">	<span class="tlv_ident_comment">// \/erilator is having is resolved in toplevel.v---one file that</span></span>
+<span class="line" line-num="586" source-line-num="586">	<span class="tlv_ident_comment">// \/erilator doesn't implement.  In toplevel.v, there's not only a</span></span>
+<span class="line" line-num="587" source-line-num="587">	<span class="tlv_ident_comment">// single clocked latch but two taking place.  Here, we replicate one</span></span>
+<span class="line" line-num="588" source-line-num="588">	<span class="tlv_ident_comment">// of those.  The second takes place (somehow) within the sdramsim.cpp</span></span>
+<span class="line" line-num="589" source-line-num="589">	<span class="tlv_ident_comment">// file.</span></span>
+<span class="line" line-num="590" source-line-num="590">	<span class="tlv_ident_hdl_code">reg	[15:0]	ram_data, last_ram_data;</span></span>
+<span class="line" line-num="591" source-line-num="591">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="592" source-line-num="592">		<span class="tlv_ident_hdl_code">ram_data &lt;= i_ram_data;</span></span>
+<span class="line" line-num="593" source-line-num="593">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="594" source-line-num="594">		<span class="tlv_ident_hdl_code">last_ram_data &lt;= ram_data;</span></span>
+<span class="line" line-num="595" source-line-num="595">	<span class="tlv_ident_hdl_code">assign	o_wb_data = { last_ram_data, ram_data };</span></span>
+<span class="line" line-num="596" source-line-num="596"><span class="tlv_ident_hdl_code">`else</span></span>
+<span class="line" line-num="597" source-line-num="597">	<span class="tlv_ident_hdl_code">reg	[15:0]	last_ram_data;</span></span>
+<span class="line" line-num="598" source-line-num="598">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="599" source-line-num="599">		<span class="tlv_ident_hdl_code">last_ram_data &lt;= i_ram_data;</span></span>
+<span class="line" line-num="600" source-line-num="600">	<span class="tlv_ident_hdl_code">assign	o_wb_data = { last_ram_data, i_ram_data };</span></span>
+<span class="line" line-num="601" source-line-num="601"><span class="tlv_ident_hdl_code">`endif</span></span>
+<span class="line" line-num="602" source-line-num="602">	<span class="tlv_ident_hdl_code">assign	o_wb_ack  = r_barrell_ack[0];</span></span>
+<span class="line" line-num="603" source-line-num="603"></span>
+<span class="line" line-num="604" source-line-num="604">	<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="605" source-line-num="605">	<span class="tlv_ident_comment">// The following outputs are not necessary for the functionality of</span></span>
+<span class="line" line-num="606" source-line-num="606">	<span class="tlv_ident_comment">// the SDRAM, but they can be used to feed an external &quot;scope&quot; to</span></span>
+<span class="line" line-num="607" source-line-num="607">	<span class="tlv_ident_comment">// get an idea of what the internals of this SDRAM are doing.</span></span>
+<span class="line" line-num="608" source-line-num="608">	<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="609" source-line-num="609">	<span class="tlv_ident_comment">// Just be aware of the r_we: it is set based upon the currently pending</span></span>
+<span class="line" line-num="610" source-line-num="610">	<span class="tlv_ident_comment">// transaction, or (if none is pending) based upon the last transaction.</span></span>
+<span class="line" line-num="611" source-line-num="611">	<span class="tlv_ident_comment">// If you want to capture the first value &quot;written&quot; to the device,</span></span>
+<span class="line" line-num="612" source-line-num="612">	<span class="tlv_ident_comment">// you'll need to write a nothing value to the device to set r_we.</span></span>
+<span class="line" line-num="613" source-line-num="613">	<span class="tlv_ident_comment">// The first value &quot;written&quot; to the device can be caught in the next</span></span>
+<span class="line" line-num="614" source-line-num="614">	<span class="tlv_ident_comment">// interaction after that.</span></span>
+<span class="line" line-num="615" source-line-num="615">	<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="616" source-line-num="616">	<span class="tlv_ident_hdl_code">reg	trigger;</span></span>
+<span class="line" line-num="617" source-line-num="617">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="618" source-line-num="618">		<span class="tlv_ident_hdl_code">trigger &lt;= ((o_wb_data[15:0]==o_wb_data[31:16])</span></span>
+<span class="line" line-num="619" source-line-num="619">			<span class="tlv_ident_hdl_code">&amp;&amp;(o_wb_ack)&amp;&amp;(!i_wb_we));</span></span>
+<span class="line" line-num="620" source-line-num="620"></span>
+<span class="line" line-num="621" source-line-num="621"></span>
+<span class="line" line-num="622" source-line-num="622">	<span class="tlv_ident_hdl_code">assign	o_debug = { i_wb_cyc, i_wb_stb, i_wb_we, o_wb_ack, o_wb_stall, </span><span class="tlv_ident_comment">// 5</span></span>
+<span class="line" line-num="623" source-line-num="623">		<span class="tlv_ident_hdl_code">o_ram_cs_n, o_ram_ras_n, o_ram_cas_n, o_ram_we_n, o_ram_bs,</span><span class="tlv_ident_comment">//6</span></span>
+<span class="line" line-num="624" source-line-num="624">			<span class="tlv_ident_hdl_code">o_ram_dmod, r_pending, 				</span><span class="tlv_ident_comment">//  2</span></span>
+<span class="line" line-num="625" source-line-num="625">			<span class="tlv_ident_hdl_code">trigger,					</span><span class="tlv_ident_comment">//  1</span></span>
+<span class="line" line-num="626" source-line-num="626">			<span class="tlv_ident_hdl_code">o_ram_addr[9:0],				</span><span class="tlv_ident_comment">// 10 more</span></span>
+<span class="line" line-num="627" source-line-num="627">			<span class="tlv_ident_hdl_code">(r_we) ? { o_ram_data[7:0] }			</span><span class="tlv_ident_comment">//  8 values</span></span>
+<span class="line" line-num="628" source-line-num="628">				<span class="tlv_ident_hdl_code">: { o_wb_data[23:20], o_wb_data[3:0] }</span></span>
+<span class="line" line-num="629" source-line-num="629">			<span class="tlv_ident_comment">// i_ram_data[7:0]</span></span>
+<span class="line" line-num="630" source-line-num="630">			 <span class="tlv_ident_hdl_code">};</span></span>
+<span class="line" line-num="631" source-line-num="631"></span>
+<span class="line" line-num="632" source-line-num="632">	<span class="tlv_ident_comment">// Make Verilator happy</span></span>
+<span class="line" line-num="633" source-line-num="633">	<span class="tlv_ident_comment">// verilator lint_off UNUSED</span></span>
+<span class="line" line-num="634" source-line-num="634">	<span class="tlv_ident_hdl_code">wire	[NCA-1:0]	unused;</span></span>
+<span class="line" line-num="635" source-line-num="635">	<span class="tlv_ident_hdl_code">assign	unused = { fwd_addr[NCA-1:0] };</span></span>
+<span class="line" line-num="636" source-line-num="636">	<span class="tlv_ident_comment">// verilator lint_on  UNUSED</span></span>
+<span class="line" line-num="637" source-line-num="637"><span class="tlv_ident_hdl_code">`ifdef	FORMAL</span></span>
+<span class="line" line-num="638" source-line-num="638">	<span class="tlv_ident_hdl_code">localparam	REFRESH_CLOCKS = 6;</span></span>
+<span class="line" line-num="639" source-line-num="639">	<span class="tlv_ident_hdl_code">localparam	ACTIVATE_CLOCKS = 6;</span></span>
+<span class="line" line-num="640" source-line-num="640"></span>
+<span class="line" line-num="641" source-line-num="641">	<span class="tlv_ident_comment">// This device is 32MB, assert such</span></span>
+<span class="line" line-num="642" source-line-num="642">	<span class="tlv_ident_hdl_code">always @(*)</span></span>
+<span class="line" line-num="643" source-line-num="643">		<span class="tlv_ident_hdl_code">assert(AW == 23);</span></span>
+<span class="line" line-num="644" source-line-num="644">	<span class="tlv_ident_hdl_code">always @(*)</span></span>
+<span class="line" line-num="645" source-line-num="645">		<span class="tlv_ident_hdl_code">assert(NRA+NCA+2 == AW+1);</span></span>
+<span class="line" line-num="646" source-line-num="646"></span>
+<span class="line" line-num="647" source-line-num="647">	<span class="tlv_ident_hdl_code">wire	[(5-1):0]	f_nreqs, f_nacks, f_outstanding;</span></span>
+<span class="line" line-num="648" source-line-num="648">	<span class="tlv_ident_hdl_code">reg	f_past_valid;</span></span>
+<span class="line" line-num="649" source-line-num="649">	<span class="tlv_ident_hdl_code">wire	f_reset;</span></span>
+<span class="line" line-num="650" source-line-num="650"></span>
+<span class="line" line-num="651" source-line-num="651">	<span class="tlv_ident_hdl_code">always @(*)</span></span>
+<span class="line" line-num="652" source-line-num="652">		<span class="tlv_ident_hdl_code">if (o_ram_dmod)</span></span>
+<span class="line" line-num="653" source-line-num="653">			<span class="tlv_ident_hdl_code">assume(i_ram_data == o_ram_data);</span></span>
+<span class="line" line-num="654" source-line-num="654"></span>
+<span class="line" line-num="655" source-line-num="655">	<span class="tlv_ident_hdl_code">initial	f_past_valid = 1'b0;</span></span>
+<span class="line" line-num="656" source-line-num="656">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="657" source-line-num="657">		<span class="tlv_ident_hdl_code">f_past_valid &lt;= 1'b1;</span></span>
+<span class="line" line-num="658" source-line-num="658"></span>
+<span class="line" line-num="659" source-line-num="659">	<span class="tlv_ident_hdl_code">assign	f_reset = !f_past_valid;</span></span>
+<span class="line" line-num="660" source-line-num="660"></span>
+<span class="line" line-num="661" source-line-num="661">	<span class="tlv_ident_hdl_code">always @(*)</span></span>
+<span class="line" line-num="662" source-line-num="662">		<span class="tlv_ident_hdl_code">if (o_ram_dmod)</span></span>
+<span class="line" line-num="663" source-line-num="663">			<span class="tlv_ident_hdl_code">assert(i_ram_data == o_ram_data);</span></span>
+<span class="line" line-num="664" source-line-num="664"></span>
+<span class="line" line-num="665" source-line-num="665">	<span class="tlv_ident_comment">// Properties</span></span>
+<span class="line" line-num="666" source-line-num="666">	<span class="tlv_ident_comment">// 1. Wishbone</span></span>
+<span class="line" line-num="667" source-line-num="667">	<span class="tlv_ident_hdl_code">fwb_slave #( .AW(AW), .DW(DW),</span></span>
+<span class="line" line-num="668" source-line-num="668">			<span class="tlv_ident_hdl_code">.F_MAX_STALL(ACTIVATE_CLOCKS + REFRESH_CLOCKS</span></span>
+<span class="line" line-num="669" source-line-num="669">					<span class="tlv_ident_hdl_code">+ ACTIVATE_CLOCKS + RDLY</span></span>
+<span class="line" line-num="670" source-line-num="670">					<span class="tlv_ident_hdl_code">+ACTIVATE_CLOCKS),</span></span>
+<span class="line" line-num="671" source-line-num="671">			<span class="tlv_ident_hdl_code">.F_MAX_ACK_DELAY(REFRESH_CLOCKS</span></span>
+<span class="line" line-num="672" source-line-num="672">				<span class="tlv_ident_hdl_code">+ ACTIVATE_CLOCKS</span></span>
+<span class="line" line-num="673" source-line-num="673">				<span class="tlv_ident_hdl_code">+ ACTIVATE_CLOCKS</span></span>
+<span class="line" line-num="674" source-line-num="674">				<span class="tlv_ident_hdl_code">+ ACTIVATE_CLOCKS+RDLY),</span></span>
+<span class="line" line-num="675" source-line-num="675">			<span class="tlv_ident_hdl_code">.F_LGDEPTH(5))</span></span>
+<span class="line" line-num="676" source-line-num="676">		<span class="tlv_ident_hdl_code">fwb(i_clk, f_reset,</span></span>
+<span class="line" line-num="677" source-line-num="677">			<span class="tlv_ident_hdl_code">i_wb_cyc, i_wb_stb, i_wb_we, i_wb_addr,</span></span>
+<span class="line" line-num="678" source-line-num="678">				<span class="tlv_ident_hdl_code">i_wb_data, i_wb_sel,</span></span>
+<span class="line" line-num="679" source-line-num="679">			<span class="tlv_ident_hdl_code">o_wb_ack, o_wb_stall, o_wb_data, 1'b0,</span></span>
+<span class="line" line-num="680" source-line-num="680">			<span class="tlv_ident_hdl_code">f_nreqs, f_nacks, f_outstanding);</span></span>
+<span class="line" line-num="681" source-line-num="681"></span>
+<span class="line" line-num="682" source-line-num="682">	<span class="tlv_ident_comment">// 2. Proper startup ...</span></span>
+<span class="line" line-num="683" source-line-num="683">	<span class="tlv_ident_comment">// 3. Operation</span></span>
+<span class="line" line-num="684" source-line-num="684">	<span class="tlv_ident_comment">//   4. Refresh</span></span>
+<span class="line" line-num="685" source-line-num="685">	<span class="tlv_ident_comment">//   4. SDRAM request == WB request</span></span>
+<span class="line" line-num="686" source-line-num="686">	<span class="tlv_ident_comment">//</span></span>
+<span class="line" line-num="687" source-line-num="687"></span>
+<span class="line" line-num="688" source-line-num="688">	<span class="tlv_ident_comment">// Once we leave maintenance mode (i.e. startup sequence), we *cannot*</span></span>
+<span class="line" line-num="689" source-line-num="689">	<span class="tlv_ident_comment">// go back into it.</span></span>
+<span class="line" line-num="690" source-line-num="690">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="691" source-line-num="691">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;(!$past(maintenance_mode)))</span></span>
+<span class="line" line-num="692" source-line-num="692">		<span class="tlv_ident_hdl_code">assert(!maintenance_mode);</span></span>
+<span class="line" line-num="693" source-line-num="693"></span>
+<span class="line" line-num="694" source-line-num="694">	<span class="tlv_ident_comment">// On the very first clock, we must always start up in maintenance mode</span></span>
+<span class="line" line-num="695" source-line-num="695">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="696" source-line-num="696">		<span class="tlv_ident_hdl_code">if (!f_past_valid)</span></span>
+<span class="line" line-num="697" source-line-num="697">			<span class="tlv_ident_hdl_code">assert(maintenance_mode);</span></span>
+<span class="line" line-num="698" source-line-num="698"></span>
+<span class="line" line-num="699" source-line-num="699">	<span class="tlv_ident_comment">// Just to make things simpler, assume no accesses to the core during</span></span>
+<span class="line" line-num="700" source-line-num="700">	<span class="tlv_ident_comment">// maintenance mode.  Such accesses might violate our minimum</span></span>
+<span class="line" line-num="701" source-line-num="701">	<span class="tlv_ident_comment">// acknowledgement time criteria for the wishbone above</span></span>
+<span class="line" line-num="702" source-line-num="702">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="703" source-line-num="703">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;(maintenance_mode))</span></span>
+<span class="line" line-num="704" source-line-num="704">		<span class="tlv_ident_hdl_code">assume(!i_wb_stb);</span></span>
+<span class="line" line-num="705" source-line-num="705"></span>
+<span class="line" line-num="706" source-line-num="706">	<span class="tlv_ident_comment">// Likewise, assert that there are *NO* outstanding transactions in</span></span>
+<span class="line" line-num="707" source-line-num="707">	<span class="tlv_ident_comment">// this maintenance mode</span></span>
+<span class="line" line-num="708" source-line-num="708">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="709" source-line-num="709">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;(maintenance_mode))</span></span>
+<span class="line" line-num="710" source-line-num="710">		<span class="tlv_ident_hdl_code">assert(f_outstanding == 0);</span></span>
+<span class="line" line-num="711" source-line-num="711"></span>
+<span class="line" line-num="712" source-line-num="712">	<span class="tlv_ident_comment">// ... and that while we are in maintenance mode, any incoming request</span></span>
+<span class="line" line-num="713" source-line-num="713">	<span class="tlv_ident_comment">// is stalled.  This guarantees that our assumptions above are kept</span></span>
+<span class="line" line-num="714" source-line-num="714">	<span class="tlv_ident_comment">// valid.</span></span>
+<span class="line" line-num="715" source-line-num="715">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="716" source-line-num="716">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;(maintenance_mode))</span></span>
+<span class="line" line-num="717" source-line-num="717">		<span class="tlv_ident_hdl_code">assume(o_wb_stall);</span></span>
+<span class="line" line-num="718" source-line-num="718"></span>
+<span class="line" line-num="719" source-line-num="719">	<span class="tlv_ident_comment">// If there are no attempts to access memory while in maintenance</span></span>
+<span class="line" line-num="720" source-line-num="720">	<span class="tlv_ident_comment">// mode, then there should never be any pending operations upon</span></span>
+<span class="line" line-num="721" source-line-num="721">	<span class="tlv_ident_comment">// completion of maintenance mode</span></span>
+<span class="line" line-num="722" source-line-num="722">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="723" source-line-num="723">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;(maintenance_mode))</span></span>
+<span class="line" line-num="724" source-line-num="724">		<span class="tlv_ident_hdl_code">assert(!r_pending);</span></span>
+<span class="line" line-num="725" source-line-num="725"></span>
+<span class="line" line-num="726" source-line-num="726">	<span class="tlv_ident_hdl_code">wire	[(2+AW+DW+DW/8-1):0]	f_pending, f_request;</span></span>
+<span class="line" line-num="727" source-line-num="727">	<span class="tlv_ident_hdl_code">assign	f_pending = { r_pending, r_we, r_addr, r_data, r_sel };</span></span>
+<span class="line" line-num="728" source-line-num="728">	<span class="tlv_ident_hdl_code">assign	f_request = {  i_wb_stb, i_wb_we, i_wb_addr, i_wb_data, i_wb_sel };</span></span>
+<span class="line" line-num="729" source-line-num="729"></span>
+<span class="line" line-num="730" source-line-num="730">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="731" source-line-num="731">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;($past(r_pending))&amp;&amp;($past(i_wb_cyc))</span></span>
+<span class="line" line-num="732" source-line-num="732">			<span class="tlv_ident_hdl_code">&amp;&amp;(($past(o_ram_cs_n))</span></span>
+<span class="line" line-num="733" source-line-num="733">			<span class="tlv_ident_hdl_code">||(!$past(o_ram_ras_n))</span></span>
+<span class="line" line-num="734" source-line-num="734">			<span class="tlv_ident_hdl_code">||($past(o_ram_cas_n))) )</span></span>
+<span class="line" line-num="735" source-line-num="735">		<span class="tlv_ident_hdl_code">assert($stable(f_pending));</span></span>
+<span class="line" line-num="736" source-line-num="736"></span>
+<span class="line" line-num="737" source-line-num="737">	<span class="tlv_ident_hdl_code">wire	[4:0]	f_cmd;</span></span>
+<span class="line" line-num="738" source-line-num="738">	<span class="tlv_ident_hdl_code">assign	f_cmd = { o_ram_addr[10],</span></span>
+<span class="line" line-num="739" source-line-num="739">			<span class="tlv_ident_hdl_code">o_ram_cs_n, o_ram_ras_n, o_ram_cas_n, o_ram_we_n };</span></span>
+<span class="line" line-num="740" source-line-num="740"></span>
+<span class="line" line-num="741" source-line-num="741"><span class="tlv_ident_hdl_code">`define	F_MODE_SET		5'b?0000</span></span>
+<span class="line" line-num="742" source-line-num="742"><span class="tlv_ident_hdl_code">`define	F_BANK_PRECHARGE	5'b00010</span></span>
+<span class="line" line-num="743" source-line-num="743"><span class="tlv_ident_hdl_code">`define	F_PRECHARGE_ALL		5'b10010</span></span>
+<span class="line" line-num="744" source-line-num="744"><span class="tlv_ident_hdl_code">`define	F_BANK_ACTIVATE		5'b?0011</span></span>
+<span class="line" line-num="745" source-line-num="745"><span class="tlv_ident_hdl_code">`define	F_WRITE			5'b00100</span></span>
+<span class="line" line-num="746" source-line-num="746"><span class="tlv_ident_hdl_code">`define	F_READ			5'b00101</span></span>
+<span class="line" line-num="747" source-line-num="747"><span class="tlv_ident_hdl_code">`define	F_REFRESH		5'b?0001</span></span>
+<span class="line" line-num="748" source-line-num="748"><span class="tlv_ident_hdl_code">`define	F_NOOP			5'b?0111</span></span>
+<span class="line" line-num="749" source-line-num="749"></span>
+<span class="line" line-num="750" source-line-num="750"><span class="tlv_ident_hdl_code">`define	F_BANK_ACTIVATE_S	4'b0011</span></span>
+<span class="line" line-num="751" source-line-num="751"><span class="tlv_ident_hdl_code">`define	F_REFRESH_S		4'b0001</span></span>
+<span class="line" line-num="752" source-line-num="752"><span class="tlv_ident_hdl_code">`define	F_NOOP_S		4'b0111</span></span>
+<span class="line" line-num="753" source-line-num="753"></span>
+<span class="line" line-num="754" source-line-num="754">	<span class="tlv_ident_hdl_code">reg	[(AW-1):0]	f_next_addr;</span></span>
+<span class="line" line-num="755" source-line-num="755">	<span class="tlv_ident_hdl_code">always @(*)</span></span>
+<span class="line" line-num="756" source-line-num="756">	<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="757" source-line-num="757">		<span class="tlv_ident_hdl_code">f_next_addr = 0;</span></span>
+<span class="line" line-num="758" source-line-num="758">		<span class="tlv_ident_hdl_code">f_next_addr[(AW-1):NCA-1] = r_addr[(AW-1):NCA-1] + 1'b1;</span></span>
+<span class="line" line-num="759" source-line-num="759">	<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="760" source-line-num="760"></span>
+<span class="line" line-num="761" source-line-num="761">	<span class="tlv_ident_hdl_code">wire	[NRA-1:0]	f_next_row, f_this_row;</span></span>
+<span class="line" line-num="762" source-line-num="762">	<span class="tlv_ident_hdl_code">wire	[1:0]	f_next_bank, f_this_bank;</span></span>
+<span class="line" line-num="763" source-line-num="763">	<span class="tlv_ident_hdl_code">assign	f_next_row  = f_next_addr[(AW-1):(NCA+1)];</span></span>
+<span class="line" line-num="764" source-line-num="764">	<span class="tlv_ident_hdl_code">assign	f_next_bank = f_next_addr[NCA:NCA-1];</span></span>
+<span class="line" line-num="765" source-line-num="765">	<span class="tlv_ident_hdl_code">assign	f_this_bank = r_bs;</span></span>
+<span class="line" line-num="766" source-line-num="766">	<span class="tlv_ident_hdl_code">assign	f_this_row  = r_row;</span></span>
+<span class="line" line-num="767" source-line-num="767"></span>
+<span class="line" line-num="768" source-line-num="768">	<span class="tlv_ident_hdl_code">always @(*)</span></span>
+<span class="line" line-num="769" source-line-num="769">	<span class="tlv_ident_hdl_code">if (o_ram_cs_n==1'b0) casez(f_cmd)</span></span>
+<span class="line" line-num="770" source-line-num="770">	<span class="tlv_ident_hdl_code">`F_MODE_SET:       begin end</span></span>
+<span class="line" line-num="771" source-line-num="771">	<span class="tlv_ident_hdl_code">`F_BANK_PRECHARGE: begin end</span></span>
+<span class="line" line-num="772" source-line-num="772">	<span class="tlv_ident_hdl_code">`F_PRECHARGE_ALL:  begin end</span></span>
+<span class="line" line-num="773" source-line-num="773">	<span class="tlv_ident_hdl_code">`F_BANK_ACTIVATE:  begin end</span></span>
+<span class="line" line-num="774" source-line-num="774">	<span class="tlv_ident_hdl_code">`F_WRITE:          begin end</span></span>
+<span class="line" line-num="775" source-line-num="775">	<span class="tlv_ident_hdl_code">`F_READ:           begin end</span></span>
+<span class="line" line-num="776" source-line-num="776">	<span class="tlv_ident_hdl_code">`F_REFRESH:        begin end</span></span>
+<span class="line" line-num="777" source-line-num="777">	<span class="tlv_ident_hdl_code">default: assert(f_cmd[3:0] == `F_NOOP_S);</span></span>
+<span class="line" line-num="778" source-line-num="778">	<span class="tlv_ident_hdl_code">endcase</span></span>
+<span class="line" line-num="779" source-line-num="779"></span>
+<span class="line" line-num="780" source-line-num="780">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="781" source-line-num="781">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;(!maintenance_mode))</span></span>
+<span class="line" line-num="782" source-line-num="782">	<span class="tlv_ident_hdl_code">casez(f_cmd)</span></span>
+<span class="line" line-num="783" source-line-num="783">	<span class="tlv_ident_hdl_code">`F_BANK_ACTIVATE:	begin</span></span>
+<span class="line" line-num="784" source-line-num="784">		<span class="tlv_ident_comment">// Can only activate de-activated banks</span></span>
+<span class="line" line-num="785" source-line-num="785">		<span class="tlv_ident_hdl_code">assert(bank_active[o_ram_bs][1:0] == 0);</span></span>
+<span class="line" line-num="786" source-line-num="786">		<span class="tlv_ident_comment">// Need to activate the right bank</span></span>
+<span class="line" line-num="787" source-line-num="787">		<span class="tlv_ident_hdl_code">if (o_ram_bs == $past(f_this_bank))</span></span>
+<span class="line" line-num="788" source-line-num="788">			<span class="tlv_ident_hdl_code">assert($past(f_this_row)==o_ram_addr);</span></span>
+<span class="line" line-num="789" source-line-num="789">		<span class="tlv_ident_hdl_code">else if (o_ram_bs != 0)</span></span>
+<span class="line" line-num="790" source-line-num="790">		<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="791" source-line-num="791">			<span class="tlv_ident_hdl_code">assert(o_ram_bs == $past(f_next_bank));</span></span>
+<span class="line" line-num="792" source-line-num="792">			<span class="tlv_ident_hdl_code">assert($past(f_this_row)==o_ram_addr);</span></span>
+<span class="line" line-num="793" source-line-num="793">		<span class="tlv_ident_hdl_code">end else begin</span></span>
+<span class="line" line-num="794" source-line-num="794">			<span class="tlv_ident_hdl_code">assert(o_ram_bs == $past(f_next_bank));</span></span>
+<span class="line" line-num="795" source-line-num="795">			<span class="tlv_ident_hdl_code">assert($past(f_next_row)==o_ram_addr);</span></span>
+<span class="line" line-num="796" source-line-num="796">		<span class="tlv_ident_hdl_code">end end</span></span>
+<span class="line" line-num="797" source-line-num="797">	<span class="tlv_ident_hdl_code">`F_BANK_PRECHARGE:	begin</span></span>
+<span class="line" line-num="798" source-line-num="798">		<span class="tlv_ident_comment">// Can only precharge (de-active) a fully active bank</span></span>
+<span class="line" line-num="799" source-line-num="799">		<span class="tlv_ident_hdl_code">assert(bank_active[o_ram_bs] == 3'b011);</span></span>
+<span class="line" line-num="800" source-line-num="800">		<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="801" source-line-num="801">	<span class="tlv_ident_hdl_code">`F_PRECHARGE_ALL:	begin</span></span>
+<span class="line" line-num="802" source-line-num="802">		<span class="tlv_ident_comment">// If pre-charging all, one of the banks must be active and in</span></span>
+<span class="line" line-num="803" source-line-num="803">		<span class="tlv_ident_comment">// need of a pre-charge</span></span>
+<span class="line" line-num="804" source-line-num="804">		<span class="tlv_ident_hdl_code">assert(</span></span>
+<span class="line" line-num="805" source-line-num="805">			<span class="tlv_ident_hdl_code">(bank_active[0] == 3'b011)</span></span>
+<span class="line" line-num="806" source-line-num="806">			<span class="tlv_ident_hdl_code">||(bank_active[1] == 3'b011)</span></span>
+<span class="line" line-num="807" source-line-num="807">			<span class="tlv_ident_hdl_code">||(bank_active[2] == 3'b011)</span></span>
+<span class="line" line-num="808" source-line-num="808">			<span class="tlv_ident_hdl_code">||(bank_active[3] == 3'b011) );</span></span>
+<span class="line" line-num="809" source-line-num="809">		<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="810" source-line-num="810">	<span class="tlv_ident_hdl_code">`F_WRITE:	begin</span></span>
+<span class="line" line-num="811" source-line-num="811">		<span class="tlv_ident_hdl_code">assert($past(r_we));</span></span>
+<span class="line" line-num="812" source-line-num="812">		<span class="tlv_ident_hdl_code">assert(bank_active[o_ram_bs] == 3'b111);</span></span>
+<span class="line" line-num="813" source-line-num="813">		<span class="tlv_ident_hdl_code">assert(bank_row[o_ram_bs] == $past(f_this_row));</span></span>
+<span class="line" line-num="814" source-line-num="814">		<span class="tlv_ident_hdl_code">assert(o_ram_bs == $past(f_this_bank));</span></span>
+<span class="line" line-num="815" source-line-num="815">		<span class="tlv_ident_hdl_code">assert(o_ram_addr[0] == 1'b0);</span></span>
+<span class="line" line-num="816" source-line-num="816">		<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="817" source-line-num="817">	<span class="tlv_ident_hdl_code">`F_READ:	begin</span></span>
+<span class="line" line-num="818" source-line-num="818">		<span class="tlv_ident_hdl_code">assert(!$past(r_we));</span></span>
+<span class="line" line-num="819" source-line-num="819">		<span class="tlv_ident_hdl_code">assert(bank_active[o_ram_bs] == 3'b111);</span></span>
+<span class="line" line-num="820" source-line-num="820">		<span class="tlv_ident_hdl_code">assert(bank_row[o_ram_bs] == $past(f_this_row));</span></span>
+<span class="line" line-num="821" source-line-num="821">		<span class="tlv_ident_hdl_code">assert(o_ram_bs == $past(f_this_bank));</span></span>
+<span class="line" line-num="822" source-line-num="822">		<span class="tlv_ident_hdl_code">assert(o_ram_addr[0] == 1'b0);</span></span>
+<span class="line" line-num="823" source-line-num="823">		<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="824" source-line-num="824">	<span class="tlv_ident_hdl_code">`F_REFRESH:	begin</span></span>
+<span class="line" line-num="825" source-line-num="825">		<span class="tlv_ident_comment">// When giving a reset command, *all* banks must be inactive</span></span>
+<span class="line" line-num="826" source-line-num="826">		<span class="tlv_ident_hdl_code">assert( (bank_active[0] == 3'h0)</span></span>
+<span class="line" line-num="827" source-line-num="827">			<span class="tlv_ident_hdl_code">&amp;&amp;(bank_active[1] == 3'h0)</span></span>
+<span class="line" line-num="828" source-line-num="828">			<span class="tlv_ident_hdl_code">&amp;&amp;(bank_active[2] == 3'h0)</span></span>
+<span class="line" line-num="829" source-line-num="829">			<span class="tlv_ident_hdl_code">&amp;&amp;(bank_active[3] == 3'h0) );</span></span>
+<span class="line" line-num="830" source-line-num="830">		<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="831" source-line-num="831">	<span class="tlv_ident_hdl_code">default: assert((o_ram_cs_n)||(f_cmd[3:0] == `F_NOOP_S));</span></span>
+<span class="line" line-num="832" source-line-num="832">	<span class="tlv_ident_hdl_code">endcase</span></span>
+<span class="line" line-num="833" source-line-num="833"></span>
+<span class="line" line-num="834" source-line-num="834">	<span class="tlv_ident_hdl_code">integer	f_k;</span></span>
+<span class="line" line-num="835" source-line-num="835">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="836" source-line-num="836">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;(!$past(maintenance_mode)))</span></span>
+<span class="line" line-num="837" source-line-num="837">	<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="838" source-line-num="838">		<span class="tlv_ident_hdl_code">for(f_k=0; f_k&lt;4; f_k=f_k+1)</span></span>
+<span class="line" line-num="839" source-line-num="839">			<span class="tlv_ident_hdl_code">if (((f_cmd[3:0] != `F_BANK_ACTIVATE_S))</span></span>
+<span class="line" line-num="840" source-line-num="840">		 			<span class="tlv_ident_hdl_code">||(o_ram_bs != f_k[1:0]))</span></span>
+<span class="line" line-num="841" source-line-num="841">				<span class="tlv_ident_hdl_code">assert($stable(bank_row[f_k[1:0]]));</span></span>
+<span class="line" line-num="842" source-line-num="842">	<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="843" source-line-num="843"></span>
+<span class="line" line-num="844" source-line-num="844">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="845" source-line-num="845">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;(!$past(maintenance_mode))</span></span>
+<span class="line" line-num="846" source-line-num="846">		<span class="tlv_ident_hdl_code">&amp;&amp;($past(f_cmd) != `F_READ)</span></span>
+<span class="line" line-num="847" source-line-num="847">		<span class="tlv_ident_hdl_code">&amp;&amp;($past(f_cmd) != `F_WRITE) )</span></span>
+<span class="line" line-num="848" source-line-num="848">	<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="849" source-line-num="849">		<span class="tlv_ident_hdl_code">if (($past(r_pending))&amp;&amp;($past(i_wb_cyc)))</span></span>
+<span class="line" line-num="850" source-line-num="850">			<span class="tlv_ident_hdl_code">assert($stable(f_pending));</span></span>
+<span class="line" line-num="851" source-line-num="851">	<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="852" source-line-num="852"></span>
+<span class="line" line-num="853" source-line-num="853">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="854" source-line-num="854">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;(!maintenance_mode))</span></span>
+<span class="line" line-num="855" source-line-num="855">		<span class="tlv_ident_hdl_code">if ((r_pending)&amp;&amp;(f_cmd != `F_READ)&amp;&amp;(f_cmd != `F_WRITE))</span></span>
+<span class="line" line-num="856" source-line-num="856">			<span class="tlv_ident_hdl_code">assert(o_wb_stall);</span></span>
+<span class="line" line-num="857" source-line-num="857"></span>
+<span class="line" line-num="858" source-line-num="858">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="859" source-line-num="859">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;(!$past(maintenance_mode)))</span></span>
+<span class="line" line-num="860" source-line-num="860">	<span class="tlv_ident_hdl_code">casez($past(f_cmd))</span></span>
+<span class="line" line-num="861" source-line-num="861">	<span class="tlv_ident_hdl_code">`F_BANK_ACTIVATE: begin</span></span>
+<span class="line" line-num="862" source-line-num="862">		<span class="tlv_ident_hdl_code">assert(bank_active[$past(o_ram_bs)] == 3'b110);</span></span>
+<span class="line" line-num="863" source-line-num="863">		<span class="tlv_ident_hdl_code">assert(bank_row[$past(o_ram_bs)] == $past(o_ram_addr));</span></span>
+<span class="line" line-num="864" source-line-num="864">		<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="865" source-line-num="865">	<span class="tlv_ident_hdl_code">`F_BANK_PRECHARGE: begin</span></span>
+<span class="line" line-num="866" source-line-num="866">		<span class="tlv_ident_hdl_code">assert(bank_active[$past(o_ram_bs)] == 3'b001);</span></span>
+<span class="line" line-num="867" source-line-num="867">		<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="868" source-line-num="868">	<span class="tlv_ident_hdl_code">`F_PRECHARGE_ALL: begin</span></span>
+<span class="line" line-num="869" source-line-num="869">		<span class="tlv_ident_hdl_code">assert(bank_active[0][2] == 1'b0);</span></span>
+<span class="line" line-num="870" source-line-num="870">		<span class="tlv_ident_hdl_code">assert(bank_active[1][2] == 1'b0);</span></span>
+<span class="line" line-num="871" source-line-num="871">		<span class="tlv_ident_hdl_code">assert(bank_active[2][2] == 1'b0);</span></span>
+<span class="line" line-num="872" source-line-num="872">		<span class="tlv_ident_hdl_code">assert(bank_active[3][2] == 1'b0);</span></span>
+<span class="line" line-num="873" source-line-num="873">		<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="874" source-line-num="874">	<span class="tlv_ident_comment">// `F_WRITE:</span></span>
+<span class="line" line-num="875" source-line-num="875">	<span class="tlv_ident_comment">// `F_READ:</span></span>
+<span class="line" line-num="876" source-line-num="876">	<span class="tlv_ident_hdl_code">`F_REFRESH: begin</span></span>
+<span class="line" line-num="877" source-line-num="877">		<span class="tlv_ident_hdl_code">assert(r_barrell_ack == 0);</span></span>
+<span class="line" line-num="878" source-line-num="878">	<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="879" source-line-num="879">	<span class="tlv_ident_hdl_code">default: begin end</span></span>
+<span class="line" line-num="880" source-line-num="880">	<span class="tlv_ident_hdl_code">endcase</span></span>
+<span class="line" line-num="881" source-line-num="881"></span>
+<span class="line" line-num="882" source-line-num="882">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="883" source-line-num="883">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;(!$past(maintenance_mode)))</span></span>
+<span class="line" line-num="884" source-line-num="884">	<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="885" source-line-num="885">		<span class="tlv_ident_hdl_code">assert(bank_active[0][1:0] == $past(bank_active[0][2:1]));</span></span>
+<span class="line" line-num="886" source-line-num="886">		<span class="tlv_ident_hdl_code">assert(bank_active[1][1:0] == $past(bank_active[1][2:1]));</span></span>
+<span class="line" line-num="887" source-line-num="887">		<span class="tlv_ident_hdl_code">assert(bank_active[2][1:0] == $past(bank_active[2][2:1]));</span></span>
+<span class="line" line-num="888" source-line-num="888">		<span class="tlv_ident_hdl_code">assert(bank_active[3][1:0] == $past(bank_active[3][2:1]));</span></span>
+<span class="line" line-num="889" source-line-num="889">	<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="890" source-line-num="890"></span>
+<span class="line" line-num="891" source-line-num="891">	<span class="tlv_ident_hdl_code">always @(*)</span></span>
+<span class="line" line-num="892" source-line-num="892"><span class="tlv_ident_hdl_code">`ifdef	VERIFIC</span></span>
+<span class="line" line-num="893" source-line-num="893">	<span class="tlv_ident_hdl_code">if (in_refresh)</span></span>
+<span class="line" line-num="894" source-line-num="894"><span class="tlv_ident_hdl_code">`else</span></span>
+<span class="line" line-num="895" source-line-num="895">	<span class="tlv_ident_hdl_code">if ((in_refresh)||(maintenance_mode))</span></span>
+<span class="line" line-num="896" source-line-num="896"><span class="tlv_ident_hdl_code">`endif</span></span>
+<span class="line" line-num="897" source-line-num="897">	<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="898" source-line-num="898">		<span class="tlv_ident_hdl_code">assert(bank_active[0] == 0);</span></span>
+<span class="line" line-num="899" source-line-num="899">		<span class="tlv_ident_hdl_code">assert(bank_active[1] == 0);</span></span>
+<span class="line" line-num="900" source-line-num="900">		<span class="tlv_ident_hdl_code">assert(bank_active[2] == 0);</span></span>
+<span class="line" line-num="901" source-line-num="901">		<span class="tlv_ident_hdl_code">assert(bank_active[3] == 0);</span></span>
+<span class="line" line-num="902" source-line-num="902">	<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="903" source-line-num="903"></span>
+<span class="line" line-num="904" source-line-num="904">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="905" source-line-num="905">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;($past(o_wb_ack)))</span></span>
+<span class="line" line-num="906" source-line-num="906">		<span class="tlv_ident_hdl_code">assert(!o_wb_ack);</span></span>
+<span class="line" line-num="907" source-line-num="907"></span>
+<span class="line" line-num="908" source-line-num="908">	<span class="tlv_ident_hdl_code">reg	[3:0]	f_acks_pending;</span></span>
+<span class="line" line-num="909" source-line-num="909">	<span class="tlv_ident_hdl_code">always @(*)</span></span>
+<span class="line" line-num="910" source-line-num="910">	<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="911" source-line-num="911">		<span class="tlv_ident_hdl_code">f_acks_pending = 0;</span></span>
+<span class="line" line-num="912" source-line-num="912">		<span class="tlv_ident_hdl_code">for(f_k=0; f_k&lt;RDLY; f_k = f_k + 1)</span></span>
+<span class="line" line-num="913" source-line-num="913">		<span class="tlv_ident_hdl_code">if (r_barrell_ack[f_k])</span></span>
+<span class="line" line-num="914" source-line-num="914">			<span class="tlv_ident_hdl_code">f_acks_pending = f_acks_pending + 1'b1;</span></span>
+<span class="line" line-num="915" source-line-num="915">	<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="916" source-line-num="916"></span>
+<span class="line" line-num="917" source-line-num="917">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="918" source-line-num="918">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;(!$past(i_wb_cyc)))</span></span>
+<span class="line" line-num="919" source-line-num="919">		<span class="tlv_ident_hdl_code">assert(r_barrell_ack == 0);</span></span>
+<span class="line" line-num="920" source-line-num="920"></span>
+<span class="line" line-num="921" source-line-num="921"></span>
+<span class="line" line-num="922" source-line-num="922">	<span class="tlv_ident_hdl_code">wire	f_ispending;</span></span>
+<span class="line" line-num="923" source-line-num="923">	<span class="tlv_ident_hdl_code">assign	f_ispending = (r_pending)&amp;&amp;((f_cmd != `F_READ)&amp;&amp;(f_cmd != `F_WRITE));</span></span>
+<span class="line" line-num="924" source-line-num="924">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="925" source-line-num="925">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;(i_wb_cyc))</span></span>
+<span class="line" line-num="926" source-line-num="926">		<span class="tlv_ident_hdl_code">assert(f_outstanding == (f_ispending ? 1'b1:1'b0) + f_acks_pending);</span></span>
+<span class="line" line-num="927" source-line-num="927"></span>
+<span class="line" line-num="928" source-line-num="928"><span class="tlv_ident_comment">//	always @(posedge i_clk)</span></span>
+<span class="line" line-num="929" source-line-num="929"><span class="tlv_ident_comment">//	if (!i_wb_stb)</span></span>
+<span class="line" line-num="930" source-line-num="930"><span class="tlv_ident_comment">//	begin</span></span>
+<span class="line" line-num="931" source-line-num="931"><span class="tlv_ident_comment">//		restrict($stable(i_wb_we));</span></span>
+<span class="line" line-num="932" source-line-num="932"><span class="tlv_ident_comment">//		restrict($stable(i_wb_addr));</span></span>
+<span class="line" line-num="933" source-line-num="933"><span class="tlv_ident_comment">//		restrict($stable(i_wb_data));</span></span>
+<span class="line" line-num="934" source-line-num="934"><span class="tlv_ident_comment">//		if ((i_wb_stb)&amp;&amp;(!i_wb_we))</span></span>
+<span class="line" line-num="935" source-line-num="935"><span class="tlv_ident_comment">//			restrict(i_wb_data == 0);</span></span>
+<span class="line" line-num="936" source-line-num="936"><span class="tlv_ident_comment">//	end</span></span>
+<span class="line" line-num="937" source-line-num="937"><span class="tlv_ident_comment">//	always @(posedge i_clk)</span></span>
+<span class="line" line-num="938" source-line-num="938"><span class="tlv_ident_comment">//	if ((f_past_valid)&amp;&amp;(!$past(i_wb_stb))&amp;&amp;(i_wb_stb))</span></span>
+<span class="line" line-num="939" source-line-num="939"><span class="tlv_ident_comment">//		restrict(!$past(i_wb_cyc));</span></span>
+<span class="line" line-num="940" source-line-num="940"></span>
+<span class="line" line-num="941" source-line-num="941"><span class="tlv_ident_hdl_code">`ifdef	SHADOW_MEMORY</span></span>
+<span class="line" line-num="942" source-line-num="942">	<span class="tlv_ident_hdl_code">reg	[15:0]		f_shadow_memory	[0:((1&lt;&lt;26)-1)];</span></span>
+<span class="line" line-num="943" source-line-num="943">	<span class="tlv_ident_hdl_code">reg	[13+13-1:0]	f_shadow_addr;</span></span>
+<span class="line" line-num="944" source-line-num="944">	<span class="tlv_ident_hdl_code">always @(*)</span></span>
+<span class="line" line-num="945" source-line-num="945">		<span class="tlv_ident_hdl_code">f_shadow_addr &lt;= { bank_row[o_ram_bs], o_ram_addr[8:0] };</span></span>
+<span class="line" line-num="946" source-line-num="946">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="947" source-line-num="947">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;($past(f_past_valid,4)</span></span>
+<span class="line" line-num="948" source-line-num="948">			<span class="tlv_ident_hdl_code">&amp;&amp;(!$past(maintenance_mode,4)))</span></span>
+<span class="line" line-num="949" source-line-num="949">		<span class="tlv_ident_hdl_code">if (f_cmd == `F_WRITE)</span></span>
+<span class="line" line-num="950" source-line-num="950">		<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="951" source-line-num="951">			<span class="tlv_ident_hdl_code">f_shadow_memory[f_shadow_addr] &lt;= o_ram_data;</span></span>
+<span class="line" line-num="952" source-line-num="952">			<span class="tlv_ident_hdl_code">assert(o_ram_dmod==`DMOD_PUTOUTPUT);</span></span>
+<span class="line" line-num="953" source-line-num="953">			<span class="tlv_ident_hdl_code">assert(o_ram_addr[0] == 1'b0);</span></span>
+<span class="line" line-num="954" source-line-num="954">		<span class="tlv_ident_hdl_code">end else if ($past(f_cmd)== `F_WRITE)</span></span>
+<span class="line" line-num="955" source-line-num="955">		<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="956" source-line-num="956">			<span class="tlv_ident_hdl_code">f_shadow_memory[f_shadow_addr[26-1:1], 1'b1}] &lt;= data;</span></span>
+<span class="line" line-num="957" source-line-num="957">			<span class="tlv_ident_hdl_code">assert(o_ram_dmod==`DMOD_PUTOUTPUT);</span></span>
+<span class="line" line-num="958" source-line-num="958">		<span class="tlv_ident_hdl_code">end else if ($past(f_cmd,4)==`F_READ)</span></span>
+<span class="line" line-num="959" source-line-num="959">		<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="960" source-line-num="960">			<span class="tlv_ident_hdl_code">assert($past(o_ram_dmod)==`DMOD_GETINPUT);</span></span>
+<span class="line" line-num="961" source-line-num="961">			<span class="tlv_ident_hdl_code">assert(o_ram_dmod==`DMOD_GETINPUT);</span></span>
+<span class="line" line-num="962" source-line-num="962">			<span class="tlv_ident_hdl_code">assume(o_wb_data[31:16] == f_shadow_memory[$past(f_shadow_addr,4)]);</span></span>
+<span class="line" line-num="963" source-line-num="963">			<span class="tlv_ident_hdl_code">assume(o_wb_data[15: 0] == f_shadow_memory[{ $past(f_shadow_addr[25:1],4), 1'b1}]);</span></span>
+<span class="line" line-num="964" source-line-num="964">			<span class="tlv_ident_hdl_code">assert(r_barrell_ack[0]);</span></span>
+<span class="line" line-num="965" source-line-num="965">		<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="966" source-line-num="966"><span class="tlv_ident_hdl_code">`endif</span></span>
+<span class="line" line-num="967" source-line-num="967">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="968" source-line-num="968">	<span class="tlv_ident_hdl_code">if (startup_hold)</span></span>
+<span class="line" line-num="969" source-line-num="969">		<span class="tlv_ident_hdl_code">assert(m_state == `RAM_POWER_UP);</span></span>
+<span class="line" line-num="970" source-line-num="970"></span>
+<span class="line" line-num="971" source-line-num="971">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="972" source-line-num="972">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;(m_state != `RAM_SET_MODE)</span></span>
+<span class="line" line-num="973" source-line-num="973">			<span class="tlv_ident_hdl_code">&amp;&amp;($past(m_state) != `RAM_POWER_UP)</span></span>
+<span class="line" line-num="974" source-line-num="974">			<span class="tlv_ident_hdl_code">&amp;&amp;($past(maintenance_clocks)!=0))</span></span>
+<span class="line" line-num="975" source-line-num="975">		<span class="tlv_ident_hdl_code">assert(m_state == $past(m_state));</span></span>
+<span class="line" line-num="976" source-line-num="976"></span>
+<span class="line" line-num="977" source-line-num="977">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="978" source-line-num="978">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;($past(m_state)== `RAM_POWER_UP))</span></span>
+<span class="line" line-num="979" source-line-num="979">		<span class="tlv_ident_hdl_code">assert((m_state == `RAM_POWER_UP)</span></span>
+<span class="line" line-num="980" source-line-num="980">			<span class="tlv_ident_hdl_code">||(m_state == `RAM_SET_MODE));</span></span>
+<span class="line" line-num="981" source-line-num="981"></span>
+<span class="line" line-num="982" source-line-num="982">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="983" source-line-num="983">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;($past(m_state)== `RAM_SET_MODE))</span></span>
+<span class="line" line-num="984" source-line-num="984">		<span class="tlv_ident_hdl_code">assert((m_state == `RAM_SET_MODE)</span></span>
+<span class="line" line-num="985" source-line-num="985">			<span class="tlv_ident_hdl_code">||(m_state == `RAM_INITIAL_REFRESH));</span></span>
+<span class="line" line-num="986" source-line-num="986"></span>
+<span class="line" line-num="987" source-line-num="987">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="988" source-line-num="988">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;($past(m_state)== `RAM_INITIAL_REFRESH))</span></span>
+<span class="line" line-num="989" source-line-num="989">		<span class="tlv_ident_hdl_code">assert((m_state == `RAM_INITIAL_REFRESH)</span></span>
+<span class="line" line-num="990" source-line-num="990">			<span class="tlv_ident_hdl_code">||(m_state == `RAM_OPERATIONAL));</span></span>
+<span class="line" line-num="991" source-line-num="991"></span>
+<span class="line" line-num="992" source-line-num="992">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="993" source-line-num="993">	<span class="tlv_ident_hdl_code">assert((m_state == `RAM_POWER_UP)</span></span>
+<span class="line" line-num="994" source-line-num="994">		<span class="tlv_ident_hdl_code">||(m_state == `RAM_INITIAL_REFRESH)</span></span>
+<span class="line" line-num="995" source-line-num="995">		<span class="tlv_ident_hdl_code">||(m_state == `RAM_SET_MODE));</span></span>
+<span class="line" line-num="996" source-line-num="996"></span>
+<span class="line" line-num="997" source-line-num="997">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="998" source-line-num="998">	<span class="tlv_ident_hdl_code">if (maintenance_mode)</span></span>
+<span class="line" line-num="999" source-line-num="999">		<span class="tlv_ident_hdl_code">assert(clocks_til_idle ==0);</span></span>
+<span class="line" line-num="1000" source-line-num="1000">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="1001" source-line-num="1001">	<span class="tlv_ident_hdl_code">if (maintenance_clocks_zero)</span></span>
+<span class="line" line-num="1002" source-line-num="1002">		<span class="tlv_ident_hdl_code">assert(maintenance_clocks == 0);</span></span>
+<span class="line" line-num="1003" source-line-num="1003"></span>
+<span class="line" line-num="1004" source-line-num="1004">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="1005" source-line-num="1005">	<span class="tlv_ident_hdl_code">if (maintenance_clocks == 0)</span></span>
+<span class="line" line-num="1006" source-line-num="1006">		<span class="tlv_ident_hdl_code">assert(maintenance_clocks_zero);</span></span>
+<span class="line" line-num="1007" source-line-num="1007"></span>
+<span class="line" line-num="1008" source-line-num="1008">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="1009" source-line-num="1009">	<span class="tlv_ident_hdl_code">if (maintenance_clocks != 0)</span></span>
+<span class="line" line-num="1010" source-line-num="1010">		<span class="tlv_ident_hdl_code">assert(!maintenance_clocks_zero);</span></span>
+<span class="line" line-num="1011" source-line-num="1011"></span>
+<span class="line" line-num="1012" source-line-num="1012">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="1013" source-line-num="1013">	<span class="tlv_ident_hdl_code">if (!maintenance_mode)</span></span>
+<span class="line" line-num="1014" source-line-num="1014">		<span class="tlv_ident_hdl_code">assert(m_state == `RAM_INITIAL_REFRESH);</span></span>
+<span class="line" line-num="1015" source-line-num="1015"></span>
+<span class="line" line-num="1016" source-line-num="1016">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="1017" source-line-num="1017">	<span class="tlv_ident_hdl_code">if (m_state == `RAM_INITIAL_REFRESH)</span></span>
+<span class="line" line-num="1018" source-line-num="1018">		<span class="tlv_ident_hdl_code">assert(maintenance_clocks &lt;= 4'hc);</span></span>
+<span class="line" line-num="1019" source-line-num="1019"></span>
+<span class="line" line-num="1020" source-line-num="1020">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="1021" source-line-num="1021">	<span class="tlv_ident_hdl_code">if (m_state == `RAM_SET_MODE)</span></span>
+<span class="line" line-num="1022" source-line-num="1022">		<span class="tlv_ident_hdl_code">assert(maintenance_clocks &lt;= 4'h3);</span></span>
+<span class="line" line-num="1023" source-line-num="1023"></span>
+<span class="line" line-num="1024" source-line-num="1024">	<span class="tlv_ident_hdl_code">always @(*)</span></span>
+<span class="line" line-num="1025" source-line-num="1025">	<span class="tlv_ident_hdl_code">assert( (m_state == `RAM_POWER_UP)</span></span>
+<span class="line" line-num="1026" source-line-num="1026">		<span class="tlv_ident_hdl_code">||(m_state == `RAM_INITIAL_REFRESH)</span></span>
+<span class="line" line-num="1027" source-line-num="1027">		<span class="tlv_ident_hdl_code">||(m_state == `RAM_SET_MODE));</span></span>
+<span class="line" line-num="1028" source-line-num="1028">		<span class="tlv_ident_comment">// ||(m_state == `RAM_OPERATIONAL) );</span></span>
+<span class="line" line-num="1029" source-line-num="1029"></span>
+<span class="line" line-num="1030" source-line-num="1030">	<span class="tlv_ident_hdl_code">always @(posedge i_clk)</span></span>
+<span class="line" line-num="1031" source-line-num="1031">	<span class="tlv_ident_hdl_code">if ((f_past_valid)&amp;&amp;(startup_hold))</span></span>
+<span class="line" line-num="1032" source-line-num="1032">	<span class="tlv_ident_hdl_code">begin</span></span>
+<span class="line" line-num="1033" source-line-num="1033">		<span class="tlv_ident_hdl_code">assert(o_ram_cke);</span></span>
+<span class="line" line-num="1034" source-line-num="1034">		<span class="tlv_ident_hdl_code">assert(o_ram_cs_n);</span></span>
+<span class="line" line-num="1035" source-line-num="1035">		<span class="tlv_ident_hdl_code">assert(o_ram_ras_n);</span></span>
+<span class="line" line-num="1036" source-line-num="1036">		<span class="tlv_ident_hdl_code">assert(o_ram_cas_n);</span></span>
+<span class="line" line-num="1037" source-line-num="1037">		<span class="tlv_ident_hdl_code">assert(o_ram_we_n);</span></span>
+<span class="line" line-num="1038" source-line-num="1038">		<span class="tlv_ident_hdl_code">assert(o_ram_dqm);</span></span>
+<span class="line" line-num="1039" source-line-num="1039">	<span class="tlv_ident_hdl_code">end</span></span>
+<span class="line" line-num="1040" source-line-num="1040"><span class="tlv_ident_hdl_code">`endif</span></span>
+<span class="line" line-num="1041" source-line-num="1041"><span class="tlv_ident_hdl_code">endmodule</span></span>
+<span class="line" line-num="1042" source-line-num="1042"></span>
+<span class="line" line-num="1043" source-line-num="1043">   <span class="tlv_ident_comment">// =========================================</span></span>
+<span class="line" line-num="1044" source-line-num="1044">   <span class="tlv_ident_comment">// Welcome!  Try the tutorials via the menu.</span></span>
+<span class="line" line-num="1045" source-line-num="1045">   <span class="tlv_ident_comment">// =========================================</span></span>
+<span class="line" line-num="1046" source-line-num="1046"></span>
+<span class="line" line-num="1047" source-line-num="1047">   <span class="tlv_ident_comment">// Default Makerchip TL-Verilog Code Template</span></span>
+<span class="line" line-num="1048" source-line-num="1048">   </span>
+<span class="line" line-num="1049" source-line-num="1049">   <span class="tlv_ident_comment">// Macro providing required top-level module definition, random</span></span>
+<span class="line" line-num="1050" source-line-num="1050">   <span class="tlv_ident_comment">// stimulus support, and Verilator config.</span></span>
+<span class="line" line-num="1051" source-line-num="1051">   <span class="tlv_ident_hdl_code">module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    </span><span class="tlv_ident_comment">/* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  </span><span class="tlv_ident_hdl_code">bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  </span><span class="tlv_ident_comment">/* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */   // (Expanded in Nav-TLV pane.)</span></span>
+<span class="line" line-num="1052" source-line-num="1052"><span class="tlv_ident_keyword1">\TLV</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>
+   <span class="tlx_except" sev="warning" title="Signal $reset is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($reset)&quot;.">      </span></span></span><span class="line" line-num="1053" source-line-num="1053">   <span class="tlv_ident_comment">//NCA=9, NRA=13, AW=(NCA+NRA+2)-1, DW=32;</span></span>
+<span class="line" line-num="1054" source-line-num="1054">   <span class="tlv_ident_assigned_pipe_sig" logical_entity="$reset">$reset</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">reset;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $i_wb_cyc is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($i_wb_cyc)&quot;.">         </span></span></span><span class="line" line-num="1055" source-line-num="1055">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$i_wb_cyc">$i_wb_cyc</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">i_wb_cyc;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $i_wb_stb is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($i_wb_stb)&quot;.">         </span></span></span><span class="line" line-num="1056" source-line-num="1056">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$i_wb_stb">$i_wb_stb</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">i_wb_stb;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $i_wb_we is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($i_wb_we)&quot;.">        </span></span></span><span class="line" line-num="1057" source-line-num="1057">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$i_wb_we">$i_wb_we</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">i_wb_we;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $o_wb_stall is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($o_wb_stall)&quot;.">           </span></span></span><span class="line" line-num="1058" source-line-num="1058">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$o_wb_stall">$o_wb_stall</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_wb_stall;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $o_wb_data is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($o_wb_data)&quot;.">                </span></span></span><span class="line" line-num="1059" source-line-num="1059">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$o_wb_data">$o_wb_data</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">31</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_wb_data;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $o_ram_cke is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($o_ram_cke)&quot;.">          </span></span></span><span class="line" line-num="1060" source-line-num="1060">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$o_ram_cke">$o_ram_cke</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_ram_cke;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $o_ram_cs_n is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($o_ram_cs_n)&quot;.">           </span></span></span><span class="line" line-num="1061" source-line-num="1061">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$o_ram_cs_n">$o_ram_cs_n</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_ram_cs_n;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container><span class="tlx_except" sev="recov_error" title="Assignment appears to start with signal reference or concatination, but couldn't find '=' to delimit left- and right-hand sides.
+Treating signals as uses by default.  Consider using \SV_plus."> </span></span></span><span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="logic_error" title="Signal $o_ram_ras_n is used but never assigned.">            </span></span></span><span class="line" line-num="1062" source-line-num="1062">   <span class="tlv_ident_malformed_sig" logical_entity="$o_ram_ras_n">$o_ram_ras_n</span> <span class="tlv_ident_hdl_code">=</span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_ram_ras_n;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $o_ram_cas_n is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($o_ram_cas_n)&quot;.">            </span></span></span><span class="line" line-num="1063" source-line-num="1063">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$o_ram_cas_n">$o_ram_cas_n</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_ram_cas_n;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $o_ram_we_n is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($o_ram_we_n)&quot;.">           </span></span></span><span class="line" line-num="1064" source-line-num="1064">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$o_ram_we_n">$o_ram_we_n</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_ram_cas_n;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>              <span class="tlx_except" sev="risky_error" title="Multiple assignments to bits of: $o_ram_we_n"> </span></span></span><span class="line" line-num="1065" source-line-num="1065">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$o_ram_we_n">$o_ram_we_n</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_ram_we_n;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $o_ram_bs is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($o_ram_bs)&quot;.">              </span></span></span><span class="line" line-num="1066" source-line-num="1066">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$o_ram_bs">$o_ram_bs</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_ram_bs;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $o_ram_addr is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($o_ram_addr)&quot;.">                 </span></span></span><span class="line" line-num="1067" source-line-num="1067">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$o_ram_addr">$o_ram_addr</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">12</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_ram_addr;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $o_ram_dmod is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($o_ram_dmod)&quot;.">           </span></span></span><span class="line" line-num="1068" source-line-num="1068">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$o_ram_dmod">$o_ram_dmod</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_ram_dmod;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $i_ram_data is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($i_ram_data)&quot;.">                 </span></span></span><span class="line" line-num="1069" source-line-num="1069">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$i_ram_data">$i_ram_data</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">15</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">i_ram_data;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $o_ram_data is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($o_ram_data)&quot;.">                 </span></span></span><span class="line" line-num="1070" source-line-num="1070">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$o_ram_data">$o_ram_data</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">15</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_ram_data;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $o_ram_dqm is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($o_ram_dqm)&quot;.">               </span></span></span><span class="line" line-num="1071" source-line-num="1071">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$o_ram_dqm">$o_ram_dqm</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_ram_dqm;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $o_debug is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($o_debug)&quot;.">              </span></span></span><span class="line" line-num="1072" source-line-num="1072">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$o_debug">$o_debug</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">31</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_debug;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>            <span class="tlx_except" sev="risky_error" title="Multiple assignments to bits of: $i_wb_cyc"> </span></span></span><span class="line" line-num="1073" source-line-num="1073">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$i_wb_cyc">$i_wb_cyc</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">i_wb_cyc;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>            <span class="tlx_except" sev="risky_error" title="Multiple assignments to bits of: $i_wb_stb"> </span></span></span><span class="line" line-num="1074" source-line-num="1074">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$i_wb_stb">$i_wb_stb</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">i_wb_stb;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>           <span class="tlx_except" sev="risky_error" title="Multiple assignments to bits of: $i_wb_we"> </span></span></span><span class="line" line-num="1075" source-line-num="1075">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$i_wb_we">$i_wb_we</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">i_wb_we;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $i_wb_addr is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($i_wb_addr)&quot;.">                </span></span></span><span class="line" line-num="1076" source-line-num="1076">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$i_wb_addr">$i_wb_addr</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">23</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">i_wb_addr;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $i_wb_data is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($i_wb_data)&quot;.">                </span></span></span><span class="line" line-num="1077" source-line-num="1077">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$i_wb_data">$i_wb_data</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">31</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">i_wb_data;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $i_wb_sel is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($i_wb_sel)&quot;.">         </span></span></span><span class="line" line-num="1078" source-line-num="1078">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$i_wb_sel">$i_wb_sel</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">i_wb_sel;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $o_wb_ack is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($o_wb_ack)&quot;.">         </span></span></span><span class="line" line-num="1079" source-line-num="1079">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$o_wb_ack">$o_wb_ack</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_wb_ack;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>              <span class="tlx_except" sev="risky_error" title="Multiple assignments to bits of: $o_wb_stall"> </span></span></span><span class="line" line-num="1080" source-line-num="1080">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$o_wb_stall">$o_wb_stall</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_wb_stall;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>                   <span class="tlx_except" sev="risky_error" title="Multiple assignments to bits of: $o_wb_data"> </span></span></span><span class="line" line-num="1081" source-line-num="1081">   <span class="tlv_ident_malformed_assigned_sig" logical_entity="$o_wb_data">$o_wb_data</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">31</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_wb_data; </span></span>
+<span class="line" line-num="1082" source-line-num="1082">    </span>
+<span class="line" line-num="1083" source-line-num="1083">         </span>
+<span class="line" line-num="1084" source-line-num="1084">   <span class="tlv_ident_comment">//...</span></span>
+<span class="line" line-num="1085" source-line-num="1085"></span>
+<span class="line" line-num="1086" source-line-num="1086">   <span class="tlv_ident_comment">// Assert these to end simulation (before Makerchip cycle limit).</span></span>
+<span class="line" line-num="1087" source-line-num="1087">   <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">passed = </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">cyc_cnt &gt; 40;</span></span>
+<span class="line" line-num="1088" source-line-num="1088">   <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">failed = 1'b0;</span></span>
+<span class="line" line-num="1089" source-line-num="1089"><span class="tlv_ident_keyword1">\SV</span></span>
+<span class="line" line-num="1090" source-line-num="1090">   <span class="tlv_ident_hdl_code">endmodule</span></span>
+
+</pre>
+
+</body>
+</html>
