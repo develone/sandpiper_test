@@ -1,0 +1,27 @@
+11/04/20
+uncomment lines 64-66
+http://makerchip.com/sandbox/0ERfWhPO3/0nZh74r
+Started in Makerchip.com
+
+Downloaded top.tlv, top.m4.pre, and top.m4.
+
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --debugSigs --viz --dhtml --stats --compiler verilator --graphTrans -i top.m4 -o top.sv
+
+dot -Tpdf top_trans.dot -o top_trans.pdf
+
+qpdfview top_trans.pdf &
+
+cp ../extra_files/* .
+ 
+verilator --trace --debug --debugi 0 -gdbbt --no-dump-tree --cc makerchip.sv --exe --build sim_main.cpp
+
+INFORM(0) (STATS):
+	SandPiper generated 46% of your HDL code.
+	This includes: 29 signal declarations, 6 flops/latches, and 0 conditional clock signals.
+	View "top_stats" for more details.
+
+ 
+SandPiper generated 69% of your HDL code.
+	This includes: 55 signal declarations, 19 flops/latches, and 0 conditional clock signals.
+	View "top_stats" for more details. 
+ 
