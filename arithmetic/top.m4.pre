@@ -1,0 +1,11 @@
+m4_changecom(`//')m4_changequote(`[*', `*]')m4_changequote([*['*], [*']*])m4_include(['generic_tlv.m4'])m4_include(['rw_tlv.m4'])m4_define(['m4_pre_m4_path'], ['['/usr/local/mono/sandpiper/m4/1d']'])m4_define(['m4_strip_macro_definitions'], ['1'])m4_pushdef(['m4_file_uri'], ['['./top.tlv']'])m4_pushdef(['m4_FILE'], ['['top.tlv']'])\m4_TLV_version 1d: tl-x.org
+\SV
+   m4_makerchip_module
+\TLV
+   
+   // Verilog arithmetic operators: +, -, *, /, %, etc.
+   $out[7:0] = ($num1[3:0] + $num2[3:0]) - 1;
+   
+\SV
+endmodule
+['']m4_popdef(['m4_FILE'])m4_popdef(['m4_file_uri'])
