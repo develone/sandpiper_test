@@ -1,0 +1,10 @@
+11/11/20
+http://makerchip.com/sandbox/00Rf2hWZG/0y8hrGX
+
+https://raw.githubusercontent.com/ZipCPU/wb2axip/master/rtl/axil2axis.v
+
+https://github.com/ZipCPU/wb2axip/blob/master/doc/busprops.pdf
+
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --debugSigs --viz --dhtml --stats --compiler verilator --graphTrans -i top.m4 -o top.sv
+
+dot -Tpdf top_trans.dot -o top_trans.pdf
