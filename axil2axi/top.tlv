@@ -894,9 +894,10 @@ endmodule
    |axil
       
       @0
-         parameter C_AXI_ADDR_WIDTH = 4;
-         localparam C_AXI_DATA_WIDTH = 32;
-         parameter C_AXIS_DATA_WIDTH = 16;
+         \SV_plus 
+            parameter C_AXI_ADDR_WIDTH = 4;
+            localparam C_AXI_DATA_WIDTH = 32;
+            parameter C_AXIS_DATA_WIDTH = 16;
          $reset = *reset;
          $S_AXI_AWVALID = *S_AXI_AWVALID;
          $S_AXI_AWREADY = *S_AXI_AWREADY;
