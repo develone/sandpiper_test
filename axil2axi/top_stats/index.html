@@ -25,10 +25,10 @@
   function chartData() {
     return [
       ['File(s)', 'Unknown', 'Untouched', 'Logic', 'Declarations', 'Staging', 'Structure', 'Validity', 'Gating', '(Instrumentation)', { role: 'style' }, '(Comments)', { role: 'style' }, '(Whitespace)', { role: 'style' }],
-      ['top.m4', 0, 12607, 467, 0, 4, 46, 0, 0, 0, 'opacity: 0.1', 8633, 'opacity: 0.1', 3608, 'opacity: 0.1'],
-      ['top.sv', 0, 12607, 608, 0, 0, 70, 0, 0, 0, 'opacity: 0.1', 8757, 'opacity: 0.1', 3628, 'opacity: 0.1'],
+      ['top.m4', 0, 12607, 379, 0, 4, 38, 0, 0, 0, 'opacity: 0.1', 8633, 'opacity: 0.1', 3591, 'opacity: 0.1'],
+      ['top.sv', 0, 12607, 520, 0, 0, 70, 0, 0, 0, 'opacity: 0.1', 8746, 'opacity: 0.1', 3611, 'opacity: 0.1'],
       ['top_gen.sv', 0, 0, 0, 708, 1865, 53, 0, 0, 466, 'opacity: 0.1', 732, 'opacity: 0.1', 925, 'opacity: 0.1'],
-      ['SV Total', 0, 12607, 608, 708, 1865, 123, 0, 0, 466, 'opacity: 0.1', 9489, 'opacity: 0.1', 4553, 'opacity: 0.1']
+      ['SV Total', 0, 12607, 520, 708, 1865, 123, 0, 0, 466, 'opacity: 0.1', 9478, 'opacity: 0.1', 4536, 'opacity: 0.1']
     ];
   }
 
@@ -1095,11 +1095,12 @@ endmodule
    |axil
       
       </span><span class="tlx_staging">@0
-         </span><span class="tlx_structure">\SV_plus 
-            </span><span class="tlx_logic">parameter C_AXI_ADDR_WIDTH = 4;
-            localparam C_AXI_DATA_WIDTH = 32;
-            parameter C_AXIS_DATA_WIDTH = 16;
-         $reset = *reset;
+ 
+         
+         
+         
+         
+         </span><span class="tlx_logic">$reset = *reset;
          $S_AXI_AWVALID = *S_AXI_AWVALID;
          $S_AXI_AWREADY = *S_AXI_AWREADY;
          $S_AXI_AWADDR[C_AXI_ADDR_WIDTH-1:0] = *S_AXI_AWADDR;
@@ -2034,11 +2035,12 @@ endmodule
    //_|axil
       
       //_@0
-         /*SV_plus*/ 
-            </span><span class="tlx_logic">parameter C_AXI_ADDR_WIDTH = 4;
-            localparam C_AXI_DATA_WIDTH = 32;
-            parameter C_AXIS_DATA_WIDTH = 16;
-         assign AXIL_reset_a0 = reset;
+ 
+         
+         
+         
+         
+         </span><span class="tlx_logic">assign AXIL_reset_a0 = reset;
          assign AXIL_S_AXI_AWVALID_a0 = S_AXI_AWVALID;
          assign AXIL_S_AXI_AWREADY_a0 = S_AXI_AWREADY;
          assign AXIL_S_AXI_AWADDR_a0[C_AXI_ADDR_WIDTH-1:0] = S_AXI_AWADDR;

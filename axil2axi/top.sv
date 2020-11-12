@@ -894,10 +894,11 @@ endmodule
    //_|axil
       
       //_@0
-         /*SV_plus*/ 
-            parameter C_AXI_ADDR_WIDTH = 4;
-            localparam C_AXI_DATA_WIDTH = 32;
-            parameter C_AXIS_DATA_WIDTH = 16;
+ 
+         
+         
+         
+         
          assign AXIL_reset_a0 = reset;
          assign AXIL_S_AXI_AWVALID_a0 = S_AXI_AWVALID;
          assign AXIL_S_AXI_AWREADY_a0 = S_AXI_AWREADY;
