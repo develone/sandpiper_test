@@ -30,31 +30,44 @@
          assign AXIL_S_AXI_AWVALID_a0 = S_AXI_AWVALID;
          assign AXIL_S_AXI_AWREADY_a0 = S_AXI_AWREADY;
          assign AXIL_S_AXI_AWADDR_a0[C_AXI_ADDR_WIDTH-1:0] = S_AXI_AWADDR;
+         assign AXIL_S_AXI_AWPROT_a0[2:0] = S_AXI_AWPROT;
+         
+         assign AXIL_S_AXI_WVALID_a0 = S_AXI_WVALID;
+         assign AXIL_S_AXI_WREADY_a0 = S_AXI_WREADY;
+         assign AXIL_S_AXI_WDATA_a0[C_AXI_DATA_WIDTH-1:0] = S_AXI_WDATA
+         assign AXIL_S_AXI_WSTRB_a0[C_AXI_DATA_WIDTH/8-1:0] = S_AXI_WSTRB
          assign AXIL_S_AXI_RVALID_a0 = S_AXI_RVALID;
          assign AXIL_S_AXI_RREADY_a0 = S_AXI_RREADY;
          assign AXIL_S_AXI_RDATA_a0[C_AXI_DATA_WIDTH-1:0] = S_AXI_RDATA;
          assign AXIL_M_AXIS_TREADY_a0 = M_AXIS_TREADY;
          assign AXIL_M_AXIS_TDATA_a0[C_AXI_DATA_WIDTH-1:0] = M_AXIS_TDATA;
          
-         assign AXIL_S_AXI_WVALID_a0 = S_AXI_WVALID;
-         assign AXIL_S_AXI_WREADY_a0 = S_AXI_WREADY;
+
          
          assign AXIL_M_AXIS_TVALID_a0 = M_AXIS_TVALID;
          
          
       //_@5
-         assign S_AXI_AWVALID = AXIL_S_AXI_AWVALID_a5;
-         assign S_AXI_AWADDR = AXIL_S_AXI_AWADDR_a5[C_AXI_ADDR_WIDTH-1:0];
-         
+         assign S_AXI_AWVALID = AXIL_S_AXI_AWVALID_a5;         
          assign S_AXI_AWREADY = AXIL_S_AXI_AWREADY_a5;
+         
+         assign S_AXI_AWADDR = AXIL_S_AXI_AWADDR_a5[C_AXI_ADDR_WIDTH-1:0];
+         assign S_AXI_AWPROT = AXIL_S_AXI_AWPROT_a5[2:0];
          assign S_AXI_WVALID = AXIL_S_AXI_WVALID_a5;
          assign S_AXI_WREADY = AXIL_S_AXI_WREADY_a5;
-         
+         assign S_AXI_WDATA = AXIL_S_AXI_WDATA_a5[C_AXI_DATA_WIDTH-1:0];
+         assign S_AXI_WSTRB = AXIL_S_AXI_WSTRB_a5[C_AXI_DATA_WIDTH/8-1:0];
          assign S_AXI_RVALID = AXIL_S_AXI_RVALID_a5;
          assign S_AXI_RREADY = AXIL_S_AXI_RREADY_a5;
          assign S_AXI_RDATA = AXIL_S_AXI_RDATA_a5[C_AXI_DATA_WIDTH-1:0];
          assign M_AXIS_TREADY = AXIL_M_AXIS_TREADY_a5;
          assign M_AXIS_TDATA = AXIL_M_AXIS_TDATA_a5[C_AXI_DATA_WIDTH-1:0];
+
+         
+         
+         
+         assign M_AXIS_TVALID = AXIL_M_AXIS_TVALID_a5;
+         
          
          
          
