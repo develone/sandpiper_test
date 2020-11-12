@@ -8,3 +8,6 @@ https://github.com/ZipCPU/wb2axip/blob/master/doc/busprops.pdf
 java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --debugSigs --viz --dhtml --stats --compiler verilator --graphTrans -i top.m4 -o top.sv
 
 dot -Tpdf top_trans.dot -o top_trans.pdf
+
+example of m4 
+https://github.com/stevehoover/makerchip_examples/blob/master/flow_example_basejump_viz.tlv
