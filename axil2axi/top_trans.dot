@@ -26,7 +26,46 @@ strict digraph "top.tlv" {
          id = "id1{logical_entity=#Q#|axil#Q#}"
          label = "|axil"
          subgraph "cluster.stage0" {
-            "|axil$S_AXI_AWADDR@0" [fillcolor = "#ffffffb0", shape = box, label = "$S_AXI_AWADDR=", id = "id2{logical_entity=#Q#|axil$S_AXI_AWADDR#Q#}", tooltip = "$S_AXI_AWADDR[C_AXI_ADDR_WIDTH-1:0] = *S_AXI_AWADDR;"];
+            "|axil$M_AXIS_TDATA@0" [fillcolor = "#ffffffb0", shape = box, label = "$M_AXIS_TDATA=", id = "id2{logical_entity=#Q#|axil$M_AXIS_TDATA#Q#}", tooltip = "$M_AXIS_TDATA[C_AXI_DATA_WIDTH-1:0] = *M_AXIS_TDATA;"];
+         }
+         subgraph "cluster.stage1" {
+            "|axil$M_AXIS_TDATA@1" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage2" {
+            "|axil$M_AXIS_TDATA@2" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage3" {
+            "|axil$M_AXIS_TDATA@3" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage4" {
+            "|axil$M_AXIS_TDATA@4" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage5" {
+            "|axil$M_AXIS_TDATA@5" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage0" {
+            "|axil$M_AXIS_TREADY@0" [fillcolor = "#ffffffb0", shape = box, label = "$M_AXIS_TREADY=", id = "id8{logical_entity=#Q#|axil$M_AXIS_TREADY#Q#}", tooltip = "$M_AXIS_TREADY = *M_AXIS_TREADY;"];
+         }
+         subgraph "cluster.stage1" {
+            "|axil$M_AXIS_TREADY@1" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage2" {
+            "|axil$M_AXIS_TREADY@2" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage3" {
+            "|axil$M_AXIS_TREADY@3" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage4" {
+            "|axil$M_AXIS_TREADY@4" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage5" {
+            "|axil$M_AXIS_TREADY@5" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage0" {
+            "|axil$M_AXIS_TVALID@0" [fillcolor = "#ffffffb0", shape = box, label = "$M_AXIS_TVALID=", id = "id14{logical_entity=#Q#|axil$M_AXIS_TVALID#Q#}", tooltip = "$M_AXIS_TVALID = *M_AXIS_TVALID;"];
+         }
+         subgraph "cluster.stage0" {
+            "|axil$S_AXI_AWADDR@0" [fillcolor = "#ffffffb0", shape = box, label = "$S_AXI_AWADDR=", id = "id15{logical_entity=#Q#|axil$S_AXI_AWADDR#Q#}", tooltip = "$S_AXI_AWADDR[C_AXI_ADDR_WIDTH-1:0] = *S_AXI_AWADDR;"];
          }
          subgraph "cluster.stage1" {
             "|axil$S_AXI_AWADDR@1" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
@@ -44,7 +83,7 @@ strict digraph "top.tlv" {
             "|axil$S_AXI_AWADDR@5" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
          }
          subgraph "cluster.stage0" {
-            "|axil$S_AXI_AWREADY@0" [fillcolor = "#ffffffb0", shape = box, label = "$S_AXI_AWREADY=", id = "id8{logical_entity=#Q#|axil$S_AXI_AWREADY#Q#}", tooltip = "$S_AXI_AWREADY = *S_AXI_AWREADY;"];
+            "|axil$S_AXI_AWREADY@0" [fillcolor = "#ffffffb0", shape = box, label = "$S_AXI_AWREADY=", id = "id21{logical_entity=#Q#|axil$S_AXI_AWREADY#Q#}", tooltip = "$S_AXI_AWREADY = *S_AXI_AWREADY;"];
          }
          subgraph "cluster.stage1" {
             "|axil$S_AXI_AWREADY@1" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
@@ -62,7 +101,7 @@ strict digraph "top.tlv" {
             "|axil$S_AXI_AWREADY@5" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
          }
          subgraph "cluster.stage0" {
-            "|axil$S_AXI_AWVALID@0" [fillcolor = "#ffffffb0", shape = box, label = "$S_AXI_AWVALID=", id = "id14{logical_entity=#Q#|axil$S_AXI_AWVALID#Q#}", tooltip = "$S_AXI_AWVALID = *S_AXI_AWVALID;"];
+            "|axil$S_AXI_AWVALID@0" [fillcolor = "#ffffffb0", shape = box, label = "$S_AXI_AWVALID=", id = "id27{logical_entity=#Q#|axil$S_AXI_AWVALID#Q#}", tooltip = "$S_AXI_AWVALID = *S_AXI_AWVALID;"];
          }
          subgraph "cluster.stage1" {
             "|axil$S_AXI_AWVALID@1" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
@@ -80,7 +119,61 @@ strict digraph "top.tlv" {
             "|axil$S_AXI_AWVALID@5" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
          }
          subgraph "cluster.stage0" {
-            "|axil$S_AXI_WREADY@0" [fillcolor = "#ffffffb0", shape = box, label = "$S_AXI_WREADY=", id = "id20{logical_entity=#Q#|axil$S_AXI_WREADY#Q#}", tooltip = "$S_AXI_WREADY = *S_AXI_WREADY;"];
+            "|axil$S_AXI_RDATA@0" [fillcolor = "#ffffffb0", shape = box, label = "$S_AXI_RDATA=", id = "id33{logical_entity=#Q#|axil$S_AXI_RDATA#Q#}", tooltip = "$S_AXI_RDATA[C_AXI_DATA_WIDTH-1:0] = *S_AXI_RDATA;"];
+         }
+         subgraph "cluster.stage1" {
+            "|axil$S_AXI_RDATA@1" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage2" {
+            "|axil$S_AXI_RDATA@2" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage3" {
+            "|axil$S_AXI_RDATA@3" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage4" {
+            "|axil$S_AXI_RDATA@4" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage5" {
+            "|axil$S_AXI_RDATA@5" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage0" {
+            "|axil$S_AXI_RREADY@0" [fillcolor = "#ffffffb0", shape = box, label = "$S_AXI_RREADY=", id = "id39{logical_entity=#Q#|axil$S_AXI_RREADY#Q#}", tooltip = "$S_AXI_RREADY = *S_AXI_RREADY;"];
+         }
+         subgraph "cluster.stage1" {
+            "|axil$S_AXI_RREADY@1" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage2" {
+            "|axil$S_AXI_RREADY@2" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage3" {
+            "|axil$S_AXI_RREADY@3" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage4" {
+            "|axil$S_AXI_RREADY@4" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage5" {
+            "|axil$S_AXI_RREADY@5" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage0" {
+            "|axil$S_AXI_RVALID@0" [fillcolor = "#ffffffb0", shape = box, label = "$S_AXI_RVALID=", id = "id45{logical_entity=#Q#|axil$S_AXI_RVALID#Q#}", tooltip = "$S_AXI_RVALID = *S_AXI_RVALID;"];
+         }
+         subgraph "cluster.stage1" {
+            "|axil$S_AXI_RVALID@1" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage2" {
+            "|axil$S_AXI_RVALID@2" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage3" {
+            "|axil$S_AXI_RVALID@3" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage4" {
+            "|axil$S_AXI_RVALID@4" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage5" {
+            "|axil$S_AXI_RVALID@5" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
+         }
+         subgraph "cluster.stage0" {
+            "|axil$S_AXI_WREADY@0" [fillcolor = "#ffffffb0", shape = box, label = "$S_AXI_WREADY=", id = "id51{logical_entity=#Q#|axil$S_AXI_WREADY#Q#}", tooltip = "$S_AXI_WREADY = *S_AXI_WREADY;"];
          }
          subgraph "cluster.stage1" {
             "|axil$S_AXI_WREADY@1" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
@@ -98,7 +191,7 @@ strict digraph "top.tlv" {
             "|axil$S_AXI_WREADY@5" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
          }
          subgraph "cluster.stage0" {
-            "|axil$S_AXI_WVALID@0" [fillcolor = "#ffffffb0", shape = box, label = "$S_AXI_WVALID=", id = "id26{logical_entity=#Q#|axil$S_AXI_WVALID#Q#}", tooltip = "$S_AXI_WVALID = *S_AXI_WVALID;"];
+            "|axil$S_AXI_WVALID@0" [fillcolor = "#ffffffb0", shape = box, label = "$S_AXI_WVALID=", id = "id57{logical_entity=#Q#|axil$S_AXI_WVALID#Q#}", tooltip = "$S_AXI_WVALID = *S_AXI_WVALID;"];
          }
          subgraph "cluster.stage1" {
             "|axil$S_AXI_WVALID@1" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
@@ -116,14 +209,14 @@ strict digraph "top.tlv" {
             "|axil$S_AXI_WVALID@5" [label = "", shape = box, fixedsize = true, width = 0.2, height = 0.2, penwidth = 1.0, shape = box, fillcolor = grey];
          }
          subgraph "cluster.stage0" {
-            "|axil$reset@0" [fillcolor = "#ffffffb0", shape = box, label = "$reset=", id = "id32{logical_entity=#Q#|axil$reset#Q#}", tooltip = "$reset = *reset;"];
+            "|axil$reset@0" [fillcolor = "#ffffffb0", shape = box, label = "$reset=", id = "id63{logical_entity=#Q#|axil$reset#Q#}", tooltip = "$reset = *reset;"];
          }
          subgraph "cluster.stage0" {
             style = "filled"
             fontsize = 20
             penwidth = 1.5
             label = "@0"
-            id = "id33{logical_entity=#Q#|axil@0#Q#}"
+            id = "id64{logical_entity=#Q#|axil@0#Q#}"
             tooltip = "|axil@0"
             fillcolor = "#509050"
          }
@@ -132,7 +225,7 @@ strict digraph "top.tlv" {
             fontsize = 20
             penwidth = 1.5
             label = "@1"
-            id = "id34{logical_entity=#Q#|axil@2#Q#}"
+            id = "id65{logical_entity=#Q#|axil@2#Q#}"
             tooltip = "|axil@1"
             fillcolor = "darkgreen"
          }
@@ -141,7 +234,7 @@ strict digraph "top.tlv" {
             fontsize = 20
             penwidth = 1.5
             label = "@2"
-            id = "id35{logical_entity=#Q#|axil@4#Q#}"
+            id = "id66{logical_entity=#Q#|axil@4#Q#}"
             tooltip = "|axil@2"
             fillcolor = "#509050"
          }
@@ -150,7 +243,7 @@ strict digraph "top.tlv" {
             fontsize = 20
             penwidth = 1.5
             label = "@3"
-            id = "id36{logical_entity=#Q#|axil@6#Q#}"
+            id = "id67{logical_entity=#Q#|axil@6#Q#}"
             tooltip = "|axil@3"
             fillcolor = "darkgreen"
          }
@@ -159,7 +252,7 @@ strict digraph "top.tlv" {
             fontsize = 20
             penwidth = 1.5
             label = "@4"
-            id = "id37{logical_entity=#Q#|axil@8#Q#}"
+            id = "id68{logical_entity=#Q#|axil@8#Q#}"
             tooltip = "|axil@4"
             fillcolor = "#509050"
          }
@@ -168,7 +261,7 @@ strict digraph "top.tlv" {
             fontsize = 20
             penwidth = 1.5
             label = "@5"
-            id = "id38{logical_entity=#Q#|axil@10#Q#}"
+            id = "id69{logical_entity=#Q#|axil@10#Q#}"
             tooltip = "|axil@5"
             fillcolor = "darkgreen"
          }
@@ -179,14 +272,20 @@ strict digraph "top.tlv" {
          penwidth = 2.5
          fontsize = 50
          tooltip = "|none"
-         id = "id39{logical_entity=#Q#|none#Q#}"
+         id = "id70{logical_entity=#Q#|none#Q#}"
          label = "|none"
       }
    }
 
+"*M_AXIS_TDATA" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
+"*M_AXIS_TREADY" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
+"*M_AXIS_TVALID" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
 "*S_AXI_AWADDR" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
 "*S_AXI_AWREADY" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
 "*S_AXI_AWVALID" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
+"*S_AXI_RDATA" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
+"*S_AXI_RREADY" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
+"*S_AXI_RVALID" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
 "*S_AXI_WREADY" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
 "*S_AXI_WVALID" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
 "*cyc_cnt" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
@@ -194,29 +293,54 @@ strict digraph "top.tlv" {
 "*passed" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
 "*reset" [shape = box, color = "#00008b", fontcolor = "#00008b", fillcolor = white];
 
-"|axil$S_AXI_AWADDR@0" -> "|axil$S_AXI_AWADDR@1" [id = "id3{logical_entity=#Q#|axil$S_AXI_AWADDR#Q#}", weight = 10]
-"|axil$S_AXI_AWADDR@1" -> "|axil$S_AXI_AWADDR@2" [id = "id4{logical_entity=#Q#|axil$S_AXI_AWADDR#Q#}", weight = 10]
-"|axil$S_AXI_AWADDR@2" -> "|axil$S_AXI_AWADDR@3" [id = "id5{logical_entity=#Q#|axil$S_AXI_AWADDR#Q#}", weight = 10]
-"|axil$S_AXI_AWADDR@3" -> "|axil$S_AXI_AWADDR@4" [id = "id6{logical_entity=#Q#|axil$S_AXI_AWADDR#Q#}", weight = 10]
-"|axil$S_AXI_AWADDR@4" -> "|axil$S_AXI_AWADDR@5" [id = "id7{logical_entity=#Q#|axil$S_AXI_AWADDR#Q#}", weight = 10]
-"|axil$S_AXI_AWREADY@0" -> "|axil$S_AXI_AWREADY@1" [id = "id9{logical_entity=#Q#|axil$S_AXI_AWREADY#Q#}", weight = 10]
-"|axil$S_AXI_AWREADY@1" -> "|axil$S_AXI_AWREADY@2" [id = "id10{logical_entity=#Q#|axil$S_AXI_AWREADY#Q#}", weight = 10]
-"|axil$S_AXI_AWREADY@2" -> "|axil$S_AXI_AWREADY@3" [id = "id11{logical_entity=#Q#|axil$S_AXI_AWREADY#Q#}", weight = 10]
-"|axil$S_AXI_AWREADY@3" -> "|axil$S_AXI_AWREADY@4" [id = "id12{logical_entity=#Q#|axil$S_AXI_AWREADY#Q#}", weight = 10]
-"|axil$S_AXI_AWREADY@4" -> "|axil$S_AXI_AWREADY@5" [id = "id13{logical_entity=#Q#|axil$S_AXI_AWREADY#Q#}", weight = 10]
-"|axil$S_AXI_AWVALID@0" -> "|axil$S_AXI_AWVALID@1" [id = "id15{logical_entity=#Q#|axil$S_AXI_AWVALID#Q#}", weight = 10]
-"|axil$S_AXI_AWVALID@1" -> "|axil$S_AXI_AWVALID@2" [id = "id16{logical_entity=#Q#|axil$S_AXI_AWVALID#Q#}", weight = 10]
-"|axil$S_AXI_AWVALID@2" -> "|axil$S_AXI_AWVALID@3" [id = "id17{logical_entity=#Q#|axil$S_AXI_AWVALID#Q#}", weight = 10]
-"|axil$S_AXI_AWVALID@3" -> "|axil$S_AXI_AWVALID@4" [id = "id18{logical_entity=#Q#|axil$S_AXI_AWVALID#Q#}", weight = 10]
-"|axil$S_AXI_AWVALID@4" -> "|axil$S_AXI_AWVALID@5" [id = "id19{logical_entity=#Q#|axil$S_AXI_AWVALID#Q#}", weight = 10]
-"|axil$S_AXI_WREADY@0" -> "|axil$S_AXI_WREADY@1" [id = "id21{logical_entity=#Q#|axil$S_AXI_WREADY#Q#}", weight = 10]
-"|axil$S_AXI_WREADY@1" -> "|axil$S_AXI_WREADY@2" [id = "id22{logical_entity=#Q#|axil$S_AXI_WREADY#Q#}", weight = 10]
-"|axil$S_AXI_WREADY@2" -> "|axil$S_AXI_WREADY@3" [id = "id23{logical_entity=#Q#|axil$S_AXI_WREADY#Q#}", weight = 10]
-"|axil$S_AXI_WREADY@3" -> "|axil$S_AXI_WREADY@4" [id = "id24{logical_entity=#Q#|axil$S_AXI_WREADY#Q#}", weight = 10]
-"|axil$S_AXI_WREADY@4" -> "|axil$S_AXI_WREADY@5" [id = "id25{logical_entity=#Q#|axil$S_AXI_WREADY#Q#}", weight = 10]
-"|axil$S_AXI_WVALID@0" -> "|axil$S_AXI_WVALID@1" [id = "id27{logical_entity=#Q#|axil$S_AXI_WVALID#Q#}", weight = 10]
-"|axil$S_AXI_WVALID@1" -> "|axil$S_AXI_WVALID@2" [id = "id28{logical_entity=#Q#|axil$S_AXI_WVALID#Q#}", weight = 10]
-"|axil$S_AXI_WVALID@2" -> "|axil$S_AXI_WVALID@3" [id = "id29{logical_entity=#Q#|axil$S_AXI_WVALID#Q#}", weight = 10]
-"|axil$S_AXI_WVALID@3" -> "|axil$S_AXI_WVALID@4" [id = "id30{logical_entity=#Q#|axil$S_AXI_WVALID#Q#}", weight = 10]
-"|axil$S_AXI_WVALID@4" -> "|axil$S_AXI_WVALID@5" [id = "id31{logical_entity=#Q#|axil$S_AXI_WVALID#Q#}", weight = 10]
+"|axil$M_AXIS_TDATA@0" -> "|axil$M_AXIS_TDATA@1" [id = "id3{logical_entity=#Q#|axil$M_AXIS_TDATA#Q#}", weight = 10]
+"|axil$M_AXIS_TDATA@1" -> "|axil$M_AXIS_TDATA@2" [id = "id4{logical_entity=#Q#|axil$M_AXIS_TDATA#Q#}", weight = 10]
+"|axil$M_AXIS_TDATA@2" -> "|axil$M_AXIS_TDATA@3" [id = "id5{logical_entity=#Q#|axil$M_AXIS_TDATA#Q#}", weight = 10]
+"|axil$M_AXIS_TDATA@3" -> "|axil$M_AXIS_TDATA@4" [id = "id6{logical_entity=#Q#|axil$M_AXIS_TDATA#Q#}", weight = 10]
+"|axil$M_AXIS_TDATA@4" -> "|axil$M_AXIS_TDATA@5" [id = "id7{logical_entity=#Q#|axil$M_AXIS_TDATA#Q#}", weight = 10]
+"|axil$M_AXIS_TREADY@0" -> "|axil$M_AXIS_TREADY@1" [id = "id9{logical_entity=#Q#|axil$M_AXIS_TREADY#Q#}", weight = 10]
+"|axil$M_AXIS_TREADY@1" -> "|axil$M_AXIS_TREADY@2" [id = "id10{logical_entity=#Q#|axil$M_AXIS_TREADY#Q#}", weight = 10]
+"|axil$M_AXIS_TREADY@2" -> "|axil$M_AXIS_TREADY@3" [id = "id11{logical_entity=#Q#|axil$M_AXIS_TREADY#Q#}", weight = 10]
+"|axil$M_AXIS_TREADY@3" -> "|axil$M_AXIS_TREADY@4" [id = "id12{logical_entity=#Q#|axil$M_AXIS_TREADY#Q#}", weight = 10]
+"|axil$M_AXIS_TREADY@4" -> "|axil$M_AXIS_TREADY@5" [id = "id13{logical_entity=#Q#|axil$M_AXIS_TREADY#Q#}", weight = 10]
+"|axil$S_AXI_AWADDR@0" -> "|axil$S_AXI_AWADDR@1" [id = "id16{logical_entity=#Q#|axil$S_AXI_AWADDR#Q#}", weight = 10]
+"|axil$S_AXI_AWADDR@1" -> "|axil$S_AXI_AWADDR@2" [id = "id17{logical_entity=#Q#|axil$S_AXI_AWADDR#Q#}", weight = 10]
+"|axil$S_AXI_AWADDR@2" -> "|axil$S_AXI_AWADDR@3" [id = "id18{logical_entity=#Q#|axil$S_AXI_AWADDR#Q#}", weight = 10]
+"|axil$S_AXI_AWADDR@3" -> "|axil$S_AXI_AWADDR@4" [id = "id19{logical_entity=#Q#|axil$S_AXI_AWADDR#Q#}", weight = 10]
+"|axil$S_AXI_AWADDR@4" -> "|axil$S_AXI_AWADDR@5" [id = "id20{logical_entity=#Q#|axil$S_AXI_AWADDR#Q#}", weight = 10]
+"|axil$S_AXI_AWREADY@0" -> "|axil$S_AXI_AWREADY@1" [id = "id22{logical_entity=#Q#|axil$S_AXI_AWREADY#Q#}", weight = 10]
+"|axil$S_AXI_AWREADY@1" -> "|axil$S_AXI_AWREADY@2" [id = "id23{logical_entity=#Q#|axil$S_AXI_AWREADY#Q#}", weight = 10]
+"|axil$S_AXI_AWREADY@2" -> "|axil$S_AXI_AWREADY@3" [id = "id24{logical_entity=#Q#|axil$S_AXI_AWREADY#Q#}", weight = 10]
+"|axil$S_AXI_AWREADY@3" -> "|axil$S_AXI_AWREADY@4" [id = "id25{logical_entity=#Q#|axil$S_AXI_AWREADY#Q#}", weight = 10]
+"|axil$S_AXI_AWREADY@4" -> "|axil$S_AXI_AWREADY@5" [id = "id26{logical_entity=#Q#|axil$S_AXI_AWREADY#Q#}", weight = 10]
+"|axil$S_AXI_AWVALID@0" -> "|axil$S_AXI_AWVALID@1" [id = "id28{logical_entity=#Q#|axil$S_AXI_AWVALID#Q#}", weight = 10]
+"|axil$S_AXI_AWVALID@1" -> "|axil$S_AXI_AWVALID@2" [id = "id29{logical_entity=#Q#|axil$S_AXI_AWVALID#Q#}", weight = 10]
+"|axil$S_AXI_AWVALID@2" -> "|axil$S_AXI_AWVALID@3" [id = "id30{logical_entity=#Q#|axil$S_AXI_AWVALID#Q#}", weight = 10]
+"|axil$S_AXI_AWVALID@3" -> "|axil$S_AXI_AWVALID@4" [id = "id31{logical_entity=#Q#|axil$S_AXI_AWVALID#Q#}", weight = 10]
+"|axil$S_AXI_AWVALID@4" -> "|axil$S_AXI_AWVALID@5" [id = "id32{logical_entity=#Q#|axil$S_AXI_AWVALID#Q#}", weight = 10]
+"|axil$S_AXI_RDATA@0" -> "|axil$S_AXI_RDATA@1" [id = "id34{logical_entity=#Q#|axil$S_AXI_RDATA#Q#}", weight = 10]
+"|axil$S_AXI_RDATA@1" -> "|axil$S_AXI_RDATA@2" [id = "id35{logical_entity=#Q#|axil$S_AXI_RDATA#Q#}", weight = 10]
+"|axil$S_AXI_RDATA@2" -> "|axil$S_AXI_RDATA@3" [id = "id36{logical_entity=#Q#|axil$S_AXI_RDATA#Q#}", weight = 10]
+"|axil$S_AXI_RDATA@3" -> "|axil$S_AXI_RDATA@4" [id = "id37{logical_entity=#Q#|axil$S_AXI_RDATA#Q#}", weight = 10]
+"|axil$S_AXI_RDATA@4" -> "|axil$S_AXI_RDATA@5" [id = "id38{logical_entity=#Q#|axil$S_AXI_RDATA#Q#}", weight = 10]
+"|axil$S_AXI_RREADY@0" -> "|axil$S_AXI_RREADY@1" [id = "id40{logical_entity=#Q#|axil$S_AXI_RREADY#Q#}", weight = 10]
+"|axil$S_AXI_RREADY@1" -> "|axil$S_AXI_RREADY@2" [id = "id41{logical_entity=#Q#|axil$S_AXI_RREADY#Q#}", weight = 10]
+"|axil$S_AXI_RREADY@2" -> "|axil$S_AXI_RREADY@3" [id = "id42{logical_entity=#Q#|axil$S_AXI_RREADY#Q#}", weight = 10]
+"|axil$S_AXI_RREADY@3" -> "|axil$S_AXI_RREADY@4" [id = "id43{logical_entity=#Q#|axil$S_AXI_RREADY#Q#}", weight = 10]
+"|axil$S_AXI_RREADY@4" -> "|axil$S_AXI_RREADY@5" [id = "id44{logical_entity=#Q#|axil$S_AXI_RREADY#Q#}", weight = 10]
+"|axil$S_AXI_RVALID@0" -> "|axil$S_AXI_RVALID@1" [id = "id46{logical_entity=#Q#|axil$S_AXI_RVALID#Q#}", weight = 10]
+"|axil$S_AXI_RVALID@1" -> "|axil$S_AXI_RVALID@2" [id = "id47{logical_entity=#Q#|axil$S_AXI_RVALID#Q#}", weight = 10]
+"|axil$S_AXI_RVALID@2" -> "|axil$S_AXI_RVALID@3" [id = "id48{logical_entity=#Q#|axil$S_AXI_RVALID#Q#}", weight = 10]
+"|axil$S_AXI_RVALID@3" -> "|axil$S_AXI_RVALID@4" [id = "id49{logical_entity=#Q#|axil$S_AXI_RVALID#Q#}", weight = 10]
+"|axil$S_AXI_RVALID@4" -> "|axil$S_AXI_RVALID@5" [id = "id50{logical_entity=#Q#|axil$S_AXI_RVALID#Q#}", weight = 10]
+"|axil$S_AXI_WREADY@0" -> "|axil$S_AXI_WREADY@1" [id = "id52{logical_entity=#Q#|axil$S_AXI_WREADY#Q#}", weight = 10]
+"|axil$S_AXI_WREADY@1" -> "|axil$S_AXI_WREADY@2" [id = "id53{logical_entity=#Q#|axil$S_AXI_WREADY#Q#}", weight = 10]
+"|axil$S_AXI_WREADY@2" -> "|axil$S_AXI_WREADY@3" [id = "id54{logical_entity=#Q#|axil$S_AXI_WREADY#Q#}", weight = 10]
+"|axil$S_AXI_WREADY@3" -> "|axil$S_AXI_WREADY@4" [id = "id55{logical_entity=#Q#|axil$S_AXI_WREADY#Q#}", weight = 10]
+"|axil$S_AXI_WREADY@4" -> "|axil$S_AXI_WREADY@5" [id = "id56{logical_entity=#Q#|axil$S_AXI_WREADY#Q#}", weight = 10]
+"|axil$S_AXI_WVALID@0" -> "|axil$S_AXI_WVALID@1" [id = "id58{logical_entity=#Q#|axil$S_AXI_WVALID#Q#}", weight = 10]
+"|axil$S_AXI_WVALID@1" -> "|axil$S_AXI_WVALID@2" [id = "id59{logical_entity=#Q#|axil$S_AXI_WVALID#Q#}", weight = 10]
+"|axil$S_AXI_WVALID@2" -> "|axil$S_AXI_WVALID@3" [id = "id60{logical_entity=#Q#|axil$S_AXI_WVALID#Q#}", weight = 10]
+"|axil$S_AXI_WVALID@3" -> "|axil$S_AXI_WVALID@4" [id = "id61{logical_entity=#Q#|axil$S_AXI_WVALID#Q#}", weight = 10]
+"|axil$S_AXI_WVALID@4" -> "|axil$S_AXI_WVALID@5" [id = "id62{logical_entity=#Q#|axil$S_AXI_WVALID#Q#}", weight = 10]
 }

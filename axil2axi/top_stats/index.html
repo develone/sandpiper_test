@@ -25,10 +25,10 @@
   function chartData() {
     return [
       ['File(s)', 'Unknown', 'Untouched', 'Logic', 'Declarations', 'Staging', 'Structure', 'Validity', 'Gating', '(Instrumentation)', { role: 'style' }, '(Comments)', { role: 'style' }, '(Whitespace)', { role: 'style' }],
-      ['top.m4', 0, 286, 379, 0, 4, 38, 0, 0, 0, 'opacity: 0.1', 973, 'opacity: 0.1', 435, 'opacity: 0.1'],
-      ['top.sv', 0, 286, 520, 0, 0, 70, 0, 0, 0, 'opacity: 0.1', 1086, 'opacity: 0.1', 455, 'opacity: 0.1'],
-      ['top_gen.sv', 0, 0, 0, 708, 1865, 53, 0, 0, 466, 'opacity: 0.1', 732, 'opacity: 0.1', 925, 'opacity: 0.1'],
-      ['SV Total', 0, 286, 520, 708, 1865, 123, 0, 0, 466, 'opacity: 0.1', 1818, 'opacity: 0.1', 1380, 'opacity: 0.1']
+      ['top.m4', 0, 286, 777, 0, 4, 38, 0, 0, 0, 'opacity: 0.1', 1099, 'opacity: 0.1', 626, 'opacity: 0.1'],
+      ['top.sv', 0, 286, 1050, 0, 0, 70, 0, 0, 0, 'opacity: 0.1', 1212, 'opacity: 0.1', 657, 'opacity: 0.1'],
+      ['top_gen.sv', 0, 0, 0, 1434, 3930, 53, 0, 0, 909, 'opacity: 0.1', 994, 'opacity: 0.1', 1852, 'opacity: 0.1'],
+      ['SV Total', 0, 286, 1050, 1434, 3930, 123, 0, 0, 909, 'opacity: 0.1', 2206, 'opacity: 0.1', 2509, 'opacity: 0.1']
     ];
   }
 
@@ -61,7 +61,26 @@
 // Signals declared top-level.
 //
 
-// For |axil$S_AXI_AWADDR.
+// For |axil$M_AXIS_TDATA.
+</span><span class="tlx_declarations">logic [C_AXI_DATA_WIDTH-1:0] AXIL_M_AXIS_TDATA_a0,
+                             AXIL_M_AXIS_TDATA_a1,
+                             AXIL_M_AXIS_TDATA_a2,
+                             AXIL_M_AXIS_TDATA_a3,
+                             AXIL_M_AXIS_TDATA_a4,
+                             AXIL_M_AXIS_TDATA_a5;
+
+</span><span class="tlx_comments">// For |axil$M_AXIS_TREADY.
+</span><span class="tlx_declarations">logic AXIL_M_AXIS_TREADY_a0,
+      AXIL_M_AXIS_TREADY_a1,
+      AXIL_M_AXIS_TREADY_a2,
+      AXIL_M_AXIS_TREADY_a3,
+      AXIL_M_AXIS_TREADY_a4,
+      AXIL_M_AXIS_TREADY_a5;
+
+</span><span class="tlx_comments">// For |axil$M_AXIS_TVALID.
+</span><span class="tlx_declarations">logic AXIL_M_AXIS_TVALID_a0;
+
+</span><span class="tlx_comments">// For |axil$S_AXI_AWADDR.
 </span><span class="tlx_declarations">logic [C_AXI_ADDR_WIDTH-1:0] AXIL_S_AXI_AWADDR_a0,
                              AXIL_S_AXI_AWADDR_a1,
                              AXIL_S_AXI_AWADDR_a2,
@@ -84,6 +103,30 @@
       AXIL_S_AXI_AWVALID_a3,
       AXIL_S_AXI_AWVALID_a4,
       AXIL_S_AXI_AWVALID_a5;
+
+</span><span class="tlx_comments">// For |axil$S_AXI_RDATA.
+</span><span class="tlx_declarations">logic [C_AXI_DATA_WIDTH-1:0] AXIL_S_AXI_RDATA_a0,
+                             AXIL_S_AXI_RDATA_a1,
+                             AXIL_S_AXI_RDATA_a2,
+                             AXIL_S_AXI_RDATA_a3,
+                             AXIL_S_AXI_RDATA_a4,
+                             AXIL_S_AXI_RDATA_a5;
+
+</span><span class="tlx_comments">// For |axil$S_AXI_RREADY.
+</span><span class="tlx_declarations">logic AXIL_S_AXI_RREADY_a0,
+      AXIL_S_AXI_RREADY_a1,
+      AXIL_S_AXI_RREADY_a2,
+      AXIL_S_AXI_RREADY_a3,
+      AXIL_S_AXI_RREADY_a4,
+      AXIL_S_AXI_RREADY_a5;
+
+</span><span class="tlx_comments">// For |axil$S_AXI_RVALID.
+</span><span class="tlx_declarations">logic AXIL_S_AXI_RVALID_a0,
+      AXIL_S_AXI_RVALID_a1,
+      AXIL_S_AXI_RVALID_a2,
+      AXIL_S_AXI_RVALID_a3,
+      AXIL_S_AXI_RVALID_a4,
+      AXIL_S_AXI_RVALID_a5;
 
 </span><span class="tlx_comments">// For |axil$S_AXI_WREADY.
 </span><span class="tlx_declarations">logic AXIL_S_AXI_WREADY_a0,
@@ -113,7 +156,21 @@ generate
    // Scope: |axil
    //
 
-      // For $S_AXI_AWADDR.
+      // For $M_AXIS_TDATA.
+      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_M_AXIS_TDATA_a1[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_M_AXIS_TDATA_a0[C_AXI_DATA_WIDTH-1:0];
+      always_ff @(posedge clk) AXIL_M_AXIS_TDATA_a2[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_M_AXIS_TDATA_a1[C_AXI_DATA_WIDTH-1:0];
+      always_ff @(posedge clk) AXIL_M_AXIS_TDATA_a3[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_M_AXIS_TDATA_a2[C_AXI_DATA_WIDTH-1:0];
+      always_ff @(posedge clk) AXIL_M_AXIS_TDATA_a4[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_M_AXIS_TDATA_a3[C_AXI_DATA_WIDTH-1:0];
+      always_ff @(posedge clk) AXIL_M_AXIS_TDATA_a5[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_M_AXIS_TDATA_a4[C_AXI_DATA_WIDTH-1:0];
+
+      </span><span class="tlx_comments">// For $M_AXIS_TREADY.
+      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_M_AXIS_TREADY_a1 &lt;= AXIL_M_AXIS_TREADY_a0;
+      always_ff @(posedge clk) AXIL_M_AXIS_TREADY_a2 &lt;= AXIL_M_AXIS_TREADY_a1;
+      always_ff @(posedge clk) AXIL_M_AXIS_TREADY_a3 &lt;= AXIL_M_AXIS_TREADY_a2;
+      always_ff @(posedge clk) AXIL_M_AXIS_TREADY_a4 &lt;= AXIL_M_AXIS_TREADY_a3;
+      always_ff @(posedge clk) AXIL_M_AXIS_TREADY_a5 &lt;= AXIL_M_AXIS_TREADY_a4;
+
+      </span><span class="tlx_comments">// For $S_AXI_AWADDR.
       </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_S_AXI_AWADDR_a1[C_AXI_ADDR_WIDTH-1:0] &lt;= AXIL_S_AXI_AWADDR_a0[C_AXI_ADDR_WIDTH-1:0];
       always_ff @(posedge clk) AXIL_S_AXI_AWADDR_a2[C_AXI_ADDR_WIDTH-1:0] &lt;= AXIL_S_AXI_AWADDR_a1[C_AXI_ADDR_WIDTH-1:0];
       always_ff @(posedge clk) AXIL_S_AXI_AWADDR_a3[C_AXI_ADDR_WIDTH-1:0] &lt;= AXIL_S_AXI_AWADDR_a2[C_AXI_ADDR_WIDTH-1:0];
@@ -133,6 +190,27 @@ generate
       always_ff @(posedge clk) AXIL_S_AXI_AWVALID_a3 &lt;= AXIL_S_AXI_AWVALID_a2;
       always_ff @(posedge clk) AXIL_S_AXI_AWVALID_a4 &lt;= AXIL_S_AXI_AWVALID_a3;
       always_ff @(posedge clk) AXIL_S_AXI_AWVALID_a5 &lt;= AXIL_S_AXI_AWVALID_a4;
+
+      </span><span class="tlx_comments">// For $S_AXI_RDATA.
+      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_S_AXI_RDATA_a1[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_S_AXI_RDATA_a0[C_AXI_DATA_WIDTH-1:0];
+      always_ff @(posedge clk) AXIL_S_AXI_RDATA_a2[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_S_AXI_RDATA_a1[C_AXI_DATA_WIDTH-1:0];
+      always_ff @(posedge clk) AXIL_S_AXI_RDATA_a3[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_S_AXI_RDATA_a2[C_AXI_DATA_WIDTH-1:0];
+      always_ff @(posedge clk) AXIL_S_AXI_RDATA_a4[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_S_AXI_RDATA_a3[C_AXI_DATA_WIDTH-1:0];
+      always_ff @(posedge clk) AXIL_S_AXI_RDATA_a5[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_S_AXI_RDATA_a4[C_AXI_DATA_WIDTH-1:0];
+
+      </span><span class="tlx_comments">// For $S_AXI_RREADY.
+      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_S_AXI_RREADY_a1 &lt;= AXIL_S_AXI_RREADY_a0;
+      always_ff @(posedge clk) AXIL_S_AXI_RREADY_a2 &lt;= AXIL_S_AXI_RREADY_a1;
+      always_ff @(posedge clk) AXIL_S_AXI_RREADY_a3 &lt;= AXIL_S_AXI_RREADY_a2;
+      always_ff @(posedge clk) AXIL_S_AXI_RREADY_a4 &lt;= AXIL_S_AXI_RREADY_a3;
+      always_ff @(posedge clk) AXIL_S_AXI_RREADY_a5 &lt;= AXIL_S_AXI_RREADY_a4;
+
+      </span><span class="tlx_comments">// For $S_AXI_RVALID.
+      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_S_AXI_RVALID_a1 &lt;= AXIL_S_AXI_RVALID_a0;
+      always_ff @(posedge clk) AXIL_S_AXI_RVALID_a2 &lt;= AXIL_S_AXI_RVALID_a1;
+      always_ff @(posedge clk) AXIL_S_AXI_RVALID_a3 &lt;= AXIL_S_AXI_RVALID_a2;
+      always_ff @(posedge clk) AXIL_S_AXI_RVALID_a4 &lt;= AXIL_S_AXI_RVALID_a3;
+      always_ff @(posedge clk) AXIL_S_AXI_RVALID_a5 &lt;= AXIL_S_AXI_RVALID_a4;
 
       </span><span class="tlx_comments">// For $S_AXI_WREADY.
       </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_S_AXI_WREADY_a1 &lt;= AXIL_S_AXI_WREADY_a0;
@@ -169,12 +247,24 @@ generate
       // Scope: |axil
       //
       </span><span class="tlx_instrumentation">if (1) begin : \|axil 
+         logic [C_AXI_DATA_WIDTH-1:0] \@0$M_AXIS_TDATA ;
+         assign \@0$M_AXIS_TDATA = AXIL_M_AXIS_TDATA_a0;
+         logic  \@0$M_AXIS_TREADY ;
+         assign \@0$M_AXIS_TREADY = AXIL_M_AXIS_TREADY_a0;
+         logic  \@0$M_AXIS_TVALID ;
+         assign \@0$M_AXIS_TVALID = AXIL_M_AXIS_TVALID_a0;
          logic [C_AXI_ADDR_WIDTH-1:0] \@0$S_AXI_AWADDR ;
          assign \@0$S_AXI_AWADDR = AXIL_S_AXI_AWADDR_a0;
          logic  \@0$S_AXI_AWREADY ;
          assign \@0$S_AXI_AWREADY = AXIL_S_AXI_AWREADY_a0;
          logic  \@0$S_AXI_AWVALID ;
          assign \@0$S_AXI_AWVALID = AXIL_S_AXI_AWVALID_a0;
+         logic [C_AXI_DATA_WIDTH-1:0] \@0$S_AXI_RDATA ;
+         assign \@0$S_AXI_RDATA = AXIL_S_AXI_RDATA_a0;
+         logic  \@0$S_AXI_RREADY ;
+         assign \@0$S_AXI_RREADY = AXIL_S_AXI_RREADY_a0;
+         logic  \@0$S_AXI_RVALID ;
+         assign \@0$S_AXI_RVALID = AXIL_S_AXI_RVALID_a0;
          logic  \@0$S_AXI_WREADY ;
          assign \@0$S_AXI_WREADY = AXIL_S_AXI_WREADY_a0;
          logic  \@0$S_AXI_WVALID ;
@@ -201,10 +291,14 @@ endgenerate
 <pre>
 <span class="tlx_structure">\TLV_version 1d: tl-x.org
 \SV
-</span><span class="tlx_comments">//m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axilxbar.v'])
+</span><span class="tlx_comments">/* verilator lint_off CMPCONST */
+/* verilator lint_off WIDTH */
+//m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axilxbar.v'])
 //m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axilsafety.v'])
 //m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axi2axi3.v'])
 // Included URL: &quot;https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axil2axis.v&quot;
+/* verilator lint_off CMPCONST */
+/* verilator lint_off WIDTH */               
    // =========================================
    // Welcome!  Try the tutorials via the menu.
    // =========================================
@@ -227,9 +321,17 @@ endgenerate
          $S_AXI_AWVALID = *S_AXI_AWVALID;
          $S_AXI_AWREADY = *S_AXI_AWREADY;
          $S_AXI_AWADDR[C_AXI_ADDR_WIDTH-1:0] = *S_AXI_AWADDR;
+         $S_AXI_RVALID = *S_AXI_RVALID;
+         $S_AXI_RREADY = *S_AXI_RREADY;
+         $S_AXI_RDATA[C_AXI_DATA_WIDTH-1:0] = *S_AXI_RDATA;
+         $M_AXIS_TREADY = *M_AXIS_TREADY;
+         $M_AXIS_TDATA[C_AXI_DATA_WIDTH-1:0] = *M_AXIS_TDATA;
          
          $S_AXI_WVALID = *S_AXI_WVALID;
          $S_AXI_WREADY = *S_AXI_WREADY;
+         
+         $M_AXIS_TVALID = *M_AXIS_TVALID;
+         
          
       </span><span class="tlx_staging">@5
          </span><span class="tlx_logic">*S_AXI_AWVALID = $S_AXI_AWVALID;
@@ -238,6 +340,13 @@ endgenerate
          *S_AXI_AWREADY = $S_AXI_AWREADY;
          *S_AXI_WVALID = $S_AXI_WVALID;
          *S_AXI_WREADY = $S_AXI_WREADY;
+         
+         *S_AXI_RVALID = $S_AXI_RVALID;
+         *S_AXI_RREADY = $S_AXI_RREADY;
+         *S_AXI_RDATA = $S_AXI_RDATA[C_AXI_DATA_WIDTH-1:0];
+         *M_AXIS_TREADY = $M_AXIS_TREADY;
+         *M_AXIS_TDATA = $M_AXIS_TDATA[C_AXI_DATA_WIDTH-1:0];
+         
          
          
          
@@ -264,10 +373,14 @@ endgenerate
 <pre>
 <span class="tlx_structure">`line 2 &quot;top.tlv&quot; 0 </span><span class="tlx_comments">//_\TLV_version 1d: tl-x.org, generated by SandPiper(TM) 1.9-2018/02/11-beta
 </span><span class="tlx_structure">`include &quot;sp_default.vh&quot; </span><span class="tlx_comments">//_\SV
+/* verilator lint_off CMPCONST */
+/* verilator lint_off WIDTH */
 //m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axilxbar.v'])
 //m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axilsafety.v'])
 //m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axi2axi3.v'])
 // Included URL: &quot;https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axil2axis.v&quot;
+/* verilator lint_off CMPCONST */
+/* verilator lint_off WIDTH */               
    // =========================================
    // Welcome!  Try the tutorials via the menu.
    // =========================================
@@ -290,9 +403,17 @@ endgenerate
          assign AXIL_S_AXI_AWVALID_a0 = S_AXI_AWVALID;
          assign AXIL_S_AXI_AWREADY_a0 = S_AXI_AWREADY;
          assign AXIL_S_AXI_AWADDR_a0[C_AXI_ADDR_WIDTH-1:0] = S_AXI_AWADDR;
+         assign AXIL_S_AXI_RVALID_a0 = S_AXI_RVALID;
+         assign AXIL_S_AXI_RREADY_a0 = S_AXI_RREADY;
+         assign AXIL_S_AXI_RDATA_a0[C_AXI_DATA_WIDTH-1:0] = S_AXI_RDATA;
+         assign AXIL_M_AXIS_TREADY_a0 = M_AXIS_TREADY;
+         assign AXIL_M_AXIS_TDATA_a0[C_AXI_DATA_WIDTH-1:0] = M_AXIS_TDATA;
          
          assign AXIL_S_AXI_WVALID_a0 = S_AXI_WVALID;
          assign AXIL_S_AXI_WREADY_a0 = S_AXI_WREADY;
+         
+         assign AXIL_M_AXIS_TVALID_a0 = M_AXIS_TVALID;
+         
          
       </span><span class="tlx_comments">//_@5
          </span><span class="tlx_logic">assign S_AXI_AWVALID = AXIL_S_AXI_AWVALID_a5;
@@ -301,6 +422,13 @@ endgenerate
          assign S_AXI_AWREADY = AXIL_S_AXI_AWREADY_a5;
          assign S_AXI_WVALID = AXIL_S_AXI_WVALID_a5;
          assign S_AXI_WREADY = AXIL_S_AXI_WREADY_a5;
+         
+         assign S_AXI_RVALID = AXIL_S_AXI_RVALID_a5;
+         assign S_AXI_RREADY = AXIL_S_AXI_RREADY_a5;
+         assign S_AXI_RDATA = AXIL_S_AXI_RDATA_a5[C_AXI_DATA_WIDTH-1:0];
+         assign M_AXIS_TREADY = AXIL_M_AXIS_TREADY_a5;
+         assign M_AXIS_TDATA = AXIL_M_AXIS_TDATA_a5[C_AXI_DATA_WIDTH-1:0];
+         
          
          
          

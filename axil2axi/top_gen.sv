@@ -13,6 +13,25 @@
 // Signals declared top-level.
 //
 
+// For |axil$M_AXIS_TDATA.
+logic [C_AXI_DATA_WIDTH-1:0] AXIL_M_AXIS_TDATA_a0,
+                             AXIL_M_AXIS_TDATA_a1,
+                             AXIL_M_AXIS_TDATA_a2,
+                             AXIL_M_AXIS_TDATA_a3,
+                             AXIL_M_AXIS_TDATA_a4,
+                             AXIL_M_AXIS_TDATA_a5;
+
+// For |axil$M_AXIS_TREADY.
+logic AXIL_M_AXIS_TREADY_a0,
+      AXIL_M_AXIS_TREADY_a1,
+      AXIL_M_AXIS_TREADY_a2,
+      AXIL_M_AXIS_TREADY_a3,
+      AXIL_M_AXIS_TREADY_a4,
+      AXIL_M_AXIS_TREADY_a5;
+
+// For |axil$M_AXIS_TVALID.
+logic AXIL_M_AXIS_TVALID_a0;
+
 // For |axil$S_AXI_AWADDR.
 logic [C_AXI_ADDR_WIDTH-1:0] AXIL_S_AXI_AWADDR_a0,
                              AXIL_S_AXI_AWADDR_a1,
@@ -36,6 +55,30 @@ logic AXIL_S_AXI_AWVALID_a0,
       AXIL_S_AXI_AWVALID_a3,
       AXIL_S_AXI_AWVALID_a4,
       AXIL_S_AXI_AWVALID_a5;
+
+// For |axil$S_AXI_RDATA.
+logic [C_AXI_DATA_WIDTH-1:0] AXIL_S_AXI_RDATA_a0,
+                             AXIL_S_AXI_RDATA_a1,
+                             AXIL_S_AXI_RDATA_a2,
+                             AXIL_S_AXI_RDATA_a3,
+                             AXIL_S_AXI_RDATA_a4,
+                             AXIL_S_AXI_RDATA_a5;
+
+// For |axil$S_AXI_RREADY.
+logic AXIL_S_AXI_RREADY_a0,
+      AXIL_S_AXI_RREADY_a1,
+      AXIL_S_AXI_RREADY_a2,
+      AXIL_S_AXI_RREADY_a3,
+      AXIL_S_AXI_RREADY_a4,
+      AXIL_S_AXI_RREADY_a5;
+
+// For |axil$S_AXI_RVALID.
+logic AXIL_S_AXI_RVALID_a0,
+      AXIL_S_AXI_RVALID_a1,
+      AXIL_S_AXI_RVALID_a2,
+      AXIL_S_AXI_RVALID_a3,
+      AXIL_S_AXI_RVALID_a4,
+      AXIL_S_AXI_RVALID_a5;
 
 // For |axil$S_AXI_WREADY.
 logic AXIL_S_AXI_WREADY_a0,
@@ -65,6 +108,20 @@ generate
    // Scope: |axil
    //
 
+      // For $M_AXIS_TDATA.
+      always_ff @(posedge clk) AXIL_M_AXIS_TDATA_a1[C_AXI_DATA_WIDTH-1:0] <= AXIL_M_AXIS_TDATA_a0[C_AXI_DATA_WIDTH-1:0];
+      always_ff @(posedge clk) AXIL_M_AXIS_TDATA_a2[C_AXI_DATA_WIDTH-1:0] <= AXIL_M_AXIS_TDATA_a1[C_AXI_DATA_WIDTH-1:0];
+      always_ff @(posedge clk) AXIL_M_AXIS_TDATA_a3[C_AXI_DATA_WIDTH-1:0] <= AXIL_M_AXIS_TDATA_a2[C_AXI_DATA_WIDTH-1:0];
+      always_ff @(posedge clk) AXIL_M_AXIS_TDATA_a4[C_AXI_DATA_WIDTH-1:0] <= AXIL_M_AXIS_TDATA_a3[C_AXI_DATA_WIDTH-1:0];
+      always_ff @(posedge clk) AXIL_M_AXIS_TDATA_a5[C_AXI_DATA_WIDTH-1:0] <= AXIL_M_AXIS_TDATA_a4[C_AXI_DATA_WIDTH-1:0];
+
+      // For $M_AXIS_TREADY.
+      always_ff @(posedge clk) AXIL_M_AXIS_TREADY_a1 <= AXIL_M_AXIS_TREADY_a0;
+      always_ff @(posedge clk) AXIL_M_AXIS_TREADY_a2 <= AXIL_M_AXIS_TREADY_a1;
+      always_ff @(posedge clk) AXIL_M_AXIS_TREADY_a3 <= AXIL_M_AXIS_TREADY_a2;
+      always_ff @(posedge clk) AXIL_M_AXIS_TREADY_a4 <= AXIL_M_AXIS_TREADY_a3;
+      always_ff @(posedge clk) AXIL_M_AXIS_TREADY_a5 <= AXIL_M_AXIS_TREADY_a4;
+
       // For $S_AXI_AWADDR.
       always_ff @(posedge clk) AXIL_S_AXI_AWADDR_a1[C_AXI_ADDR_WIDTH-1:0] <= AXIL_S_AXI_AWADDR_a0[C_AXI_ADDR_WIDTH-1:0];
       always_ff @(posedge clk) AXIL_S_AXI_AWADDR_a2[C_AXI_ADDR_WIDTH-1:0] <= AXIL_S_AXI_AWADDR_a1[C_AXI_ADDR_WIDTH-1:0];
@@ -85,6 +142,27 @@ generate
       always_ff @(posedge clk) AXIL_S_AXI_AWVALID_a3 <= AXIL_S_AXI_AWVALID_a2;
       always_ff @(posedge clk) AXIL_S_AXI_AWVALID_a4 <= AXIL_S_AXI_AWVALID_a3;
       always_ff @(posedge clk) AXIL_S_AXI_AWVALID_a5 <= AXIL_S_AXI_AWVALID_a4;
+
+      // For $S_AXI_RDATA.
+      always_ff @(posedge clk) AXIL_S_AXI_RDATA_a1[C_AXI_DATA_WIDTH-1:0] <= AXIL_S_AXI_RDATA_a0[C_AXI_DATA_WIDTH-1:0];
+      always_ff @(posedge clk) AXIL_S_AXI_RDATA_a2[C_AXI_DATA_WIDTH-1:0] <= AXIL_S_AXI_RDATA_a1[C_AXI_DATA_WIDTH-1:0];
+      always_ff @(posedge clk) AXIL_S_AXI_RDATA_a3[C_AXI_DATA_WIDTH-1:0] <= AXIL_S_AXI_RDATA_a2[C_AXI_DATA_WIDTH-1:0];
+      always_ff @(posedge clk) AXIL_S_AXI_RDATA_a4[C_AXI_DATA_WIDTH-1:0] <= AXIL_S_AXI_RDATA_a3[C_AXI_DATA_WIDTH-1:0];
+      always_ff @(posedge clk) AXIL_S_AXI_RDATA_a5[C_AXI_DATA_WIDTH-1:0] <= AXIL_S_AXI_RDATA_a4[C_AXI_DATA_WIDTH-1:0];
+
+      // For $S_AXI_RREADY.
+      always_ff @(posedge clk) AXIL_S_AXI_RREADY_a1 <= AXIL_S_AXI_RREADY_a0;
+      always_ff @(posedge clk) AXIL_S_AXI_RREADY_a2 <= AXIL_S_AXI_RREADY_a1;
+      always_ff @(posedge clk) AXIL_S_AXI_RREADY_a3 <= AXIL_S_AXI_RREADY_a2;
+      always_ff @(posedge clk) AXIL_S_AXI_RREADY_a4 <= AXIL_S_AXI_RREADY_a3;
+      always_ff @(posedge clk) AXIL_S_AXI_RREADY_a5 <= AXIL_S_AXI_RREADY_a4;
+
+      // For $S_AXI_RVALID.
+      always_ff @(posedge clk) AXIL_S_AXI_RVALID_a1 <= AXIL_S_AXI_RVALID_a0;
+      always_ff @(posedge clk) AXIL_S_AXI_RVALID_a2 <= AXIL_S_AXI_RVALID_a1;
+      always_ff @(posedge clk) AXIL_S_AXI_RVALID_a3 <= AXIL_S_AXI_RVALID_a2;
+      always_ff @(posedge clk) AXIL_S_AXI_RVALID_a4 <= AXIL_S_AXI_RVALID_a3;
+      always_ff @(posedge clk) AXIL_S_AXI_RVALID_a5 <= AXIL_S_AXI_RVALID_a4;
 
       // For $S_AXI_WREADY.
       always_ff @(posedge clk) AXIL_S_AXI_WREADY_a1 <= AXIL_S_AXI_WREADY_a0;
@@ -121,12 +199,24 @@ generate
       // Scope: |axil
       //
       if (1) begin : \|axil 
+         logic [C_AXI_DATA_WIDTH-1:0] \@0$M_AXIS_TDATA ;
+         assign \@0$M_AXIS_TDATA = AXIL_M_AXIS_TDATA_a0;
+         logic  \@0$M_AXIS_TREADY ;
+         assign \@0$M_AXIS_TREADY = AXIL_M_AXIS_TREADY_a0;
+         logic  \@0$M_AXIS_TVALID ;
+         assign \@0$M_AXIS_TVALID = AXIL_M_AXIS_TVALID_a0;
          logic [C_AXI_ADDR_WIDTH-1:0] \@0$S_AXI_AWADDR ;
          assign \@0$S_AXI_AWADDR = AXIL_S_AXI_AWADDR_a0;
          logic  \@0$S_AXI_AWREADY ;
          assign \@0$S_AXI_AWREADY = AXIL_S_AXI_AWREADY_a0;
          logic  \@0$S_AXI_AWVALID ;
          assign \@0$S_AXI_AWVALID = AXIL_S_AXI_AWVALID_a0;
+         logic [C_AXI_DATA_WIDTH-1:0] \@0$S_AXI_RDATA ;
+         assign \@0$S_AXI_RDATA = AXIL_S_AXI_RDATA_a0;
+         logic  \@0$S_AXI_RREADY ;
+         assign \@0$S_AXI_RREADY = AXIL_S_AXI_RREADY_a0;
+         logic  \@0$S_AXI_RVALID ;
+         assign \@0$S_AXI_RVALID = AXIL_S_AXI_RVALID_a0;
          logic  \@0$S_AXI_WREADY ;
          assign \@0$S_AXI_WREADY = AXIL_S_AXI_WREADY_a0;
          logic  \@0$S_AXI_WVALID ;

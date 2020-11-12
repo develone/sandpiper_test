@@ -1,9 +1,13 @@
 \TLV_version [\source top.tlv] 1d: tl-x.org
 \SV
+/* verilator lint_off CMPCONST */
+/* verilator lint_off WIDTH */
 //m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axilxbar.v'])
 //m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axilsafety.v'])
 //m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axi2axi3.v'])
 // Included URL: "https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axil2axis.v"
+/* verilator lint_off CMPCONST */
+/* verilator lint_off WIDTH */               
    // =========================================
    // Welcome!  Try the tutorials via the menu.
    // =========================================
@@ -26,9 +30,17 @@
          $S_AXI_AWVALID = *S_AXI_AWVALID;
          $S_AXI_AWREADY = *S_AXI_AWREADY;
          $S_AXI_AWADDR[C_AXI_ADDR_WIDTH-1:0] = *S_AXI_AWADDR;
+         $S_AXI_RVALID = *S_AXI_RVALID;
+         $S_AXI_RREADY = *S_AXI_RREADY;
+         $S_AXI_RDATA[C_AXI_DATA_WIDTH-1:0] = *S_AXI_RDATA;
+         $M_AXIS_TREADY = *M_AXIS_TREADY;
+         $M_AXIS_TDATA[C_AXI_DATA_WIDTH-1:0] = *M_AXIS_TDATA;
          
          $S_AXI_WVALID = *S_AXI_WVALID;
          $S_AXI_WREADY = *S_AXI_WREADY;
+         
+         $M_AXIS_TVALID = *M_AXIS_TVALID;
+         
          
       @5
          *S_AXI_AWVALID = $S_AXI_AWVALID;
@@ -37,6 +49,13 @@
          *S_AXI_AWREADY = $S_AXI_AWREADY;
          *S_AXI_WVALID = $S_AXI_WVALID;
          *S_AXI_WREADY = $S_AXI_WREADY;
+         
+         *S_AXI_RVALID = $S_AXI_RVALID;
+         *S_AXI_RREADY = $S_AXI_RREADY;
+         *S_AXI_RDATA = $S_AXI_RDATA[C_AXI_DATA_WIDTH-1:0];
+         *M_AXIS_TREADY = $M_AXIS_TREADY;
+         *M_AXIS_TDATA = $M_AXIS_TDATA[C_AXI_DATA_WIDTH-1:0];
+         
          
          
          
