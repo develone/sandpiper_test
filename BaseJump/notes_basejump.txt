@@ -1,0 +1,38 @@
+11/13/20
+example of m4 
+https://github.com/stevehoover/makerchip_examples/blob/master/flow_example_basejump_viz.tlv
+
+http://makerchip.com/sandbox/0J6f8hLX8/0AnhNxg#
+Needed to comment line 93 m4+trans() in makerchip.
+Waveform works ok makerchip
+Diagram fails in makerchip
+
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --debugSigs --viz --dhtml --stats --compiler verilator --graphTrans -i top.m4 -o top.sv
+
+dot -Tpdf top_trans.dot -o top_trans.pdf
+
+qpdfview top_trans.pdf
+
+cp ../extra_files/* .
+
+mkdir sv_url_inc
+cd sv_url_inc
+
+wget https://bitbucket.org/taylor-bsg/bsg_ip_cores/raw/0c76d71f1e06cf844f767448e4df376b112b831f/bsg_misc/bsg_defines.v
+wget https://bitbucket.org/taylor-bsg/bsg_ip_cores/raw/0c76d71f1e06cf844f767448e4df376b112b831f/bsg_dataflow/bsg_fifo_tracker.v
+wget https://bitbucket.org/taylor-bsg/bsg_ip_cores/raw/0c76d71f1e06cf844f767448e4df376b112b831f/bsg_misc/bsg_circular_ptr.v
+wget https://bitbucket.org/taylor-bsg/bsg_ip_cores/raw/0c76d71f1e06cf844f767448e4df376b112b831f/bsg_dataflow/bsg_fifo_1r1w_small.v
+wget https://bitbucket.org/taylor-bsg/bsg_ip_cores/raw/0c76d71f1e06cf844f767448e4df376b112b831f/bsg_mem/bsg_mem_1r1w.v
+wget https://bitbucket.org/taylor-bsg/bsg_ip_cores/raw/0c76d71f1e06cf844f767448e4df376b112b831f/bsg_mem/bsg_mem_1r1w_synth.v
+
+cd ../
+cp ~/warp-v/formal/verilog/clk_gate.v .
+cp ~/warp-v/formal/verilog/sp_verilog.vh .
+
+verilator -Isv_url_inc --trace --debug --debugi 0 -gdbbt --no-dump-tree --cc makerchip.sv --exe --build sim_main.cpp
+cd obj_dir
+./Vmakerchip > ../output.txt
+Simulation FAILED!!!
+
+example of m4 
+https://github.com/stevehoover/makerchip_examples/blob/master/flow_example_basejump_viz.tlv

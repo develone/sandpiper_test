@@ -1,0 +1,365 @@
+{
+   "ring_stop": {
+      "_typeof": "BEH_HIER",
+      "_range": {
+         "min_index": "0",
+         "max_index": "3"
+      },
+      "stall0": {
+         "_typeof": "PIPELINE"
+      },
+      "stall1": {
+         "_typeof": "PIPELINE"
+      },
+      "stall0": {
+         "_typeof": "PIPELINE"
+      },
+      "stall1": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      },
+      "stall1": {
+         "_typeof": "PIPELINE"
+      },
+      "stall2": {
+         "_typeof": "PIPELINE"
+      },
+      "stall1": {
+         "_typeof": "PIPELINE"
+      },
+      "stall2": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      },
+      "stall2": {
+         "_typeof": "PIPELINE"
+      },
+      "stall3": {
+         "_typeof": "PIPELINE"
+      },
+      "stall2": {
+         "_typeof": "PIPELINE"
+      },
+      "stall3": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      },
+      "stall3": {
+         "_typeof": "PIPELINE"
+      },
+      "bp0": {
+         "_typeof": "PIPELINE"
+      },
+      "stall3": {
+         "_typeof": "PIPELINE",
+         "entry": {
+            "_typeof": "BEH_HIER",
+            "_range": {
+               "min_index": "0",
+               "max_index": "(4)-1"
+            }
+         }
+      },
+      "bp0": {
+         "_typeof": "PIPELINE",
+         "entry": {
+            "_typeof": "BEH_HIER",
+            "_range": {
+               "min_index": "0",
+               "max_index": "(4)-1"
+            }
+         }
+      },
+      "stall3": {
+         "_typeof": "PIPELINE",
+         "entry": {
+            "_typeof": "BEH_HIER",
+            "_range": {
+               "min_index": "*",
+               "max_index": "*"
+            }
+         },
+         "entry": {
+            "_typeof": "BEH_HIER",
+            "_range": {
+               "min_index": "*",
+               "max_index": "*"
+            }
+         }
+      },
+      "stall3": {
+         "_typeof": "PIPELINE",
+         "entry": {
+            "_typeof": "BEH_HIER",
+            "_range": {
+               "min_index": "*",
+               "max_index": "*"
+            },
+            "trans": {
+               "_typeof": "BEH_HIER"
+            }
+         }
+      },
+      "bp0": {
+         "_typeof": "PIPELINE",
+         "entry": {
+            "_typeof": "BEH_HIER",
+            "_range": {
+               "min_index": "*",
+               "max_index": "*"
+            },
+            "read_masked": {
+               "_typeof": "BEH_HIER",
+               "trans": {
+                  "_typeof": "BEH_HIER"
+               }
+            },
+            "accum": {
+               "_typeof": "BEH_HIER",
+               "trans": {
+                  "_typeof": "BEH_HIER"
+               }
+            }
+         },
+         "head": {
+            "_typeof": "BEH_HIER",
+            "trans": {
+               "_typeof": "BEH_HIER"
+            }
+         }
+      },
+      "bp0": {
+         "_typeof": "PIPELINE",
+         "fifo_head": {
+            "_typeof": "BEH_HIER",
+            "trans": {
+               "_typeof": "BEH_HIER"
+            }
+         },
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      },
+      "bp0": {
+         "_typeof": "PIPELINE"
+      },
+      "bp1": {
+         "_typeof": "PIPELINE"
+      },
+      "bp1": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      },
+      "bp0": {
+         "_typeof": "PIPELINE"
+      },
+      "bp1": {
+         "_typeof": "PIPELINE"
+      },
+      "bp2": {
+         "_typeof": "PIPELINE"
+      },
+      "bp2": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      },
+      "bp1": {
+         "_typeof": "PIPELINE"
+      },
+      "bp2": {
+         "_typeof": "PIPELINE"
+      },
+      "bp3": {
+         "_typeof": "PIPELINE"
+      },
+      "bp3": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      },
+      "bp2": {
+         "_typeof": "PIPELINE"
+      },
+      "bp3": {
+         "_typeof": "PIPELINE"
+      },
+      "bp3": {
+         "_typeof": "PIPELINE"
+      },
+      "bypass": {
+         "_typeof": "PIPELINE"
+      },
+      "ring_in": {
+         "_typeof": "PIPELINE"
+      },
+      "bypass": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      },
+      "ring_in": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      },
+      "bp3": {
+         "_typeof": "PIPELINE"
+      }
+   },
+   "ring_stop": {
+      "_typeof": "BEH_HIER",
+      "_range": {
+         "min_index": "*",
+         "max_index": "*"
+      },
+      "ring_in": {
+         "_typeof": "PIPELINE"
+      },
+      "ring_out": {
+         "_typeof": "PIPELINE"
+      },
+      "default": {
+         "_typeof": "PIPELINE"
+      },
+      "ring_in": {
+         "_typeof": "PIPELINE"
+      },
+      "rg": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      },
+      "ring_out": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      }
+   },
+   "ring_stop": {
+      "_typeof": "BEH_HIER",
+      "_range": {
+         "min_index": "*",
+         "max_index": "*"
+      },
+      "ring_out": {
+         "_typeof": "PIPELINE"
+      },
+      "bypass": {
+         "_typeof": "PIPELINE"
+      },
+      "arb_out": {
+         "_typeof": "PIPELINE"
+      },
+      "ring_out": {
+         "_typeof": "PIPELINE"
+      },
+      "bypass": {
+         "_typeof": "PIPELINE"
+      },
+      "arb_out": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      },
+      "arb_out": {
+         "_typeof": "PIPELINE"
+      }
+   },
+   "ring_stop": {
+      "_typeof": "BEH_HIER",
+      "_range": {
+         "min_index": "*",
+         "max_index": "*"
+      },
+      "fifo2_out": {
+         "_typeof": "PIPELINE"
+      },
+      "stall0": {
+         "_typeof": "PIPELINE"
+      }
+   },
+   "tb": {
+      "_typeof": "BEH_HIER",
+      "count": {
+         "_typeof": "PIPELINE"
+      },
+      "ring_stop": {
+         "_typeof": "BEH_HIER",
+         "_range": {
+            "min_index": "0",
+            "max_index": "3"
+         },
+         "send": {
+            "_typeof": "PIPELINE",
+            "gen_trans": {
+               "_typeof": "BEH_HIER"
+            },
+            "trans_out": {
+               "_typeof": "BEH_HIER"
+            }
+         },
+         "receive1": {
+            "_typeof": "PIPELINE",
+            "trans": {
+               "_typeof": "BEH_HIER"
+            }
+         },
+         "receive1": {
+            "_typeof": "PIPELINE"
+         },
+         "receive2": {
+            "_typeof": "PIPELINE"
+         },
+         "receive2": {
+            "_typeof": "PIPELINE",
+            "trans": {
+               "_typeof": "BEH_HIER"
+            }
+         },
+         "receive1": {
+            "_typeof": "PIPELINE"
+         },
+         "receive2": {
+            "_typeof": "PIPELINE"
+         },
+         "passed": {
+            "_typeof": "PIPELINE"
+         }
+      }
+   },
+   "ring_stop": {
+      "_typeof": "BEH_HIER",
+      "_range": {
+         "min_index": "0",
+         "max_index": "3"
+      },
+      "stall0": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      },
+      "fifo2_out": {
+         "_typeof": "PIPELINE",
+         "trans": {
+            "_typeof": "BEH_HIER"
+         }
+      }
+   }
+}

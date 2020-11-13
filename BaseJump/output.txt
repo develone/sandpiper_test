@@ -1,0 +1,103 @@
+Enabling waves...
+Cycle: 0
+Cycle: 1
+Cycle: 2
+Cycle: 3
+Cycle: 4
+Cycle: 0
+Cycle: 0
+Cycle: 0
+Cycle: 0
+Cycle: 1
+Cycle: 2
+Cycle: 3
+|send[0]
+Sender: 0, Orig. Cyc: 3, Dest: 3, Resp: 0
+|send[1]
+Sender: 1, Orig. Cyc: 3, Dest: 1, Resp: 0
+|send[2]
+Sender: 2, Orig. Cyc: 3, Dest: 2, Resp: 0
+|send[3]
+Sender: 3, Orig. Cyc: 3, Dest: 3, Resp: 0
+Cycle: 4
+Cycle: 5
+Cycle: 6
+Cycle: 7
+Cycle: 8
+Cycle: 9
+Cycle: 10
+Cycle: 11
+|send[1]
+Sender: 1, Orig. Cyc: 0, Dest: 0, Resp: 0
+|send[2]
+Sender: 2, Orig. Cyc: 0, Dest: 0, Resp: 0
+|send[3]
+Sender: 3, Orig. Cyc: 0, Dest: 0, Resp: 0
+Cycle: 12
+Cycle: 13
+Cycle: 14
+Cycle: 15
+Cycle: 16
+Cycle: 17
+Cycle: 18
+Cycle: 19
+Cycle: 20
+Cycle: 21
+Cycle: 22
+Cycle: 23
+Cycle: 24
+|send[0]
+Sender: 0, Orig. Cyc: 0, Dest: 3, Resp: 0
+Cycle: 25
+Cycle: 26
+Cycle: 27
+Cycle: 28
+Cycle: 29
+Cycle: 30
+Cycle: 31
+Cycle: 32
+Cycle: 33
+Cycle: 34
+Cycle: 35
+Cycle: 36
+Cycle: 37
+Cycle: 38
+Cycle: 39
+Cycle: 40
+Cycle: 41
+Cycle: 42
+Cycle: 43
+Cycle: 44
+Cycle: 45
+Cycle: 46
+Cycle: 47
+Cycle: 48
+Cycle: 49
+Cycle: 50
+Cycle: 51
+Cycle: 52
+Cycle: 53
+Cycle: 54
+Cycle: 55
+Cycle: 56
+Cycle: 57
+Cycle: 58
+Cycle: 59
+Cycle: 60
+Cycle: 61
+Cycle: 62
+Cycle: 63
+Cycle: 64
+Cycle: 65
+Cycle: 66
+Cycle: 67
+Cycle: 68
+Cycle: 69
+Cycle: 70
+Cycle: 71
+Cycle: 72
+Cycle: 73
+Cycle: 74
+Cycle: 75
+Cycle: 76
+Simulation FAILED!!!
