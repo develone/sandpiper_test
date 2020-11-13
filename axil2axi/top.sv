@@ -5,6 +5,7 @@
 //m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axilxbar.v'])
 //m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axilsafety.v'])
 //m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axi2axi3.v'])
+// Included URL: "https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/skidbuffer.v"
 // Included URL: "https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axil2axis.v"
 /* verilator lint_off CMPCONST */
 /* verilator lint_off WIDTH */               
@@ -22,6 +23,12 @@
       
       //_@0
  
+         
+         
+         
+         
+         
+         
          
          
          
@@ -46,6 +53,12 @@
          
          assign AXIL_M_AXIS_TVALID_a0 = M_AXIS_TVALID;
          
+         assign AXIL_i_valid_a0 = i_valid;
+         assign AXIL_o_ready_a0 = o_ready;
+         assign AXIL_i_data_a0[DW-1:0] = i_data;
+         assign AXIL_o_valid_a0 = o_valid;
+         assign AXIL_i_ready_a0 = i_ready;
+         assign AXIL_o_data_a0[DW-1:0] = o_data;
          
       //_@5
          assign S_AXI_AWVALID = AXIL_S_AXI_AWVALID_a5;         
@@ -69,7 +82,12 @@
          assign M_AXIS_TVALID = AXIL_M_AXIS_TVALID_a5;
          
          
-         
+         assign i_valid = AXIL_i_valid_a5;
+         assign o_ready = AXIL_o_ready_a5;
+         assign i_data = AXIL_i_data_a5[DW-1:0];
+         assign o_valid = AXIL_o_valid_a5;
+         assign i_ready = AXIL_i_ready_a5;
+         assign o_data = AXIL_o_data_a5[DW-1:0];
          
          
          
@@ -86,3 +104,4 @@
    assign failed = 1'b0; endgenerate
 //_\SV
    endmodule
+ 

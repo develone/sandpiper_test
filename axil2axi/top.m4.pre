@@ -5,6 +5,7 @@ m4_changecom(`//')m4_changequote(`[*', `*]')m4_changequote([*['*], [*']*])m4_inc
 //m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axilxbar.v'])
 //m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axilsafety.v'])
 //m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axi2axi3.v'])
+m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/skidbuffer.v'])
 m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axil2axis.v'])
 /* verilator lint_off CMPCONST */
 /* verilator lint_off WIDTH */               
@@ -26,6 +27,12 @@ m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/maste
          m4_define(['M4_C_AXI_DATA_WIDTH'],32)
          m4_define(['M4_C_AXIS_DATA_WIDTH'],16)
          
+         m4_define(['M4_OPT_LOWPOWER'],0)
+         m4_define(['M4_OPT_OUTREG'],1)
+         m4_define(['M4_OPT_PASSTHROUGH'],0)
+         m4_define(['M4_DW'],8)
+         
+         
          $reset = *reset;
          $S_AXI_AWVALID = *S_AXI_AWVALID;
          $S_AXI_AWREADY = *S_AXI_AWREADY;
@@ -46,6 +53,12 @@ m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/maste
          
          $M_AXIS_TVALID = *M_AXIS_TVALID;
          
+         $i_valid = *i_valid;
+         $o_ready = *o_ready;
+         $i_data[DW-1:0] = *i_data;
+         $o_valid = *o_valid;
+         $i_ready = *i_ready;
+         $o_data[DW-1:0] = *o_data;
          
       @5
          *S_AXI_AWVALID = $S_AXI_AWVALID;         
@@ -69,7 +82,12 @@ m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/maste
          *M_AXIS_TVALID = $M_AXIS_TVALID;
          
          
-         
+         *i_valid = $i_valid;
+         *o_ready = $o_ready;
+         *i_data = $i_data[DW-1:0];
+         *o_valid = $o_valid;
+         *i_ready = $i_ready;
+         *o_data = $o_data[DW-1:0];
          
          
          
@@ -86,4 +104,5 @@ m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/maste
    *failed = 1'b0;
 \SV
    endmodule
+ 
 ['']m4_popdef(['m4_FILE'])m4_popdef(['m4_file_uri'])

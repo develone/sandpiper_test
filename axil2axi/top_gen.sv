@@ -125,6 +125,54 @@ logic AXIL_S_AXI_WVALID_a0,
       AXIL_S_AXI_WVALID_a4,
       AXIL_S_AXI_WVALID_a5;
 
+// For |axil$i_data.
+logic [DW-1:0] AXIL_i_data_a0,
+               AXIL_i_data_a1,
+               AXIL_i_data_a2,
+               AXIL_i_data_a3,
+               AXIL_i_data_a4,
+               AXIL_i_data_a5;
+
+// For |axil$i_ready.
+logic AXIL_i_ready_a0,
+      AXIL_i_ready_a1,
+      AXIL_i_ready_a2,
+      AXIL_i_ready_a3,
+      AXIL_i_ready_a4,
+      AXIL_i_ready_a5;
+
+// For |axil$i_valid.
+logic AXIL_i_valid_a0,
+      AXIL_i_valid_a1,
+      AXIL_i_valid_a2,
+      AXIL_i_valid_a3,
+      AXIL_i_valid_a4,
+      AXIL_i_valid_a5;
+
+// For |axil$o_data.
+logic [DW-1:0] AXIL_o_data_a0,
+               AXIL_o_data_a1,
+               AXIL_o_data_a2,
+               AXIL_o_data_a3,
+               AXIL_o_data_a4,
+               AXIL_o_data_a5;
+
+// For |axil$o_ready.
+logic AXIL_o_ready_a0,
+      AXIL_o_ready_a1,
+      AXIL_o_ready_a2,
+      AXIL_o_ready_a3,
+      AXIL_o_ready_a4,
+      AXIL_o_ready_a5;
+
+// For |axil$o_valid.
+logic AXIL_o_valid_a0,
+      AXIL_o_valid_a1,
+      AXIL_o_valid_a2,
+      AXIL_o_valid_a3,
+      AXIL_o_valid_a4,
+      AXIL_o_valid_a5;
+
 // For |axil$reset.
 logic AXIL_reset_a0;
 
@@ -235,6 +283,48 @@ generate
       always_ff @(posedge clk) AXIL_S_AXI_WVALID_a4 <= AXIL_S_AXI_WVALID_a3;
       always_ff @(posedge clk) AXIL_S_AXI_WVALID_a5 <= AXIL_S_AXI_WVALID_a4;
 
+      // For $i_data.
+      always_ff @(posedge clk) AXIL_i_data_a1[DW-1:0] <= AXIL_i_data_a0[DW-1:0];
+      always_ff @(posedge clk) AXIL_i_data_a2[DW-1:0] <= AXIL_i_data_a1[DW-1:0];
+      always_ff @(posedge clk) AXIL_i_data_a3[DW-1:0] <= AXIL_i_data_a2[DW-1:0];
+      always_ff @(posedge clk) AXIL_i_data_a4[DW-1:0] <= AXIL_i_data_a3[DW-1:0];
+      always_ff @(posedge clk) AXIL_i_data_a5[DW-1:0] <= AXIL_i_data_a4[DW-1:0];
+
+      // For $i_ready.
+      always_ff @(posedge clk) AXIL_i_ready_a1 <= AXIL_i_ready_a0;
+      always_ff @(posedge clk) AXIL_i_ready_a2 <= AXIL_i_ready_a1;
+      always_ff @(posedge clk) AXIL_i_ready_a3 <= AXIL_i_ready_a2;
+      always_ff @(posedge clk) AXIL_i_ready_a4 <= AXIL_i_ready_a3;
+      always_ff @(posedge clk) AXIL_i_ready_a5 <= AXIL_i_ready_a4;
+
+      // For $i_valid.
+      always_ff @(posedge clk) AXIL_i_valid_a1 <= AXIL_i_valid_a0;
+      always_ff @(posedge clk) AXIL_i_valid_a2 <= AXIL_i_valid_a1;
+      always_ff @(posedge clk) AXIL_i_valid_a3 <= AXIL_i_valid_a2;
+      always_ff @(posedge clk) AXIL_i_valid_a4 <= AXIL_i_valid_a3;
+      always_ff @(posedge clk) AXIL_i_valid_a5 <= AXIL_i_valid_a4;
+
+      // For $o_data.
+      always_ff @(posedge clk) AXIL_o_data_a1[DW-1:0] <= AXIL_o_data_a0[DW-1:0];
+      always_ff @(posedge clk) AXIL_o_data_a2[DW-1:0] <= AXIL_o_data_a1[DW-1:0];
+      always_ff @(posedge clk) AXIL_o_data_a3[DW-1:0] <= AXIL_o_data_a2[DW-1:0];
+      always_ff @(posedge clk) AXIL_o_data_a4[DW-1:0] <= AXIL_o_data_a3[DW-1:0];
+      always_ff @(posedge clk) AXIL_o_data_a5[DW-1:0] <= AXIL_o_data_a4[DW-1:0];
+
+      // For $o_ready.
+      always_ff @(posedge clk) AXIL_o_ready_a1 <= AXIL_o_ready_a0;
+      always_ff @(posedge clk) AXIL_o_ready_a2 <= AXIL_o_ready_a1;
+      always_ff @(posedge clk) AXIL_o_ready_a3 <= AXIL_o_ready_a2;
+      always_ff @(posedge clk) AXIL_o_ready_a4 <= AXIL_o_ready_a3;
+      always_ff @(posedge clk) AXIL_o_ready_a5 <= AXIL_o_ready_a4;
+
+      // For $o_valid.
+      always_ff @(posedge clk) AXIL_o_valid_a1 <= AXIL_o_valid_a0;
+      always_ff @(posedge clk) AXIL_o_valid_a2 <= AXIL_o_valid_a1;
+      always_ff @(posedge clk) AXIL_o_valid_a3 <= AXIL_o_valid_a2;
+      always_ff @(posedge clk) AXIL_o_valid_a4 <= AXIL_o_valid_a3;
+      always_ff @(posedge clk) AXIL_o_valid_a5 <= AXIL_o_valid_a4;
+
 
 
 
@@ -284,6 +374,18 @@ generate
          assign \@0$S_AXI_WSTRB = AXIL_S_AXI_WSTRB_a0;
          logic  \@0$S_AXI_WVALID ;
          assign \@0$S_AXI_WVALID = AXIL_S_AXI_WVALID_a0;
+         logic [DW-1:0] \@0$i_data ;
+         assign \@0$i_data = AXIL_i_data_a0;
+         logic  \@0$i_ready ;
+         assign \@0$i_ready = AXIL_i_ready_a0;
+         logic  \@0$i_valid ;
+         assign \@0$i_valid = AXIL_i_valid_a0;
+         logic [DW-1:0] \@0$o_data ;
+         assign \@0$o_data = AXIL_o_data_a0;
+         logic  \@0$o_ready ;
+         assign \@0$o_ready = AXIL_o_ready_a0;
+         logic  \@0$o_valid ;
+         assign \@0$o_valid = AXIL_o_valid_a0;
          logic  \@0$reset ;
          assign \@0$reset = AXIL_reset_a0;
       end
