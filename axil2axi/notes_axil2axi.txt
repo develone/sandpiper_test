@@ -10,5 +10,13 @@ java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar 
 
 dot -Tpdf top_trans.dot -o top_trans.pdf
 
+mkdir sv_url_inc
+
+cd sv_url_inc/
+
+wget https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axil2axis.v
+
+wget https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axil2axis.v
+
 example of m4 
 https://github.com/stevehoover/makerchip_examples/blob/master/flow_example_basejump_viz.tlv
