@@ -1,0 +1,29 @@
+{
+   "cpu": {
+      "_typeof": "PIPELINE"
+   },
+   "cpu": {
+      "_typeof": "PIPELINE",
+      "imem": {
+         "_typeof": "BEH_HIER",
+         "_range": {
+            "min_index": "0",
+            "max_index": "9"
+         }
+      },
+      "xreg": {
+         "_typeof": "BEH_HIER",
+         "_range": {
+            "min_index": "0",
+            "max_index": "31"
+         }
+      },
+      "dmem": {
+         "_typeof": "BEH_HIER",
+         "_range": {
+            "min_index": "0",
+            "max_index": "15"
+         }
+      }
+   }
+}
