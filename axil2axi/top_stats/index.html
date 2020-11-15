@@ -25,10 +25,10 @@
   function chartData() {
     return [
       ['File(s)', 'Unknown', 'Untouched', 'Logic', 'Declarations', 'Staging', 'Structure', 'Validity', 'Gating', '(Instrumentation)', { role: 'style' }, '(Comments)', { role: 'style' }, '(Whitespace)', { role: 'style' }],
-      ['top.m4', 0, 286, 1307, 0, 4, 38, 0, 0, 0, 'opacity: 0.1', 1208, 'opacity: 0.1', 958, 'opacity: 0.1'],
-      ['top.sv', 0, 286, 1808, 0, 0, 70, 0, 0, 0, 'opacity: 0.1', 1321, 'opacity: 0.1', 1008, 'opacity: 0.1'],
-      ['top_gen.sv', 0, 0, 0, 2586, 7520, 53, 0, 0, 1468, 'opacity: 0.1', 1371, 'opacity: 0.1', 3517, 'opacity: 0.1'],
-      ['SV Total', 0, 286, 1808, 2586, 7520, 123, 0, 0, 1468, 'opacity: 0.1', 2692, 'opacity: 0.1', 4525, 'opacity: 0.1']
+      ['top.m4', 0, 286, 302, 0, 4, 51, 0, 0, 0, 'opacity: 0.1', 19552, 'opacity: 0.1', 518, 'opacity: 0.1'],
+      ['top.sv', 0, 286, 424, 515, 0, 131, 0, 0, 0, 'opacity: 0.1', 19678, 'opacity: 0.1', 572, 'opacity: 0.1'],
+      ['top_gen.sv', 0, 0, 0, 17, 1995, 133, 0, 0, 568, 'opacity: 0.1', 611, 'opacity: 0.1', 627, 'opacity: 0.1'],
+      ['SV Total', 0, 286, 424, 532, 1995, 264, 0, 0, 568, 'opacity: 0.1', 20289, 'opacity: 0.1', 1199, 'opacity: 0.1']
     ];
   }
 
@@ -54,175 +54,15 @@
 </span><span class="tlx_structure">`include &quot;sandpiper_gen.vh&quot;
 
 
-
+genvar ring_stop;
 
 
 </span><span class="tlx_comments">//
 // Signals declared top-level.
 //
 
-// For |axil$M_AXIS_TDATA.
-</span><span class="tlx_declarations">logic [C_AXI_DATA_WIDTH-1:0] AXIL_M_AXIS_TDATA_a0,
-                             AXIL_M_AXIS_TDATA_a1,
-                             AXIL_M_AXIS_TDATA_a2,
-                             AXIL_M_AXIS_TDATA_a3,
-                             AXIL_M_AXIS_TDATA_a4,
-                             AXIL_M_AXIS_TDATA_a5;
-
-</span><span class="tlx_comments">// For |axil$M_AXIS_TREADY.
-</span><span class="tlx_declarations">logic AXIL_M_AXIS_TREADY_a0,
-      AXIL_M_AXIS_TREADY_a1,
-      AXIL_M_AXIS_TREADY_a2,
-      AXIL_M_AXIS_TREADY_a3,
-      AXIL_M_AXIS_TREADY_a4,
-      AXIL_M_AXIS_TREADY_a5;
-
-</span><span class="tlx_comments">// For |axil$M_AXIS_TVALID.
-</span><span class="tlx_declarations">logic AXIL_M_AXIS_TVALID_a0,
-      AXIL_M_AXIS_TVALID_a1,
-      AXIL_M_AXIS_TVALID_a2,
-      AXIL_M_AXIS_TVALID_a3,
-      AXIL_M_AXIS_TVALID_a4,
-      AXIL_M_AXIS_TVALID_a5;
-
-</span><span class="tlx_comments">// For |axil$S_AXI_AWADDR.
-</span><span class="tlx_declarations">logic [C_AXI_ADDR_WIDTH-1:0] AXIL_S_AXI_AWADDR_a0,
-                             AXIL_S_AXI_AWADDR_a1,
-                             AXIL_S_AXI_AWADDR_a2,
-                             AXIL_S_AXI_AWADDR_a3,
-                             AXIL_S_AXI_AWADDR_a4,
-                             AXIL_S_AXI_AWADDR_a5;
-
-</span><span class="tlx_comments">// For |axil$S_AXI_AWPROT.
-</span><span class="tlx_declarations">logic [2:0] AXIL_S_AXI_AWPROT_a0,
-            AXIL_S_AXI_AWPROT_a1,
-            AXIL_S_AXI_AWPROT_a2,
-            AXIL_S_AXI_AWPROT_a3,
-            AXIL_S_AXI_AWPROT_a4,
-            AXIL_S_AXI_AWPROT_a5;
-
-</span><span class="tlx_comments">// For |axil$S_AXI_AWREADY.
-</span><span class="tlx_declarations">logic AXIL_S_AXI_AWREADY_a0,
-      AXIL_S_AXI_AWREADY_a1,
-      AXIL_S_AXI_AWREADY_a2,
-      AXIL_S_AXI_AWREADY_a3,
-      AXIL_S_AXI_AWREADY_a4,
-      AXIL_S_AXI_AWREADY_a5;
-
-</span><span class="tlx_comments">// For |axil$S_AXI_AWVALID.
-</span><span class="tlx_declarations">logic AXIL_S_AXI_AWVALID_a0,
-      AXIL_S_AXI_AWVALID_a1,
-      AXIL_S_AXI_AWVALID_a2,
-      AXIL_S_AXI_AWVALID_a3,
-      AXIL_S_AXI_AWVALID_a4,
-      AXIL_S_AXI_AWVALID_a5;
-
-</span><span class="tlx_comments">// For |axil$S_AXI_RDATA.
-</span><span class="tlx_declarations">logic [C_AXI_DATA_WIDTH-1:0] AXIL_S_AXI_RDATA_a0,
-                             AXIL_S_AXI_RDATA_a1,
-                             AXIL_S_AXI_RDATA_a2,
-                             AXIL_S_AXI_RDATA_a3,
-                             AXIL_S_AXI_RDATA_a4,
-                             AXIL_S_AXI_RDATA_a5;
-
-</span><span class="tlx_comments">// For |axil$S_AXI_RREADY.
-</span><span class="tlx_declarations">logic AXIL_S_AXI_RREADY_a0,
-      AXIL_S_AXI_RREADY_a1,
-      AXIL_S_AXI_RREADY_a2,
-      AXIL_S_AXI_RREADY_a3,
-      AXIL_S_AXI_RREADY_a4,
-      AXIL_S_AXI_RREADY_a5;
-
-</span><span class="tlx_comments">// For |axil$S_AXI_RVALID.
-</span><span class="tlx_declarations">logic AXIL_S_AXI_RVALID_a0,
-      AXIL_S_AXI_RVALID_a1,
-      AXIL_S_AXI_RVALID_a2,
-      AXIL_S_AXI_RVALID_a3,
-      AXIL_S_AXI_RVALID_a4,
-      AXIL_S_AXI_RVALID_a5;
-
-</span><span class="tlx_comments">// For |axil$S_AXI_WDATA.
-</span><span class="tlx_declarations">logic [C_AXI_DATA_WIDTH-1:0] AXIL_S_AXI_WDATA_a0,
-                             AXIL_S_AXI_WDATA_a1,
-                             AXIL_S_AXI_WDATA_a2,
-                             AXIL_S_AXI_WDATA_a3,
-                             AXIL_S_AXI_WDATA_a4,
-                             AXIL_S_AXI_WDATA_a5;
-
-</span><span class="tlx_comments">// For |axil$S_AXI_WREADY.
-</span><span class="tlx_declarations">logic AXIL_S_AXI_WREADY_a0,
-      AXIL_S_AXI_WREADY_a1,
-      AXIL_S_AXI_WREADY_a2,
-      AXIL_S_AXI_WREADY_a3,
-      AXIL_S_AXI_WREADY_a4,
-      AXIL_S_AXI_WREADY_a5;
-
-</span><span class="tlx_comments">// For |axil$S_AXI_WSTRB.
-</span><span class="tlx_declarations">logic [C_AXI_DATA_WIDTH/8-1:0] AXIL_S_AXI_WSTRB_a0,
-                               AXIL_S_AXI_WSTRB_a1,
-                               AXIL_S_AXI_WSTRB_a2,
-                               AXIL_S_AXI_WSTRB_a3,
-                               AXIL_S_AXI_WSTRB_a4,
-                               AXIL_S_AXI_WSTRB_a5;
-
-</span><span class="tlx_comments">// For |axil$S_AXI_WVALID.
-</span><span class="tlx_declarations">logic AXIL_S_AXI_WVALID_a0,
-      AXIL_S_AXI_WVALID_a1,
-      AXIL_S_AXI_WVALID_a2,
-      AXIL_S_AXI_WVALID_a3,
-      AXIL_S_AXI_WVALID_a4,
-      AXIL_S_AXI_WVALID_a5;
-
-</span><span class="tlx_comments">// For |axil$i_data.
-</span><span class="tlx_declarations">logic [DW-1:0] AXIL_i_data_a0,
-               AXIL_i_data_a1,
-               AXIL_i_data_a2,
-               AXIL_i_data_a3,
-               AXIL_i_data_a4,
-               AXIL_i_data_a5;
-
-</span><span class="tlx_comments">// For |axil$i_ready.
-</span><span class="tlx_declarations">logic AXIL_i_ready_a0,
-      AXIL_i_ready_a1,
-      AXIL_i_ready_a2,
-      AXIL_i_ready_a3,
-      AXIL_i_ready_a4,
-      AXIL_i_ready_a5;
-
-</span><span class="tlx_comments">// For |axil$i_valid.
-</span><span class="tlx_declarations">logic AXIL_i_valid_a0,
-      AXIL_i_valid_a1,
-      AXIL_i_valid_a2,
-      AXIL_i_valid_a3,
-      AXIL_i_valid_a4,
-      AXIL_i_valid_a5;
-
-</span><span class="tlx_comments">// For |axil$o_data.
-</span><span class="tlx_declarations">logic [DW-1:0] AXIL_o_data_a0,
-               AXIL_o_data_a1,
-               AXIL_o_data_a2,
-               AXIL_o_data_a3,
-               AXIL_o_data_a4,
-               AXIL_o_data_a5;
-
-</span><span class="tlx_comments">// For |axil$o_ready.
-</span><span class="tlx_declarations">logic AXIL_o_ready_a0,
-      AXIL_o_ready_a1,
-      AXIL_o_ready_a2,
-      AXIL_o_ready_a3,
-      AXIL_o_ready_a4,
-      AXIL_o_ready_a5;
-
-</span><span class="tlx_comments">// For |axil$o_valid.
-</span><span class="tlx_declarations">logic AXIL_o_valid_a0,
-      AXIL_o_valid_a1,
-      AXIL_o_valid_a2,
-      AXIL_o_valid_a3,
-      AXIL_o_valid_a4,
-      AXIL_o_valid_a5;
-
-</span><span class="tlx_comments">// For |axil$reset.
-</span><span class="tlx_declarations">logic AXIL_reset_a0;
+// For $reset.
+</span><span class="tlx_declarations">logic L0_reset_a0;
 
 
 </span><span class="tlx_structure">
@@ -230,153 +70,40 @@ generate
 </span><span class="tlx_comments">
 
    //
-   // Scope: |axil
+   // Scope: /ring_stop[3:0]
    //
+   </span><span class="tlx_structure">for (ring_stop = 0; ring_stop &lt;= 3; ring_stop++) begin : L1gen_RingStop
+</span><span class="tlx_comments">
+      //
+      // Scope: |axil
+      //
 
-      // For $M_AXIS_TDATA.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_M_AXIS_TDATA_a1[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_M_AXIS_TDATA_a0[C_AXI_DATA_WIDTH-1:0];
-      always_ff @(posedge clk) AXIL_M_AXIS_TDATA_a2[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_M_AXIS_TDATA_a1[C_AXI_DATA_WIDTH-1:0];
-      always_ff @(posedge clk) AXIL_M_AXIS_TDATA_a3[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_M_AXIS_TDATA_a2[C_AXI_DATA_WIDTH-1:0];
-      always_ff @(posedge clk) AXIL_M_AXIS_TDATA_a4[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_M_AXIS_TDATA_a3[C_AXI_DATA_WIDTH-1:0];
-      always_ff @(posedge clk) AXIL_M_AXIS_TDATA_a5[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_M_AXIS_TDATA_a4[C_AXI_DATA_WIDTH-1:0];
+         // For $S_AXI_AWADDR.
+         </span><span class="tlx_staging">always_ff @(posedge clk) L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWADDR_a1[C_AXI_ADDR_WIDTH-1:0] &lt;= L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWADDR_a0[C_AXI_ADDR_WIDTH-1:0];
+         always_ff @(posedge clk) L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWADDR_a2[C_AXI_ADDR_WIDTH-1:0] &lt;= L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWADDR_a1[C_AXI_ADDR_WIDTH-1:0];
+         always_ff @(posedge clk) L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWADDR_a3[C_AXI_ADDR_WIDTH-1:0] &lt;= L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWADDR_a2[C_AXI_ADDR_WIDTH-1:0];
+         always_ff @(posedge clk) L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWADDR_a4[C_AXI_ADDR_WIDTH-1:0] &lt;= L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWADDR_a3[C_AXI_ADDR_WIDTH-1:0];
+         always_ff @(posedge clk) L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWADDR_a5[C_AXI_ADDR_WIDTH-1:0] &lt;= L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWADDR_a4[C_AXI_ADDR_WIDTH-1:0];
 
-      </span><span class="tlx_comments">// For $M_AXIS_TREADY.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_M_AXIS_TREADY_a1 &lt;= AXIL_M_AXIS_TREADY_a0;
-      always_ff @(posedge clk) AXIL_M_AXIS_TREADY_a2 &lt;= AXIL_M_AXIS_TREADY_a1;
-      always_ff @(posedge clk) AXIL_M_AXIS_TREADY_a3 &lt;= AXIL_M_AXIS_TREADY_a2;
-      always_ff @(posedge clk) AXIL_M_AXIS_TREADY_a4 &lt;= AXIL_M_AXIS_TREADY_a3;
-      always_ff @(posedge clk) AXIL_M_AXIS_TREADY_a5 &lt;= AXIL_M_AXIS_TREADY_a4;
+         </span><span class="tlx_comments">// For $S_AXI_AWREADY.
+         </span><span class="tlx_staging">always_ff @(posedge clk) L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWREADY_a1 &lt;= L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWREADY_a0;
+         always_ff @(posedge clk) L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWREADY_a2 &lt;= L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWREADY_a1;
+         always_ff @(posedge clk) L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWREADY_a3 &lt;= L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWREADY_a2;
+         always_ff @(posedge clk) L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWREADY_a4 &lt;= L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWREADY_a3;
+         always_ff @(posedge clk) L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWREADY_a5 &lt;= L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWREADY_a4;
 
-      </span><span class="tlx_comments">// For $M_AXIS_TVALID.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_M_AXIS_TVALID_a1 &lt;= AXIL_M_AXIS_TVALID_a0;
-      always_ff @(posedge clk) AXIL_M_AXIS_TVALID_a2 &lt;= AXIL_M_AXIS_TVALID_a1;
-      always_ff @(posedge clk) AXIL_M_AXIS_TVALID_a3 &lt;= AXIL_M_AXIS_TVALID_a2;
-      always_ff @(posedge clk) AXIL_M_AXIS_TVALID_a4 &lt;= AXIL_M_AXIS_TVALID_a3;
-      always_ff @(posedge clk) AXIL_M_AXIS_TVALID_a5 &lt;= AXIL_M_AXIS_TVALID_a4;
-
-      </span><span class="tlx_comments">// For $S_AXI_AWADDR.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_S_AXI_AWADDR_a1[C_AXI_ADDR_WIDTH-1:0] &lt;= AXIL_S_AXI_AWADDR_a0[C_AXI_ADDR_WIDTH-1:0];
-      always_ff @(posedge clk) AXIL_S_AXI_AWADDR_a2[C_AXI_ADDR_WIDTH-1:0] &lt;= AXIL_S_AXI_AWADDR_a1[C_AXI_ADDR_WIDTH-1:0];
-      always_ff @(posedge clk) AXIL_S_AXI_AWADDR_a3[C_AXI_ADDR_WIDTH-1:0] &lt;= AXIL_S_AXI_AWADDR_a2[C_AXI_ADDR_WIDTH-1:0];
-      always_ff @(posedge clk) AXIL_S_AXI_AWADDR_a4[C_AXI_ADDR_WIDTH-1:0] &lt;= AXIL_S_AXI_AWADDR_a3[C_AXI_ADDR_WIDTH-1:0];
-      always_ff @(posedge clk) AXIL_S_AXI_AWADDR_a5[C_AXI_ADDR_WIDTH-1:0] &lt;= AXIL_S_AXI_AWADDR_a4[C_AXI_ADDR_WIDTH-1:0];
-
-      </span><span class="tlx_comments">// For $S_AXI_AWPROT.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_S_AXI_AWPROT_a1[2:0] &lt;= AXIL_S_AXI_AWPROT_a0[2:0];
-      always_ff @(posedge clk) AXIL_S_AXI_AWPROT_a2[2:0] &lt;= AXIL_S_AXI_AWPROT_a1[2:0];
-      always_ff @(posedge clk) AXIL_S_AXI_AWPROT_a3[2:0] &lt;= AXIL_S_AXI_AWPROT_a2[2:0];
-      always_ff @(posedge clk) AXIL_S_AXI_AWPROT_a4[2:0] &lt;= AXIL_S_AXI_AWPROT_a3[2:0];
-      always_ff @(posedge clk) AXIL_S_AXI_AWPROT_a5[2:0] &lt;= AXIL_S_AXI_AWPROT_a4[2:0];
-
-      </span><span class="tlx_comments">// For $S_AXI_AWREADY.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_S_AXI_AWREADY_a1 &lt;= AXIL_S_AXI_AWREADY_a0;
-      always_ff @(posedge clk) AXIL_S_AXI_AWREADY_a2 &lt;= AXIL_S_AXI_AWREADY_a1;
-      always_ff @(posedge clk) AXIL_S_AXI_AWREADY_a3 &lt;= AXIL_S_AXI_AWREADY_a2;
-      always_ff @(posedge clk) AXIL_S_AXI_AWREADY_a4 &lt;= AXIL_S_AXI_AWREADY_a3;
-      always_ff @(posedge clk) AXIL_S_AXI_AWREADY_a5 &lt;= AXIL_S_AXI_AWREADY_a4;
-
-      </span><span class="tlx_comments">// For $S_AXI_AWVALID.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_S_AXI_AWVALID_a1 &lt;= AXIL_S_AXI_AWVALID_a0;
-      always_ff @(posedge clk) AXIL_S_AXI_AWVALID_a2 &lt;= AXIL_S_AXI_AWVALID_a1;
-      always_ff @(posedge clk) AXIL_S_AXI_AWVALID_a3 &lt;= AXIL_S_AXI_AWVALID_a2;
-      always_ff @(posedge clk) AXIL_S_AXI_AWVALID_a4 &lt;= AXIL_S_AXI_AWVALID_a3;
-      always_ff @(posedge clk) AXIL_S_AXI_AWVALID_a5 &lt;= AXIL_S_AXI_AWVALID_a4;
-
-      </span><span class="tlx_comments">// For $S_AXI_RDATA.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_S_AXI_RDATA_a1[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_S_AXI_RDATA_a0[C_AXI_DATA_WIDTH-1:0];
-      always_ff @(posedge clk) AXIL_S_AXI_RDATA_a2[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_S_AXI_RDATA_a1[C_AXI_DATA_WIDTH-1:0];
-      always_ff @(posedge clk) AXIL_S_AXI_RDATA_a3[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_S_AXI_RDATA_a2[C_AXI_DATA_WIDTH-1:0];
-      always_ff @(posedge clk) AXIL_S_AXI_RDATA_a4[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_S_AXI_RDATA_a3[C_AXI_DATA_WIDTH-1:0];
-      always_ff @(posedge clk) AXIL_S_AXI_RDATA_a5[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_S_AXI_RDATA_a4[C_AXI_DATA_WIDTH-1:0];
-
-      </span><span class="tlx_comments">// For $S_AXI_RREADY.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_S_AXI_RREADY_a1 &lt;= AXIL_S_AXI_RREADY_a0;
-      always_ff @(posedge clk) AXIL_S_AXI_RREADY_a2 &lt;= AXIL_S_AXI_RREADY_a1;
-      always_ff @(posedge clk) AXIL_S_AXI_RREADY_a3 &lt;= AXIL_S_AXI_RREADY_a2;
-      always_ff @(posedge clk) AXIL_S_AXI_RREADY_a4 &lt;= AXIL_S_AXI_RREADY_a3;
-      always_ff @(posedge clk) AXIL_S_AXI_RREADY_a5 &lt;= AXIL_S_AXI_RREADY_a4;
-
-      </span><span class="tlx_comments">// For $S_AXI_RVALID.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_S_AXI_RVALID_a1 &lt;= AXIL_S_AXI_RVALID_a0;
-      always_ff @(posedge clk) AXIL_S_AXI_RVALID_a2 &lt;= AXIL_S_AXI_RVALID_a1;
-      always_ff @(posedge clk) AXIL_S_AXI_RVALID_a3 &lt;= AXIL_S_AXI_RVALID_a2;
-      always_ff @(posedge clk) AXIL_S_AXI_RVALID_a4 &lt;= AXIL_S_AXI_RVALID_a3;
-      always_ff @(posedge clk) AXIL_S_AXI_RVALID_a5 &lt;= AXIL_S_AXI_RVALID_a4;
-
-      </span><span class="tlx_comments">// For $S_AXI_WDATA.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_S_AXI_WDATA_a1[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_S_AXI_WDATA_a0[C_AXI_DATA_WIDTH-1:0];
-      always_ff @(posedge clk) AXIL_S_AXI_WDATA_a2[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_S_AXI_WDATA_a1[C_AXI_DATA_WIDTH-1:0];
-      always_ff @(posedge clk) AXIL_S_AXI_WDATA_a3[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_S_AXI_WDATA_a2[C_AXI_DATA_WIDTH-1:0];
-      always_ff @(posedge clk) AXIL_S_AXI_WDATA_a4[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_S_AXI_WDATA_a3[C_AXI_DATA_WIDTH-1:0];
-      always_ff @(posedge clk) AXIL_S_AXI_WDATA_a5[C_AXI_DATA_WIDTH-1:0] &lt;= AXIL_S_AXI_WDATA_a4[C_AXI_DATA_WIDTH-1:0];
-
-      </span><span class="tlx_comments">// For $S_AXI_WREADY.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_S_AXI_WREADY_a1 &lt;= AXIL_S_AXI_WREADY_a0;
-      always_ff @(posedge clk) AXIL_S_AXI_WREADY_a2 &lt;= AXIL_S_AXI_WREADY_a1;
-      always_ff @(posedge clk) AXIL_S_AXI_WREADY_a3 &lt;= AXIL_S_AXI_WREADY_a2;
-      always_ff @(posedge clk) AXIL_S_AXI_WREADY_a4 &lt;= AXIL_S_AXI_WREADY_a3;
-      always_ff @(posedge clk) AXIL_S_AXI_WREADY_a5 &lt;= AXIL_S_AXI_WREADY_a4;
-
-      </span><span class="tlx_comments">// For $S_AXI_WSTRB.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_S_AXI_WSTRB_a1[C_AXI_DATA_WIDTH/8-1:0] &lt;= AXIL_S_AXI_WSTRB_a0[C_AXI_DATA_WIDTH/8-1:0];
-      always_ff @(posedge clk) AXIL_S_AXI_WSTRB_a2[C_AXI_DATA_WIDTH/8-1:0] &lt;= AXIL_S_AXI_WSTRB_a1[C_AXI_DATA_WIDTH/8-1:0];
-      always_ff @(posedge clk) AXIL_S_AXI_WSTRB_a3[C_AXI_DATA_WIDTH/8-1:0] &lt;= AXIL_S_AXI_WSTRB_a2[C_AXI_DATA_WIDTH/8-1:0];
-      always_ff @(posedge clk) AXIL_S_AXI_WSTRB_a4[C_AXI_DATA_WIDTH/8-1:0] &lt;= AXIL_S_AXI_WSTRB_a3[C_AXI_DATA_WIDTH/8-1:0];
-      always_ff @(posedge clk) AXIL_S_AXI_WSTRB_a5[C_AXI_DATA_WIDTH/8-1:0] &lt;= AXIL_S_AXI_WSTRB_a4[C_AXI_DATA_WIDTH/8-1:0];
-
-      </span><span class="tlx_comments">// For $S_AXI_WVALID.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_S_AXI_WVALID_a1 &lt;= AXIL_S_AXI_WVALID_a0;
-      always_ff @(posedge clk) AXIL_S_AXI_WVALID_a2 &lt;= AXIL_S_AXI_WVALID_a1;
-      always_ff @(posedge clk) AXIL_S_AXI_WVALID_a3 &lt;= AXIL_S_AXI_WVALID_a2;
-      always_ff @(posedge clk) AXIL_S_AXI_WVALID_a4 &lt;= AXIL_S_AXI_WVALID_a3;
-      always_ff @(posedge clk) AXIL_S_AXI_WVALID_a5 &lt;= AXIL_S_AXI_WVALID_a4;
-
-      </span><span class="tlx_comments">// For $i_data.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_i_data_a1[DW-1:0] &lt;= AXIL_i_data_a0[DW-1:0];
-      always_ff @(posedge clk) AXIL_i_data_a2[DW-1:0] &lt;= AXIL_i_data_a1[DW-1:0];
-      always_ff @(posedge clk) AXIL_i_data_a3[DW-1:0] &lt;= AXIL_i_data_a2[DW-1:0];
-      always_ff @(posedge clk) AXIL_i_data_a4[DW-1:0] &lt;= AXIL_i_data_a3[DW-1:0];
-      always_ff @(posedge clk) AXIL_i_data_a5[DW-1:0] &lt;= AXIL_i_data_a4[DW-1:0];
-
-      </span><span class="tlx_comments">// For $i_ready.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_i_ready_a1 &lt;= AXIL_i_ready_a0;
-      always_ff @(posedge clk) AXIL_i_ready_a2 &lt;= AXIL_i_ready_a1;
-      always_ff @(posedge clk) AXIL_i_ready_a3 &lt;= AXIL_i_ready_a2;
-      always_ff @(posedge clk) AXIL_i_ready_a4 &lt;= AXIL_i_ready_a3;
-      always_ff @(posedge clk) AXIL_i_ready_a5 &lt;= AXIL_i_ready_a4;
-
-      </span><span class="tlx_comments">// For $i_valid.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_i_valid_a1 &lt;= AXIL_i_valid_a0;
-      always_ff @(posedge clk) AXIL_i_valid_a2 &lt;= AXIL_i_valid_a1;
-      always_ff @(posedge clk) AXIL_i_valid_a3 &lt;= AXIL_i_valid_a2;
-      always_ff @(posedge clk) AXIL_i_valid_a4 &lt;= AXIL_i_valid_a3;
-      always_ff @(posedge clk) AXIL_i_valid_a5 &lt;= AXIL_i_valid_a4;
-
-      </span><span class="tlx_comments">// For $o_data.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_o_data_a1[DW-1:0] &lt;= AXIL_o_data_a0[DW-1:0];
-      always_ff @(posedge clk) AXIL_o_data_a2[DW-1:0] &lt;= AXIL_o_data_a1[DW-1:0];
-      always_ff @(posedge clk) AXIL_o_data_a3[DW-1:0] &lt;= AXIL_o_data_a2[DW-1:0];
-      always_ff @(posedge clk) AXIL_o_data_a4[DW-1:0] &lt;= AXIL_o_data_a3[DW-1:0];
-      always_ff @(posedge clk) AXIL_o_data_a5[DW-1:0] &lt;= AXIL_o_data_a4[DW-1:0];
-
-      </span><span class="tlx_comments">// For $o_ready.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_o_ready_a1 &lt;= AXIL_o_ready_a0;
-      always_ff @(posedge clk) AXIL_o_ready_a2 &lt;= AXIL_o_ready_a1;
-      always_ff @(posedge clk) AXIL_o_ready_a3 &lt;= AXIL_o_ready_a2;
-      always_ff @(posedge clk) AXIL_o_ready_a4 &lt;= AXIL_o_ready_a3;
-      always_ff @(posedge clk) AXIL_o_ready_a5 &lt;= AXIL_o_ready_a4;
-
-      </span><span class="tlx_comments">// For $o_valid.
-      </span><span class="tlx_staging">always_ff @(posedge clk) AXIL_o_valid_a1 &lt;= AXIL_o_valid_a0;
-      always_ff @(posedge clk) AXIL_o_valid_a2 &lt;= AXIL_o_valid_a1;
-      always_ff @(posedge clk) AXIL_o_valid_a3 &lt;= AXIL_o_valid_a2;
-      always_ff @(posedge clk) AXIL_o_valid_a4 &lt;= AXIL_o_valid_a3;
-      always_ff @(posedge clk) AXIL_o_valid_a5 &lt;= AXIL_o_valid_a4;
+         </span><span class="tlx_comments">// For $S_AXI_AWVALID.
+         </span><span class="tlx_staging">always_ff @(posedge clk) L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWVALID_a1 &lt;= L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWVALID_a0;
+         always_ff @(posedge clk) L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWVALID_a2 &lt;= L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWVALID_a1;
+         always_ff @(posedge clk) L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWVALID_a3 &lt;= L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWVALID_a2;
+         always_ff @(posedge clk) L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWVALID_a4 &lt;= L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWVALID_a3;
+         always_ff @(posedge clk) L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWVALID_a5 &lt;= L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWVALID_a4;
 
 
+   </span><span class="tlx_structure">end
 
 
-</span><span class="tlx_structure">endgenerate
+endgenerate
 
 
 
@@ -388,54 +115,28 @@ generate
 </span><span class="tlx_instrumentation">generate
 
    if (1) begin : DEBUG_SIGS
-</span><span class="tlx_comments">
 
+      logic  \@0$reset ;
+      assign \@0$reset = L0_reset_a0;
+
+      </span><span class="tlx_comments">//
+      // Scope: /ring_stop[3:0]
       //
-      // Scope: |axil
-      //
-      </span><span class="tlx_instrumentation">if (1) begin : \|axil 
-         logic [C_AXI_DATA_WIDTH-1:0] \@0$M_AXIS_TDATA ;
-         assign \@0$M_AXIS_TDATA = AXIL_M_AXIS_TDATA_a0;
-         logic  \@0$M_AXIS_TREADY ;
-         assign \@0$M_AXIS_TREADY = AXIL_M_AXIS_TREADY_a0;
-         logic  \@0$M_AXIS_TVALID ;
-         assign \@0$M_AXIS_TVALID = AXIL_M_AXIS_TVALID_a0;
-         logic [C_AXI_ADDR_WIDTH-1:0] \@0$S_AXI_AWADDR ;
-         assign \@0$S_AXI_AWADDR = AXIL_S_AXI_AWADDR_a0;
-         logic [2:0] \@0$S_AXI_AWPROT ;
-         assign \@0$S_AXI_AWPROT = AXIL_S_AXI_AWPROT_a0;
-         logic  \@0$S_AXI_AWREADY ;
-         assign \@0$S_AXI_AWREADY = AXIL_S_AXI_AWREADY_a0;
-         logic  \@0$S_AXI_AWVALID ;
-         assign \@0$S_AXI_AWVALID = AXIL_S_AXI_AWVALID_a0;
-         logic [C_AXI_DATA_WIDTH-1:0] \@0$S_AXI_RDATA ;
-         assign \@0$S_AXI_RDATA = AXIL_S_AXI_RDATA_a0;
-         logic  \@0$S_AXI_RREADY ;
-         assign \@0$S_AXI_RREADY = AXIL_S_AXI_RREADY_a0;
-         logic  \@0$S_AXI_RVALID ;
-         assign \@0$S_AXI_RVALID = AXIL_S_AXI_RVALID_a0;
-         logic [C_AXI_DATA_WIDTH-1:0] \@0$S_AXI_WDATA ;
-         assign \@0$S_AXI_WDATA = AXIL_S_AXI_WDATA_a0;
-         logic  \@0$S_AXI_WREADY ;
-         assign \@0$S_AXI_WREADY = AXIL_S_AXI_WREADY_a0;
-         logic [C_AXI_DATA_WIDTH/8-1:0] \@0$S_AXI_WSTRB ;
-         assign \@0$S_AXI_WSTRB = AXIL_S_AXI_WSTRB_a0;
-         logic  \@0$S_AXI_WVALID ;
-         assign \@0$S_AXI_WVALID = AXIL_S_AXI_WVALID_a0;
-         logic [DW-1:0] \@0$i_data ;
-         assign \@0$i_data = AXIL_i_data_a0;
-         logic  \@0$i_ready ;
-         assign \@0$i_ready = AXIL_i_ready_a0;
-         logic  \@0$i_valid ;
-         assign \@0$i_valid = AXIL_i_valid_a0;
-         logic [DW-1:0] \@0$o_data ;
-         assign \@0$o_data = AXIL_o_data_a0;
-         logic  \@0$o_ready ;
-         assign \@0$o_ready = AXIL_o_ready_a0;
-         logic  \@0$o_valid ;
-         assign \@0$o_valid = AXIL_o_valid_a0;
-         logic  \@0$reset ;
-         assign \@0$reset = AXIL_reset_a0;
+      </span><span class="tlx_instrumentation">for (ring_stop = 0; ring_stop &lt;= 3; ring_stop++) begin : \/ring_stop 
+</span><span class="tlx_comments">
+         //
+         // Scope: |axil
+         //
+         </span><span class="tlx_instrumentation">if (1) begin : \|axil 
+            logic [C_AXI_ADDR_WIDTH-1:0] \@0$S_AXI_AWADDR ;
+            assign \@0$S_AXI_AWADDR = L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWADDR_a0;
+            logic [2:0] \@0$S_AXI_AWPROT ;
+            assign \@0$S_AXI_AWPROT = L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWPROT_a0;
+            logic  \@0$S_AXI_AWREADY ;
+            assign \@0$S_AXI_AWREADY = L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWREADY_a0;
+            logic  \@0$S_AXI_AWVALID ;
+            assign \@0$S_AXI_AWVALID = L1_RingStop[ring_stop].L1_AXIL_S_AXI_AWVALID_a0;
+         end
       end
 
 
@@ -456,7 +157,39 @@ endgenerate
 <pre>
 <span class="tlx_structure">\TLV_version 1d: tl-x.org
 \SV
-</span><span class="tlx_comments">/* verilator lint_off CMPCONST */
+</span><span class="tlx_comments">/*
+Copyright (c) 2018, Steve Hoover
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+// Included URL: &quot;https://raw.githubusercontent.com/stevehoover/tlv_flow_lib/5a8c0387be80b2deccfcd1506299b36049e0663e/fundamentals_lib.tlv&quot;
+// Included URL: &quot;https://raw.githubusercontent.com/stevehoover/tlv_flow_lib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflow_lib.tlv&quot;
+
+/* verilator lint_off CMPCONST */
 /* verilator lint_off WIDTH */
 //m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axilxbar.v'])
 //m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axilsafety.v'])
@@ -474,27 +207,32 @@ endgenerate
    // Macro providing required top-level module definition, random
    // stimulus support, and Verilator config.
    </span><span class="tlx_untouched">module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    </span><span class="tlx_comments">/* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  </span><span class="tlx_untouched">bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  </span><span class="tlx_comments">/* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */   // (Expanded in Nav-TLV pane.)
+                
 </span><span class="tlx_structure">\TLV
-   |axil
+   </span><span class="tlx_logic">$reset = *reset;
+   
+   </span><span class="tlx_comments">// DUT
+   </span><span class="tlx_structure">/ring_stop[</span><span class="tlx_logic">3</span><span class="tlx_structure">:</span><span class="tlx_logic">0</span><span class="tlx_structure">]
+      |axil
       
-      </span><span class="tlx_staging">@0
+         </span><span class="tlx_staging">@0
  
+            
+            
+            
+         
+            
+            
+            
+            
          
          
          
-         
-         
-         
-         
-         
-         
-         
-         </span><span class="tlx_logic">$reset = *reset;
-         $S_AXI_AWVALID = *S_AXI_AWVALID;
-         $S_AXI_AWREADY = *S_AXI_AWREADY;
-         $S_AXI_AWADDR[C_AXI_ADDR_WIDTH-1:0] = *S_AXI_AWADDR;
-         $S_AXI_AWPROT[2:0] = *S_AXI_AWPROT;
-         
+            </span><span class="tlx_logic">$S_AXI_AWVALID = *S_AXI_AWVALID;
+            $S_AXI_AWREADY = *S_AXI_AWREADY;
+            $S_AXI_AWADDR[C_AXI_ADDR_WIDTH-1:0] = *S_AXI_AWADDR;
+            $S_AXI_AWPROT[2:0] = *S_AXI_AWPROT;
+         </span><span class="tlx_comments">/*
          $S_AXI_WVALID = *S_AXI_WVALID;
          $S_AXI_WREADY = *S_AXI_WREADY;
          $S_AXI_WDATA[C_AXI_DATA_WIDTH-1:0] = *S_AXI_WDATA
@@ -515,12 +253,13 @@ endgenerate
          $o_valid = *o_valid;
          $i_ready = *i_ready;
          $o_data[DW-1:0] = *o_data;
+         */
+         </span><span class="tlx_staging">@5
+            </span><span class="tlx_logic">*S_AXI_AWVALID = $S_AXI_AWVALID;         
+            *S_AXI_AWREADY = $S_AXI_AWREADY;
          
-      </span><span class="tlx_staging">@5
-         </span><span class="tlx_logic">*S_AXI_AWVALID = $S_AXI_AWVALID;         
-         *S_AXI_AWREADY = $S_AXI_AWREADY;
-         
-         *S_AXI_AWADDR = $S_AXI_AWADDR[C_AXI_ADDR_WIDTH-1:0];
+            *S_AXI_AWADDR = $S_AXI_AWADDR[C_AXI_ADDR_WIDTH-1:0];
+         </span><span class="tlx_comments">/*
          *S_AXI_AWPROT = $S_AXI_AWPROT[2:0];
          *S_AXI_WVALID = $S_AXI_WVALID;
          *S_AXI_WREADY = $S_AXI_WREADY;
@@ -545,15 +284,269 @@ endgenerate
          *i_ready = $i_ready;
          *o_data = $o_data[DW-1:0];
          
+         */
+   /*      
+   /ring_stop[*]
+      \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 150   // Instantiated from top.tlv, 133 as: m4+arb2(/ring_stop, |ring_out, @4, |bypass, @1, |arb_out, @1, /trans)
+         \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 114   // Instantiated from top.tlv, 151 as: m4+flow_interface(/ring_stop, [' |ring_out, @4, |bypass, @1'], [' |arb_out, @1'], )
+            \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 115 as: m4+flow_inputs(/ring_stop, [' |ring_out, @4, |bypass, @1'], )
+               // Avail/Blocked Input:
+               |ring_out
+                  @4
+                     $accepted = $avail &amp;&amp; ! $blocked;  // provided for optional upstream use.
+                     $reset_in = $reset;
+                     `BOGUS_USE($accepted $reset_in)
+               \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 133 as: m4+flow_inputs(/ring_stop, m4_quote(m4_shift(m4_shift( |ring_out, @4, |bypass, @1))), m4_quote(m4_shift(_resets)))
+                  // Avail/Blocked Input:
+                  |bypass
+                     @1
+                        $accepted = $avail &amp;&amp; ! $blocked;  // provided for optional upstream use.
+                        $reset_in = $reset;
+                        `BOGUS_USE($accepted $reset_in)
+                  \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 133 as: m4+flow_inputs(/ring_stop, m4_quote(m4_shift(m4_shift(|bypass,@1))), m4_quote(m4_shift(_resets)))
+                     
+                  \end_source
+                  
+               \end_source
+               
+            \end_source
+            \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 129   // Instantiated from top.tlv, 116 as: m4+flow_outputs(/ring_stop, [' |arb_out, @1'])
+               // Avail/Blocked Output:
+               |arb_out
+                  @1
+                     `BOGUS_USE($reset) // Output pipes must provide $reset.
+               \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 129   // Instantiated from top.tlv, 133 as: m4+flow_outputs(/ring_stop, m4_quote(m4_shift(m4_shift( |arb_out, @1))))
+                  
+               \end_source
+               
+            \end_source
+         \end_source
          
+         // In1 is blocked if output is blocked.
+         |ring_out
+            @4
+               $blocked = /ring_stop|arb_out&gt;&gt;-3$blocked;
+         // In2 is blocked if output is blocked or in1 is available.
+         |bypass
+            @1
+               $blocked = /ring_stop|arb_out&gt;&gt;0$blocked ||
+                          /ring_stop|ring_out&gt;&gt;3$avail;
+         // Output comes from in1 if available, otherwise, in2.
+         |arb_out
+            @1
+               $reset = /ring_stop|ring_out&gt;&gt;3$reset_in;
+               // Output is available if either input is available.
+               $avail = /ring_stop|ring_out&gt;&gt;3$avail ||
+                        /ring_stop|bypass&gt;&gt;0$avail;
+               ?$avail
+                  /trans
+                     $ANY = /ring_stop|ring_out&gt;&gt;3$avail ? /ring_stop|ring_out/trans&gt;&gt;3$ANY :
+                                                                                /ring_stop|bypass/trans&gt;&gt;0$ANY;
          
-         
-         
-         
+      \end_source
+      // FIFO2
+      // To use BaseJump STL, this line:
+      //m4+simple_bypass_fifo_v2(/ring_stop, |arb_out, @1, |fifo2_out, @1, 4, 100, /trans)        
+      // Becomes:
+      //----------------      
+      |arb_out
+         @1
+            \SV_plus
+               bsg_fifo_1r1w_small #(.width_p(100)) my_fifo(
+                  *clk, $reset,
+                  $avail, $$ready, /trans$ANY,
+                  /ring_stop|fifo2_out&lt;&gt;0$$avail, /ring_stop|fifo2_out/trans&lt;&gt;0$$ANY, /ring_stop|fifo2_out&lt;&gt;0$accepted
+               );
+            $blocked = ! $ready;
+      //----------------
+   // Testbench
+   \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 1305   // Instantiated from top.tlv, 150 as: m4+router_testbench(/top, /ring_stop, |stall0, @1, |fifo2_out, @1, /trans, /top&lt;&gt;0$reset)   
+        // Otherwise we can have a cyclic reset loop through flow.
+      /ring_stop[*]
+         // Define flow interface. Note that router ins are tb outs and outs are ins.
+         \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 114   // Instantiated from top.tlv, 1309 as: m4+flow_interface(/ring_stop, [' |fifo2_out, @1'], [' |stall0, @1'], /top&lt;&gt;0$reset)
+            \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 115 as: m4+flow_inputs(/ring_stop, [' |fifo2_out, @1'], /top&lt;&gt;0$reset)
+               // Avail/Blocked Input:
+               |fifo2_out
+                  @1
+                     $accepted = $avail &amp;&amp; ! $blocked;  // provided for optional upstream use.
+                     $reset_in =  /top&lt;&gt;0$reset;
+                     `BOGUS_USE($accepted $reset_in)
+               \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 150 as: m4+flow_inputs(/ring_stop, m4_quote(m4_shift(m4_shift( |fifo2_out, @1))), m4_quote(m4_shift(_resets)))
+                  
+               \end_source
+               
+            \end_source
+            \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 129   // Instantiated from top.tlv, 116 as: m4+flow_outputs(/ring_stop, [' |stall0, @1'])
+               // Avail/Blocked Output:
+               |stall0
+                  @1
+                     `BOGUS_USE($reset) // Output pipes must provide $reset.
+               \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 129   // Instantiated from top.tlv, 150 as: m4+flow_outputs(/ring_stop, m4_quote(m4_shift(m4_shift( |stall0, @1))))
+                  
+               \end_source
+               
+            \end_source
+         \end_source
+      
+      
+      
+   
+      /tb
+         |count
+            @1
+               $CycCount[15:0] &lt;= /top/ring_stop[0]|stall0&gt;&gt;1$reset
+                                     ? 16'b0 :
+                                       $CycCount + 1;
+               \SV_plus
+                  always_ff @(posedge clk) begin
+                     \$display(&quot;Cycle: %0d&quot;, $CycCount);
+                  end
+         /ring_stop[3:0]
+            // STIMULUS
+            |send
+               @1
+                  // Generate a transaction to inject sometimes (if needed)
+                  $reset = /ring_stop|receive2&gt;&gt;0$reset;
+                  $valid_in = /tb|count&lt;&gt;0$CycCount == 3;
+                  ?$valid_in
+                     /gen_trans
+                        $cyc_cnt[15:0] = /tb|count&lt;&gt;0$CycCount;
+                        $response_debug = 1'b0;  // Not a response (for debug)
+                        $sender[1:0] = #ring_stop;
+                        //m4_rand($size, M4_PACKET_SIZE-1, 0, #m4_port) // unused
+                        $dest_tmp[1:0] = *RW_rand_vect[(0 + (ring_stop)) % 257 +: 2];
+                        $dest[1:0] = $dest_tmp % 4;
+                        //$dest[M4_['']M4_PORT['']_INDEX_RANGE] = #m4_port;
+                        //$packet_valid = #m4_port == 0 ? 1'b1 : 1'b0; // valid for only first port - unused
+                  $avail = $valid_in || /ring_stop|receive2&gt;&gt;0$valid_request;
+                  ?$avail
+                     /trans_out
+                        // Loopback requests as responses or use gen_trans.
+                        $ANY = /ring_stop|receive2&gt;&gt;0$valid_request
+                                    ? /ring_stop|receive2/trans&gt;&gt;0$ANY :
+                                      |send/gen_trans$ANY;
+                        
+                        \SV_plus
+                           always_ff @(posedge clk) begin
+                              if (! |send$reset &amp;&amp; ! *reset &amp;&amp; /top/ring_stop|stall0&lt;&gt;0$accepted) begin
+                                 \$display(&quot;\|send[%0d]&quot;, #ring_stop);
+                                 \$display(&quot;Sender: %0d, Orig. Cyc: %0d, Dest: %0d, Resp: %0d&quot;, $sender, $cyc_cnt, $dest, $response_debug);
+                              end
+                           end
+            // Hook router out to |receive1 and determine transaction response routing (within the transaction).
+            |receive1
+               @1
+                  $avail = /top/ring_stop|fifo2_out&lt;&gt;0$avail;
+                  $reset = /top/ring_stop|fifo2_out&lt;&gt;0$reset_in;
+                  ?$accepted
+                     /trans
+                        $response_debug = 1'b1; // Turn this around as a response.
+                        $request = $sender != #ring_stop;  // Arrived as request?
+                        $response = $sender == #ring_stop; // Arrived as response?
+                        $ANY = /top/ring_stop|fifo2_out/trans&lt;&gt;0$ANY;
+                        $dest[1:0] = $request ? $sender : $dest;
+            \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 342   // Instantiated from top.tlv, 1368 as: m4+bp_stage(/ring_stop, |receive1, @1, |receive2, @1, /trans)
+               
+               
+               
+               
+               
+               
+               \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 114   // Instantiated from top.tlv, 349 as: m4+flow_interface(/ring_stop, [' |receive1, @1'], [' |receive2, @1'], )
+                  \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 115 as: m4+flow_inputs(/ring_stop, [' |receive1, @1'], )
+                     // Avail/Blocked Input:
+                     |receive1
+                        @1
+                           $accepted = $avail &amp;&amp; ! $blocked;  // provided for optional upstream use.
+                           $reset_in = $reset;
+                           `BOGUS_USE($accepted $reset_in)
+                     \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 150 as: m4+flow_inputs(/ring_stop, m4_quote(m4_shift(m4_shift( |receive1, @1))), m4_quote(m4_shift(_resets)))
+                        
+                     \end_source
+                     
+                  \end_source
+                  \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 129   // Instantiated from top.tlv, 116 as: m4+flow_outputs(/ring_stop, [' |receive2, @1'])
+                     // Avail/Blocked Output:
+                     |receive2
+                        @1
+                           `BOGUS_USE($reset) // Output pipes must provide $reset.
+                     \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 129   // Instantiated from top.tlv, 150 as: m4+flow_outputs(/ring_stop, m4_quote(m4_shift(m4_shift( |receive2, @1))))
+                        
+                     \end_source
+                     
+                  \end_source
+               \end_source
+               |receive2
+                  @0
+                     $reset = /ring_stop|receive1&gt;&gt;1$reset_in;
+                     
+                     $avail = $reset ? 1'b0 :
+                                       (&gt;&gt;1$avail &amp;&amp; &gt;&gt;1$blocked) ||  // Recirc'ed or
+                                       // Above is recomputation of $recirc to avoid a flop.
+                                       // For SELF, its in the same stage, and is redundant computation.
+                                       /ring_stop|receive1&gt;&gt;1$avail; // Incoming available
+                     //$first_avail = $avail &amp;&amp; ! &gt;&gt;1$blocked;  // Transaction is newly available.
+                  @0
+                     ?$avail  // Physically, $first_avail &amp;&amp; *reset_b for functional gating in
+                              // place of recirculation.
+                        /trans
+                           $ANY =
+                              |receive2&gt;&gt;1$recirc ? &gt;&gt;1$ANY
+                                                   : /ring_stop|receive1/trans&gt;&gt;1$ANY;
+                  @1
+                     $recirc = $avail &amp;&amp; $blocked;  // Available transaction that is blocked; must recirc.
+               |receive1
+                  @1
+                     $blocked = /ring_stop|receive2&gt;&gt;0$recirc;
+                     // This trans is blocked (whether valid or not) if the next stage is recirculating.
+               
+               
+               
+               
+               
+               
+            \end_source
+            // A one-cycle backpressured stage to avoid 0-cycle loopback.
+            |receive2
+               @1
+                  $valid_request = $accepted &amp;&amp; /trans$request;
+                  $valid_response = $accepted &amp;&amp; /trans$response;
+                  // Block requests that cannot loopback a response .
+                  $blocked = $valid_request &amp;&amp; /top/ring_stop|stall0&gt;&gt;0$blocked;
+                  $accepted = $avail &amp;&amp; ! $blocked;
+                  $generated_request =   /top/ring_stop|stall0&gt;&gt;0$accepted &amp;&amp;
+                                       ! /top/ring_stop|stall0/trans&gt;&gt;0$response_debug;
+                  $OutstandingPackets[16-1:0] &lt;=
+                       $reset ? '0 :
+                         ($OutstandingPackets +
+                          ($generated_request ? 16'b1 : '0) -
+                          ($valid_response ? 16'b1 : '0)
+                         );
+            |passed  // Aligned to |receive2, but given a new pipeline name to provide a cleaner interface for this $passed output.
+               @1
+                  $passed = ! /ring_stop|receive2&lt;&gt;0$reset &amp;&amp; /ring_stop|receive2&lt;&gt;0$OutstandingPackets == '0 &amp;&amp; /tb|count&gt;&gt;0$CycCount &gt; 12;
+      // Connect with DUT.
+      /ring_stop[3:0]
+         |stall0
+            @1
+               $avail = ! $reset &amp;&amp; /top/tb/ring_stop|send&lt;&gt;0$avail;
+               ?$avail
+                  /trans
+                     $ANY = /top/tb/ring_stop|send/trans_out&lt;&gt;0$ANY;
+               $reset = /top/tb/ring_stop|receive2&gt;&gt;0$reset;
+         |fifo2_out
+            @1
+               $blocked = /top/tb/ring_stop|receive1&lt;&gt;0$blocked;
+            /trans
+      
+      
+   \end_source   
+   */      
        
          
 
-   </span><span class="tlx_comments">//...
+   //...
 
    // Assert these to end simulation (before Makerchip cycle limit).
    </span><span class="tlx_logic">*passed = *cyc_cnt &gt; 40;
@@ -570,6 +563,38 @@ endgenerate
 <pre>
 <span class="tlx_structure">`line 2 &quot;top.tlv&quot; 0 </span><span class="tlx_comments">//_\TLV_version 1d: tl-x.org, generated by SandPiper(TM) 1.9-2018/02/11-beta
 </span><span class="tlx_structure">`include &quot;sp_default.vh&quot; </span><span class="tlx_comments">//_\SV
+/*
+Copyright (c) 2018, Steve Hoover
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+// Included URL: &quot;https://raw.githubusercontent.com/stevehoover/tlv_flow_lib/5a8c0387be80b2deccfcd1506299b36049e0663e/fundamentals_lib.tlv&quot;
+// Included URL: &quot;https://raw.githubusercontent.com/stevehoover/tlv_flow_lib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflow_lib.tlv&quot;
+
 /* verilator lint_off CMPCONST */
 /* verilator lint_off WIDTH */
 //m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axilxbar.v'])
@@ -588,86 +613,346 @@ endgenerate
    // Macro providing required top-level module definition, random
    // stimulus support, and Verilator config.
    </span><span class="tlx_untouched">module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    </span><span class="tlx_comments">/* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  </span><span class="tlx_untouched">bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  </span><span class="tlx_comments">/* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */   // (Expanded in Nav-TLV pane.)
+                
 </span><span class="tlx_structure">`include &quot;top_gen.sv&quot; </span><span class="tlx_comments">//_\TLV
-   //_|axil
+   </span><span class="tlx_logic">assign L0_reset_a0 = reset;
+   
+   </span><span class="tlx_comments">// DUT
+   </span><span class="tlx_structure">for (ring_stop = 0; ring_stop &lt;= 3; ring_stop++) begin : L1_RingStop </span><span class="tlx_declarations">logic [C_AXI_ADDR_WIDTH-1:0] L1_AXIL_S_AXI_AWADDR_a0, L1_AXIL_S_AXI_AWADDR_a1, L1_AXIL_S_AXI_AWADDR_a2, L1_AXIL_S_AXI_AWADDR_a3, L1_AXIL_S_AXI_AWADDR_a4, L1_AXIL_S_AXI_AWADDR_a5; logic [2:0] L1_AXIL_S_AXI_AWPROT_a0; logic L1_AXIL_S_AXI_AWREADY_a0, L1_AXIL_S_AXI_AWREADY_a1, L1_AXIL_S_AXI_AWREADY_a2, L1_AXIL_S_AXI_AWREADY_a3, L1_AXIL_S_AXI_AWREADY_a4, L1_AXIL_S_AXI_AWREADY_a5; logic L1_AXIL_S_AXI_AWVALID_a0, L1_AXIL_S_AXI_AWVALID_a1, L1_AXIL_S_AXI_AWVALID_a2, L1_AXIL_S_AXI_AWVALID_a3, L1_AXIL_S_AXI_AWVALID_a4, L1_AXIL_S_AXI_AWVALID_a5; </span><span class="tlx_comments">//_/ring_stop
+      //_|axil
       
-      //_@0
+         //_@0
  
+            
+            
+            
+         
+            
+            
+            
+            
          
          
          
-         
-         
-         
-         
-         
-         
-         
-         </span><span class="tlx_logic">assign AXIL_reset_a0 = reset;
-         assign AXIL_S_AXI_AWVALID_a0 = S_AXI_AWVALID;
-         assign AXIL_S_AXI_AWREADY_a0 = S_AXI_AWREADY;
-         assign AXIL_S_AXI_AWADDR_a0[C_AXI_ADDR_WIDTH-1:0] = S_AXI_AWADDR;
-         assign AXIL_S_AXI_AWPROT_a0[2:0] = S_AXI_AWPROT;
-         
-         assign AXIL_S_AXI_WVALID_a0 = S_AXI_WVALID;
-         assign AXIL_S_AXI_WREADY_a0 = S_AXI_WREADY;
-         assign AXIL_S_AXI_WDATA_a0[C_AXI_DATA_WIDTH-1:0] = S_AXI_WDATA
-         assign AXIL_S_AXI_WSTRB_a0[C_AXI_DATA_WIDTH/8-1:0] = S_AXI_WSTRB
-         assign AXIL_S_AXI_RVALID_a0 = S_AXI_RVALID;
-         assign AXIL_S_AXI_RREADY_a0 = S_AXI_RREADY;
-         assign AXIL_S_AXI_RDATA_a0[C_AXI_DATA_WIDTH-1:0] = S_AXI_RDATA;
-         assign AXIL_M_AXIS_TREADY_a0 = M_AXIS_TREADY;
-         assign AXIL_M_AXIS_TDATA_a0[C_AXI_DATA_WIDTH-1:0] = M_AXIS_TDATA;
+            </span><span class="tlx_logic">assign L1_AXIL_S_AXI_AWVALID_a0 = S_AXI_AWVALID;
+            assign L1_AXIL_S_AXI_AWREADY_a0 = S_AXI_AWREADY;
+            assign L1_AXIL_S_AXI_AWADDR_a0[C_AXI_ADDR_WIDTH-1:0] = S_AXI_AWADDR;
+            assign L1_AXIL_S_AXI_AWPROT_a0[2:0] = S_AXI_AWPROT;
+         </span><span class="tlx_comments">/*
+         $S_AXI_WVALID = *S_AXI_WVALID;
+         $S_AXI_WREADY = *S_AXI_WREADY;
+         $S_AXI_WDATA[C_AXI_DATA_WIDTH-1:0] = *S_AXI_WDATA
+         $S_AXI_WSTRB[C_AXI_DATA_WIDTH/8-1:0] = *S_AXI_WSTRB
+         $S_AXI_RVALID = *S_AXI_RVALID;
+         $S_AXI_RREADY = *S_AXI_RREADY;
+         $S_AXI_RDATA[C_AXI_DATA_WIDTH-1:0] = *S_AXI_RDATA;
+         $M_AXIS_TREADY = *M_AXIS_TREADY;
+         $M_AXIS_TDATA[C_AXI_DATA_WIDTH-1:0] = *M_AXIS_TDATA;
          
 
          
-         assign AXIL_M_AXIS_TVALID_a0 = M_AXIS_TVALID;
+         $M_AXIS_TVALID = *M_AXIS_TVALID;
          
-         assign AXIL_i_valid_a0 = i_valid;
-         assign AXIL_o_ready_a0 = o_ready;
-         assign AXIL_i_data_a0[DW-1:0] = i_data;
-         assign AXIL_o_valid_a0 = o_valid;
-         assign AXIL_i_ready_a0 = i_ready;
-         assign AXIL_o_data_a0[DW-1:0] = o_data;
+         $i_valid = *i_valid;
+         $o_ready = *o_ready;
+         $i_data[DW-1:0] = *i_data;
+         $o_valid = *o_valid;
+         $i_ready = *i_ready;
+         $o_data[DW-1:0] = *o_data;
+         */
+         //_@5
+            </span><span class="tlx_logic">assign S_AXI_AWVALID = L1_AXIL_S_AXI_AWVALID_a5;         
+            assign S_AXI_AWREADY = L1_AXIL_S_AXI_AWREADY_a5;
          
-      </span><span class="tlx_comments">//_@5
-         </span><span class="tlx_logic">assign S_AXI_AWVALID = AXIL_S_AXI_AWVALID_a5;         
-         assign S_AXI_AWREADY = AXIL_S_AXI_AWREADY_a5;
-         
-         assign S_AXI_AWADDR = AXIL_S_AXI_AWADDR_a5[C_AXI_ADDR_WIDTH-1:0];
-         assign S_AXI_AWPROT = AXIL_S_AXI_AWPROT_a5[2:0];
-         assign S_AXI_WVALID = AXIL_S_AXI_WVALID_a5;
-         assign S_AXI_WREADY = AXIL_S_AXI_WREADY_a5;
-         assign S_AXI_WDATA = AXIL_S_AXI_WDATA_a5[C_AXI_DATA_WIDTH-1:0];
-         assign S_AXI_WSTRB = AXIL_S_AXI_WSTRB_a5[C_AXI_DATA_WIDTH/8-1:0];
-         assign S_AXI_RVALID = AXIL_S_AXI_RVALID_a5;
-         assign S_AXI_RREADY = AXIL_S_AXI_RREADY_a5;
-         assign S_AXI_RDATA = AXIL_S_AXI_RDATA_a5[C_AXI_DATA_WIDTH-1:0];
-         assign M_AXIS_TREADY = AXIL_M_AXIS_TREADY_a5;
-         assign M_AXIS_TDATA = AXIL_M_AXIS_TDATA_a5[C_AXI_DATA_WIDTH-1:0];
+            assign S_AXI_AWADDR = L1_AXIL_S_AXI_AWADDR_a5[C_AXI_ADDR_WIDTH-1:0]; </span><span class="tlx_structure">end
+         </span><span class="tlx_comments">/*
+         *S_AXI_AWPROT = $S_AXI_AWPROT[2:0];
+         *S_AXI_WVALID = $S_AXI_WVALID;
+         *S_AXI_WREADY = $S_AXI_WREADY;
+         *S_AXI_WDATA = $S_AXI_WDATA[C_AXI_DATA_WIDTH-1:0];
+         *S_AXI_WSTRB = $S_AXI_WSTRB[C_AXI_DATA_WIDTH/8-1:0];
+         *S_AXI_RVALID = $S_AXI_RVALID;
+         *S_AXI_RREADY = $S_AXI_RREADY;
+         *S_AXI_RDATA = $S_AXI_RDATA[C_AXI_DATA_WIDTH-1:0];
+         *M_AXIS_TREADY = $M_AXIS_TREADY;
+         *M_AXIS_TDATA = $M_AXIS_TDATA[C_AXI_DATA_WIDTH-1:0];
 
          
          
          
-         assign M_AXIS_TVALID = AXIL_M_AXIS_TVALID_a5;
+         *M_AXIS_TVALID = $M_AXIS_TVALID;
          
          
-         assign i_valid = AXIL_i_valid_a5;
-         assign o_ready = AXIL_o_ready_a5;
-         assign i_data = AXIL_i_data_a5[DW-1:0];
-         assign o_valid = AXIL_o_valid_a5;
-         assign i_ready = AXIL_i_ready_a5;
-         assign o_data = AXIL_o_data_a5[DW-1:0];
+         *i_valid = $i_valid;
+         *o_ready = $o_ready;
+         *i_data = $i_data[DW-1:0];
+         *o_valid = $o_valid;
+         *i_ready = $i_ready;
+         *o_data = $o_data[DW-1:0];
          
+         */
+   /*      
+   /ring_stop[*]
+      \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 150   // Instantiated from top.tlv, 133 as: m4+arb2(/ring_stop, |ring_out, @4, |bypass, @1, |arb_out, @1, /trans)
+         \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 114   // Instantiated from top.tlv, 151 as: m4+flow_interface(/ring_stop, [' |ring_out, @4, |bypass, @1'], [' |arb_out, @1'], )
+            \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 115 as: m4+flow_inputs(/ring_stop, [' |ring_out, @4, |bypass, @1'], )
+               // Avail/Blocked Input:
+               |ring_out
+                  @4
+                     $accepted = $avail &amp;&amp; ! $blocked;  // provided for optional upstream use.
+                     $reset_in = $reset;
+                     `BOGUS_USE($accepted $reset_in)
+               \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 133 as: m4+flow_inputs(/ring_stop, m4_quote(m4_shift(m4_shift( |ring_out, @4, |bypass, @1))), m4_quote(m4_shift(_resets)))
+                  // Avail/Blocked Input:
+                  |bypass
+                     @1
+                        $accepted = $avail &amp;&amp; ! $blocked;  // provided for optional upstream use.
+                        $reset_in = $reset;
+                        `BOGUS_USE($accepted $reset_in)
+                  \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 133 as: m4+flow_inputs(/ring_stop, m4_quote(m4_shift(m4_shift(|bypass,@1))), m4_quote(m4_shift(_resets)))
+                     
+                  \end_source
+                  
+               \end_source
+               
+            \end_source
+            \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 129   // Instantiated from top.tlv, 116 as: m4+flow_outputs(/ring_stop, [' |arb_out, @1'])
+               // Avail/Blocked Output:
+               |arb_out
+                  @1
+                     `BOGUS_USE($reset) // Output pipes must provide $reset.
+               \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 129   // Instantiated from top.tlv, 133 as: m4+flow_outputs(/ring_stop, m4_quote(m4_shift(m4_shift( |arb_out, @1))))
+                  
+               \end_source
+               
+            \end_source
+         \end_source
          
+         // In1 is blocked if output is blocked.
+         |ring_out
+            @4
+               $blocked = /ring_stop|arb_out&gt;&gt;-3$blocked;
+         // In2 is blocked if output is blocked or in1 is available.
+         |bypass
+            @1
+               $blocked = /ring_stop|arb_out&gt;&gt;0$blocked ||
+                          /ring_stop|ring_out&gt;&gt;3$avail;
+         // Output comes from in1 if available, otherwise, in2.
+         |arb_out
+            @1
+               $reset = /ring_stop|ring_out&gt;&gt;3$reset_in;
+               // Output is available if either input is available.
+               $avail = /ring_stop|ring_out&gt;&gt;3$avail ||
+                        /ring_stop|bypass&gt;&gt;0$avail;
+               ?$avail
+                  /trans
+                     $ANY = /ring_stop|ring_out&gt;&gt;3$avail ? /ring_stop|ring_out/trans&gt;&gt;3$ANY :
+                                                                                /ring_stop|bypass/trans&gt;&gt;0$ANY;
          
-         
-         
-         
+      \end_source
+      // FIFO2
+      // To use BaseJump STL, this line:
+      //m4+simple_bypass_fifo_v2(/ring_stop, |arb_out, @1, |fifo2_out, @1, 4, 100, /trans)        
+      // Becomes:
+      //----------------      
+      |arb_out
+         @1
+            \SV_plus
+               bsg_fifo_1r1w_small #(.width_p(100)) my_fifo(
+                  *clk, $reset,
+                  $avail, $$ready, /trans$ANY,
+                  /ring_stop|fifo2_out&lt;&gt;0$$avail, /ring_stop|fifo2_out/trans&lt;&gt;0$$ANY, /ring_stop|fifo2_out&lt;&gt;0$accepted
+               );
+            $blocked = ! $ready;
+      //----------------
+   // Testbench
+   \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 1305   // Instantiated from top.tlv, 150 as: m4+router_testbench(/top, /ring_stop, |stall0, @1, |fifo2_out, @1, /trans, /top&lt;&gt;0$reset)   
+        // Otherwise we can have a cyclic reset loop through flow.
+      /ring_stop[*]
+         // Define flow interface. Note that router ins are tb outs and outs are ins.
+         \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 114   // Instantiated from top.tlv, 1309 as: m4+flow_interface(/ring_stop, [' |fifo2_out, @1'], [' |stall0, @1'], /top&lt;&gt;0$reset)
+            \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 115 as: m4+flow_inputs(/ring_stop, [' |fifo2_out, @1'], /top&lt;&gt;0$reset)
+               // Avail/Blocked Input:
+               |fifo2_out
+                  @1
+                     $accepted = $avail &amp;&amp; ! $blocked;  // provided for optional upstream use.
+                     $reset_in =  /top&lt;&gt;0$reset;
+                     `BOGUS_USE($accepted $reset_in)
+               \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 150 as: m4+flow_inputs(/ring_stop, m4_quote(m4_shift(m4_shift( |fifo2_out, @1))), m4_quote(m4_shift(_resets)))
+                  
+               \end_source
+               
+            \end_source
+            \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 129   // Instantiated from top.tlv, 116 as: m4+flow_outputs(/ring_stop, [' |stall0, @1'])
+               // Avail/Blocked Output:
+               |stall0
+                  @1
+                     `BOGUS_USE($reset) // Output pipes must provide $reset.
+               \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 129   // Instantiated from top.tlv, 150 as: m4+flow_outputs(/ring_stop, m4_quote(m4_shift(m4_shift( |stall0, @1))))
+                  
+               \end_source
+               
+            \end_source
+         \end_source
+      
+      
+      
+   
+      /tb
+         |count
+            @1
+               $CycCount[15:0] &lt;= /top/ring_stop[0]|stall0&gt;&gt;1$reset
+                                     ? 16'b0 :
+                                       $CycCount + 1;
+               \SV_plus
+                  always_ff @(posedge clk) begin
+                     \$display(&quot;Cycle: %0d&quot;, $CycCount);
+                  end
+         /ring_stop[3:0]
+            // STIMULUS
+            |send
+               @1
+                  // Generate a transaction to inject sometimes (if needed)
+                  $reset = /ring_stop|receive2&gt;&gt;0$reset;
+                  $valid_in = /tb|count&lt;&gt;0$CycCount == 3;
+                  ?$valid_in
+                     /gen_trans
+                        $cyc_cnt[15:0] = /tb|count&lt;&gt;0$CycCount;
+                        $response_debug = 1'b0;  // Not a response (for debug)
+                        $sender[1:0] = #ring_stop;
+                        //m4_rand($size, M4_PACKET_SIZE-1, 0, #m4_port) // unused
+                        $dest_tmp[1:0] = *RW_rand_vect[(0 + (ring_stop)) % 257 +: 2];
+                        $dest[1:0] = $dest_tmp % 4;
+                        //$dest[M4_['']M4_PORT['']_INDEX_RANGE] = #m4_port;
+                        //$packet_valid = #m4_port == 0 ? 1'b1 : 1'b0; // valid for only first port - unused
+                  $avail = $valid_in || /ring_stop|receive2&gt;&gt;0$valid_request;
+                  ?$avail
+                     /trans_out
+                        // Loopback requests as responses or use gen_trans.
+                        $ANY = /ring_stop|receive2&gt;&gt;0$valid_request
+                                    ? /ring_stop|receive2/trans&gt;&gt;0$ANY :
+                                      |send/gen_trans$ANY;
+                        
+                        \SV_plus
+                           always_ff @(posedge clk) begin
+                              if (! |send$reset &amp;&amp; ! *reset &amp;&amp; /top/ring_stop|stall0&lt;&gt;0$accepted) begin
+                                 \$display(&quot;\|send[%0d]&quot;, #ring_stop);
+                                 \$display(&quot;Sender: %0d, Orig. Cyc: %0d, Dest: %0d, Resp: %0d&quot;, $sender, $cyc_cnt, $dest, $response_debug);
+                              end
+                           end
+            // Hook router out to |receive1 and determine transaction response routing (within the transaction).
+            |receive1
+               @1
+                  $avail = /top/ring_stop|fifo2_out&lt;&gt;0$avail;
+                  $reset = /top/ring_stop|fifo2_out&lt;&gt;0$reset_in;
+                  ?$accepted
+                     /trans
+                        $response_debug = 1'b1; // Turn this around as a response.
+                        $request = $sender != #ring_stop;  // Arrived as request?
+                        $response = $sender == #ring_stop; // Arrived as response?
+                        $ANY = /top/ring_stop|fifo2_out/trans&lt;&gt;0$ANY;
+                        $dest[1:0] = $request ? $sender : $dest;
+            \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 342   // Instantiated from top.tlv, 1368 as: m4+bp_stage(/ring_stop, |receive1, @1, |receive2, @1, /trans)
+               
+               
+               
+               
+               
+               
+               \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 114   // Instantiated from top.tlv, 349 as: m4+flow_interface(/ring_stop, [' |receive1, @1'], [' |receive2, @1'], )
+                  \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 115 as: m4+flow_inputs(/ring_stop, [' |receive1, @1'], )
+                     // Avail/Blocked Input:
+                     |receive1
+                        @1
+                           $accepted = $avail &amp;&amp; ! $blocked;  // provided for optional upstream use.
+                           $reset_in = $reset;
+                           `BOGUS_USE($accepted $reset_in)
+                     \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 150 as: m4+flow_inputs(/ring_stop, m4_quote(m4_shift(m4_shift( |receive1, @1))), m4_quote(m4_shift(_resets)))
+                        
+                     \end_source
+                     
+                  \end_source
+                  \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 129   // Instantiated from top.tlv, 116 as: m4+flow_outputs(/ring_stop, [' |receive2, @1'])
+                     // Avail/Blocked Output:
+                     |receive2
+                        @1
+                           `BOGUS_USE($reset) // Output pipes must provide $reset.
+                     \source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 129   // Instantiated from top.tlv, 150 as: m4+flow_outputs(/ring_stop, m4_quote(m4_shift(m4_shift( |receive2, @1))))
+                        
+                     \end_source
+                     
+                  \end_source
+               \end_source
+               |receive2
+                  @0
+                     $reset = /ring_stop|receive1&gt;&gt;1$reset_in;
+                     
+                     $avail = $reset ? 1'b0 :
+                                       (&gt;&gt;1$avail &amp;&amp; &gt;&gt;1$blocked) ||  // Recirc'ed or
+                                       // Above is recomputation of $recirc to avoid a flop.
+                                       // For SELF, its in the same stage, and is redundant computation.
+                                       /ring_stop|receive1&gt;&gt;1$avail; // Incoming available
+                     //$first_avail = $avail &amp;&amp; ! &gt;&gt;1$blocked;  // Transaction is newly available.
+                  @0
+                     ?$avail  // Physically, $first_avail &amp;&amp; *reset_b for functional gating in
+                              // place of recirculation.
+                        /trans
+                           $ANY =
+                              |receive2&gt;&gt;1$recirc ? &gt;&gt;1$ANY
+                                                   : /ring_stop|receive1/trans&gt;&gt;1$ANY;
+                  @1
+                     $recirc = $avail &amp;&amp; $blocked;  // Available transaction that is blocked; must recirc.
+               |receive1
+                  @1
+                     $blocked = /ring_stop|receive2&gt;&gt;0$recirc;
+                     // This trans is blocked (whether valid or not) if the next stage is recirculating.
+               
+               
+               
+               
+               
+               
+            \end_source
+            // A one-cycle backpressured stage to avoid 0-cycle loopback.
+            |receive2
+               @1
+                  $valid_request = $accepted &amp;&amp; /trans$request;
+                  $valid_response = $accepted &amp;&amp; /trans$response;
+                  // Block requests that cannot loopback a response .
+                  $blocked = $valid_request &amp;&amp; /top/ring_stop|stall0&gt;&gt;0$blocked;
+                  $accepted = $avail &amp;&amp; ! $blocked;
+                  $generated_request =   /top/ring_stop|stall0&gt;&gt;0$accepted &amp;&amp;
+                                       ! /top/ring_stop|stall0/trans&gt;&gt;0$response_debug;
+                  $OutstandingPackets[16-1:0] &lt;=
+                       $reset ? '0 :
+                         ($OutstandingPackets +
+                          ($generated_request ? 16'b1 : '0) -
+                          ($valid_response ? 16'b1 : '0)
+                         );
+            |passed  // Aligned to |receive2, but given a new pipeline name to provide a cleaner interface for this $passed output.
+               @1
+                  $passed = ! /ring_stop|receive2&lt;&gt;0$reset &amp;&amp; /ring_stop|receive2&lt;&gt;0$OutstandingPackets == '0 &amp;&amp; /tb|count&gt;&gt;0$CycCount &gt; 12;
+      // Connect with DUT.
+      /ring_stop[3:0]
+         |stall0
+            @1
+               $avail = ! $reset &amp;&amp; /top/tb/ring_stop|send&lt;&gt;0$avail;
+               ?$avail
+                  /trans
+                     $ANY = /top/tb/ring_stop|send/trans_out&lt;&gt;0$ANY;
+               $reset = /top/tb/ring_stop|receive2&gt;&gt;0$reset;
+         |fifo2_out
+            @1
+               $blocked = /top/tb/ring_stop|receive1&lt;&gt;0$blocked;
+            /trans
+      
+      
+   \end_source   
+   */      
        
          
 
-   </span><span class="tlx_comments">//...
+   //...
 
    // Assert these to end simulation (before Makerchip cycle limit).
    </span><span class="tlx_logic">assign passed = cyc_cnt &gt; 40;

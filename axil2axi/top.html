@@ -237,123 +237,405 @@ All rights reserved.
 <pre>
 <span class="line" line-num="1" source-line-num="1"><span class="tlv_ident_keyword1">\TLV_version 1d: tl-x.org</span></span>
 <span class="line" line-num="2" source-line-num="2"><span class="tlv_ident_keyword1">\SV</span></span>
-<span class="line" line-num="3" source-line-num="3"><span class="tlv_ident_comment">/* verilator lint_off CMPCONST */</span></span>
-<span class="line" line-num="4" source-line-num="4"><span class="tlv_ident_comment">/* verilator lint_off WIDTH */</span></span>
-<span class="line" line-num="5" source-line-num="5"><span class="tlv_ident_comment">//m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axilxbar.v'])</span></span>
-<span class="line" line-num="6" source-line-num="6"><span class="tlv_ident_comment">//m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axilsafety.v'])</span></span>
-<span class="line" line-num="7" source-line-num="7"><span class="tlv_ident_comment">//m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axi2axi3.v'])</span></span>
-<span class="line" line-num="8" source-line-num="8"><span class="tlv_ident_comment">// Included URL: &quot;https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/skidbuffer.v&quot;</span></span>
-<span class="line" line-num="9" source-line-num="9"><span class="tlv_ident_comment">// Included URL: &quot;https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axil2axis.v&quot;</span></span>
-<span class="line" line-num="10" source-line-num="10"><span class="tlv_ident_comment">/* verilator lint_off CMPCONST */</span></span>
-<span class="line" line-num="11" source-line-num="11"><span class="tlv_ident_comment">/* verilator lint_off WIDTH */               </span></span>
-<span class="line" line-num="12" source-line-num="12">   <span class="tlv_ident_comment">// =========================================</span></span>
-<span class="line" line-num="13" source-line-num="13">   <span class="tlv_ident_comment">// Welcome!  Try the tutorials via the menu.</span></span>
-<span class="line" line-num="14" source-line-num="14">   <span class="tlv_ident_comment">// =========================================</span></span>
-<span class="line" line-num="15" source-line-num="15"></span>
-<span class="line" line-num="16" source-line-num="16">   <span class="tlv_ident_comment">// Default Makerchip TL-Verilog Code Template</span></span>
-<span class="line" line-num="17" source-line-num="17">   </span>
-<span class="line" line-num="18" source-line-num="18">   <span class="tlv_ident_comment">// Macro providing required top-level module definition, random</span></span>
-<span class="line" line-num="19" source-line-num="19">   <span class="tlv_ident_comment">// stimulus support, and Verilator config.</span></span>
-<span class="line" line-num="20" source-line-num="20">   <span class="tlv_ident_hdl_code">module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    </span><span class="tlv_ident_comment">/* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  </span><span class="tlv_ident_hdl_code">bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  </span><span class="tlv_ident_comment">/* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */   // (Expanded in Nav-TLV pane.)</span></span>
-<span class="line" line-num="21" source-line-num="21"><span class="tlv_ident_keyword1">\TLV</span></span>
-<span class="line" line-num="22" source-line-num="22">   <span class="tlv_ident_pipeline" logical_entity="|axil">|axil</span></span>
-<span class="line" line-num="23" source-line-num="23">      </span>
-<span class="line" line-num="24" source-line-num="24">      <span class="tlv_ident_stage_expr" logical_entity="|axil@0">@0</span></span>
-<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>
-
-
-
-
-
-
-
-
-
-
-         <span class="tlx_except" sev="warning" title="Signal |axil$reset is assigned but never used.
-To silence this message use &quot;`BOGUS_USE($reset)&quot;.">      </span></span></span><span class="line" line-num="25" source-line-num="25"> </span>
-<span class="line" line-num="26" source-line-num="26">         </span>
-<span class="line" line-num="27" source-line-num="27">         </span>
-<span class="line" line-num="28" source-line-num="28">         </span>
-<span class="line" line-num="29" source-line-num="29">         </span>
-<span class="line" line-num="30" source-line-num="30">         </span>
-<span class="line" line-num="31" source-line-num="31">         </span>
-<span class="line" line-num="32" source-line-num="32">         </span>
-<span class="line" line-num="33" source-line-num="33">         </span>
-<span class="line" line-num="34" source-line-num="34">         </span>
-<span class="line" line-num="35" source-line-num="35">         </span>
-<span class="line" line-num="36" source-line-num="36">         <span class="tlv_ident_assigned_pipe_sig" logical_entity="|axil$reset">$reset</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">reset;</span></span>
-<span class="line" line-num="37" source-line-num="37">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$S_AXI_AWVALID">$S_AXI_AWVALID</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_AWVALID;</span></span>
-<span class="line" line-num="38" source-line-num="38">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$S_AXI_AWREADY">$S_AXI_AWREADY</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_AWREADY;</span></span>
-<span class="line" line-num="39" source-line-num="39">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$S_AXI_AWADDR">$S_AXI_AWADDR</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">C_AXI_ADDR_WIDTH-1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_AWADDR;</span></span>
-<span class="line" line-num="40" source-line-num="40">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$S_AXI_AWPROT">$S_AXI_AWPROT</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_AWPROT;</span></span>
-<span class="line" line-num="41" source-line-num="41">         </span>
-<span class="line" line-num="42" source-line-num="42">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$S_AXI_WVALID">$S_AXI_WVALID</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_WVALID;</span></span>
-<span class="line" line-num="43" source-line-num="43">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$S_AXI_WREADY">$S_AXI_WREADY</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_WREADY;</span></span>
-<span class="line" line-num="44" source-line-num="44">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$S_AXI_WDATA">$S_AXI_WDATA</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">C_AXI_DATA_WIDTH-1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_WDATA</span></span>
-<span class="line" line-num="45" source-line-num="45">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$S_AXI_WSTRB">$S_AXI_WSTRB</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">C_AXI_DATA_WIDTH/8-1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_WSTRB</span></span>
-<span class="line" line-num="46" source-line-num="46">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$S_AXI_RVALID">$S_AXI_RVALID</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_RVALID;</span></span>
-<span class="line" line-num="47" source-line-num="47">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$S_AXI_RREADY">$S_AXI_RREADY</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_RREADY;</span></span>
-<span class="line" line-num="48" source-line-num="48">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$S_AXI_RDATA">$S_AXI_RDATA</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">C_AXI_DATA_WIDTH-1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_RDATA;</span></span>
-<span class="line" line-num="49" source-line-num="49">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$M_AXIS_TREADY">$M_AXIS_TREADY</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">M_AXIS_TREADY;</span></span>
-<span class="line" line-num="50" source-line-num="50">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$M_AXIS_TDATA">$M_AXIS_TDATA</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">C_AXI_DATA_WIDTH-1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">M_AXIS_TDATA;</span></span>
-<span class="line" line-num="51" source-line-num="51">         </span>
-<span class="line" line-num="52" source-line-num="52"></span>
-<span class="line" line-num="53" source-line-num="53">         </span>
-<span class="line" line-num="54" source-line-num="54">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$M_AXIS_TVALID">$M_AXIS_TVALID</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">M_AXIS_TVALID;</span></span>
-<span class="line" line-num="55" source-line-num="55">         </span>
-<span class="line" line-num="56" source-line-num="56">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$i_valid">$i_valid</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">i_valid;</span></span>
-<span class="line" line-num="57" source-line-num="57">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$o_ready">$o_ready</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_ready;</span></span>
-<span class="line" line-num="58" source-line-num="58">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$i_data">$i_data</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">DW-1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">i_data;</span></span>
-<span class="line" line-num="59" source-line-num="59">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$o_valid">$o_valid</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_valid;</span></span>
-<span class="line" line-num="60" source-line-num="60">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$i_ready">$i_ready</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">i_ready;</span></span>
-<span class="line" line-num="61" source-line-num="61">         <span class="tlv_ident_malformed_assigned_sig" logical_entity="|axil$o_data">$o_data</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">DW-1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_data;</span></span>
-<span class="line" line-num="62" source-line-num="62">         </span>
-<span class="line" line-num="63" source-line-num="63">      <span class="tlv_ident_stage_expr" logical_entity="|axil@10">@5</span></span>
-<span class="line" line-num="64" source-line-num="64">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_AWVALID = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$S_AXI_AWVALID">$S_AXI_AWVALID</span><span class="tlv_ident_hdl_code">;         </span></span>
-<span class="line" line-num="65" source-line-num="65">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_AWREADY = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$S_AXI_AWREADY">$S_AXI_AWREADY</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="3" source-line-num="3"><span class="tlv_ident_comment">/*</span></span>
+<span class="line" line-num="4" source-line-num="4"><span class="tlv_ident_comment">Copyright (c) 2018, Steve Hoover</span></span>
+<span class="line" line-num="5" source-line-num="5"><span class="tlv_ident_comment">All rights reserved.</span></span>
+<span class="line" line-num="6" source-line-num="6"></span>
+<span class="line" line-num="7" source-line-num="7"><span class="tlv_ident_comment">Redistribution and use in source and binary forms, with or without</span></span>
+<span class="line" line-num="8" source-line-num="8"><span class="tlv_ident_comment">modification, are permitted provided that the following conditions are met:</span></span>
+<span class="line" line-num="9" source-line-num="9"></span>
+<span class="line" line-num="10" source-line-num="10"><span class="tlv_ident_comment">* Redistributions of source code must retain the above copyright notice, this</span></span>
+<span class="line" line-num="11" source-line-num="11">  <span class="tlv_ident_comment">list of conditions and the following disclaimer.</span></span>
+<span class="line" line-num="12" source-line-num="12"></span>
+<span class="line" line-num="13" source-line-num="13"><span class="tlv_ident_comment">* Redistributions in binary form must reproduce the above copyright notice,</span></span>
+<span class="line" line-num="14" source-line-num="14">  <span class="tlv_ident_comment">this list of conditions and the following disclaimer in the documentation</span></span>
+<span class="line" line-num="15" source-line-num="15">  <span class="tlv_ident_comment">and/or other materials provided with the distribution.</span></span>
+<span class="line" line-num="16" source-line-num="16"></span>
+<span class="line" line-num="17" source-line-num="17"><span class="tlv_ident_comment">* Neither the name of the copyright holder nor the names of its</span></span>
+<span class="line" line-num="18" source-line-num="18">  <span class="tlv_ident_comment">contributors may be used to endorse or promote products derived from</span></span>
+<span class="line" line-num="19" source-line-num="19">  <span class="tlv_ident_comment">this software without specific prior written permission.</span></span>
+<span class="line" line-num="20" source-line-num="20"></span>
+<span class="line" line-num="21" source-line-num="21"><span class="tlv_ident_comment">THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;</span></span>
+<span class="line" line-num="22" source-line-num="22"><span class="tlv_ident_comment">AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</span></span>
+<span class="line" line-num="23" source-line-num="23"><span class="tlv_ident_comment">IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE</span></span>
+<span class="line" line-num="24" source-line-num="24"><span class="tlv_ident_comment">DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE</span></span>
+<span class="line" line-num="25" source-line-num="25"><span class="tlv_ident_comment">FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</span></span>
+<span class="line" line-num="26" source-line-num="26"><span class="tlv_ident_comment">DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR</span></span>
+<span class="line" line-num="27" source-line-num="27"><span class="tlv_ident_comment">SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER</span></span>
+<span class="line" line-num="28" source-line-num="28"><span class="tlv_ident_comment">CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,</span></span>
+<span class="line" line-num="29" source-line-num="29"><span class="tlv_ident_comment">OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE</span></span>
+<span class="line" line-num="30" source-line-num="30"><span class="tlv_ident_comment">OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</span></span>
+<span class="line" line-num="31" source-line-num="31"><span class="tlv_ident_comment">*/</span></span>
+<span class="line" line-num="32" source-line-num="32"><span class="tlv_ident_comment">// Included URL: &quot;https://raw.githubusercontent.com/stevehoover/tlv_flow_lib/5a8c0387be80b2deccfcd1506299b36049e0663e/fundamentals_lib.tlv&quot;</span></span>
+<span class="line" line-num="33" source-line-num="33"><span class="tlv_ident_comment">// Included URL: &quot;https://raw.githubusercontent.com/stevehoover/tlv_flow_lib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflow_lib.tlv&quot;</span></span>
+<span class="line" line-num="34" source-line-num="34"></span>
+<span class="line" line-num="35" source-line-num="35"><span class="tlv_ident_comment">/* verilator lint_off CMPCONST */</span></span>
+<span class="line" line-num="36" source-line-num="36"><span class="tlv_ident_comment">/* verilator lint_off WIDTH */</span></span>
+<span class="line" line-num="37" source-line-num="37"><span class="tlv_ident_comment">//m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axilxbar.v'])</span></span>
+<span class="line" line-num="38" source-line-num="38"><span class="tlv_ident_comment">//m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axilsafety.v'])</span></span>
+<span class="line" line-num="39" source-line-num="39"><span class="tlv_ident_comment">//m4_include_url(['https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axi2axi3.v'])</span></span>
+<span class="line" line-num="40" source-line-num="40"><span class="tlv_ident_comment">// Included URL: &quot;https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/skidbuffer.v&quot;</span></span>
+<span class="line" line-num="41" source-line-num="41"><span class="tlv_ident_comment">// Included URL: &quot;https://raw.githubusercontent.com/develone/sandpiper_test/master/axil2axi/rtl/axil2axis.v&quot;</span></span>
+<span class="line" line-num="42" source-line-num="42"><span class="tlv_ident_comment">/* verilator lint_off CMPCONST */</span></span>
+<span class="line" line-num="43" source-line-num="43"><span class="tlv_ident_comment">/* verilator lint_off WIDTH */               </span></span>
+<span class="line" line-num="44" source-line-num="44">   <span class="tlv_ident_comment">// =========================================</span></span>
+<span class="line" line-num="45" source-line-num="45">   <span class="tlv_ident_comment">// Welcome!  Try the tutorials via the menu.</span></span>
+<span class="line" line-num="46" source-line-num="46">   <span class="tlv_ident_comment">// =========================================</span></span>
+<span class="line" line-num="47" source-line-num="47"></span>
+<span class="line" line-num="48" source-line-num="48">   <span class="tlv_ident_comment">// Default Makerchip TL-Verilog Code Template</span></span>
+<span class="line" line-num="49" source-line-num="49">   </span>
+<span class="line" line-num="50" source-line-num="50">   <span class="tlv_ident_comment">// Macro providing required top-level module definition, random</span></span>
+<span class="line" line-num="51" source-line-num="51">   <span class="tlv_ident_comment">// stimulus support, and Verilator config.</span></span>
+<span class="line" line-num="52" source-line-num="52">   <span class="tlv_ident_hdl_code">module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, output logic passed, output logic failed);    </span><span class="tlv_ident_comment">/* verilator lint_save */ /* verilator lint_off UNOPTFLAT */  </span><span class="tlv_ident_hdl_code">bit [256:0] RW_rand_raw; bit [256+63:0] RW_rand_vect; pseudo_rand #(.WIDTH(257)) pseudo_rand (clk, reset, RW_rand_raw[256:0]); assign RW_rand_vect[256+63:0] = {RW_rand_raw[62:0], RW_rand_raw};  </span><span class="tlv_ident_comment">/* verilator lint_restore */  /* verilator lint_off WIDTH */ /* verilator lint_off UNOPTFLAT */   // (Expanded in Nav-TLV pane.)</span></span>
+<span class="line" line-num="53" source-line-num="53">                </span>
+<span class="line" line-num="54" source-line-num="54"><span class="tlv_ident_keyword1">\TLV</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>   <span class="tlx_except" sev="warning" title="Signal $reset is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($reset)&quot;.">      </span></span></span><span class="line" line-num="55" source-line-num="55">   <span class="tlv_ident_assigned_pipe_sig" logical_entity="$reset">$reset</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">reset;</span></span>
+<span class="line" line-num="56" source-line-num="56">   </span>
+<span class="line" line-num="57" source-line-num="57">   <span class="tlv_ident_comment">// DUT</span></span>
+<span class="line" line-num="58" source-line-num="58">   <span class="tlv_ident_beh_hier_2" logical_entity="/ring_stop">/ring_stop</span><span class="tlv_ident_beh_hier_2">[</span><span class="tlv_ident_hdl_code">3</span><span class="tlv_ident_beh_hier_2">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_beh_hier_2">]</span></span>
+<span class="line" line-num="59" source-line-num="59">      <span class="tlv_ident_pipeline" logical_entity="/ring_stop|axil">|axil</span></span>
+<span class="line" line-num="60" source-line-num="60">      </span>
+<span class="line" line-num="61" source-line-num="61">         <span class="tlv_ident_stage_expr" logical_entity="/ring_stop|axil@0">@0</span></span>
+<span class="line" line-num="62" source-line-num="62"> </span>
+<span class="line" line-num="63" source-line-num="63">            </span>
+<span class="line" line-num="64" source-line-num="64">            </span>
+<span class="line" line-num="65" source-line-num="65">            </span>
 <span class="line" line-num="66" source-line-num="66">         </span>
-<span class="line" line-num="67" source-line-num="67">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_AWADDR = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$S_AXI_AWADDR">$S_AXI_AWADDR</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">C_AXI_ADDR_WIDTH-1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
-<span class="line" line-num="68" source-line-num="68">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_AWPROT = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$S_AXI_AWPROT">$S_AXI_AWPROT</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
-<span class="line" line-num="69" source-line-num="69">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_WVALID = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$S_AXI_WVALID">$S_AXI_WVALID</span><span class="tlv_ident_hdl_code">;</span></span>
-<span class="line" line-num="70" source-line-num="70">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_WREADY = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$S_AXI_WREADY">$S_AXI_WREADY</span><span class="tlv_ident_hdl_code">;</span></span>
-<span class="line" line-num="71" source-line-num="71">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_WDATA = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$S_AXI_WDATA">$S_AXI_WDATA</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">C_AXI_DATA_WIDTH-1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
-<span class="line" line-num="72" source-line-num="72">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_WSTRB = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$S_AXI_WSTRB">$S_AXI_WSTRB</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">C_AXI_DATA_WIDTH/8-1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
-<span class="line" line-num="73" source-line-num="73">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_RVALID = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$S_AXI_RVALID">$S_AXI_RVALID</span><span class="tlv_ident_hdl_code">;</span></span>
-<span class="line" line-num="74" source-line-num="74">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_RREADY = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$S_AXI_RREADY">$S_AXI_RREADY</span><span class="tlv_ident_hdl_code">;</span></span>
-<span class="line" line-num="75" source-line-num="75">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_RDATA = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$S_AXI_RDATA">$S_AXI_RDATA</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">C_AXI_DATA_WIDTH-1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
-<span class="line" line-num="76" source-line-num="76">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">M_AXIS_TREADY = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$M_AXIS_TREADY">$M_AXIS_TREADY</span><span class="tlv_ident_hdl_code">;</span></span>
-<span class="line" line-num="77" source-line-num="77">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">M_AXIS_TDATA = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$M_AXIS_TDATA">$M_AXIS_TDATA</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">C_AXI_DATA_WIDTH-1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
-<span class="line" line-num="78" source-line-num="78"></span>
-<span class="line" line-num="79" source-line-num="79">         </span>
-<span class="line" line-num="80" source-line-num="80">         </span>
-<span class="line" line-num="81" source-line-num="81">         </span>
-<span class="line" line-num="82" source-line-num="82">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">M_AXIS_TVALID = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$M_AXIS_TVALID">$M_AXIS_TVALID</span><span class="tlv_ident_hdl_code">;</span></span>
-<span class="line" line-num="83" source-line-num="83">         </span>
-<span class="line" line-num="84" source-line-num="84">         </span>
-<span class="line" line-num="85" source-line-num="85">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">i_valid = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$i_valid">$i_valid</span><span class="tlv_ident_hdl_code">;</span></span>
-<span class="line" line-num="86" source-line-num="86">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_ready = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$o_ready">$o_ready</span><span class="tlv_ident_hdl_code">;</span></span>
-<span class="line" line-num="87" source-line-num="87">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">i_data = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$i_data">$i_data</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">DW-1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
-<span class="line" line-num="88" source-line-num="88">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_valid = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$o_valid">$o_valid</span><span class="tlv_ident_hdl_code">;</span></span>
-<span class="line" line-num="89" source-line-num="89">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">i_ready = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$i_ready">$i_ready</span><span class="tlv_ident_hdl_code">;</span></span>
-<span class="line" line-num="90" source-line-num="90">         <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">o_data = </span><span class="tlv_ident_malformed_sig" logical_entity="|axil$o_data">$o_data</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">DW-1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
-<span class="line" line-num="91" source-line-num="91">         </span>
+<span class="line" line-num="67" source-line-num="67">            </span>
+<span class="line" line-num="68" source-line-num="68">            </span>
+<span class="line" line-num="69" source-line-num="69">            </span>
+<span class="line" line-num="70" source-line-num="70">            </span>
+<span class="line" line-num="71" source-line-num="71">         </span>
+<span class="line" line-num="72" source-line-num="72">         </span>
+<span class="line" line-num="73" source-line-num="73">         </span>
+<span class="line" line-num="74" source-line-num="74">            <span class="tlv_ident_malformed_assigned_sig" logical_entity="/ring_stop|axil$S_AXI_AWVALID">$S_AXI_AWVALID</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_AWVALID;</span></span>
+<span class="line" line-num="75" source-line-num="75">            <span class="tlv_ident_malformed_assigned_sig" logical_entity="/ring_stop|axil$S_AXI_AWREADY">$S_AXI_AWREADY</span> <span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_AWREADY;</span></span>
+<span class="line" line-num="76" source-line-num="76">            <span class="tlv_ident_malformed_assigned_sig" logical_entity="/ring_stop|axil$S_AXI_AWADDR">$S_AXI_AWADDR</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">C_AXI_ADDR_WIDTH-1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_AWADDR;</span></span>
+<span class="tlx_except_node_anchor no-select"><span class=tlx_except_container>            <span class="tlx_except" sev="warning" title="Signal /ring_stop|axil$S_AXI_AWPROT is assigned but never used.
+To silence this message use &quot;`BOGUS_USE($S_AXI_AWPROT)&quot;.">                  </span></span></span><span class="line" line-num="77" source-line-num="77">            <span class="tlv_ident_malformed_assigned_sig" logical_entity="/ring_stop|axil$S_AXI_AWPROT">$S_AXI_AWPROT</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">2</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">] </span><span class="tlv_ident_hdl_code">= </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_AWPROT;</span></span>
+<span class="line" line-num="78" source-line-num="78">         <span class="tlv_ident_comment">/*</span></span>
+<span class="line" line-num="79" source-line-num="79">         <span class="tlv_ident_comment">$S_AXI_WVALID = *S_AXI_WVALID;</span></span>
+<span class="line" line-num="80" source-line-num="80">         <span class="tlv_ident_comment">$S_AXI_WREADY = *S_AXI_WREADY;</span></span>
+<span class="line" line-num="81" source-line-num="81">         <span class="tlv_ident_comment">$S_AXI_WDATA[C_AXI_DATA_WIDTH-1:0] = *S_AXI_WDATA</span></span>
+<span class="line" line-num="82" source-line-num="82">         <span class="tlv_ident_comment">$S_AXI_WSTRB[C_AXI_DATA_WIDTH/8-1:0] = *S_AXI_WSTRB</span></span>
+<span class="line" line-num="83" source-line-num="83">         <span class="tlv_ident_comment">$S_AXI_RVALID = *S_AXI_RVALID;</span></span>
+<span class="line" line-num="84" source-line-num="84">         <span class="tlv_ident_comment">$S_AXI_RREADY = *S_AXI_RREADY;</span></span>
+<span class="line" line-num="85" source-line-num="85">         <span class="tlv_ident_comment">$S_AXI_RDATA[C_AXI_DATA_WIDTH-1:0] = *S_AXI_RDATA;</span></span>
+<span class="line" line-num="86" source-line-num="86">         <span class="tlv_ident_comment">$M_AXIS_TREADY = *M_AXIS_TREADY;</span></span>
+<span class="line" line-num="87" source-line-num="87">         <span class="tlv_ident_comment">$M_AXIS_TDATA[C_AXI_DATA_WIDTH-1:0] = *M_AXIS_TDATA;</span></span>
+<span class="line" line-num="88" source-line-num="88">         </span>
+<span class="line" line-num="89" source-line-num="89"></span>
+<span class="line" line-num="90" source-line-num="90">         </span>
+<span class="line" line-num="91" source-line-num="91">         <span class="tlv_ident_comment">$M_AXIS_TVALID = *M_AXIS_TVALID;</span></span>
 <span class="line" line-num="92" source-line-num="92">         </span>
-<span class="line" line-num="93" source-line-num="93">         </span>
-<span class="line" line-num="94" source-line-num="94">         </span>
-<span class="line" line-num="95" source-line-num="95">         </span>
-<span class="line" line-num="96" source-line-num="96">         </span>
-<span class="line" line-num="97" source-line-num="97">       </span>
-<span class="line" line-num="98" source-line-num="98">         </span>
-<span class="line" line-num="99" source-line-num="99"></span>
-<span class="line" line-num="100" source-line-num="100">   <span class="tlv_ident_comment">//...</span></span>
-<span class="line" line-num="101" source-line-num="101"></span>
-<span class="line" line-num="102" source-line-num="102">   <span class="tlv_ident_comment">// Assert these to end simulation (before Makerchip cycle limit).</span></span>
-<span class="line" line-num="103" source-line-num="103">   <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">passed = </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">cyc_cnt &gt; 40;</span></span>
-<span class="line" line-num="104" source-line-num="104">   <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">failed = 1'b0;</span></span>
-<span class="line" line-num="105" source-line-num="105"><span class="tlv_ident_keyword1">\SV</span></span>
-<span class="line" line-num="106" source-line-num="106">   <span class="tlv_ident_hdl_code">endmodule</span></span>
-<span class="line" line-num="107" source-line-num="107"> </span>
+<span class="line" line-num="93" source-line-num="93">         <span class="tlv_ident_comment">$i_valid = *i_valid;</span></span>
+<span class="line" line-num="94" source-line-num="94">         <span class="tlv_ident_comment">$o_ready = *o_ready;</span></span>
+<span class="line" line-num="95" source-line-num="95">         <span class="tlv_ident_comment">$i_data[DW-1:0] = *i_data;</span></span>
+<span class="line" line-num="96" source-line-num="96">         <span class="tlv_ident_comment">$o_valid = *o_valid;</span></span>
+<span class="line" line-num="97" source-line-num="97">         <span class="tlv_ident_comment">$i_ready = *i_ready;</span></span>
+<span class="line" line-num="98" source-line-num="98">         <span class="tlv_ident_comment">$o_data[DW-1:0] = *o_data;</span></span>
+<span class="line" line-num="99" source-line-num="99">         <span class="tlv_ident_comment">*/</span></span>
+<span class="line" line-num="100" source-line-num="100">         <span class="tlv_ident_stage_expr" logical_entity="/ring_stop|axil@10">@5</span></span>
+<span class="line" line-num="101" source-line-num="101">            <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_AWVALID = </span><span class="tlv_ident_malformed_sig" logical_entity="/ring_stop|axil$S_AXI_AWVALID">$S_AXI_AWVALID</span><span class="tlv_ident_hdl_code">;         </span></span>
+<span class="line" line-num="102" source-line-num="102">            <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_AWREADY = </span><span class="tlv_ident_malformed_sig" logical_entity="/ring_stop|axil$S_AXI_AWREADY">$S_AXI_AWREADY</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="103" source-line-num="103">         </span>
+<span class="line" line-num="104" source-line-num="104">            <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">S_AXI_AWADDR = </span><span class="tlv_ident_malformed_sig" logical_entity="/ring_stop|axil$S_AXI_AWADDR">$S_AXI_AWADDR</span><span class="tlv_ident_malformed_sig">[</span><span class="tlv_ident_hdl_code">C_AXI_ADDR_WIDTH-1</span><span class="tlv_ident_malformed_sig">:</span><span class="tlv_ident_hdl_code">0</span><span class="tlv_ident_malformed_sig">]</span><span class="tlv_ident_hdl_code">;</span></span>
+<span class="line" line-num="105" source-line-num="105">         <span class="tlv_ident_comment">/*</span></span>
+<span class="line" line-num="106" source-line-num="106">         <span class="tlv_ident_comment">*S_AXI_AWPROT = $S_AXI_AWPROT[2:0];</span></span>
+<span class="line" line-num="107" source-line-num="107">         <span class="tlv_ident_comment">*S_AXI_WVALID = $S_AXI_WVALID;</span></span>
+<span class="line" line-num="108" source-line-num="108">         <span class="tlv_ident_comment">*S_AXI_WREADY = $S_AXI_WREADY;</span></span>
+<span class="line" line-num="109" source-line-num="109">         <span class="tlv_ident_comment">*S_AXI_WDATA = $S_AXI_WDATA[C_AXI_DATA_WIDTH-1:0];</span></span>
+<span class="line" line-num="110" source-line-num="110">         <span class="tlv_ident_comment">*S_AXI_WSTRB = $S_AXI_WSTRB[C_AXI_DATA_WIDTH/8-1:0];</span></span>
+<span class="line" line-num="111" source-line-num="111">         <span class="tlv_ident_comment">*S_AXI_RVALID = $S_AXI_RVALID;</span></span>
+<span class="line" line-num="112" source-line-num="112">         <span class="tlv_ident_comment">*S_AXI_RREADY = $S_AXI_RREADY;</span></span>
+<span class="line" line-num="113" source-line-num="113">         <span class="tlv_ident_comment">*S_AXI_RDATA = $S_AXI_RDATA[C_AXI_DATA_WIDTH-1:0];</span></span>
+<span class="line" line-num="114" source-line-num="114">         <span class="tlv_ident_comment">*M_AXIS_TREADY = $M_AXIS_TREADY;</span></span>
+<span class="line" line-num="115" source-line-num="115">         <span class="tlv_ident_comment">*M_AXIS_TDATA = $M_AXIS_TDATA[C_AXI_DATA_WIDTH-1:0];</span></span>
+<span class="line" line-num="116" source-line-num="116"></span>
+<span class="line" line-num="117" source-line-num="117">         </span>
+<span class="line" line-num="118" source-line-num="118">         </span>
+<span class="line" line-num="119" source-line-num="119">         </span>
+<span class="line" line-num="120" source-line-num="120">         <span class="tlv_ident_comment">*M_AXIS_TVALID = $M_AXIS_TVALID;</span></span>
+<span class="line" line-num="121" source-line-num="121">         </span>
+<span class="line" line-num="122" source-line-num="122">         </span>
+<span class="line" line-num="123" source-line-num="123">         <span class="tlv_ident_comment">*i_valid = $i_valid;</span></span>
+<span class="line" line-num="124" source-line-num="124">         <span class="tlv_ident_comment">*o_ready = $o_ready;</span></span>
+<span class="line" line-num="125" source-line-num="125">         <span class="tlv_ident_comment">*i_data = $i_data[DW-1:0];</span></span>
+<span class="line" line-num="126" source-line-num="126">         <span class="tlv_ident_comment">*o_valid = $o_valid;</span></span>
+<span class="line" line-num="127" source-line-num="127">         <span class="tlv_ident_comment">*i_ready = $i_ready;</span></span>
+<span class="line" line-num="128" source-line-num="128">         <span class="tlv_ident_comment">*o_data = $o_data[DW-1:0];</span></span>
+<span class="line" line-num="129" source-line-num="129">         </span>
+<span class="line" line-num="130" source-line-num="130">         <span class="tlv_ident_comment">*/</span></span>
+<span class="line" line-num="131" source-line-num="131">   <span class="tlv_ident_comment">/*      </span></span>
+<span class="line" line-num="132" source-line-num="132">   <span class="tlv_ident_comment">/ring_stop[*]</span></span>
+<span class="line" line-num="133" source-line-num="133">      <span class="tlv_ident_comment">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 150   // Instantiated from top.tlv, 133 as: m4+arb2(/ring_stop, |ring_out, @4, |bypass, @1, |arb_out, @1, /trans)</span></span>
+<span class="line" line-num="134" source-line-num="134">         <span class="tlv_ident_comment">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 114   // Instantiated from top.tlv, 151 as: m4+flow_interface(/ring_stop, [' |ring_out, @4, |bypass, @1'], [' |arb_out, @1'], )</span></span>
+<span class="line" line-num="135" source-line-num="135">            <span class="tlv_ident_comment">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 115 as: m4+flow_inputs(/ring_stop, [' |ring_out, @4, |bypass, @1'], )</span></span>
+<span class="line" line-num="136" source-line-num="136">               <span class="tlv_ident_comment">// Avail/Blocked Input:</span></span>
+<span class="line" line-num="137" source-line-num="137">               <span class="tlv_ident_comment">|ring_out</span></span>
+<span class="line" line-num="138" source-line-num="138">                  <span class="tlv_ident_comment">@4</span></span>
+<span class="line" line-num="139" source-line-num="139">                     <span class="tlv_ident_comment">$accepted = $avail &amp;&amp; ! $blocked;  // provided for optional upstream use.</span></span>
+<span class="line" line-num="140" source-line-num="140">                     <span class="tlv_ident_comment">$reset_in = $reset;</span></span>
+<span class="line" line-num="141" source-line-num="141">                     <span class="tlv_ident_comment">`BOGUS_USE($accepted $reset_in)</span></span>
+<span class="line" line-num="142" source-line-num="142">               <span class="tlv_ident_comment">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 133 as: m4+flow_inputs(/ring_stop, m4_quote(m4_shift(m4_shift( |ring_out, @4, |bypass, @1))), m4_quote(m4_shift(_resets)))</span></span>
+<span class="line" line-num="143" source-line-num="143">                  <span class="tlv_ident_comment">// Avail/Blocked Input:</span></span>
+<span class="line" line-num="144" source-line-num="144">                  <span class="tlv_ident_comment">|bypass</span></span>
+<span class="line" line-num="145" source-line-num="145">                     <span class="tlv_ident_comment">@1</span></span>
+<span class="line" line-num="146" source-line-num="146">                        <span class="tlv_ident_comment">$accepted = $avail &amp;&amp; ! $blocked;  // provided for optional upstream use.</span></span>
+<span class="line" line-num="147" source-line-num="147">                        <span class="tlv_ident_comment">$reset_in = $reset;</span></span>
+<span class="line" line-num="148" source-line-num="148">                        <span class="tlv_ident_comment">`BOGUS_USE($accepted $reset_in)</span></span>
+<span class="line" line-num="149" source-line-num="149">                  <span class="tlv_ident_comment">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 133 as: m4+flow_inputs(/ring_stop, m4_quote(m4_shift(m4_shift(|bypass,@1))), m4_quote(m4_shift(_resets)))</span></span>
+<span class="line" line-num="150" source-line-num="150">                     </span>
+<span class="line" line-num="151" source-line-num="151">                  <span class="tlv_ident_comment">\end_source</span></span>
+<span class="line" line-num="152" source-line-num="152">                  </span>
+<span class="line" line-num="153" source-line-num="153">               <span class="tlv_ident_comment">\end_source</span></span>
+<span class="line" line-num="154" source-line-num="154">               </span>
+<span class="line" line-num="155" source-line-num="155">            <span class="tlv_ident_comment">\end_source</span></span>
+<span class="line" line-num="156" source-line-num="156">            <span class="tlv_ident_comment">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 129   // Instantiated from top.tlv, 116 as: m4+flow_outputs(/ring_stop, [' |arb_out, @1'])</span></span>
+<span class="line" line-num="157" source-line-num="157">               <span class="tlv_ident_comment">// Avail/Blocked Output:</span></span>
+<span class="line" line-num="158" source-line-num="158">               <span class="tlv_ident_comment">|arb_out</span></span>
+<span class="line" line-num="159" source-line-num="159">                  <span class="tlv_ident_comment">@1</span></span>
+<span class="line" line-num="160" source-line-num="160">                     <span class="tlv_ident_comment">`BOGUS_USE($reset) // Output pipes must provide $reset.</span></span>
+<span class="line" line-num="161" source-line-num="161">               <span class="tlv_ident_comment">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 129   // Instantiated from top.tlv, 133 as: m4+flow_outputs(/ring_stop, m4_quote(m4_shift(m4_shift( |arb_out, @1))))</span></span>
+<span class="line" line-num="162" source-line-num="162">                  </span>
+<span class="line" line-num="163" source-line-num="163">               <span class="tlv_ident_comment">\end_source</span></span>
+<span class="line" line-num="164" source-line-num="164">               </span>
+<span class="line" line-num="165" source-line-num="165">            <span class="tlv_ident_comment">\end_source</span></span>
+<span class="line" line-num="166" source-line-num="166">         <span class="tlv_ident_comment">\end_source</span></span>
+<span class="line" line-num="167" source-line-num="167">         </span>
+<span class="line" line-num="168" source-line-num="168">         <span class="tlv_ident_comment">// In1 is blocked if output is blocked.</span></span>
+<span class="line" line-num="169" source-line-num="169">         <span class="tlv_ident_comment">|ring_out</span></span>
+<span class="line" line-num="170" source-line-num="170">            <span class="tlv_ident_comment">@4</span></span>
+<span class="line" line-num="171" source-line-num="171">               <span class="tlv_ident_comment">$blocked = /ring_stop|arb_out&gt;&gt;-3$blocked;</span></span>
+<span class="line" line-num="172" source-line-num="172">         <span class="tlv_ident_comment">// In2 is blocked if output is blocked or in1 is available.</span></span>
+<span class="line" line-num="173" source-line-num="173">         <span class="tlv_ident_comment">|bypass</span></span>
+<span class="line" line-num="174" source-line-num="174">            <span class="tlv_ident_comment">@1</span></span>
+<span class="line" line-num="175" source-line-num="175">               <span class="tlv_ident_comment">$blocked = /ring_stop|arb_out&gt;&gt;0$blocked ||</span></span>
+<span class="line" line-num="176" source-line-num="176">                          <span class="tlv_ident_comment">/ring_stop|ring_out&gt;&gt;3$avail;</span></span>
+<span class="line" line-num="177" source-line-num="177">         <span class="tlv_ident_comment">// Output comes from in1 if available, otherwise, in2.</span></span>
+<span class="line" line-num="178" source-line-num="178">         <span class="tlv_ident_comment">|arb_out</span></span>
+<span class="line" line-num="179" source-line-num="179">            <span class="tlv_ident_comment">@1</span></span>
+<span class="line" line-num="180" source-line-num="180">               <span class="tlv_ident_comment">$reset = /ring_stop|ring_out&gt;&gt;3$reset_in;</span></span>
+<span class="line" line-num="181" source-line-num="181">               <span class="tlv_ident_comment">// Output is available if either input is available.</span></span>
+<span class="line" line-num="182" source-line-num="182">               <span class="tlv_ident_comment">$avail = /ring_stop|ring_out&gt;&gt;3$avail ||</span></span>
+<span class="line" line-num="183" source-line-num="183">                        <span class="tlv_ident_comment">/ring_stop|bypass&gt;&gt;0$avail;</span></span>
+<span class="line" line-num="184" source-line-num="184">               <span class="tlv_ident_comment">?$avail</span></span>
+<span class="line" line-num="185" source-line-num="185">                  <span class="tlv_ident_comment">/trans</span></span>
+<span class="line" line-num="186" source-line-num="186">                     <span class="tlv_ident_comment">$ANY = /ring_stop|ring_out&gt;&gt;3$avail ? /ring_stop|ring_out/trans&gt;&gt;3$ANY :</span></span>
+<span class="line" line-num="187" source-line-num="187">                                                                                <span class="tlv_ident_comment">/ring_stop|bypass/trans&gt;&gt;0$ANY;</span></span>
+<span class="line" line-num="188" source-line-num="188">         </span>
+<span class="line" line-num="189" source-line-num="189">      <span class="tlv_ident_comment">\end_source</span></span>
+<span class="line" line-num="190" source-line-num="190">      <span class="tlv_ident_comment">// FIFO2</span></span>
+<span class="line" line-num="191" source-line-num="191">      <span class="tlv_ident_comment">// To use BaseJump STL, this line:</span></span>
+<span class="line" line-num="192" source-line-num="192">      <span class="tlv_ident_comment">//m4+simple_bypass_fifo_v2(/ring_stop, |arb_out, @1, |fifo2_out, @1, 4, 100, /trans)        </span></span>
+<span class="line" line-num="193" source-line-num="193">      <span class="tlv_ident_comment">// Becomes:</span></span>
+<span class="line" line-num="194" source-line-num="194">      <span class="tlv_ident_comment">//----------------      </span></span>
+<span class="line" line-num="195" source-line-num="195">      <span class="tlv_ident_comment">|arb_out</span></span>
+<span class="line" line-num="196" source-line-num="196">         <span class="tlv_ident_comment">@1</span></span>
+<span class="line" line-num="197" source-line-num="197">            <span class="tlv_ident_comment">\SV_plus</span></span>
+<span class="line" line-num="198" source-line-num="198">               <span class="tlv_ident_comment">bsg_fifo_1r1w_small #(.width_p(100)) my_fifo(</span></span>
+<span class="line" line-num="199" source-line-num="199">                  <span class="tlv_ident_comment">*clk, $reset,</span></span>
+<span class="line" line-num="200" source-line-num="200">                  <span class="tlv_ident_comment">$avail, $$ready, /trans$ANY,</span></span>
+<span class="line" line-num="201" source-line-num="201">                  <span class="tlv_ident_comment">/ring_stop|fifo2_out&lt;&gt;0$$avail, /ring_stop|fifo2_out/trans&lt;&gt;0$$ANY, /ring_stop|fifo2_out&lt;&gt;0$accepted</span></span>
+<span class="line" line-num="202" source-line-num="202">               <span class="tlv_ident_comment">);</span></span>
+<span class="line" line-num="203" source-line-num="203">            <span class="tlv_ident_comment">$blocked = ! $ready;</span></span>
+<span class="line" line-num="204" source-line-num="204">      <span class="tlv_ident_comment">//----------------</span></span>
+<span class="line" line-num="205" source-line-num="205">   <span class="tlv_ident_comment">// Testbench</span></span>
+<span class="line" line-num="206" source-line-num="206">   <span class="tlv_ident_comment">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 1305   // Instantiated from top.tlv, 150 as: m4+router_testbench(/top, /ring_stop, |stall0, @1, |fifo2_out, @1, /trans, /top&lt;&gt;0$reset)   </span></span>
+<span class="line" line-num="207" source-line-num="207">        <span class="tlv_ident_comment">// Otherwise we can have a cyclic reset loop through flow.</span></span>
+<span class="line" line-num="208" source-line-num="208">      <span class="tlv_ident_comment">/ring_stop[*]</span></span>
+<span class="line" line-num="209" source-line-num="209">         <span class="tlv_ident_comment">// Define flow interface. Note that router ins are tb outs and outs are ins.</span></span>
+<span class="line" line-num="210" source-line-num="210">         <span class="tlv_ident_comment">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 114   // Instantiated from top.tlv, 1309 as: m4+flow_interface(/ring_stop, [' |fifo2_out, @1'], [' |stall0, @1'], /top&lt;&gt;0$reset)</span></span>
+<span class="line" line-num="211" source-line-num="211">            <span class="tlv_ident_comment">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 115 as: m4+flow_inputs(/ring_stop, [' |fifo2_out, @1'], /top&lt;&gt;0$reset)</span></span>
+<span class="line" line-num="212" source-line-num="212">               <span class="tlv_ident_comment">// Avail/Blocked Input:</span></span>
+<span class="line" line-num="213" source-line-num="213">               <span class="tlv_ident_comment">|fifo2_out</span></span>
+<span class="line" line-num="214" source-line-num="214">                  <span class="tlv_ident_comment">@1</span></span>
+<span class="line" line-num="215" source-line-num="215">                     <span class="tlv_ident_comment">$accepted = $avail &amp;&amp; ! $blocked;  // provided for optional upstream use.</span></span>
+<span class="line" line-num="216" source-line-num="216">                     <span class="tlv_ident_comment">$reset_in =  /top&lt;&gt;0$reset;</span></span>
+<span class="line" line-num="217" source-line-num="217">                     <span class="tlv_ident_comment">`BOGUS_USE($accepted $reset_in)</span></span>
+<span class="line" line-num="218" source-line-num="218">               <span class="tlv_ident_comment">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 150 as: m4+flow_inputs(/ring_stop, m4_quote(m4_shift(m4_shift( |fifo2_out, @1))), m4_quote(m4_shift(_resets)))</span></span>
+<span class="line" line-num="219" source-line-num="219">                  </span>
+<span class="line" line-num="220" source-line-num="220">               <span class="tlv_ident_comment">\end_source</span></span>
+<span class="line" line-num="221" source-line-num="221">               </span>
+<span class="line" line-num="222" source-line-num="222">            <span class="tlv_ident_comment">\end_source</span></span>
+<span class="line" line-num="223" source-line-num="223">            <span class="tlv_ident_comment">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 129   // Instantiated from top.tlv, 116 as: m4+flow_outputs(/ring_stop, [' |stall0, @1'])</span></span>
+<span class="line" line-num="224" source-line-num="224">               <span class="tlv_ident_comment">// Avail/Blocked Output:</span></span>
+<span class="line" line-num="225" source-line-num="225">               <span class="tlv_ident_comment">|stall0</span></span>
+<span class="line" line-num="226" source-line-num="226">                  <span class="tlv_ident_comment">@1</span></span>
+<span class="line" line-num="227" source-line-num="227">                     <span class="tlv_ident_comment">`BOGUS_USE($reset) // Output pipes must provide $reset.</span></span>
+<span class="line" line-num="228" source-line-num="228">               <span class="tlv_ident_comment">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 129   // Instantiated from top.tlv, 150 as: m4+flow_outputs(/ring_stop, m4_quote(m4_shift(m4_shift( |stall0, @1))))</span></span>
+<span class="line" line-num="229" source-line-num="229">                  </span>
+<span class="line" line-num="230" source-line-num="230">               <span class="tlv_ident_comment">\end_source</span></span>
+<span class="line" line-num="231" source-line-num="231">               </span>
+<span class="line" line-num="232" source-line-num="232">            <span class="tlv_ident_comment">\end_source</span></span>
+<span class="line" line-num="233" source-line-num="233">         <span class="tlv_ident_comment">\end_source</span></span>
+<span class="line" line-num="234" source-line-num="234">      </span>
+<span class="line" line-num="235" source-line-num="235">      </span>
+<span class="line" line-num="236" source-line-num="236">      </span>
+<span class="line" line-num="237" source-line-num="237">   </span>
+<span class="line" line-num="238" source-line-num="238">      <span class="tlv_ident_comment">/tb</span></span>
+<span class="line" line-num="239" source-line-num="239">         <span class="tlv_ident_comment">|count</span></span>
+<span class="line" line-num="240" source-line-num="240">            <span class="tlv_ident_comment">@1</span></span>
+<span class="line" line-num="241" source-line-num="241">               <span class="tlv_ident_comment">$CycCount[15:0] &lt;= /top/ring_stop[0]|stall0&gt;&gt;1$reset</span></span>
+<span class="line" line-num="242" source-line-num="242">                                     <span class="tlv_ident_comment">? 16'b0 :</span></span>
+<span class="line" line-num="243" source-line-num="243">                                       <span class="tlv_ident_comment">$CycCount + 1;</span></span>
+<span class="line" line-num="244" source-line-num="244">               <span class="tlv_ident_comment">\SV_plus</span></span>
+<span class="line" line-num="245" source-line-num="245">                  <span class="tlv_ident_comment">always_ff @(posedge clk) begin</span></span>
+<span class="line" line-num="246" source-line-num="246">                     <span class="tlv_ident_comment">\$display(&quot;Cycle: %0d&quot;, $CycCount);</span></span>
+<span class="line" line-num="247" source-line-num="247">                  <span class="tlv_ident_comment">end</span></span>
+<span class="line" line-num="248" source-line-num="248">         <span class="tlv_ident_comment">/ring_stop[3:0]</span></span>
+<span class="line" line-num="249" source-line-num="249">            <span class="tlv_ident_comment">// STIMULUS</span></span>
+<span class="line" line-num="250" source-line-num="250">            <span class="tlv_ident_comment">|send</span></span>
+<span class="line" line-num="251" source-line-num="251">               <span class="tlv_ident_comment">@1</span></span>
+<span class="line" line-num="252" source-line-num="252">                  <span class="tlv_ident_comment">// Generate a transaction to inject sometimes (if needed)</span></span>
+<span class="line" line-num="253" source-line-num="253">                  <span class="tlv_ident_comment">$reset = /ring_stop|receive2&gt;&gt;0$reset;</span></span>
+<span class="line" line-num="254" source-line-num="254">                  <span class="tlv_ident_comment">$valid_in = /tb|count&lt;&gt;0$CycCount == 3;</span></span>
+<span class="line" line-num="255" source-line-num="255">                  <span class="tlv_ident_comment">?$valid_in</span></span>
+<span class="line" line-num="256" source-line-num="256">                     <span class="tlv_ident_comment">/gen_trans</span></span>
+<span class="line" line-num="257" source-line-num="257">                        <span class="tlv_ident_comment">$cyc_cnt[15:0] = /tb|count&lt;&gt;0$CycCount;</span></span>
+<span class="line" line-num="258" source-line-num="258">                        <span class="tlv_ident_comment">$response_debug = 1'b0;  // Not a response (for debug)</span></span>
+<span class="line" line-num="259" source-line-num="259">                        <span class="tlv_ident_comment">$sender[1:0] = #ring_stop;</span></span>
+<span class="line" line-num="260" source-line-num="260">                        <span class="tlv_ident_comment">//m4_rand($size, M4_PACKET_SIZE-1, 0, #m4_port) // unused</span></span>
+<span class="line" line-num="261" source-line-num="261">                        <span class="tlv_ident_comment">$dest_tmp[1:0] = *RW_rand_vect[(0 + (ring_stop)) % 257 +: 2];</span></span>
+<span class="line" line-num="262" source-line-num="262">                        <span class="tlv_ident_comment">$dest[1:0] = $dest_tmp % 4;</span></span>
+<span class="line" line-num="263" source-line-num="263">                        <span class="tlv_ident_comment">//$dest[M4_['']M4_PORT['']_INDEX_RANGE] = #m4_port;</span></span>
+<span class="line" line-num="264" source-line-num="264">                        <span class="tlv_ident_comment">//$packet_valid = #m4_port == 0 ? 1'b1 : 1'b0; // valid for only first port - unused</span></span>
+<span class="line" line-num="265" source-line-num="265">                  <span class="tlv_ident_comment">$avail = $valid_in || /ring_stop|receive2&gt;&gt;0$valid_request;</span></span>
+<span class="line" line-num="266" source-line-num="266">                  <span class="tlv_ident_comment">?$avail</span></span>
+<span class="line" line-num="267" source-line-num="267">                     <span class="tlv_ident_comment">/trans_out</span></span>
+<span class="line" line-num="268" source-line-num="268">                        <span class="tlv_ident_comment">// Loopback requests as responses or use gen_trans.</span></span>
+<span class="line" line-num="269" source-line-num="269">                        <span class="tlv_ident_comment">$ANY = /ring_stop|receive2&gt;&gt;0$valid_request</span></span>
+<span class="line" line-num="270" source-line-num="270">                                    <span class="tlv_ident_comment">? /ring_stop|receive2/trans&gt;&gt;0$ANY :</span></span>
+<span class="line" line-num="271" source-line-num="271">                                      <span class="tlv_ident_comment">|send/gen_trans$ANY;</span></span>
+<span class="line" line-num="272" source-line-num="272">                        </span>
+<span class="line" line-num="273" source-line-num="273">                        <span class="tlv_ident_comment">\SV_plus</span></span>
+<span class="line" line-num="274" source-line-num="274">                           <span class="tlv_ident_comment">always_ff @(posedge clk) begin</span></span>
+<span class="line" line-num="275" source-line-num="275">                              <span class="tlv_ident_comment">if (! |send$reset &amp;&amp; ! *reset &amp;&amp; /top/ring_stop|stall0&lt;&gt;0$accepted) begin</span></span>
+<span class="line" line-num="276" source-line-num="276">                                 <span class="tlv_ident_comment">\$display(&quot;\|send[%0d]&quot;, #ring_stop);</span></span>
+<span class="line" line-num="277" source-line-num="277">                                 <span class="tlv_ident_comment">\$display(&quot;Sender: %0d, Orig. Cyc: %0d, Dest: %0d, Resp: %0d&quot;, $sender, $cyc_cnt, $dest, $response_debug);</span></span>
+<span class="line" line-num="278" source-line-num="278">                              <span class="tlv_ident_comment">end</span></span>
+<span class="line" line-num="279" source-line-num="279">                           <span class="tlv_ident_comment">end</span></span>
+<span class="line" line-num="280" source-line-num="280">            <span class="tlv_ident_comment">// Hook router out to |receive1 and determine transaction response routing (within the transaction).</span></span>
+<span class="line" line-num="281" source-line-num="281">            <span class="tlv_ident_comment">|receive1</span></span>
+<span class="line" line-num="282" source-line-num="282">               <span class="tlv_ident_comment">@1</span></span>
+<span class="line" line-num="283" source-line-num="283">                  <span class="tlv_ident_comment">$avail = /top/ring_stop|fifo2_out&lt;&gt;0$avail;</span></span>
+<span class="line" line-num="284" source-line-num="284">                  <span class="tlv_ident_comment">$reset = /top/ring_stop|fifo2_out&lt;&gt;0$reset_in;</span></span>
+<span class="line" line-num="285" source-line-num="285">                  <span class="tlv_ident_comment">?$accepted</span></span>
+<span class="line" line-num="286" source-line-num="286">                     <span class="tlv_ident_comment">/trans</span></span>
+<span class="line" line-num="287" source-line-num="287">                        <span class="tlv_ident_comment">$response_debug = 1'b1; // Turn this around as a response.</span></span>
+<span class="line" line-num="288" source-line-num="288">                        <span class="tlv_ident_comment">$request = $sender != #ring_stop;  // Arrived as request?</span></span>
+<span class="line" line-num="289" source-line-num="289">                        <span class="tlv_ident_comment">$response = $sender == #ring_stop; // Arrived as response?</span></span>
+<span class="line" line-num="290" source-line-num="290">                        <span class="tlv_ident_comment">$ANY = /top/ring_stop|fifo2_out/trans&lt;&gt;0$ANY;</span></span>
+<span class="line" line-num="291" source-line-num="291">                        <span class="tlv_ident_comment">$dest[1:0] = $request ? $sender : $dest;</span></span>
+<span class="line" line-num="292" source-line-num="292">            <span class="tlv_ident_comment">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 342   // Instantiated from top.tlv, 1368 as: m4+bp_stage(/ring_stop, |receive1, @1, |receive2, @1, /trans)</span></span>
+<span class="line" line-num="293" source-line-num="293">               </span>
+<span class="line" line-num="294" source-line-num="294">               </span>
+<span class="line" line-num="295" source-line-num="295">               </span>
+<span class="line" line-num="296" source-line-num="296">               </span>
+<span class="line" line-num="297" source-line-num="297">               </span>
+<span class="line" line-num="298" source-line-num="298">               </span>
+<span class="line" line-num="299" source-line-num="299">               <span class="tlv_ident_comment">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 114   // Instantiated from top.tlv, 349 as: m4+flow_interface(/ring_stop, [' |receive1, @1'], [' |receive2, @1'], )</span></span>
+<span class="line" line-num="300" source-line-num="300">                  <span class="tlv_ident_comment">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 115 as: m4+flow_inputs(/ring_stop, [' |receive1, @1'], )</span></span>
+<span class="line" line-num="301" source-line-num="301">                     <span class="tlv_ident_comment">// Avail/Blocked Input:</span></span>
+<span class="line" line-num="302" source-line-num="302">                     <span class="tlv_ident_comment">|receive1</span></span>
+<span class="line" line-num="303" source-line-num="303">                        <span class="tlv_ident_comment">@1</span></span>
+<span class="line" line-num="304" source-line-num="304">                           <span class="tlv_ident_comment">$accepted = $avail &amp;&amp; ! $blocked;  // provided for optional upstream use.</span></span>
+<span class="line" line-num="305" source-line-num="305">                           <span class="tlv_ident_comment">$reset_in = $reset;</span></span>
+<span class="line" line-num="306" source-line-num="306">                           <span class="tlv_ident_comment">`BOGUS_USE($accepted $reset_in)</span></span>
+<span class="line" line-num="307" source-line-num="307">                     <span class="tlv_ident_comment">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 119   // Instantiated from top.tlv, 150 as: m4+flow_inputs(/ring_stop, m4_quote(m4_shift(m4_shift( |receive1, @1))), m4_quote(m4_shift(_resets)))</span></span>
+<span class="line" line-num="308" source-line-num="308">                        </span>
+<span class="line" line-num="309" source-line-num="309">                     <span class="tlv_ident_comment">\end_source</span></span>
+<span class="line" line-num="310" source-line-num="310">                     </span>
+<span class="line" line-num="311" source-line-num="311">                  <span class="tlv_ident_comment">\end_source</span></span>
+<span class="line" line-num="312" source-line-num="312">                  <span class="tlv_ident_comment">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 129   // Instantiated from top.tlv, 116 as: m4+flow_outputs(/ring_stop, [' |receive2, @1'])</span></span>
+<span class="line" line-num="313" source-line-num="313">                     <span class="tlv_ident_comment">// Avail/Blocked Output:</span></span>
+<span class="line" line-num="314" source-line-num="314">                     <span class="tlv_ident_comment">|receive2</span></span>
+<span class="line" line-num="315" source-line-num="315">                        <span class="tlv_ident_comment">@1</span></span>
+<span class="line" line-num="316" source-line-num="316">                           <span class="tlv_ident_comment">`BOGUS_USE($reset) // Output pipes must provide $reset.</span></span>
+<span class="line" line-num="317" source-line-num="317">                     <span class="tlv_ident_comment">\source /raw.githubusercontent.com/stevehoover/tlvflowlib/5a8c0387be80b2deccfcd1506299b36049e0663e/pipeflowlib.tlv 129   // Instantiated from top.tlv, 150 as: m4+flow_outputs(/ring_stop, m4_quote(m4_shift(m4_shift( |receive2, @1))))</span></span>
+<span class="line" line-num="318" source-line-num="318">                        </span>
+<span class="line" line-num="319" source-line-num="319">                     <span class="tlv_ident_comment">\end_source</span></span>
+<span class="line" line-num="320" source-line-num="320">                     </span>
+<span class="line" line-num="321" source-line-num="321">                  <span class="tlv_ident_comment">\end_source</span></span>
+<span class="line" line-num="322" source-line-num="322">               <span class="tlv_ident_comment">\end_source</span></span>
+<span class="line" line-num="323" source-line-num="323">               <span class="tlv_ident_comment">|receive2</span></span>
+<span class="line" line-num="324" source-line-num="324">                  <span class="tlv_ident_comment">@0</span></span>
+<span class="line" line-num="325" source-line-num="325">                     <span class="tlv_ident_comment">$reset = /ring_stop|receive1&gt;&gt;1$reset_in;</span></span>
+<span class="line" line-num="326" source-line-num="326">                     </span>
+<span class="line" line-num="327" source-line-num="327">                     <span class="tlv_ident_comment">$avail = $reset ? 1'b0 :</span></span>
+<span class="line" line-num="328" source-line-num="328">                                       <span class="tlv_ident_comment">(&gt;&gt;1$avail &amp;&amp; &gt;&gt;1$blocked) ||  // Recirc'ed or</span></span>
+<span class="line" line-num="329" source-line-num="329">                                       <span class="tlv_ident_comment">// Above is recomputation of $recirc to avoid a flop.</span></span>
+<span class="line" line-num="330" source-line-num="330">                                       <span class="tlv_ident_comment">// For SELF, its in the same stage, and is redundant computation.</span></span>
+<span class="line" line-num="331" source-line-num="331">                                       <span class="tlv_ident_comment">/ring_stop|receive1&gt;&gt;1$avail; // Incoming available</span></span>
+<span class="line" line-num="332" source-line-num="332">                     <span class="tlv_ident_comment">//$first_avail = $avail &amp;&amp; ! &gt;&gt;1$blocked;  // Transaction is newly available.</span></span>
+<span class="line" line-num="333" source-line-num="333">                  <span class="tlv_ident_comment">@0</span></span>
+<span class="line" line-num="334" source-line-num="334">                     <span class="tlv_ident_comment">?$avail  // Physically, $first_avail &amp;&amp; *reset_b for functional gating in</span></span>
+<span class="line" line-num="335" source-line-num="335">                              <span class="tlv_ident_comment">// place of recirculation.</span></span>
+<span class="line" line-num="336" source-line-num="336">                        <span class="tlv_ident_comment">/trans</span></span>
+<span class="line" line-num="337" source-line-num="337">                           <span class="tlv_ident_comment">$ANY =</span></span>
+<span class="line" line-num="338" source-line-num="338">                              <span class="tlv_ident_comment">|receive2&gt;&gt;1$recirc ? &gt;&gt;1$ANY</span></span>
+<span class="line" line-num="339" source-line-num="339">                                                   <span class="tlv_ident_comment">: /ring_stop|receive1/trans&gt;&gt;1$ANY;</span></span>
+<span class="line" line-num="340" source-line-num="340">                  <span class="tlv_ident_comment">@1</span></span>
+<span class="line" line-num="341" source-line-num="341">                     <span class="tlv_ident_comment">$recirc = $avail &amp;&amp; $blocked;  // Available transaction that is blocked; must recirc.</span></span>
+<span class="line" line-num="342" source-line-num="342">               <span class="tlv_ident_comment">|receive1</span></span>
+<span class="line" line-num="343" source-line-num="343">                  <span class="tlv_ident_comment">@1</span></span>
+<span class="line" line-num="344" source-line-num="344">                     <span class="tlv_ident_comment">$blocked = /ring_stop|receive2&gt;&gt;0$recirc;</span></span>
+<span class="line" line-num="345" source-line-num="345">                     <span class="tlv_ident_comment">// This trans is blocked (whether valid or not) if the next stage is recirculating.</span></span>
+<span class="line" line-num="346" source-line-num="346">               </span>
+<span class="line" line-num="347" source-line-num="347">               </span>
+<span class="line" line-num="348" source-line-num="348">               </span>
+<span class="line" line-num="349" source-line-num="349">               </span>
+<span class="line" line-num="350" source-line-num="350">               </span>
+<span class="line" line-num="351" source-line-num="351">               </span>
+<span class="line" line-num="352" source-line-num="352">            <span class="tlv_ident_comment">\end_source</span></span>
+<span class="line" line-num="353" source-line-num="353">            <span class="tlv_ident_comment">// A one-cycle backpressured stage to avoid 0-cycle loopback.</span></span>
+<span class="line" line-num="354" source-line-num="354">            <span class="tlv_ident_comment">|receive2</span></span>
+<span class="line" line-num="355" source-line-num="355">               <span class="tlv_ident_comment">@1</span></span>
+<span class="line" line-num="356" source-line-num="356">                  <span class="tlv_ident_comment">$valid_request = $accepted &amp;&amp; /trans$request;</span></span>
+<span class="line" line-num="357" source-line-num="357">                  <span class="tlv_ident_comment">$valid_response = $accepted &amp;&amp; /trans$response;</span></span>
+<span class="line" line-num="358" source-line-num="358">                  <span class="tlv_ident_comment">// Block requests that cannot loopback a response .</span></span>
+<span class="line" line-num="359" source-line-num="359">                  <span class="tlv_ident_comment">$blocked = $valid_request &amp;&amp; /top/ring_stop|stall0&gt;&gt;0$blocked;</span></span>
+<span class="line" line-num="360" source-line-num="360">                  <span class="tlv_ident_comment">$accepted = $avail &amp;&amp; ! $blocked;</span></span>
+<span class="line" line-num="361" source-line-num="361">                  <span class="tlv_ident_comment">$generated_request =   /top/ring_stop|stall0&gt;&gt;0$accepted &amp;&amp;</span></span>
+<span class="line" line-num="362" source-line-num="362">                                       <span class="tlv_ident_comment">! /top/ring_stop|stall0/trans&gt;&gt;0$response_debug;</span></span>
+<span class="line" line-num="363" source-line-num="363">                  <span class="tlv_ident_comment">$OutstandingPackets[16-1:0] &lt;=</span></span>
+<span class="line" line-num="364" source-line-num="364">                       <span class="tlv_ident_comment">$reset ? '0 :</span></span>
+<span class="line" line-num="365" source-line-num="365">                         <span class="tlv_ident_comment">($OutstandingPackets +</span></span>
+<span class="line" line-num="366" source-line-num="366">                          <span class="tlv_ident_comment">($generated_request ? 16'b1 : '0) -</span></span>
+<span class="line" line-num="367" source-line-num="367">                          <span class="tlv_ident_comment">($valid_response ? 16'b1 : '0)</span></span>
+<span class="line" line-num="368" source-line-num="368">                         <span class="tlv_ident_comment">);</span></span>
+<span class="line" line-num="369" source-line-num="369">            <span class="tlv_ident_comment">|passed  // Aligned to |receive2, but given a new pipeline name to provide a cleaner interface for this $passed output.</span></span>
+<span class="line" line-num="370" source-line-num="370">               <span class="tlv_ident_comment">@1</span></span>
+<span class="line" line-num="371" source-line-num="371">                  <span class="tlv_ident_comment">$passed = ! /ring_stop|receive2&lt;&gt;0$reset &amp;&amp; /ring_stop|receive2&lt;&gt;0$OutstandingPackets == '0 &amp;&amp; /tb|count&gt;&gt;0$CycCount &gt; 12;</span></span>
+<span class="line" line-num="372" source-line-num="372">      <span class="tlv_ident_comment">// Connect with DUT.</span></span>
+<span class="line" line-num="373" source-line-num="373">      <span class="tlv_ident_comment">/ring_stop[3:0]</span></span>
+<span class="line" line-num="374" source-line-num="374">         <span class="tlv_ident_comment">|stall0</span></span>
+<span class="line" line-num="375" source-line-num="375">            <span class="tlv_ident_comment">@1</span></span>
+<span class="line" line-num="376" source-line-num="376">               <span class="tlv_ident_comment">$avail = ! $reset &amp;&amp; /top/tb/ring_stop|send&lt;&gt;0$avail;</span></span>
+<span class="line" line-num="377" source-line-num="377">               <span class="tlv_ident_comment">?$avail</span></span>
+<span class="line" line-num="378" source-line-num="378">                  <span class="tlv_ident_comment">/trans</span></span>
+<span class="line" line-num="379" source-line-num="379">                     <span class="tlv_ident_comment">$ANY = /top/tb/ring_stop|send/trans_out&lt;&gt;0$ANY;</span></span>
+<span class="line" line-num="380" source-line-num="380">               <span class="tlv_ident_comment">$reset = /top/tb/ring_stop|receive2&gt;&gt;0$reset;</span></span>
+<span class="line" line-num="381" source-line-num="381">         <span class="tlv_ident_comment">|fifo2_out</span></span>
+<span class="line" line-num="382" source-line-num="382">            <span class="tlv_ident_comment">@1</span></span>
+<span class="line" line-num="383" source-line-num="383">               <span class="tlv_ident_comment">$blocked = /top/tb/ring_stop|receive1&lt;&gt;0$blocked;</span></span>
+<span class="line" line-num="384" source-line-num="384">            <span class="tlv_ident_comment">/trans</span></span>
+<span class="line" line-num="385" source-line-num="385">      </span>
+<span class="line" line-num="386" source-line-num="386">      </span>
+<span class="line" line-num="387" source-line-num="387">   <span class="tlv_ident_comment">\end_source   </span></span>
+<span class="line" line-num="388" source-line-num="388">   <span class="tlv_ident_comment">*/      </span></span>
+<span class="line" line-num="389" source-line-num="389">       </span>
+<span class="line" line-num="390" source-line-num="390">         </span>
+<span class="line" line-num="391" source-line-num="391"></span>
+<span class="line" line-num="392" source-line-num="392">   <span class="tlv_ident_comment">//...</span></span>
+<span class="line" line-num="393" source-line-num="393"></span>
+<span class="line" line-num="394" source-line-num="394">   <span class="tlv_ident_comment">// Assert these to end simulation (before Makerchip cycle limit).</span></span>
+<span class="line" line-num="395" source-line-num="395">   <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">passed = </span><span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">cyc_cnt &gt; 40;</span></span>
+<span class="line" line-num="396" source-line-num="396">   <span class="tlv_ident_sv_sig">*</span><span class="tlv_ident_hdl_code">failed = 1'b0;</span></span>
+<span class="line" line-num="397" source-line-num="397"><span class="tlv_ident_keyword1">\SV</span></span>
+<span class="line" line-num="398" source-line-num="398">   <span class="tlv_ident_hdl_code">endmodule</span></span>
+<span class="line" line-num="399" source-line-num="399"> </span>
 
 </pre>
 
