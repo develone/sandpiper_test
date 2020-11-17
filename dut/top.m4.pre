@@ -1,0 +1,30 @@
+m4_changecom(`//')m4_changequote(`[*', `*]')m4_changequote([*['*], [*']*])m4_include(['generic_tlv.m4'])m4_include(['rw_tlv.m4'])m4_define(['m4_pre_m4_path'], ['['/usr/local/mono/sandpiper/m4/1d']'])m4_define(['m4_strip_macro_definitions'], ['1'])m4_pushdef(['m4_file_uri'], ['['./top.tlv']'])m4_pushdef(['m4_FILE'], ['['top.tlv']'])\m4_TLV_version 1d: tl-x.org
+\SV
+   // A simple example of a SV testbench and a TLV DUT.
+   // Note that Verilator (compiler/simulator) only supports synthesizable SystemVerilog.
+
+   // Testbench.
+   m4_makerchip_module  // Expanded in Nav-TLV pane.
+      logic run;          // Assert to start the series.
+      logic [31:0] val;   // The value from the Fibonacci Series.
+
+      assign run = cyc_cnt >= 5;
+      dut dut(clk, reset, run, val);
+
+      // Pass if Fibinocci value is correct after hardcoded # cycles; fail o/w.
+      assign passed = cyc_cnt == 32'h10 && val == 32'h179;
+      assign failed = cyc_cnt >  32'h10;
+   endmodule
+
+
+   // DUT.
+   module dut(input logic clk, input logic reset, input logic run, output logic [31:0] val);
+\TLV
+   $reset = *reset;
+
+   // Fibonacci.
+   $val[31:0] = ($reset || ! *run) ? 1 : >>1$val + >>2$val;
+   *val = $val;
+\SV
+   endmodule
+['']m4_popdef(['m4_FILE'])m4_popdef(['m4_file_uri'])
