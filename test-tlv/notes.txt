@@ -1,0 +1,43 @@
+https://raw.githubusercontent.com/develone/sandpiper_test/master/iamrk/test112920/top.tlv --> top.tlv.orig
+
+https://raw.githubusercontent.com/develone/sandpiper_test/master/iamrk/test112920/top.tlv --> Makerchip.com
+Creates DIAGRAM, VIZ and WAVEFORM.
+
+INFORM(0) (PROD_INFO):
+	SandPiper(TM) 1.9-2018/02/11-beta from Redwood EDA
+	(DEV) Run as: "java -jar /src/sandpiper.jar --ide --licenseFile /src/full_license_key.txt --iArgs --distroRef=NO_DISTRO --debugSigs --viz --dhtml --stats --compiler verilator -i top.m4 -o top.sv
+	For help, including product info, run with -h.
+
+INFORM(0) (LICENSE):
+	Licensed to "Redwood EDA" as: Full Edition.
+
+INFORM(0) (FILES):
+	From directory: /projects/PNfZm
+	Reading "top.m4" to produce:
+		Translated HDL File: "top.sv"
+		Generated HDL File: "top_gen.sv"
+		HTML TLX File: "top.html"
+		Simulation Visualization File: "top_viz.json"
+		Statistics Directory: "top_stats"
+
+INFORM(0) (STATS):
+	SandPiper generated 70% of your HDL code.
+	This includes: 430 signal declarations, 182 flops/latches, and 12 conditional clock signals.
+	View "top_stats" for more details.
+
+diffuse top.m4 top.tlv
+saved the Makerchip project.
+http://makerchip.com/sandbox/04xfJhVVY/0VmhxVE
+
+Downloaded top.m4, top.m4.pre, and top.tlv
+This fails using sandpiper local.
+
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --debugSigs --viz --dhtml --stats --compiler verilator --graphTrans -i top.m4 -o top.sv
+
+FATAL_ERROR(10) (PARSE-IDENT): File 'top.tlv' Line 247 (char 16)
+			-> instantiated: '/raw.githubusercontent.com/stevehoover/RISCVMYTHWorkshop/c1719d5b338896577b79ee76c2f443ca2a76e14f/tlvlib/riscvshelllib.tlv':84, which
+	resulted in 'top.m4':308(ch16):
+	+---------------v-------------------------
+	>               \viz_alpha
+	+---------------^-------------------------
+	Identifier beginning \viz_alpha looks like a keyword/attribute/operand of type KEYWORD1, but this is not a recognized one.
