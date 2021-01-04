@@ -39,3 +39,24 @@ dot -Tpdf top_trans.dot -o top_trans.pdf
 
 qpdfview top_trans.pdf &
 
+
+mkdir fsm/Downloads/
+
+cd fsm/
+
+cp ~/sandpiper_test/uartlite/fsm/top.tlv .
+
+makerchip-app fsm/top.tlv
+
+mv ~/Downloads/top* fsm/Downloads/
+
+mv ~/Downloads/vlt_dump.vcd fsm/Downloads/
+
+cp -R fsm/ ~/sandpiper_test/makerchip-app/
+
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --compiler verilator --graphTrans -i top.m4 -o top.sv
+
+dot -Tpdf top_trans.dot -o top_trans.pdf
+
+qpdfview top_trans.pdf &
+
