@@ -1,0 +1,41 @@
+Testing makerchip-app 01/04/21
+
+git clone https://gitlab.com/rweda/makerchip-app.git
+Cloning into 'makerchip-app'...
+remote: Enumerating objects: 130, done.
+remote: Counting objects: 100% (130/130), done.
+remote: Compressing objects: 100% (90/90), done.
+remote: Total 130 (delta 52), reused 99 (delta 36), pack-reused 0
+Receiving objects: 100% (130/130), 17.36 KiB | 4.34 MiB/s, done.
+Resolving deltas: 100% (52/52), done.
+
+cd makerchip-app/
+
+pip install .
+
+pip install .
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Processing /home/devel/makerchip-app
+Requirement already satisfied: click in /usr/lib/python2.7/dist-packages (from makerchip-app==0.1) (7.0)
+Collecting native_web_app (from makerchip-app==0.1)
+  Could not find a version that satisfies the requirement native_web_app (from makerchip-app==0.1) (from versions: )
+No matching distribution found for native_web_app (from makerchip-app==0.1)
+
+pip3 install . worked okay
+
+cp ~/sandpiper_test/ring/top.tlv .
+
+
+@Ákos-Hadnagy @stevehoover Testing makerchip app. Clone the repo when doing pip install . "Could not find a version that satisfies the requirement native_web_app (from makerchip-app==0.1) (from versions: )
+No matching distribution found for native_web_app (from makerchip-app==0.1)"
+
+cp * ~/sandpiper_test/makerchip-app/Downloads/
+
+cp Downloads/top.m4 .
+
+java -jar /home/devel/SandPiper_1.9-2018_02_11-beta_distro/target/sandpiper.jar --compiler verilator --graphTrans -i top.m4 -o top.sv
+
+dot -Tpdf top_trans.dot -o top_trans.pdf
+
+qpdfview top_trans.pdf &
+
